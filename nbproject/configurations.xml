@@ -4,8 +4,6 @@
     <logicalFolder name="Исходные тексты"
                    displayName="Исходные тексты"
                    projectFiles="true">
-      <itemPath>Исходные тексты/DisplayPanel.cpp</itemPath>
-      <itemPath>Исходные тексты/DisplayPanel.hpp</itemPath>
       <itemPath>Исходные тексты/main.cpp</itemPath>
       <itemPath>Исходные тексты/ural.cpp</itemPath>
       <itemPath>Исходные тексты/ural.hpp</itemPath>
@@ -46,37 +44,25 @@
         </defs>
       </qt>
       <compileType>
-        <ccTool>
-          <standard>8</standard>
-          <incDir>
-            <pElem>"Исходные тексты"</pElem>
-          </incDir>
-        </ccTool>
-        <linkerTool>
-          <linkerLibItems>
-            <linkerLibLibItem>qwt</linkerLibLibItem>
-          </linkerLibItems>
-        </linkerTool>
-      </compileType>
-      <folder path="TestFiles/f1">
         <cTool>
           <incDir>
             <pElem>.</pElem>
           </incDir>
         </cTool>
         <ccTool>
+          <standard>8</standard>
           <incDir>
+            <pElem>"Исходные тексты"</pElem>
             <pElem>.</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerLibLibItem>qwt</linkerLibLibItem>
+          </linkerLibItems>
         </linkerTool>
-      </folder>
-      <item path="Исходные тексты/DisplayPanel.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Исходные тексты/DisplayPanel.hpp" ex="false" tool="3" flavor2="0">
-      </item>
+      </compileType>
       <item path="Исходные тексты/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="0">
@@ -97,9 +83,15 @@
       <compileType>
         <cTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -107,27 +99,11 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
-      </compileType>
-      <folder path="TestFiles/f1">
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </cTool>
-        <ccTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </ccTool>
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
-      </folder>
+      </compileType>
       <item path="test.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Исходные тексты/DisplayPanel.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Исходные тексты/DisplayPanel.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -149,43 +125,28 @@
         <mocDir>Временные</mocDir>
         <rccDir>Временные</rccDir>
         <uiDir>"Исходные тексты"</uiDir>
-        <defs>
-          <Elem>CXX_LDFLAGS += -static</Elem>
-        </defs>
       </qt>
       <compileType>
-        <ccTool>
-          <standard>8</standard>
-          <incDir>
-            <pElem>"Исходные тексты"</pElem>
-          </incDir>
-        </ccTool>
-        <linkerTool>
-          <linkerLibItems>
-            <linkerLibLibItem>qwt</linkerLibLibItem>
-          </linkerLibItems>
-        </linkerTool>
-      </compileType>
-      <folder path="TestFiles/f1">
         <cTool>
           <incDir>
             <pElem>.</pElem>
           </incDir>
         </cTool>
         <ccTool>
+          <standard>8</standard>
           <incDir>
+            <pElem>"Исходные тексты"</pElem>
             <pElem>.</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerLibLibItem>qwt</linkerLibLibItem>
+          </linkerLibItems>
         </linkerTool>
-      </folder>
+      </compileType>
       <item path="test.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Исходные тексты/DisplayPanel.cpp" ex="false" tool="1" flavor2="8">
-      </item>
-      <item path="Исходные тексты/DisplayPanel.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/main.cpp" ex="true" tool="1" flavor2="8">
       </item>

@@ -8,9 +8,9 @@
 #ifndef _DISPLAYPANEL_HPP
 #define	_DISPLAYPANEL_HPP
 
-#include <QtGui/QFrame>
-#include <QtGui/QPainter>
-#include <QtGui/QBitmap>
+#include <QFrame>
+#include <QPainter>
+#include <QBitmap>
 #include <qwt/qwt_analog_clock.h>
 
 #include "ural.hpp"

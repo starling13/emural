@@ -6,11 +6,13 @@
 
 int main(int argc, char** argv)
 {
-	URAL::Word_t	word(255);
-	URAL::Word_t	word1(-255);
+	URAL::CPU	ural;
 	
-	std::cout << word << '\n' << word1 << std::endl;
-	std::cout << word1[1] << '\n' << word1[2] << std::endl;
+	ural.drum[0] = 0x12345678;
+	
+	ural.tact();
+	ural.tact();
+	ural.tact();
 	
 	return (EXIT_SUCCESS);
-}
+}          

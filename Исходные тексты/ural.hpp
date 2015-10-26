@@ -25,6 +25,7 @@
 #endif
 
 #include <bitset>
+#include <ostream>
 
 class URAL
 {
@@ -72,13 +73,26 @@ public:
 			uint64_t	b17:1;
 			uint64_t	b18:1;
 		} bits;
+		
+		struct
+		{
+			uint64_t	address:11;
+			uint64_t	addrLength:1;
+			uint64_t	opCode:5;
+			uint64_t	indexFlag:1;
+		} command;
 	} HalfWord_t;
+	static_assert (sizeof (HalfWord_t) <= sizeof (uint64_t),
+	    "Неверный размер");
 	
 	friend std::ostream &operator <<(std::ostream&, const HalfWord_t&);
 	
 	typedef union PACKED Word
 	{
 	public:
+		
+		Word() = default;
+		
 		Word(int64_t);
 		
 		HalfWord operator [](uint8_t) const;
@@ -166,8 +180,17 @@ public:
 	class CPU
 	{
 	public:
-		Word_t	S;
-		Word_t	R;
+		
+		CPU();
+		
+		void tact();
+		
+		Word_t		R;
+		Word_t		drum[1024];
+		HalfWord_t	commandReg;
+		uint16_t	PC;
+		
+	private:
 	};
 };
 

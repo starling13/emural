@@ -8,8 +8,8 @@ CONFIG -= debug_and_release app_bundle lib_bundle
 CONFIG += debug 
 PKGCONFIG +=
 QT = core gui widgets
-SOURCES += "Исходные тексты/DisplayPanel.cpp" "Исходные тексты/main.cpp" "Исходные тексты/ural.cpp"
-HEADERS += "Исходные тексты/DisplayPanel.hpp" "Исходные тексты/ural.hpp"
+SOURCES += "Исходные тексты/main.cpp" "Исходные тексты/ural.cpp"
+HEADERS += "Исходные тексты/ural.hpp"
 FORMS +=
 RESOURCES +=
 TRANSLATIONS +=
@@ -20,7 +20,7 @@ UI_DIR = "Исходные тексты"
 QMAKE_CC = gcc
 QMAKE_CXX = g++
 DEFINES += 
-INCLUDEPATH += "Исходные тексты" 
+INCLUDEPATH += "Исходные тексты" . 
 LIBS += -lqwt  
 equals(QT_MAJOR_VERSION, 4) {
 QMAKE_CXXFLAGS += -std=c++11

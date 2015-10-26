@@ -112,3 +112,19 @@ operator <<(std::ostream &stream, const URAL::HalfWord_t &word)
 	
 	return (stream);
 }
+
+URAL::CPU::CPU() :
+PC(0u)
+{
+	
+}
+
+void
+URAL::CPU::tact()
+{
+	div_t pc = std::div(this->PC, 2);
+	this->commandReg = drum[pc.quot][pc.rem+1];
+	std::cout << "Счётчик команд: " << this->PC <<
+	    '\n' << this->commandReg << std::endl;
+	++this->PC;
+}

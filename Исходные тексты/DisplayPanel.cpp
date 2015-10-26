@@ -6,7 +6,7 @@
 DisplayPanel::DisplayPanel(const URAL::CPU &ural):
 _ural(ural),
 _clock(this),
-_S(ural.S, QString::fromUtf8(u8"С        У        М        М        А        Т"
+_S(ural.R, QString::fromUtf8(u8"С        У        М        М        А        Т"
     u8"        О        Р"), this)
 {
 	_clock.setGeometry(270, 200, 100, 100);
