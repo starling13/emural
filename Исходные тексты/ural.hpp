@@ -20,27 +20,80 @@
 #ifndef URAL_HPP
 #define	URAL_HPP
 
-#ifndef PACKED
-#define PACKED __attribute__ ((__packed__))
-#endif
-
-#include <bitset>
-#include <ostream>
+#include "fixed_coding.hpp"
 
 class URAL
 {
 public:
 	
+	class PACKED SignedMagnitudeDouble
+	{
+	public:
+		
+		SignedMagnitudeDouble() :
+		magnitude(0ll),
+		sign(0)
+		{
+		}
+		
+		SignedMagnitudeDouble(int64_t val)
+		{
+			magnitude = std::abs(val);
+			if (val < 0)
+				sign = 1;
+			else
+				sign = 0;
+		}
+		
+		uint64_t	magnitude:35;
+		uint64_t	sign:1;
+	};
+	
+	class PACKED ModOnesComplementDouble
+	{
+		friend std::ostream& operator <<(std::ostream&,
+		    const ModOnesComplementDouble&);
+	public:
+		
+		ModOnesComplementDouble()
+		{
+			magnitude = 0ull;
+			sign = 0ull;
+			carry = 0ull;
+		}
+		
+		ModOnesComplementDouble(SignedMagnitudeDouble);
+		
+		double floatingPointValue() const;
+		
+		ModOnesComplementDouble &operator =(int64_t);
+		
+		ModOnesComplementDouble operator -() const;
+		
+		ModOnesComplementDouble &operator +=(const ModOnesComplementDouble&);
+		
+		ModOnesComplementDouble operator +(const ModOnesComplementDouble&) const;
+		
+		ModOnesComplementDouble &operator -=(const ModOnesComplementDouble&);
+		
+		uint64_t	magnitude:35;
+		uint64_t	sign:2;
+		uint64_t	carry:1;
+	};
+	
 	typedef union PACKED HalfWord
 	{
 	public:
+		
+		double floatingPointValue() const;
+		
 		uint64_t	data:18;
 		
 		struct
 		{
 			uint64_t	module:17;
 			uint64_t	sign:1;
-		} dPrec;
+		} value;
 		
 		struct
 		{
@@ -91,8 +144,11 @@ public:
 	{
 	public:
 		
-		Word() = default;
-		
+		Word() :
+		dPrec(0)
+		{
+		}
+
 		Word(int64_t);
 		
 		HalfWord operator [](uint8_t) const;
@@ -101,9 +157,11 @@ public:
 		
 		struct
 		{
-			uint64_t	module:35;
-			uint64_t	sign:1;
-		} dPrec;
+			uint64_t	least:16;
+			uint64_t	most:16;
+		} halfWords;
+		
+		SignedMagnitudeDouble dPrec;
 		
 		struct
 		{
@@ -177,6 +235,23 @@ public:
 	
 	friend std::ostream &operator <<(std::ostream&, const Word_t&);
 	
+	union Adder
+	{
+	public:
+		
+		Adder(ModOnesComplementDouble);
+		
+		Adder &operator =(const Adder&);
+		
+		uint64_t	data;
+		ModOnesComplementDouble	value;
+		struct
+		{
+			uint64_t	word1:18;
+			uint64_t	word2:18;
+		};
+	};
+	
 	class CPU
 	{
 	public:
@@ -189,8 +264,17 @@ public:
 		Word_t		drum[1024];
 		HalfWord_t	commandReg;
 		uint16_t	PC;
+		Adder		S;
 		
 	private:
+		
+		void (CPU::*commands[32])();
+		
+		void noop_00();
+		
+		void sum1_01();
+		
+		void sum2_02();
 	};
 };
 

@@ -17,32 +17,27 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <cstdlib>
-#include <iostream>
+#ifndef FIXED_CODING_HPP
+#define	FIXED_CODING_HPP
 
-#include <QTimer>
-#include <QApplication>
+#include <bitset>
+#include <ostream>
 
-#include "DrumWidget.hpp"
-#include "ural.hpp"
+#ifndef PACKED
+#define PACKED __attribute__ ((__packed__))
+#endif
 
-using namespace std;
-
-int main(int argc, char** argv)
+template <typename base, size_t bits>
+class PACKED ModOnesComplementFixedPoint
 {
-	int		res;
-	QApplication	app(argc, argv);
+private :
 	
-	URAL::CPU	ural;
-	QTimer		timer;
-	DrumWidget	drumWidget(ural.drum);
+	base	magnitude:bits;
+	base	sign:2;
+	base	carry:1;
 	
-	timer.start(10);
-	drumWidget.show();
-	
-	res = app.exec();
-	
-	timer.stop();
-	
-	return (res);
-}
+static_assert ((sizeof (base) * 8) >= (bits+3), u8"Неверное число бит");
+};
+
+#endif	/* FIXED_CODING_HPP */
+

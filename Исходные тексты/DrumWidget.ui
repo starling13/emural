@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DrumWidget</class>
+ <widget class="QWidget" name="DrumWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>353</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DrumWidget</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Представление</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QRadioButton" name="octSwitch">
+        <property name="text">
+         <string>Восьмеричное</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">formatGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="binSwitch">
+        <property name="text">
+         <string>Двоичное</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">formatGroup</string>
+        </attribute>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QTableWidget" name="drumView">
+       <column>
+        <property name="text">
+         <string>Адрес</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Старшее</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Младшее</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item>
+      <widget class="QScrollBar" name="drumScroll">
+       <property name="maximum">
+        <number>2046</number>
+       </property>
+       <property name="singleStep">
+        <number>2</number>
+       </property>
+       <property name="pageStep">
+        <number>16</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+ <slots>
+  <slot>on_drumScroll_valueChanged(int)</slot>
+ </slots>
+ <buttongroups>
+  <buttongroup name="formatGroup"/>
+ </buttongroups>
+</ui>

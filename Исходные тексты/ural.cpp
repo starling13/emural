@@ -19,17 +19,118 @@
 #include "ural.hpp"
 
 #include <cassert>
+#include <cstring>
 
 #include <iostream>
+#include <bitset>
+#include <math.h>
+#include <stdexcept>
+#include <c++/4.8/stdexcept>
 
-URAL::Word::Word(int64_t value)
+std::ostream& operator <<(std::ostream& stream,
+    const URAL::ModOnesComplementDouble &number)
 {
-	this->data = 0ull;
-	this->dPrec.module = std::abs(value);
-	if (value < 0)
-		this->dPrec.sign = 1;
+	stream << u8"Обратный модифицированный код, фиксированная точка: " <<
+	    number.floatingPointValue() << u8"\n\tпереполнение " << number.carry
+	    << ", знак " << std::bitset<2>(number.sign) << u8" модуль " <<
+	    std::bitset<35>(number.magnitude);
+	
+	return (stream);
+}
+
+URAL::ModOnesComplementDouble::ModOnesComplementDouble(
+    SignedMagnitudeDouble signedMagnitude)
+{
+	if (!signedMagnitude.sign) {
+		this->magnitude = signedMagnitude.magnitude;
+		this->sign = 0;
+	} else {
+		this->magnitude = ~signedMagnitude.magnitude;
+		this->sign = 3;
+	}
+	this->carry = 0ull;
+}
+
+double
+URAL::ModOnesComplementDouble::floatingPointValue() const
+{
+	double res;
+	
+	if (this->sign == 0) {
+		res = this->magnitude;
+		res /= (1ull << 35ull);
+	} else if (this->sign == 3) {
+		res = -double (~this->magnitude);
+		res /= (1ull << 35ull);
+	} else {
+		res = NAN;
+	}
+	
+	return (res);
+}
+
+URAL::ModOnesComplementDouble&
+URAL::ModOnesComplementDouble::operator=(int64_t val)
+{
+	SignedMagnitudeDouble buf(val);
+	
+	(*this) = buf;
+	
+	return (*this);
+}
+
+URAL::ModOnesComplementDouble
+URAL::ModOnesComplementDouble::operator-() const
+{
+	ModOnesComplementDouble result;
+	
+	if (this->sign == 0)
+		result.sign = 3;
+	else if (this->sign == 3)
+		result.sign = 0;
 	else
-		this->dPrec.sign = 0;
+		throw std::overflow_error(u8"Недопустимый знак");
+	
+	result.magnitude = ~this->magnitude;
+	result.carry = 0;
+	
+	return (result);
+}
+
+URAL::ModOnesComplementDouble&
+URAL::ModOnesComplementDouble::operator+=(const ModOnesComplementDouble &other)
+{
+	reinterpret_cast<uint64_t&>(*this) += reinterpret_cast<const uint64_t&>(
+	    other);
+	if (this->carry) {
+		reinterpret_cast<uint64_t&>(*this) += 1;
+		this->carry = 0;
+	}
+	
+	return (*this);
+}
+
+URAL::ModOnesComplementDouble
+URAL::ModOnesComplementDouble::operator+(const URAL::ModOnesComplementDouble &other) const
+{
+	ModOnesComplementDouble result(*this);
+	
+	result += other;
+	
+	return (result);
+}
+
+URAL::ModOnesComplementDouble&
+URAL::ModOnesComplementDouble::operator-=(const ModOnesComplementDouble &other)
+{
+	*this += -other;
+	
+	return (*this);
+}
+
+URAL::Word::Word(int64_t value) :
+dPrec(value)
+{
 }
 
 URAL::HalfWord
@@ -59,7 +160,7 @@ operator <<(std::ostream &stream, const URAL::Word_t &word)
 		sign = '-';
 	else
 		sign = '+';
-	stream << sign << word.dPrec.module << '\n' <<
+	stream << sign << word.dPrec.magnitude << '\n' <<
 	    u8"Восьмеричные триплеты: " << std::oct <<
 		sign <<
 		word.triplets.t12 << ' ' <<
@@ -88,6 +189,18 @@ operator <<(std::ostream &stream, const URAL::Word_t &word)
 	return (stream);
 }
 
+double
+URAL::HalfWord::floatingPointValue() const
+{
+	double res;
+	
+	res = double (this->value.module) *  (1.0 / double (1 << 17));
+	if (this->value.sign)
+		res = 0.0 - res;
+	
+	return (res);
+}
+
 std::ostream&
 operator <<(std::ostream &stream, const URAL::HalfWord_t &word)
 {
@@ -96,11 +209,11 @@ operator <<(std::ostream &stream, const URAL::HalfWord_t &word)
 	stream << "Данные: " <<
 	    std::hex << word.data << '\n' <<
 		u8"Слово обычной точности: ";
-	if (word.dPrec.sign)
+	if (word.value.sign)
 		sign = '-';
 	else
 		sign = '+';
-	stream << sign << word.dPrec.module << '\n' <<
+	stream << sign << word.value.module << '(' << word.floatingPointValue() << ')' << '\n' <<
 	    u8"Восьмеричные триплеты: " << std::oct <<
 		sign <<
 		word.triplets.t6 << ' ' <<
@@ -108,23 +221,71 @@ operator <<(std::ostream &stream, const URAL::HalfWord_t &word)
 		word.triplets.t4 << ' ' <<
 		word.triplets.t3 << ' ' <<
 		word.triplets.t2 << ' ' <<
-		word.triplets.t1 << '\n';
+		word.triplets.t1 << '\n' <<
+	    u8"Команда:\n" << u8"\tпризнак переадресации: " << word.command.indexFlag <<
+		u8" код операции: " << word.command.opCode << u8" признак длины ячейки: " <<
+		word.command.addrLength << u8" адрес: " << word.command.address;
 	
 	return (stream);
 }
 
-URAL::CPU::CPU() :
-PC(0u)
+URAL::Adder::Adder(ModOnesComplementDouble val) :
+value(val)
 {
+}
+
+URAL::Adder&
+URAL::Adder::operator=(const Adder &other)
+{
+	this->data = other.data;
 	
+	return (*this);
+}
+
+URAL::CPU::CPU() :
+PC(0u),
+S(ModOnesComplementDouble(0ll))
+{
+	std::memset(this->commands, 0, sizeof (this->commands));
+	this->commands[0] = &CPU::noop_00;
+	this->commands[1] = &CPU::sum1_01;
+	this->commands[2] = &CPU::sum2_02;
 }
 
 void
 URAL::CPU::tact()
 {
+	std::cout << u8"----------ТАКТ----------\n";
+	
 	div_t pc = std::div(this->PC, 2);
 	this->commandReg = drum[pc.quot][pc.rem+1];
-	std::cout << "Счётчик команд: " << this->PC <<
+	std::cout << u8"Счётчик команд: " << this->PC <<
 	    '\n' << this->commandReg << std::endl;
+	if (this->commands[this->commandReg.command.opCode])
+		(this->*(this->commands[this->commandReg.command.opCode]))();
+	else
+		std::cout << u8"Неизвестная операция: " << this->commandReg.
+		    command.opCode << std::endl;
 	++this->PC;
+}
+
+void
+URAL::CPU::noop_00()
+{
+	std::cout << u8"Пустая операция" << std::endl;
+}
+
+void
+URAL::CPU::sum1_01()
+{
+	std::cout << u8"Сложение 1" << std::endl;
+}
+
+void
+URAL::CPU::sum2_02()
+{
+	std::cout << u8"Сложение 2" << std::endl;
+	
+	this->S = ModOnesComplementDouble(0ll);
+	this->S.value = this->S.value + drum[commandReg.command.address].dPrec;
 }

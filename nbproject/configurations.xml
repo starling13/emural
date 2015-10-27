@@ -4,7 +4,14 @@
     <logicalFolder name="Исходные тексты"
                    displayName="Исходные тексты"
                    projectFiles="true">
+      <itemPath>Исходные тексты/DrumWidget.cpp</itemPath>
+      <itemPath>Исходные тексты/DrumWidget.hpp</itemPath>
+      <itemPath>Исходные тексты/DrumWidget.ui</itemPath>
+      <itemPath>Исходные тексты/fixed_coding.hpp</itemPath>
+      <itemPath>Исходные тексты/intdelegate.cpp</itemPath>
+      <itemPath>Исходные тексты/intdelegate.h</itemPath>
       <itemPath>Исходные тексты/main.cpp</itemPath>
+      <itemPath>Исходные тексты/test.cpp</itemPath>
       <itemPath>Исходные тексты/ural.cpp</itemPath>
       <itemPath>Исходные тексты/ural.hpp</itemPath>
     </logicalFolder>
@@ -19,7 +26,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>test.cpp</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>Исходные тексты</Elem>
@@ -63,6 +69,18 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/intdelegate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/intdelegate.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Исходные тексты/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="0">
@@ -103,9 +121,21 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
-      <item path="test.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/intdelegate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/intdelegate.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/test.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -146,9 +176,21 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="test.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/intdelegate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/intdelegate.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/main.cpp" ex="true" tool="1" flavor2="8">
+      </item>
+      <item path="Исходные тексты/test.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="8">
       </item>
