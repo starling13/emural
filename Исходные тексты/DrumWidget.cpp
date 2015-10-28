@@ -1,16 +1,31 @@
 /*
- * File:   DrumWidget.cpp
- * Author: starling13
- *
- * Created on 27 Октябрь 2015 г., 16:40
+ *   Данная программа является свободным программным обеспечением. Вы
+ *   вправе распространять её и/или модифицировать в соответствии с
+ *   условиями версии 2, либо по вашему выбору с условиями более поздней
+ *   версии Стандартной Общественной Лицензии GNU, опубликованной Free
+ *   Software Foundation.
+
+ *   Мы распространяем данную программу в надежде на то, что она будет
+ *   вам полезной, однако НЕ ПРЕДОСТАВЛЯЕМ НА НЕЁ НИКАКИХ ГАРАНТИЙ, в том
+ *   числе ГАРАНТИИ ТОВАРНОГО СОСТОЯНИЯ ПРИ ПРОДАЖЕ и ПРИГОДНОСТИ ДЛЯ
+ *   ИСПОЛЬЗОВАНИЯ В КОНКРЕТНЫХ ЦЕЛЯХ. Для получения более подробной
+ *   информации ознакомьтесь со Стандартной Общественной Лицензией GNU.
+
+ *   Вместе с данной программой вы должны были получить экземпляр
+ *   Стандартной Общественной Лицензии GNU. Если вы его не получили,
+ *   сообщите об этом в Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "DrumWidget.hpp"
 
+#include <cstring>
+
 #include <QResizeEvent>
 #include <QDebug>
+#include <qt4/QtGui/qmessagebox.h>
 
-DrumWidget::DrumWidget(URAL::Word_t (&drum)[1024]) :
+DrumWidget::DrumWidget(URAL::Word_t (&drum)[URAL::drumWordsNumber]) :
 _format(OCT),
 _drum(drum),
 _position(0ul)
@@ -54,19 +69,36 @@ void DrumWidget::on_formatGroup_buttonClicked(int newVal)
 
 void DrumWidget::on_drumView_cellChanged(int row, int col)
 {
-	uint	data = this->widget.drumView->item(row, col)->text().toUInt();
-	size_t	wordNumber = this->_position / 2 + row;
+	bool	ok;
+	uint	data;
+	size_t	wordNumber;
 	
-	if (col == 1)
+	data = this->widget.drumView->item(row, col)->text().toUInt(&ok,
+	    int(this->_format));
+	wordNumber = this->_position / 2 + row;
+	
+	if (col == 0)
 		this->_drum[wordNumber].halfWords.most = data;
-	else if (col == 2)
+	else if (col == 1)
 		this->_drum[wordNumber].halfWords.least = data;
+	else
+		qWarning() << u8"Недопустимый номер столбца" << col;
+}
+
+void DrumWidget::on_clearButton_clicked()
+{
+	if (QMessageBox::question(this, QString::fromUtf8(u8"Очистка ОЗУ"),
+	    QString::fromUtf8(u8"Очистить все ячейки магнитного барабана?"),
+	    QString::fromUtf8(u8"Да"), QString::fromUtf8(u8"Нет")) == 0) {
+		std::memset(&this->_drum, 0, sizeof (this->_drum));
+		this->updateView();
+	}
 }
 
 void DrumWidget::updateView()
 {
 	size_t			 rowCount;
-	QTableWidgetItem	*item[2];
+	QTableWidgetItem	*item;
 	
 	this->widget.drumView->blockSignals(true);
 	
@@ -80,25 +112,18 @@ void DrumWidget::updateView()
 	this->widget.drumView->setRowCount(rowCount);
 	for (size_t i=0; i<rowCount; ++i) {
 		size_t wordIndex = _position / 2 + i;
-		item[0] = new QTableWidgetItem(QString("0").append(
+		
+		item = new QTableWidgetItem(QString("0").append(
 		    QString::number(this->_position + 2*i, 8)));
-		this->widget.drumView->setItem(i, 0, item[0]);
-		switch (this->_format) {
-		case OCT:
-			item[0] = new QTableWidgetItem(QString::number(
-			    _drum[wordIndex][1].data, 8));
-			item[1] = new QTableWidgetItem(QString::number(
-			    _drum[wordIndex][2].data, 8));
-			break;
-		case BIN:
-			item[0] = new QTableWidgetItem(QString::number(
-			    _drum[_position + 2*i][2].data, 2));
-			item[1] = new QTableWidgetItem(QString::number(
-			    _drum[_position + 2*i][1].data, 2));
-			break;
-		}
-		this->widget.drumView->setItem(i, 1, item[0]);
-		this->widget.drumView->setItem(i, 2, item[1]);
+		this->widget.drumView->setVerticalHeaderItem(i, item);
+
+		item = new QTableWidgetItem(QString::number(
+		    _drum[wordIndex][2].data, int(this->_format)));
+		this->widget.drumView->setItem(i, 0, item);
+		
+		item = new QTableWidgetItem(QString::number(
+		    _drum[wordIndex][1].data, int(this->_format)));
+		this->widget.drumView->setItem(i, 1, item);
 	}
 	
 	this->widget.drumView->blockSignals(false);

@@ -26,6 +26,9 @@ class URAL
 {
 public:
 	
+	static const size_t	drumWordsNumber = 1024;
+	static const size_t	drumHalfWordsNumber = drumWordsNumber * 2;
+	
 	class PACKED SignedMagnitudeDouble
 	{
 	public:
@@ -261,7 +264,7 @@ public:
 		void tact();
 		
 		Word_t		R;
-		Word_t		drum[1024];
+		Word_t		drum[drumWordsNumber];
 		HalfWord_t	commandReg;
 		uint16_t	PC;
 		Adder		S;

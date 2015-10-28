@@ -7,6 +7,11 @@
       <itemPath>Исходные тексты/DrumWidget.cpp</itemPath>
       <itemPath>Исходные тексты/DrumWidget.hpp</itemPath>
       <itemPath>Исходные тексты/DrumWidget.ui</itemPath>
+      <itemPath>Исходные тексты/PultWIdget.cpp</itemPath>
+      <itemPath>Исходные тексты/PultWIdget.hpp</itemPath>
+      <itemPath>Исходные тексты/PultWIdget.ui</itemPath>
+      <itemPath>Исходные тексты/controls.cpp</itemPath>
+      <itemPath>controls.hpp</itemPath>
       <itemPath>Исходные тексты/fixed_coding.hpp</itemPath>
       <itemPath>Исходные тексты/intdelegate.cpp</itemPath>
       <itemPath>Исходные тексты/intdelegate.h</itemPath>
@@ -59,7 +64,7 @@
           <standard>8</standard>
           <incDir>
             <pElem>"Исходные тексты"</pElem>
-            <pElem>.</pElem>
+            <pElem>/usr/include/qwt</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
@@ -69,11 +74,21 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="controls.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/controls.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>
@@ -121,11 +136,21 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
+      <item path="controls.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/controls.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>
@@ -176,11 +201,21 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="controls.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/controls.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>

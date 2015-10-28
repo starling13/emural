@@ -141,9 +141,9 @@ URAL::Word::operator[](uint8_t index) const
 	URAL::HalfWord	result;
 	
 	if (index == 1)
-		result.data = this->halfWords.most;
-	else
 		result.data = this->halfWords.least;
+	else
+		result.data = this->halfWords.most;
 	
 	return (result);
 }

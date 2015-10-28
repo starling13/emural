@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>353</width>
-    <height>620</height>
+    <width>289</width>
+    <height>638</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>DrumWidget</string>
+   <string>Магнитный барабан (ОЗУ)</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -47,25 +47,30 @@
     </widget>
    </item>
    <item>
+    <widget class="QPushButton" name="clearButton">
+     <property name="text">
+      <string>Стереть</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <property name="topMargin">
       <number>0</number>
      </property>
      <item>
       <widget class="QTableWidget" name="drumView">
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
        <column>
         <property name="text">
-         <string>Адрес</string>
+         <string>00</string>
         </property>
        </column>
        <column>
         <property name="text">
-         <string>Старшее</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Младшее</string>
+         <string>01</string>
         </property>
        </column>
       </widget>

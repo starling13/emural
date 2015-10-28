@@ -24,7 +24,7 @@
 #include <QApplication>
 
 #include "DrumWidget.hpp"
-#include "ural.hpp"
+#include "PultWIdget.hpp"
 
 using namespace std;
 
@@ -33,16 +33,16 @@ int main(int argc, char** argv)
 	int		res;
 	QApplication	app(argc, argv);
 	
-	URAL::CPU	ural;
-	QTimer		timer;
-	DrumWidget	drumWidget(ural.drum);
+	{
+		URAL::CPU	ural;
+		DrumWidget	drumWidget(ural.drum);
+		PultWIdget	pultWidget(ural);
 	
-	timer.start(10);
-	drumWidget.show();
+		drumWidget.show();
+		pultWidget.show();
 	
-	res = app.exec();
-	
-	timer.stop();
+		res = app.exec();
+	}
 	
 	return (res);
 }

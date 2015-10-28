@@ -1,8 +1,20 @@
-/* 
- * File:   DrumWidget.hpp
- * Author: starling13
- *
- * Created on 27 Октябрь 2015 г., 16:40
+/*
+ *   Данная программа является свободным программным обеспечением. Вы
+ *   вправе распространять её и/или модифицировать в соответствии с
+ *   условиями версии 2, либо по вашему выбору с условиями более поздней
+ *   версии Стандартной Общественной Лицензии GNU, опубликованной Free
+ *   Software Foundation.
+
+ *   Мы распространяем данную программу в надежде на то, что она будет
+ *   вам полезной, однако НЕ ПРЕДОСТАВЛЯЕМ НА НЕЁ НИКАКИХ ГАРАНТИЙ, в том
+ *   числе ГАРАНТИИ ТОВАРНОГО СОСТОЯНИЯ ПРИ ПРОДАЖЕ и ПРИГОДНОСТИ ДЛЯ
+ *   ИСПОЛЬЗОВАНИЯ В КОНКРЕТНЫХ ЦЕЛЯХ. Для получения более подробной
+ *   информации ознакомьтесь со Стандартной Общественной Лицензией GNU.
+
+ *   Вместе с данной программой вы должны были получить экземпляр
+ *   Стандартной Общественной Лицензии GNU. Если вы его не получили,
+ *   сообщите об этом в Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef _DRUMWIDGET_HPP
@@ -16,9 +28,10 @@ class DrumWidget : public QWidget
 {
 	Q_OBJECT
 public:
-	DrumWidget(URAL::Word_t (&drum)[1024]);
 	
-	virtual ~DrumWidget();
+	DrumWidget(URAL::Word_t (&drum)[URAL::drumWordsNumber]);
+	
+	~DrumWidget();
 	
 	void resizeEvent(QResizeEvent*) override;
 
@@ -33,16 +46,18 @@ private slots:
 	void on_formatGroup_buttonClicked(int);
 	
 	void on_drumView_cellChanged(int, int);
+	
+	void on_clearButton_clicked();
 
 private:
 	
-	enum Format { BIN, OCT };
+	enum Format { BIN = 2, OCT = 8 };
 	
 	void updateView();
 	
 	Format	_format;
 	
-	URAL::Word_t (&_drum)[1024];
+	URAL::Word_t (&_drum)[URAL::drumWordsNumber];
 	
 	size_t _position;
 	
