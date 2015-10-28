@@ -106,7 +106,7 @@ void DrumWidget::updateView()
 	rowCount = this->widget.drumView->height() /
 	    this->widget.drumView->rowHeight(0) - 1;
 
-	if (this->_position + rowCount > 2046)
+	if (this->_position + 2*rowCount > 2046)
 		rowCount = (2048-this->_position) / 2;
 	
 	this->widget.drumView->setRowCount(rowCount);

@@ -7,6 +7,9 @@
       <itemPath>Исходные тексты/DrumWidget.cpp</itemPath>
       <itemPath>Исходные тексты/DrumWidget.hpp</itemPath>
       <itemPath>Исходные тексты/DrumWidget.ui</itemPath>
+      <itemPath>Исходные тексты/PanelWidget.cpp</itemPath>
+      <itemPath>Исходные тексты/PanelWidget.hpp</itemPath>
+      <itemPath>Исходные тексты/PanelWidget.ui</itemPath>
       <itemPath>Исходные тексты/PultWIdget.cpp</itemPath>
       <itemPath>Исходные тексты/PultWIdget.hpp</itemPath>
       <itemPath>Исходные тексты/PultWIdget.ui</itemPath>
@@ -31,6 +34,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>Исходные тексты/изображения.qrc</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>Исходные тексты</Elem>
@@ -82,6 +86,12 @@
       </item>
       <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Исходные тексты/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PanelWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
@@ -101,6 +111,8 @@
       <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/ural.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/изображения.qrc" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="4">
@@ -144,6 +156,12 @@
       </item>
       <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Исходные тексты/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PanelWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
@@ -165,6 +183,8 @@
       <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/ural.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/изображения.qrc" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Test" type="4">
@@ -209,6 +229,12 @@
       </item>
       <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Исходные тексты/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PanelWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
@@ -230,6 +256,8 @@
       <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="8">
       </item>
       <item path="Исходные тексты/ural.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/изображения.qrc" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

@@ -25,6 +25,7 @@
 
 #include "DrumWidget.hpp"
 #include "PultWIdget.hpp"
+#include "PanelWidget.hpp"
 
 using namespace std;
 
@@ -37,9 +38,11 @@ int main(int argc, char** argv)
 		URAL::CPU	ural;
 		DrumWidget	drumWidget(ural.drum);
 		PultWIdget	pultWidget(ural);
+		PanelWidget	panelWidget(ural);
 	
 		drumWidget.show();
 		pultWidget.show();
+		panelWidget.show();
 	
 		res = app.exec();
 	}

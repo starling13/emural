@@ -253,6 +253,12 @@ S(ModOnesComplementDouble(0ll))
 }
 
 void
+URAL::CPU::clearDrum()
+{
+	std::memset(&drum, 0, sizeof (drum));
+}
+
+void
 URAL::CPU::tact()
 {
 	std::cout << u8"----------ТАКТ----------\n";
@@ -279,6 +285,8 @@ void
 URAL::CPU::sum1_01()
 {
 	std::cout << u8"Сложение 1" << std::endl;
+	
+	this->S.value += drum[commandReg.command.address].dPrec;
 }
 
 void
@@ -287,5 +295,5 @@ URAL::CPU::sum2_02()
 	std::cout << u8"Сложение 2" << std::endl;
 	
 	this->S = ModOnesComplementDouble(0ll);
-	this->S.value = this->S.value + drum[commandReg.command.address].dPrec;
+	this->S.value += drum[commandReg.command.address].dPrec;
 }

@@ -263,6 +263,8 @@ public:
 		
 		void tact();
 		
+		void clearDrum();
+		
 		Word_t		R;
 		Word_t		drum[drumWordsNumber];
 		HalfWord_t	commandReg;

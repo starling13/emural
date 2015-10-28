@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RCC version="1.0">
+    <qresource>
+		<file>../Изображения/logo.png</file>
+		<file>../Изображения/lamp_on.png</file>
+		<file>../Изображения/lamp_off.png</file>
+    </qresource>
+</RCC>

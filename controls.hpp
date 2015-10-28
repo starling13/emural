@@ -21,9 +21,12 @@
 #define	BLASKBUTTON_HPP
 
 #include <QWidget>
+#include <QRadioButton>
+#include <QPushButton>
+#include <QCheckBox>
 #include <QPainter>
 
-class BlackButton : public QWidget
+class AbstractSwitch : public QWidget
 {
 	Q_OBJECT
 	
@@ -35,7 +38,7 @@ signals:
 	
 public:
 	
-	BlackButton(QWidget *parent = NULL);
+	AbstractSwitch(QWidget *parent = NULL);
 	
 	bool state() const
 	{
@@ -52,19 +55,96 @@ public slots:
 	
 protected:
 	
-	void paintEvent(QPaintEvent*);
-	
-	void mousePressEvent(QMouseEvent*);
+	void mousePressEvent(QMouseEvent*) override;
 
-	void mouseReleaseEvent(QMouseEvent*);
+	void mouseReleaseEvent(QMouseEvent*) override;
+	
+private:
+	
+	bool	_state;
+	bool	_fixed;
+};
+
+class BlackButton : public QRadioButton
+{
+	Q_OBJECT
+	    
+public:
+	
+	BlackButton(QWidget *parent = NULL);
+	
+protected:
+	
+	void paintEvent(QPaintEvent*) override;
 	
 private:
 	
 	QRadialGradient	_gradient;
 	QBrush	_solid;
 	QPainter	_painter;
-	bool	_state;
-	bool	_fixed;
+};
+
+class BlackPushButton : public QPushButton
+{
+	Q_OBJECT
+	    
+public:
+	
+	BlackPushButton(QWidget *parent = 0);
+	
+protected:
+	
+	void paintEvent(QPaintEvent*) override;
+
+	bool hitButton(const QPoint& pos) const override;
+
+private:
+	
+	QRadialGradient	_gradient;
+	QPainter	_painter;
+};
+
+class Switch : public QCheckBox
+{
+	Q_OBJECT
+	    
+public:
+	
+	Switch(QWidget *parent = NULL);
+	
+protected:
+
+	bool hitButton(const QPoint& pos) const override;
+
+	void paintEvent(QPaintEvent*) override;
+	
+	void resizeEvent(QResizeEvent*) override;
+	
+private:
+	
+	QPolygon	_poly;
+	
+	QPainter	_painter;
+};
+
+class DigitButton : public QRadioButton
+{
+	Q_OBJECT
+	    
+public:
+	
+	DigitButton(QWidget *parent = NULL);
+	
+protected:
+	
+	void paintEvent(QPaintEvent*) override;
+	
+	bool hitButton(const QPoint& pos) const override;
+	
+private:
+	
+	QBrush		_brush;
+	QPainter	_painter;
 };
 
 #endif	/* BLASKBUTTON_HPP */
