@@ -55,11 +55,12 @@ void DrumWidget::on_formatGroup_buttonClicked(int newVal)
 void DrumWidget::on_drumView_cellChanged(int row, int col)
 {
 	uint	data = this->widget.drumView->item(row, col)->text().toUInt();
+	size_t	wordNumber = this->_position / 2 + row;
 	
 	if (col == 1)
-		this->_drum[this->_position / 2 + row].halfWords.most = data;
+		this->_drum[wordNumber].halfWords.most = data;
 	else if (col == 2)
-		this->_drum[this->_position / 2 + row].halfWords.least = data;
+		this->_drum[wordNumber].halfWords.least = data;
 }
 
 void DrumWidget::updateView()
@@ -78,15 +79,16 @@ void DrumWidget::updateView()
 	
 	this->widget.drumView->setRowCount(rowCount);
 	for (size_t i=0; i<rowCount; ++i) {
+		size_t wordIndex = _position / 2 + i;
 		item[0] = new QTableWidgetItem(QString("0").append(
 		    QString::number(this->_position + 2*i, 8)));
 		this->widget.drumView->setItem(i, 0, item[0]);
 		switch (this->_format) {
 		case OCT:
 			item[0] = new QTableWidgetItem(QString::number(
-			    _drum[_position / 2 + i][1].data, 8));
+			    _drum[wordIndex][1].data, 8));
 			item[1] = new QTableWidgetItem(QString::number(
-			    _drum[_position / 2 + i][2].data, 8));
+			    _drum[wordIndex][2].data, 8));
 			break;
 		case BIN:
 			item[0] = new QTableWidgetItem(QString::number(

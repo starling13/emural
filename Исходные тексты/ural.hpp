@@ -157,8 +157,8 @@ public:
 		
 		struct
 		{
-			uint64_t	least:16;
-			uint64_t	most:16;
+			uint64_t	least:18;
+			uint64_t	most:18;
 		} halfWords;
 		
 		SignedMagnitudeDouble dPrec;

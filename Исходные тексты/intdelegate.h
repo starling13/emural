@@ -9,7 +9,7 @@
 #define	INTDELEGATE_H
 
 #include <QItemDelegate>
-#include <QtGui/QSpinBox>
+#include <QSpinBox>
 #include <QStyleOptionViewItem>
 
 class IntDelegate : public QItemDelegate
