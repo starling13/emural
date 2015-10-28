@@ -211,7 +211,7 @@
           <standard>8</standard>
           <incDir>
             <pElem>"Исходные тексты"</pElem>
-            <pElem>.</pElem>
+            <pElem>/usr/include/qwt</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
@@ -221,33 +221,7 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="controls.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Исходные тексты/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/PanelWidget.ui" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/controls.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/intdelegate.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Исходные тексты/intdelegate.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/main.cpp" ex="true" tool="1" flavor2="8">
       </item>

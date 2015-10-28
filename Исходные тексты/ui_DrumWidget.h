@@ -43,7 +43,7 @@ public:
     {
         if (DrumWidget->objectName().isEmpty())
             DrumWidget->setObjectName(QString::fromUtf8("DrumWidget"));
-        DrumWidget->resize(289, 638);
+        DrumWidget->resize(306, 645);
         verticalLayout = new QVBoxLayout(DrumWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         groupBox = new QGroupBox(DrumWidget);

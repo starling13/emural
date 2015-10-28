@@ -291,16 +291,16 @@ public:
     Switch *checkBox_14;
     Switch *checkBox_17;
     Switch *checkBox_18;
-    QButtonGroup *masterGroup;
+    QButtonGroup *addr1group;
+    QButtonGroup *addr4group;
     QButtonGroup *shiftGroup;
     QButtonGroup *anodeGroup;
-    QButtonGroup *addr5group;
-    QButtonGroup *addr4group;
     QButtonGroup *addr3group;
-    QButtonGroup *addr2group;
-    QButtonGroup *addr1group;
     QButtonGroup *reg12group;
+    QButtonGroup *masterGroup;
+    QButtonGroup *addr2group;
     QButtonGroup *reg11group;
+    QButtonGroup *addr5group;
 
     void setupUi(QWidget *PultWIdget)
     {
@@ -369,14 +369,13 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
         Knob_2->setPalette(palette1);
-        Knob_2->setUpperBound(12);
-        Knob_2->setScaleMaxMajor(12);
-        Knob_2->setScaleMaxMinor(1);
-        Knob_2->setTotalSteps(12u);
-        Knob_2->setPageSteps(2u);
-        Knob_2->setTotalAngle(340);
-        Knob_2->setMarkerStyle(QwtKnob::Tick);
-        Knob_2->setBorderWidth(0);
+        Knob_2->setProperty("upperBound", QVariant(12));
+        Knob_2->setProperty("scaleMaxMajor", QVariant(12));
+        Knob_2->setProperty("scaleMaxMinor", QVariant(1));
+        Knob_2->setProperty("totalSteps", QVariant(12u));
+        Knob_2->setProperty("pageSteps", QVariant(2u));
+        Knob_2->setProperty("totalAngle", QVariant(340));
+        Knob_2->setProperty("borderWidth", QVariant(0));
 
         horizontalLayout_8->addWidget(Knob_2);
 
@@ -393,15 +392,13 @@ public:
         palette2.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
         palette2.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
         Knob->setPalette(palette2);
-        Knob->setUpperBound(12);
-        Knob->setScaleMaxMajor(12);
-        Knob->setScaleMaxMinor(1);
-        Knob->setTotalSteps(12u);
-        Knob->setInvertedControls(false);
-        Knob->setKnobStyle(QwtKnob::Raised);
-        Knob->setTotalAngle(340);
-        Knob->setMarkerStyle(QwtKnob::Tick);
-        Knob->setBorderWidth(1);
+        Knob->setProperty("upperBound", QVariant(12));
+        Knob->setProperty("scaleMaxMajor", QVariant(12));
+        Knob->setProperty("scaleMaxMinor", QVariant(1));
+        Knob->setProperty("totalSteps", QVariant(12u));
+        Knob->setProperty("invertedControls", QVariant(false));
+        Knob->setProperty("totalAngle", QVariant(340));
+        Knob->setProperty("borderWidth", QVariant(1));
 
         horizontalLayout_8->addWidget(Knob);
 
@@ -736,7 +733,7 @@ public:
 
         gridLayoutWidget_2 = new QWidget(PultWIdget);
         gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
-        gridLayoutWidget_2->setGeometry(QRect(340, 170, 141, 81));
+        gridLayoutWidget_2->setGeometry(QRect(340, 170, 141, 82));
         gridLayout_2 = new QGridLayout(gridLayoutWidget_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -792,7 +789,7 @@ public:
 
         gridLayoutWidget_3 = new QWidget(PultWIdget);
         gridLayoutWidget_3->setObjectName(QString::fromUtf8("gridLayoutWidget_3"));
-        gridLayoutWidget_3->setGeometry(QRect(280, 330, 156, 76));
+        gridLayoutWidget_3->setGeometry(QRect(280, 330, 156, 82));
         gridLayout_3 = new QGridLayout(gridLayoutWidget_3);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -858,7 +855,7 @@ public:
         label_26->setScaledContents(true);
         gridLayoutWidget_4 = new QWidget(PultWIdget);
         gridLayoutWidget_4->setObjectName(QString::fromUtf8("gridLayoutWidget_4"));
-        gridLayoutWidget_4->setGeometry(QRect(430, 330, 161, 76));
+        gridLayoutWidget_4->setGeometry(QRect(430, 330, 161, 82));
         gridLayout_4 = new QGridLayout(gridLayoutWidget_4);
         gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
         gridLayout_4->setContentsMargins(0, 0, 0, 0);

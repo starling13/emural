@@ -8,9 +8,9 @@ CONFIG -= debug_and_release app_bundle lib_bundle
 CONFIG += debug 
 PKGCONFIG +=
 QT = core gui widgets
-SOURCES += "Исходные тексты/DrumWidget.cpp" "Исходные тексты/PanelWidget.cpp" "Исходные тексты/PultWIdget.cpp" "Исходные тексты/controls.cpp" "Исходные тексты/intdelegate.cpp" "Исходные тексты/test.cpp" "Исходные тексты/ural.cpp"
-HEADERS += controls.hpp "Исходные тексты/DrumWidget.hpp" "Исходные тексты/PanelWidget.hpp" "Исходные тексты/PultWIdget.hpp" "Исходные тексты/fixed_coding.hpp" "Исходные тексты/intdelegate.h" "Исходные тексты/ural.hpp"
-FORMS += "Исходные тексты/DrumWidget.ui" "Исходные тексты/PanelWidget.ui" "Исходные тексты/PultWIdget.ui"
+SOURCES += "Исходные тексты/test.cpp" "Исходные тексты/ural.cpp"
+HEADERS += "Исходные тексты/fixed_coding.hpp" "Исходные тексты/ural.hpp"
+FORMS +=
 RESOURCES += "Исходные тексты/изображения.qrc"
 TRANSLATIONS +=
 OBJECTS_DIR = build/Test/GNU-Linux-x86
@@ -20,7 +20,7 @@ UI_DIR = "Исходные тексты"
 QMAKE_CC = gcc
 QMAKE_CXX = g++
 DEFINES += 
-INCLUDEPATH += "Исходные тексты" . 
+INCLUDEPATH += "Исходные тексты" /usr/include/qwt 
 LIBS += -lqwt  
 equals(QT_MAJOR_VERSION, 4) {
 QMAKE_CXXFLAGS += -std=c++11

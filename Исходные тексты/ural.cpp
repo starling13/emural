@@ -23,9 +23,7 @@
 
 #include <iostream>
 #include <bitset>
-#include <math.h>
 #include <stdexcept>
-#include <c++/4.8/stdexcept>
 
 std::ostream& operator <<(std::ostream& stream,
     const URAL::ModOnesComplementDouble &number)

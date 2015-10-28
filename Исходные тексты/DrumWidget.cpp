@@ -23,7 +23,7 @@
 
 #include <QResizeEvent>
 #include <QDebug>
-#include <qt4/QtGui/qmessagebox.h>
+#include <QMessageBox>
 
 DrumWidget::DrumWidget(URAL::Word_t (&drum)[URAL::drumWordsNumber]) :
 _format(OCT),
