@@ -26,8 +26,12 @@ class URAL
 {
 public:
 	
-	static const size_t	drumWordsNumber = 1024;
+	static const size_t	drumWordsNumber = 02000;
 	static const size_t	drumHalfWordsNumber = drumWordsNumber * 2;
+	static const size_t	addressLengthBit = 04000;
+	
+	typedef	FixedPointFraction<uint64_t, 35>::ModOnesComplement
+		AdderWord;
 	
 	class PACKED SignedMagnitudeDouble
 	{
@@ -164,7 +168,8 @@ public:
 			uint64_t	most:18;
 		} halfWords;
 		
-		SignedMagnitudeDouble dPrec;
+		FixedPointFraction<uint64_t, 35>::SignedMagnitude
+					dPrec;
 		
 		struct
 		{
@@ -242,12 +247,12 @@ public:
 	{
 	public:
 		
-		Adder(ModOnesComplementDouble);
+		Adder(AdderWord);
 		
 		Adder &operator =(const Adder&);
 		
 		uint64_t	data;
-		ModOnesComplementDouble	value;
+		AdderWord	value;
 		struct
 		{
 			uint64_t	word1:18;
@@ -265,21 +270,47 @@ public:
 		
 		void clearDrum();
 		
+		const Word_t	&controlRegister() const;
+		void		 setControlRegisterAddress(size_t newVal);
+		
+		void setSupplyVoltage(uint8_t, float);
+		
 		Word_t		R;
 		Word_t		drum[drumWordsNumber];
 		HalfWord_t	commandReg;
+		
 		uint16_t	PC;
 		Adder		S;
 		
 	private:
 		
-		void (CPU::*commands[32])();
+		/**
+		 * Состояние машины
+		 */
+		enum State_t
+		{
+			// Не работает
+			OFF,
+			// Работает неустойчиво
+			FLOATING,
+			// Работает устойчиво
+			ON
+		};
 		
 		void noop_00();
 		
 		void sum1_01();
 		
 		void sum2_02();
+		
+		void (CPU::*commands[32])();
+		
+		size_t		controlRegisterAddress;
+		
+		State_t		_state;
+		
+		// Напряжения питания (В)
+		float		_supplyVoltage[2];
 	};
 };
 

@@ -154,11 +154,11 @@ operator <<(std::ostream &stream, const URAL::Word_t &word)
 	stream << "Данные: " <<
 	    std::hex << word.data << '\n' <<
 		u8"Слово двойной точности: ";
-	if (word.dPrec.sign)
+	if (word.dPrec.sign())
 		sign = '-';
 	else
 		sign = '+';
-	stream << sign << word.dPrec.magnitude << '\n' <<
+	stream << sign << word.dPrec.magnitude() << '\n' <<
 	    u8"Восьмеричные триплеты: " << std::oct <<
 		sign <<
 		word.triplets.t12 << ' ' <<
@@ -227,7 +227,7 @@ operator <<(std::ostream &stream, const URAL::HalfWord_t &word)
 	return (stream);
 }
 
-URAL::Adder::Adder(ModOnesComplementDouble val) :
+URAL::Adder::Adder(AdderWord val) :
 value(val)
 {
 }
@@ -241,8 +241,9 @@ URAL::Adder::operator=(const Adder &other)
 }
 
 URAL::CPU::CPU() :
+controlRegisterAddress(0),
 PC(0u),
-S(ModOnesComplementDouble(0ll))
+S(AdderWord(0ll))
 {
 	std::memset(this->commands, 0, sizeof (this->commands));
 	this->commands[0] = &CPU::noop_00;
@@ -254,6 +255,40 @@ void
 URAL::CPU::clearDrum()
 {
 	std::memset(&drum, 0, sizeof (drum));
+}
+
+const URAL::Word_t&
+URAL::CPU::controlRegister() const
+{
+	return (drum[controlRegisterAddress]);
+}
+
+void
+URAL::CPU::setControlRegisterAddress(size_t newVal)
+{
+	if (newVal & addressLengthBit)
+		newVal = (newVal & ~addressLengthBit);
+	newVal >>= 1;
+	assert (newVal < drumWordsNumber);
+
+	controlRegisterAddress = newVal;
+}
+
+void
+URAL::CPU::setSupplyVoltage(uint8_t index, float value)
+{
+	float average;
+	
+	assert ((index == 1) || (index == 2));
+	
+	_supplyVoltage[index-1] = value;
+	average = (_supplyVoltage[0] + _supplyVoltage[1]) / 2.;
+	if (average < 110.)
+		_state = OFF;
+	else if (average < 220)
+		_state = FLOATING;
+	else
+		_state = ON;
 }
 
 void
@@ -292,6 +327,6 @@ URAL::CPU::sum2_02()
 {
 	std::cout << u8"Сложение 2" << std::endl;
 	
-	this->S = ModOnesComplementDouble(0ll);
+	this->S = AdderWord(0ll);
 	this->S.value += drum[commandReg.command.address].dPrec;
 }

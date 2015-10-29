@@ -17,38 +17,38 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <cstdlib>
-#include <iostream>
+#ifndef _AUXCONTROLSWIDGET_HPP
+#define	_AUXCONTROLSWIDGET_HPP
 
-#include <QTimer>
-#include <QApplication>
+#include "ural.hpp"
 
-#include "DrumWidget.hpp"
-#include "PultWIdget.hpp"
-#include "PanelWidget.hpp"
-#include "AuxControlsWidget.hpp"
+#include "ui_AuxControlsWidget.h"
 
-using namespace std;
-
-int main(int argc, char** argv)
+class AuxControlsWidget : public QWidget
 {
-	int		res;
-	QApplication	app(argc, argv);
+	Q_OBJECT
+
+signals:	
 	
-	{
-		URAL::CPU	ural;
-		DrumWidget	drumWidget(ural.drum);
-		PultWIdget	pultWidget(ural);
-		PanelWidget	panelWidget(ural);
-		AuxControlsWidget auxControlWidget(ural);
+	void controlRegisterAddressChanged(size_t);
+
+public:
 	
-		drumWidget.show();
-		pultWidget.show();
-		panelWidget.show();
-		auxControlWidget.show();
+	AuxControlsWidget(URAL::CPU&);
 	
-		res = app.exec();
-	}
+	~AuxControlsWidget();
 	
-	return (res);
-}
+private slots:
+	
+	void on_controlRegisterGroup_buttonClicked(QAbstractButton*);
+	
+private:
+	
+	Ui::AuxControlsWidget	 widget;
+	
+	size_t			 _controlRegisterPosition;
+	
+	URAL::CPU		&_ural;
+};
+
+#endif	/* _AUXCONTROLSWIDGET_HPP */

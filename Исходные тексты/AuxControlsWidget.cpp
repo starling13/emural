@@ -17,38 +17,45 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <cstdlib>
-#include <iostream>
-
-#include <QTimer>
-#include <QApplication>
-
-#include "DrumWidget.hpp"
-#include "PultWIdget.hpp"
-#include "PanelWidget.hpp"
 #include "AuxControlsWidget.hpp"
 
-using namespace std;
-
-int main(int argc, char** argv)
+AuxControlsWidget::AuxControlsWidget(URAL::CPU &ural) :
+_controlRegisterPosition(0ul),
+_ural(ural)
 {
-	int		res;
-	QApplication	app(argc, argv);
+	widget.setupUi(this);
 	
-	{
-		URAL::CPU	ural;
-		DrumWidget	drumWidget(ural.drum);
-		PultWIdget	pultWidget(ural);
-		PanelWidget	panelWidget(ural);
-		AuxControlsWidget auxControlWidget(ural);
+	widget.controlRegisterGroup->setId(widget.cra1, 0);
+	widget.controlRegisterGroup->setId(widget.cra2, 1);
+	widget.controlRegisterGroup->setId(widget.cra3, 2);
+	widget.controlRegisterGroup->setId(widget.cra4, 3);
+	widget.controlRegisterGroup->setId(widget.cra5, 4);
+	widget.controlRegisterGroup->setId(widget.cra6, 5);
+	widget.controlRegisterGroup->setId(widget.cra7, 6);
+	widget.controlRegisterGroup->setId(widget.cra8, 7);
+	widget.controlRegisterGroup->setId(widget.cra9, 8);
+	widget.controlRegisterGroup->setId(widget.cra10, 9);
+	widget.controlRegisterGroup->setId(widget.cra11, 10);
+	widget.controlRegisterGroup->setId(widget.cra12, 11);
+}
+
+AuxControlsWidget::~AuxControlsWidget()
+{
+}
+
+void AuxControlsWidget::on_controlRegisterGroup_buttonClicked(QAbstractButton
+    *button)
+{
+	QCheckBox *sw = qobject_cast<QCheckBox*>(button);
+	Q_CHECK_PTR(sw);
 	
-		drumWidget.show();
-		pultWidget.show();
-		panelWidget.show();
-		auxControlWidget.show();
+	if (sw->isChecked())
+		_controlRegisterPosition |=
+		    1<<widget.controlRegisterGroup->id(button);
+	else
+		_controlRegisterPosition &=
+		    ~(1<<widget.controlRegisterGroup->id(button));
 	
-		res = app.exec();
-	}
-	
-	return (res);
+	_ural.setControlRegisterAddress(_controlRegisterPosition);
+	emit controlRegisterAddressChanged(_controlRegisterPosition);
 }

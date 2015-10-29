@@ -17,38 +17,33 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <cstdlib>
-#include <iostream>
+#ifndef _CONTROLREGISTERPANEL_HPP
+#define	_CONTROLREGISTERPANEL_HPP
 
-#include <QTimer>
-#include <QApplication>
+#include "ui_ControlRegisterPanel.h"
 
-#include "DrumWidget.hpp"
-#include "PultWIdget.hpp"
-#include "PanelWidget.hpp"
-#include "AuxControlsWidget.hpp"
+#include "ural.hpp"
 
-using namespace std;
-
-int main(int argc, char** argv)
+class ControlRegisterPanel : public QWidget
 {
-	int		res;
-	QApplication	app(argc, argv);
+	Q_OBJECT
 	
-	{
-		URAL::CPU	ural;
-		DrumWidget	drumWidget(ural.drum);
-		PultWIdget	pultWidget(ural);
-		PanelWidget	panelWidget(ural);
-		AuxControlsWidget auxControlWidget(ural);
+public:
+	ControlRegisterPanel(QWidget *parent = 0);
 	
-		drumWidget.show();
-		pultWidget.show();
-		panelWidget.show();
-		auxControlWidget.show();
+	~ControlRegisterPanel();
 	
-		res = app.exec();
-	}
+	void setValue(URAL::Word_t);
 	
-	return (res);
-}
+private:
+	
+	Ui::ControlRegisterPanel widget;
+	
+	URAL::Word_t	_value;
+	
+	QPixmap		*_lampPixmaps[2];
+	
+	QVector<QLabel*>	_lamps;
+};
+
+#endif	/* _CONTROLREGISTERPANEL_HPP */

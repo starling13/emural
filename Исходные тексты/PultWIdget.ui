@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1478</width>
+    <width>1099</width>
     <height>412</height>
    </rect>
   </property>
@@ -35,8 +35,8 @@
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>80</red>
-        <green>79</green>
-        <blue>77</blue>
+        <green>80</green>
+        <blue>80</blue>
        </color>
       </brush>
      </colorrole>
@@ -52,9 +52,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>158</red>
-        <green>158</green>
-        <blue>158</blue>
+        <red>160</red>
+        <green>160</green>
+        <blue>160</blue>
        </color>
       </brush>
      </colorrole>
@@ -82,8 +82,8 @@
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>80</red>
-        <green>79</green>
-        <blue>77</blue>
+        <green>80</green>
+        <blue>80</blue>
        </color>
       </brush>
      </colorrole>
@@ -99,9 +99,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>158</red>
-        <green>158</green>
-        <blue>158</blue>
+        <red>160</red>
+        <green>160</green>
+        <blue>160</blue>
        </color>
       </brush>
      </colorrole>
@@ -129,26 +129,26 @@
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>80</red>
-        <green>79</green>
-        <blue>77</blue>
+        <green>80</green>
+        <blue>80</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>158</red>
-        <green>158</green>
-        <blue>158</blue>
+        <red>160</red>
+        <green>160</green>
+        <blue>160</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>158</red>
-        <green>158</green>
-        <blue>158</blue>
+        <red>160</red>
+        <green>160</green>
+        <blue>160</blue>
        </color>
       </brush>
      </colorrole>
@@ -193,7 +193,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_8">
       <item>
-       <widget class="QwtKnob" name="Knob_2" native="true">
+       <widget class="QwtKnob" name="Knob_2">
         <property name="palette">
          <palette>
           <active>
@@ -285,31 +285,31 @@
           </disabled>
          </palette>
         </property>
-        <property name="upperBound" stdset="0">
+        <property name="upperBound">
          <double>12.000000000000000</double>
         </property>
-        <property name="scaleMaxMajor" stdset="0">
+        <property name="scaleMaxMajor">
          <number>12</number>
         </property>
-        <property name="scaleMaxMinor" stdset="0">
+        <property name="scaleMaxMinor">
          <number>1</number>
         </property>
-        <property name="totalSteps" stdset="0">
+        <property name="totalSteps">
          <UInt>12</UInt>
         </property>
-        <property name="pageSteps" stdset="0">
+        <property name="pageSteps">
          <UInt>2</UInt>
         </property>
-        <property name="totalAngle" stdset="0">
+        <property name="totalAngle">
          <double>340.000000000000000</double>
         </property>
-        <property name="borderWidth" stdset="0">
+        <property name="borderWidth">
          <number>0</number>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QwtKnob" name="Knob" native="true">
+       <widget class="QwtKnob" name="Knob">
         <property name="palette">
          <palette>
           <active>
@@ -401,25 +401,25 @@
           </disabled>
          </palette>
         </property>
-        <property name="upperBound" stdset="0">
+        <property name="upperBound">
          <double>12.000000000000000</double>
         </property>
-        <property name="scaleMaxMajor" stdset="0">
+        <property name="scaleMaxMajor">
          <number>12</number>
         </property>
-        <property name="scaleMaxMinor" stdset="0">
+        <property name="scaleMaxMinor">
          <number>1</number>
         </property>
-        <property name="totalSteps" stdset="0">
+        <property name="totalSteps">
          <UInt>12</UInt>
         </property>
-        <property name="invertedControls" stdset="0">
+        <property name="invertedControls">
          <bool>false</bool>
         </property>
-        <property name="totalAngle" stdset="0">
+        <property name="totalAngle">
          <double>340.000000000000000</double>
         </property>
-        <property name="borderWidth" stdset="0">
+        <property name="borderWidth">
          <number>1</number>
         </property>
        </widget>
@@ -11124,305 +11124,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_3">
-   <property name="geometry">
-    <rect>
-     <x>1090</x>
-     <y>350</y>
-     <width>381</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_5">
-    <item>
-     <widget class="QLabel" name="label_40">
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>АДРЕС КОНТРОЛЬНОГО РЕГИСТРА</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_21">
-      <item>
-       <widget class="Switch" name="checkBox_16">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_11">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_9">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_8">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_12">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_10">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_13">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_7">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_15">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_14">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_17">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="checkBox_18">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -11456,15 +11157,15 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="addr1group"/>
-  <buttongroup name="addr4group"/>
-  <buttongroup name="shiftGroup"/>
-  <buttongroup name="anodeGroup"/>
-  <buttongroup name="addr3group"/>
-  <buttongroup name="reg12group"/>
   <buttongroup name="masterGroup"/>
-  <buttongroup name="addr2group"/>
   <buttongroup name="reg11group"/>
   <buttongroup name="addr5group"/>
+  <buttongroup name="addr4group"/>
+  <buttongroup name="anodeGroup"/>
+  <buttongroup name="addr3group"/>
+  <buttongroup name="addr2group"/>
+  <buttongroup name="addr1group"/>
+  <buttongroup name="shiftGroup"/>
+  <buttongroup name="reg12group"/>
  </buttongroups>
 </ui>

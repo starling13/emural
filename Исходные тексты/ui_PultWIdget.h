@@ -272,41 +272,22 @@ public:
     QLabel *label_35;
     QHBoxLayout *horizontalLayout_24;
     BlackPushButton *pushButton_8;
-    QWidget *verticalLayoutWidget_3;
-    QVBoxLayout *verticalLayout_5;
-    QLabel *label_40;
-    QHBoxLayout *horizontalLayout_21;
-    Switch *checkBox_16;
-    Switch *checkBox_11;
-    Switch *checkBox_9;
-    QSpacerItem *horizontalSpacer_2;
-    Switch *checkBox_8;
-    Switch *checkBox_12;
-    Switch *checkBox_10;
-    QSpacerItem *horizontalSpacer_3;
-    Switch *checkBox_13;
-    Switch *checkBox_7;
-    Switch *checkBox_15;
-    QSpacerItem *horizontalSpacer_4;
-    Switch *checkBox_14;
-    Switch *checkBox_17;
-    Switch *checkBox_18;
-    QButtonGroup *addr1group;
-    QButtonGroup *addr4group;
-    QButtonGroup *shiftGroup;
-    QButtonGroup *anodeGroup;
-    QButtonGroup *addr3group;
-    QButtonGroup *reg12group;
     QButtonGroup *masterGroup;
-    QButtonGroup *addr2group;
     QButtonGroup *reg11group;
     QButtonGroup *addr5group;
+    QButtonGroup *addr4group;
+    QButtonGroup *anodeGroup;
+    QButtonGroup *addr3group;
+    QButtonGroup *addr2group;
+    QButtonGroup *addr1group;
+    QButtonGroup *shiftGroup;
+    QButtonGroup *reg12group;
 
     void setupUi(QWidget *PultWIdget)
     {
         if (PultWIdget->objectName().isEmpty())
             PultWIdget->setObjectName(QString::fromUtf8("PultWIdget"));
-        PultWIdget->resize(1478, 412);
+        PultWIdget->resize(1099, 412);
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -314,11 +295,11 @@ public:
         QBrush brush1(QColor(0, 0, 0, 255));
         brush1.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Button, brush1);
-        QBrush brush2(QColor(80, 79, 77, 255));
+        QBrush brush2(QColor(80, 80, 80, 255));
         brush2.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Midlight, brush2);
         palette.setBrush(QPalette::Active, QPalette::Base, brush);
-        QBrush brush3(QColor(158, 158, 158, 255));
+        QBrush brush3(QColor(160, 160, 160, 255));
         brush3.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Window, brush3);
         palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
@@ -369,13 +350,13 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
         palette1.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
         Knob_2->setPalette(palette1);
-        Knob_2->setProperty("upperBound", QVariant(12));
-        Knob_2->setProperty("scaleMaxMajor", QVariant(12));
-        Knob_2->setProperty("scaleMaxMinor", QVariant(1));
-        Knob_2->setProperty("totalSteps", QVariant(12u));
-        Knob_2->setProperty("pageSteps", QVariant(2u));
-        Knob_2->setProperty("totalAngle", QVariant(340));
-        Knob_2->setProperty("borderWidth", QVariant(0));
+        Knob_2->setUpperBound(12);
+        Knob_2->setScaleMaxMajor(12);
+        Knob_2->setScaleMaxMinor(1);
+        Knob_2->setTotalSteps(12u);
+        Knob_2->setPageSteps(2u);
+        Knob_2->setTotalAngle(340);
+        Knob_2->setBorderWidth(0);
 
         horizontalLayout_8->addWidget(Knob_2);
 
@@ -392,13 +373,13 @@ public:
         palette2.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
         palette2.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
         Knob->setPalette(palette2);
-        Knob->setProperty("upperBound", QVariant(12));
-        Knob->setProperty("scaleMaxMajor", QVariant(12));
-        Knob->setProperty("scaleMaxMinor", QVariant(1));
-        Knob->setProperty("totalSteps", QVariant(12u));
-        Knob->setProperty("invertedControls", QVariant(false));
-        Knob->setProperty("totalAngle", QVariant(340));
-        Knob->setProperty("borderWidth", QVariant(1));
+        Knob->setUpperBound(12);
+        Knob->setScaleMaxMajor(12);
+        Knob->setScaleMaxMinor(1);
+        Knob->setTotalSteps(12u);
+        Knob->setInvertedControls(false);
+        Knob->setTotalAngle(340);
+        Knob->setBorderWidth(1);
 
         horizontalLayout_8->addWidget(Knob);
 
@@ -2920,120 +2901,6 @@ public:
 
         gridLayout_6->addLayout(horizontalLayout_24, 3, 0, 1, 1);
 
-        verticalLayoutWidget_3 = new QWidget(PultWIdget);
-        verticalLayoutWidget_3->setObjectName(QString::fromUtf8("verticalLayoutWidget_3"));
-        verticalLayoutWidget_3->setGeometry(QRect(1090, 350, 381, 51));
-        verticalLayout_5 = new QVBoxLayout(verticalLayoutWidget_3);
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        label_40 = new QLabel(verticalLayoutWidget_3);
-        label_40->setObjectName(QString::fromUtf8("label_40"));
-        label_40->setFont(font1);
-        label_40->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_5->addWidget(label_40);
-
-        horizontalLayout_21 = new QHBoxLayout();
-        horizontalLayout_21->setObjectName(QString::fromUtf8("horizontalLayout_21"));
-        checkBox_16 = new Switch(verticalLayoutWidget_3);
-        checkBox_16->setObjectName(QString::fromUtf8("checkBox_16"));
-        checkBox_16->setMinimumSize(QSize(24, 24));
-        checkBox_16->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_16);
-
-        checkBox_11 = new Switch(verticalLayoutWidget_3);
-        checkBox_11->setObjectName(QString::fromUtf8("checkBox_11"));
-        checkBox_11->setMinimumSize(QSize(24, 24));
-        checkBox_11->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_11);
-
-        checkBox_9 = new Switch(verticalLayoutWidget_3);
-        checkBox_9->setObjectName(QString::fromUtf8("checkBox_9"));
-        checkBox_9->setMinimumSize(QSize(24, 24));
-        checkBox_9->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_9);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_21->addItem(horizontalSpacer_2);
-
-        checkBox_8 = new Switch(verticalLayoutWidget_3);
-        checkBox_8->setObjectName(QString::fromUtf8("checkBox_8"));
-        checkBox_8->setMinimumSize(QSize(24, 24));
-        checkBox_8->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_8);
-
-        checkBox_12 = new Switch(verticalLayoutWidget_3);
-        checkBox_12->setObjectName(QString::fromUtf8("checkBox_12"));
-        checkBox_12->setMinimumSize(QSize(24, 24));
-        checkBox_12->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_12);
-
-        checkBox_10 = new Switch(verticalLayoutWidget_3);
-        checkBox_10->setObjectName(QString::fromUtf8("checkBox_10"));
-        checkBox_10->setMinimumSize(QSize(24, 24));
-        checkBox_10->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_10);
-
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_21->addItem(horizontalSpacer_3);
-
-        checkBox_13 = new Switch(verticalLayoutWidget_3);
-        checkBox_13->setObjectName(QString::fromUtf8("checkBox_13"));
-        checkBox_13->setMinimumSize(QSize(24, 24));
-        checkBox_13->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_13);
-
-        checkBox_7 = new Switch(verticalLayoutWidget_3);
-        checkBox_7->setObjectName(QString::fromUtf8("checkBox_7"));
-        checkBox_7->setMinimumSize(QSize(24, 24));
-        checkBox_7->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_7);
-
-        checkBox_15 = new Switch(verticalLayoutWidget_3);
-        checkBox_15->setObjectName(QString::fromUtf8("checkBox_15"));
-        checkBox_15->setMinimumSize(QSize(24, 24));
-        checkBox_15->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_15);
-
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_21->addItem(horizontalSpacer_4);
-
-        checkBox_14 = new Switch(verticalLayoutWidget_3);
-        checkBox_14->setObjectName(QString::fromUtf8("checkBox_14"));
-        checkBox_14->setMinimumSize(QSize(24, 24));
-        checkBox_14->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_14);
-
-        checkBox_17 = new Switch(verticalLayoutWidget_3);
-        checkBox_17->setObjectName(QString::fromUtf8("checkBox_17"));
-        checkBox_17->setMinimumSize(QSize(24, 24));
-        checkBox_17->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_17);
-
-        checkBox_18 = new Switch(verticalLayoutWidget_3);
-        checkBox_18->setObjectName(QString::fromUtf8("checkBox_18"));
-        checkBox_18->setMinimumSize(QSize(24, 24));
-        checkBox_18->setMaximumSize(QSize(24, 24));
-
-        horizontalLayout_21->addWidget(checkBox_18);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_21);
-
 
         retranslateUi(PultWIdget);
 
@@ -3240,19 +3107,6 @@ public:
         label_36->setText(QApplication::translate("PultWIdget", "\321\202\320\260\320\272\321\202\320\260", 0, QApplication::UnicodeUTF8));
         label_35->setText(QApplication::translate("PultWIdget", "\320\277\321\200\320\276\320\277\321\203\321\201\320\272", 0, QApplication::UnicodeUTF8));
         pushButton_8->setText(QApplication::translate("PultWIdget", "PushButton", 0, QApplication::UnicodeUTF8));
-        label_40->setText(QApplication::translate("PultWIdget", "\320\220\320\224\320\240\320\225\320\241 \320\232\320\236\320\235\320\242\320\240\320\236\320\233\320\254\320\235\320\236\320\223\320\236 \320\240\320\225\320\223\320\230\320\241\320\242\320\240\320\220", 0, QApplication::UnicodeUTF8));
-        checkBox_16->setText(QString());
-        checkBox_11->setText(QString());
-        checkBox_9->setText(QString());
-        checkBox_8->setText(QString());
-        checkBox_12->setText(QString());
-        checkBox_10->setText(QString());
-        checkBox_13->setText(QString());
-        checkBox_7->setText(QString());
-        checkBox_15->setText(QString());
-        checkBox_14->setText(QString());
-        checkBox_17->setText(QString());
-        checkBox_18->setText(QString());
     } // retranslateUi
 
 };

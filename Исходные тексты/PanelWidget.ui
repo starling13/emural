@@ -549,16 +549,7 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <property name="leftMargin">
-     <number>10</number>
-    </property>
-    <property name="topMargin">
-     <number>10</number>
-    </property>
-    <property name="rightMargin">
-     <number>10</number>
-    </property>
-    <property name="bottomMargin">
+    <property name="margin">
      <number>10</number>
     </property>
     <item>
@@ -5945,6 +5936,16 @@
      </layout>
     </item>
     <item>
+     <widget class="ControlRegisterPanel" name="controlRegisterPanel" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -5960,6 +5961,14 @@
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ControlRegisterPanel</class>
+   <extends>QWidget</extends>
+   <header location="global">controlregisterpanel.hpp</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="изображения.qrc"/>
  </resources>

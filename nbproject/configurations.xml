@@ -4,6 +4,10 @@
     <logicalFolder name="Исходные тексты"
                    displayName="Исходные тексты"
                    projectFiles="true">
+      <itemPath>Исходные тексты/AuxControlsWidget.cpp</itemPath>
+      <itemPath>Исходные тексты/AuxControlsWidget.hpp</itemPath>
+      <itemPath>Исходные тексты/AuxControlsWidget.ui</itemPath>
+      <itemPath>Исходные тексты/ControlRegisterPanel.ui</itemPath>
       <itemPath>Исходные тексты/DrumWidget.cpp</itemPath>
       <itemPath>Исходные тексты/DrumWidget.hpp</itemPath>
       <itemPath>Исходные тексты/DrumWidget.ui</itemPath>
@@ -13,8 +17,10 @@
       <itemPath>Исходные тексты/PultWIdget.cpp</itemPath>
       <itemPath>Исходные тексты/PultWIdget.hpp</itemPath>
       <itemPath>Исходные тексты/PultWIdget.ui</itemPath>
+      <itemPath>Исходные тексты/controlregisterpanel.cpp</itemPath>
+      <itemPath>Исходные тексты/controlregisterpanel.hpp</itemPath>
       <itemPath>Исходные тексты/controls.cpp</itemPath>
-      <itemPath>controls.hpp</itemPath>
+      <itemPath>Исходные тексты/controls.hpp</itemPath>
       <itemPath>Исходные тексты/fixed_coding.hpp</itemPath>
       <itemPath>Исходные тексты/intdelegate.cpp</itemPath>
       <itemPath>Исходные тексты/intdelegate.h</itemPath>
@@ -78,7 +84,25 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="controls.hpp" ex="false" tool="3" flavor2="0">
+      <item path="Исходные тексты/AuxControlsWidget.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/AuxControlsWidget.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/AuxControlsWidget.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/ControlRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -98,7 +122,19 @@
       </item>
       <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Исходные тексты/controlregisterpanel.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/controlregisterpanel.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/controls.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/controls.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>
@@ -148,7 +184,25 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
-      <item path="controls.hpp" ex="false" tool="3" flavor2="0">
+      <item path="Исходные тексты/AuxControlsWidget.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/AuxControlsWidget.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/AuxControlsWidget.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/ControlRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -168,7 +222,19 @@
       </item>
       <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Исходные тексты/controlregisterpanel.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/controlregisterpanel.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/controls.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Исходные тексты/controls.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>
@@ -221,6 +287,21 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="Исходные тексты/ControlRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/controlregisterpanel.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/controlregisterpanel.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/main.cpp" ex="true" tool="1" flavor2="8">

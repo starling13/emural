@@ -17,38 +17,45 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <cstdlib>
-#include <iostream>
+#include "controlregisterpanel.hpp"
 
-#include <QTimer>
-#include <QApplication>
-
-#include "DrumWidget.hpp"
-#include "PultWIdget.hpp"
-#include "PanelWidget.hpp"
-#include "AuxControlsWidget.hpp"
-
-using namespace std;
-
-int main(int argc, char** argv)
+ControlRegisterPanel::ControlRegisterPanel(QWidget *parent) :
+QWidget(parent)
 {
-	int		res;
-	QApplication	app(argc, argv);
+	widget.setupUi(this);
 	
-	{
-		URAL::CPU	ural;
-		DrumWidget	drumWidget(ural.drum);
-		PultWIdget	pultWidget(ural);
-		PanelWidget	panelWidget(ural);
-		AuxControlsWidget auxControlWidget(ural);
+	_lampPixmaps[0] = new QPixmap(QString::fromUtf8(":/Изображения/lamp_off.png"));
+	_lampPixmaps[1] = new QPixmap(QString::fromUtf8(":/Изображения/lamp_on.png"));
 	
-		drumWidget.show();
-		pultWidget.show();
-		panelWidget.show();
-		auxControlWidget.show();
+	widget.lamp0->setPixmap(*_lampPixmaps[0]);
 	
-		res = app.exec();
-	}
-	
-	return (res);
+	_lamps.push_back(widget.lamp0);
+	_lamps.push_back(widget.lamp1);
+	_lamps.push_back(widget.lamp2);
+	_lamps.push_back(widget.lamp3);
+	_lamps.push_back(widget.lamp4);
+	_lamps.push_back(widget.lamp5);
+	_lamps.push_back(widget.lamp6);
+	_lamps.push_back(widget.lamp7);
+	_lamps.push_back(widget.lamp8);
+	_lamps.push_back(widget.lamp9);
+	_lamps.push_back(widget.lamp10);
+	_lamps.push_back(widget.lamp11);
+	_lamps.push_back(widget.lamp12);
+	_lamps.push_back(widget.lamp13);
+	_lamps.push_back(widget.lamp14);
+	_lamps.push_back(widget.lamp15);
+	_lamps.push_back(widget.lamp16);
+	_lamps.push_back(widget.lamp17);
+	_lamps.push_back(widget.lamp18);
+	_lamps.push_back(widget.lamp19);
+}
+
+ControlRegisterPanel::~ControlRegisterPanel()
+{
+}
+
+void ControlRegisterPanel::setValue(URAL::Word_t newValue)
+{
+
 }

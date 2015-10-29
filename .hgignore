@@ -2,3 +2,4 @@ syntax: glob
 *.o
 private/*
 *.a
+moc_*
