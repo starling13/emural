@@ -28,13 +28,15 @@ int main(int argc, char** argv)
 	std::cout.precision(std::numeric_limits< double >::digits10);
 	
 	FixedPointFraction<uint64_t, 35>::ModOnesComplement a;
-	URAL::ModOnesComplementDouble	c;
-	std::cout << c << std::endl;
-	FixedPointFraction<uint32_t, 17>::ModOnesComplement b;
-	std::cout << b << std::endl;
+	std::cout << a << std::endl;
+	a = -0300000000002ll;
+	std::cout << a << std::endl;
+	FixedPointFraction<uint32_t, 17>::ModOnesComplement b, c;
+	b = 03777, c = -0377;
+	std::cout << b << '\n' << c << '\n' << b+c << std::endl;
 
 	URAL::CPU	ural;
-	
+	/*
 	ural.drum[0] = 0000001020004;
 	ural.drum[1] = 0000003000002;
 	ural.drum[2] = 0000005000004;
@@ -54,6 +56,6 @@ int main(int argc, char** argv)
 	ural.tact();
 	ural.tact();
 	ural.tact();
-	
+	*/
 	return (EXIT_SUCCESS);
 }          
