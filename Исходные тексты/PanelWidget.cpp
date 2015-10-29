@@ -11,6 +11,7 @@ PanelWidget::PanelWidget(const URAL::CPU &ural) :
 _ural(ural)
 {
 	widget.setupUi(this);
+	widget.controlRegisterPanel->setValue(URAL::Word_t());
 }
 
 PanelWidget::~PanelWidget()

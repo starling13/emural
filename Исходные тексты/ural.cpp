@@ -241,9 +241,10 @@ URAL::Adder::operator=(const Adder &other)
 }
 
 URAL::CPU::CPU() :
-controlRegisterAddress(0),
 PC(0u),
-S(AdderWord(0ll))
+S(AdderWord(0ll)),
+controlRegisterAddress(0),
+_state(OFF)
 {
 	std::memset(this->commands, 0, sizeof (this->commands));
 	this->commands[0] = &CPU::noop_00;
