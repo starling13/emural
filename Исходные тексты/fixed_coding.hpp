@@ -70,7 +70,7 @@ private :
 	base	_magnitude:bits;
 	base	_sign:1;
 
-static_assert ((sizeof (base) * 8) >= (bits+1), u8"Неверное число бит");
+static_assert ((sizeof (base) * 8) >= (bits+2), u8"Неверное число бит");
 };
 
 /**
@@ -119,7 +119,7 @@ private :
 	base	sign:2;
 	base	carry:1;
 	
-static_assert ((sizeof (base) * 8) >= (bits+3), u8"Неверное число бит");
+static_assert ((sizeof (base) * 8) >= (bits+4), u8"Неверное число бит");
 };
 
 };
@@ -222,6 +222,16 @@ FixedPointFraction<base, bits>::ModOnesComplement::operator +(const
 	res += other;
 	
 	return (res);
+}
+
+template <typename base, size_t bits>
+typename FixedPointFraction<base, bits>::ModOnesComplement&
+FixedPointFraction<base, bits>::ModOnesComplement::operator -=(const
+    ModOnesComplement &other)
+{
+	(*this) += -other;
+	
+	return (*this);
 }
 
 template <typename base, size_t bits>

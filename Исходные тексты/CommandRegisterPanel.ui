@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>479</width>
-    <height>55</height>
+    <height>58</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,16 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item>
@@ -115,6 +124,8 @@
      </property>
      <property name="font">
       <font>
+       <family>Sans Serif</family>
+       <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -227,8 +238,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -292,7 +305,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -323,7 +336,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -354,7 +367,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -385,7 +398,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -416,7 +429,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -460,7 +473,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -494,7 +507,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="indent">
         <number>0</number>
@@ -528,7 +541,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_on.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -559,7 +572,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -590,7 +603,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -621,7 +634,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -720,8 +733,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -827,8 +842,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -934,8 +951,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1041,8 +1060,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1148,8 +1169,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1255,8 +1278,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1362,8 +1387,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1469,8 +1496,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1576,8 +1605,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1683,8 +1714,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1735,7 +1768,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -1766,7 +1799,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -1865,8 +1898,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -1972,8 +2007,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -2011,7 +2048,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -2055,7 +2092,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -2154,8 +2191,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -2261,8 +2300,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -2300,7 +2341,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -2331,7 +2372,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -2365,7 +2406,7 @@
         <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="indent">
         <number>0</number>
@@ -2480,8 +2521,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">
@@ -2587,8 +2630,10 @@
        </property>
        <property name="font">
         <font>
-         <weight>75</weight>
-         <bold>true</bold>
+         <family>Sans Serif</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="text">

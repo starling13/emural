@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1029</width>
-    <height>430</height>
+    <height>400</height>
    </rect>
   </property>
   <property name="palette">
@@ -425,6 +425,12 @@
     </disabled>
    </palette>
   </property>
+  <property name="font">
+   <font>
+    <family>Sans Serif</family>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>PanelWidget</string>
   </property>
@@ -442,7 +448,7 @@
      <x>10</x>
      <y>10</y>
      <width>1011</width>
-     <height>411</height>
+     <height>381</height>
     </rect>
    </property>
    <property name="palette">
@@ -536,6 +542,13 @@
      </disabled>
     </palette>
    </property>
+   <property name="font">
+    <font>
+     <family>Sans Serif</family>
+     <pointsize>8</pointsize>
+     <stylestrategy>PreferAntialias</stylestrategy>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
@@ -549,9 +562,9 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>160</y>
+      <y>140</y>
       <width>951</width>
-      <height>61</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -567,7 +580,7 @@
       <x>20</x>
       <y>20</y>
       <width>971</width>
-      <height>61</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -577,11 +590,11 @@
      </size>
     </property>
    </widget>
-   <widget class="QwtAnalogClock" name="AnalogClock">
+   <widget class="QwtAnalogClock" name="AnalogClock" native="true">
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>300</y>
+      <y>270</y>
       <width>111</width>
       <height>101</height>
      </rect>
@@ -591,22 +604,22 @@
       <pointsize>8</pointsize>
      </font>
     </property>
-    <property name="value">
+    <property name="value" stdset="0">
      <double>1252.000000000000000</double>
     </property>
-    <property name="lineWidth">
+    <property name="lineWidth" stdset="0">
      <number>1</number>
     </property>
-    <property name="origin">
+    <property name="origin" stdset="0">
      <double>270.000000000000000</double>
     </property>
    </widget>
    <widget class="PCWidget" name="programCounterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>230</y>
-      <width>351</width>
+      <x>110</x>
+      <y>200</y>
+      <width>341</width>
       <height>61</height>
      </rect>
     </property>
@@ -621,9 +634,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>90</y>
+      <y>80</y>
       <width>971</width>
-      <height>61</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -636,9 +649,9 @@
    <widget class="CommandRegisterPanel" name="commandRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>230</y>
-      <width>451</width>
+      <x>530</x>
+      <y>200</y>
+      <width>461</width>
       <height>61</height>
      </rect>
     </property>
@@ -652,11 +665,6 @@
   </widget>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>QwtAnalogClock</class>
-   <extends>QwtDial</extends>
-   <header>qwt_analog_clock.h</header>
-  </customwidget>
   <customwidget>
    <class>QwtDial</class>
    <extends>QWidget</extends>
@@ -691,6 +699,11 @@
    <extends>QWidget</extends>
    <header location="global">controlregisterpanel.hpp</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QwtAnalogClock</class>
+   <extends>QwtDial</extends>
+   <header>qwt_analog_clock.h</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -118,11 +118,11 @@ void DrumWidget::updateView()
 		this->widget.drumView->setVerticalHeaderItem(i, item);
 
 		item = new QTableWidgetItem(QString::number(
-		    _drum[wordIndex][2].data, int(this->_format)));
+		    _drum[wordIndex][1].data, int(this->_format)));
 		this->widget.drumView->setItem(i, 0, item);
 		
 		item = new QTableWidgetItem(QString::number(
-		    _drum[wordIndex][1].data, int(this->_format)));
+		    _drum[wordIndex][2].data, int(this->_format)));
 		this->widget.drumView->setItem(i, 1, item);
 	}
 	

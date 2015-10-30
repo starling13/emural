@@ -19,7 +19,10 @@
 
 #include "PultWIdget.hpp"
 
+#define TACT_SKIP 0
+
 PultWIdget::PultWIdget(URAL::CPU &ural) :
+_tactSkip(TACT_SKIP),
 _ural(ural)
 {
 	widget.setupUi(this);
@@ -56,5 +59,10 @@ void PultWIdget::on_stopButton_clicked()
 void PultWIdget::timerSignaled()
 {
 	_ural.tact();
-	emit tactFinished();
+	if (_tactSkip > 0)
+		--_tactSkip;
+	else {
+		_tactSkip = TACT_SKIP;
+		emit tactFinished();
+	}
 }

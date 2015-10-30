@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1111</width>
-    <height>423</height>
+    <height>424</height>
    </rect>
   </property>
   <property name="palette">
@@ -193,7 +193,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_8">
       <item>
-       <widget class="QwtKnob" name="Knob_2">
+       <widget class="QwtKnob" name="Knob_2" native="true">
         <property name="palette">
          <palette>
           <active>
@@ -285,37 +285,31 @@
           </disabled>
          </palette>
         </property>
-        <property name="upperBound">
+        <property name="upperBound" stdset="0">
          <double>12.000000000000000</double>
         </property>
-        <property name="scaleMaxMajor">
+        <property name="scaleMaxMajor" stdset="0">
          <number>12</number>
         </property>
-        <property name="scaleMaxMinor">
+        <property name="scaleMaxMinor" stdset="0">
          <number>1</number>
         </property>
-        <property name="totalSteps">
+        <property name="totalSteps" stdset="0">
          <UInt>12</UInt>
         </property>
-        <property name="pageSteps">
+        <property name="pageSteps" stdset="0">
          <UInt>2</UInt>
         </property>
-        <property name="knobStyle">
-         <enum>QwtKnob::Styled</enum>
-        </property>
-        <property name="totalAngle">
+        <property name="totalAngle" stdset="0">
          <double>340.000000000000000</double>
         </property>
-        <property name="markerStyle">
-         <enum>QwtKnob::Tick</enum>
-        </property>
-        <property name="borderWidth">
+        <property name="borderWidth" stdset="0">
          <number>0</number>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QwtKnob" name="Knob">
+       <widget class="QwtKnob" name="Knob" native="true">
         <property name="palette">
          <palette>
           <active>
@@ -407,31 +401,25 @@
           </disabled>
          </palette>
         </property>
-        <property name="upperBound">
+        <property name="upperBound" stdset="0">
          <double>12.000000000000000</double>
         </property>
-        <property name="scaleMaxMajor">
+        <property name="scaleMaxMajor" stdset="0">
          <number>12</number>
         </property>
-        <property name="scaleMaxMinor">
+        <property name="scaleMaxMinor" stdset="0">
          <number>1</number>
         </property>
-        <property name="totalSteps">
+        <property name="totalSteps" stdset="0">
          <UInt>12</UInt>
         </property>
-        <property name="invertedControls">
+        <property name="invertedControls" stdset="0">
          <bool>false</bool>
         </property>
-        <property name="knobStyle">
-         <enum>QwtKnob::Styled</enum>
-        </property>
-        <property name="totalAngle">
+        <property name="totalAngle" stdset="0">
          <double>340.000000000000000</double>
         </property>
-        <property name="markerStyle">
-         <enum>QwtKnob::Tick</enum>
-        </property>
-        <property name="borderWidth">
+        <property name="borderWidth" stdset="0">
          <number>1</number>
         </property>
        </widget>
@@ -11295,15 +11283,15 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="masterGroup"/>
-  <buttongroup name="reg11group"/>
   <buttongroup name="addr5group"/>
+  <buttongroup name="addr1group"/>
+  <buttongroup name="masterGroup"/>
   <buttongroup name="addr4group"/>
   <buttongroup name="anodeGroup"/>
-  <buttongroup name="addr3group"/>
-  <buttongroup name="addr2group"/>
-  <buttongroup name="addr1group"/>
   <buttongroup name="shiftGroup"/>
   <buttongroup name="reg12group"/>
+  <buttongroup name="addr3group"/>
+  <buttongroup name="reg11group"/>
+  <buttongroup name="addr2group"/>
  </buttongroups>
 </ui>

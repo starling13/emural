@@ -32,6 +32,7 @@ public:
 	
 	typedef	FixedPointFraction<uint64_t, 35>::ModOnesComplement
 		AdderWord;
+	
 	typedef	FixedPointFraction<uint64_t, 35>::SignedMagnitude
 		DrumWord;
 	
@@ -189,7 +190,7 @@ public:
 	
 	friend std::ostream &operator <<(std::ostream&, const Word_t&);
 	
-	union Adder
+	union PACKED Adder
 	{
 	public:
 		
@@ -247,14 +248,24 @@ public:
 		
 		bool doNextCommand();
 		
+		void loadReg();
+		
 		void noop_00();
 		
 		void sum1_01();
 		
 		void sum2_02();
 		
+		void sub_03();
+		
+		void loadR_17();
+		
 		void jmp_22();
 		
+		/**
+		 * Массив указателей на функции-члены операций.
+		 * Индекс операции в массиве равен её коду
+		 */
 		void (CPU::*commands[32])();
 		
 		uint8_t		_currentCommandCounter;
@@ -265,6 +276,9 @@ public:
 		
 		// Напряжения питания (В)
 		float		_supplyVoltage[2];
+		
+		// входной регистр
+		Word_t		_reg;
 	};
 };
 

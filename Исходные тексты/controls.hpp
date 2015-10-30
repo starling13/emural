@@ -76,7 +76,9 @@ public:
 protected:
 	
 	void paintEvent(QPaintEvent*) override;
-	
+
+	bool hitButton(const QPoint&) const override;
+
 private:
 	
 	QRadialGradient	_gradient;

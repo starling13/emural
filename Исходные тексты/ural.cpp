@@ -40,9 +40,9 @@ URAL::Word::operator[](uint8_t index) const
 	URAL::HalfWord	result;
 	
 	if (index == 1)
-		result.data = this->halfWords.least;
-	else
 		result.data = this->halfWords.most;
+	else
+		result.data = this->halfWords.least;
 	
 	return (result);
 }
@@ -149,9 +149,11 @@ _state(OFF)
 	std::srand(std::time(NULL));
 	
 	std::memset(this->commands, 0, sizeof (this->commands));
-	this->commands[0] = &CPU::noop_00;
-	this->commands[1] = &CPU::sum1_01;
-	this->commands[2] = &CPU::sum2_02;
+	this->commands[000] = &CPU::noop_00;
+	this->commands[001] = &CPU::sum1_01;
+	this->commands[002] = &CPU::sum2_02;
+	this->commands[003] = &CPU::sub_03;
+	this->commands[017] = &CPU::loadR_17;
 	this->commands[022] = &CPU::jmp_22;
 	
 	S.value = std::rand();
@@ -214,11 +216,11 @@ URAL::CPU::tact()
 	div_t	pc;
 	
 	assert(this->PC < drumHalfWordsNumber);
-	std::cout << u8"----------ТАКТ----------\n";
+//	std::cout << u8"----------ТАКТ----------\n";
 	pc = std::div(this->PC, 2);
 	this->commandReg = drum[pc.quot][pc.rem+1];
-	std::cout << u8"Счётчик команд: " << this->PC <<
-	    '\n' << this->commandReg << std::endl;
+//	std::cout << u8"Счётчик команд: " << this->PC <<
+//	    '\n' << this->commandReg << std::endl;
 	if (this->commands[this->commandReg.command.opCode]) {
 		(this->*(this->commands[this->commandReg.command.opCode]))();
 	} else {
@@ -235,35 +237,74 @@ URAL::CPU::doNextCommand()
 }
 
 void
-URAL::CPU::noop_00()
+URAL::CPU::loadReg()
 {
-	std::cout << u8"Пустая операция" << std::endl;
-	++this->PC;
+	Word_t	value;
+	
+	value = drum[commandReg.command.address >> 1];
+	// Если используется полная ячейка
+	if (commandReg.command.addrLength)
+		this->_reg = value;
+	// Если используется половинная
+	else
+		this->_reg.halfWords.most =
+		    value[commandReg.command.address % 2 + 1].data,
+		this->_reg.halfWords.least = 0;
 }
 
 void
+URAL::CPU::noop_00()
+{
+//	std::cout << u8"Пустая операция" << std::endl;
+	++this->PC;
+}
+
+/**
+ * К значению сумматора добавляется значение ячейки a.
+ * Значение сохраняется в сумматоре, значение прибавляемого регистра не
+ * меняется.
+ */
+void
 URAL::CPU::sum1_01()
 {
-	std::cout << u8"Сложение 1" << std::endl;
-	
-	this->S.value += drum[commandReg.command.address >> 1].dPrec;
+	loadReg();
+	this->S.value += this->_reg.dPrec;
+	this->R = this->_reg;
 	++this->PC;
 }
 
 void
 URAL::CPU::sum2_02()
 {
-	std::cout << u8"Сложение 2" << std::endl;
+//	std::cout << u8"Сложение 2" << std::endl;
 	
-	this->S.value = drum[commandReg.command.address >> 1].dPrec;
+	loadReg();
+	this->S.value = this->_reg.dPrec;
+	this->R = this->_reg;
+	++this->PC;
+}
+
+void
+URAL::CPU::sub_03()
+{
+	loadReg();
+	this->S.value -= this->_reg.dPrec;
+	this->R = this->_reg;
+	++this->PC;
+}
+
+void
+URAL::CPU::loadR_17()
+{
+	loadReg();
+	this->R = this->_reg;
 	++this->PC;
 }
 
 void
 URAL::CPU::jmp_22()
 {
-	std::cout << u8"Безусловный переход" << std::endl;
-	
-	this->PC = drum[commandReg.command.address >> 1].dPrec.magnitude() &
+	loadReg();
+	this->PC = this->_reg.dPrec.magnitude() &
 	    (addressLengthBit-1);
 }

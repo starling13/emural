@@ -39,6 +39,11 @@ void BlackButton::paintEvent(QPaintEvent *event)
 	_painter.end();
 }
 
+bool BlackButton::hitButton(const QPoint&) const
+{
+	return (true);
+}
+
 void AbstractSwitch::mousePressEvent(QMouseEvent *event)
 {
 	if (event->buttons() & Qt::LeftButton)
@@ -104,7 +109,7 @@ void BlackPushButton::paintEvent(QPaintEvent *event)
 	_painter.end();
 }
 
-bool BlackPushButton::hitButton(const QPoint& pos) const
+bool BlackPushButton::hitButton(const QPoint&) const
 {
 	return (true);
 }

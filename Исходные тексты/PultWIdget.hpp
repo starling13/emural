@@ -55,6 +55,8 @@ private slots:
 	
 private:
 	
+	uint8_t _tactSkip;
+	
 	Ui::PultWIdget widget;
 	
 	URAL::CPU	&_ural;
