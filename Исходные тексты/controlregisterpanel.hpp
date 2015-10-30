@@ -21,29 +21,109 @@
 #define	_CONTROLREGISTERPANEL_HPP
 
 #include "ui_ControlRegisterPanel.h"
+#include "ui_AdderRegisterPanel.h"
+#include "ui_PCWIdget.h"
+#include "ui_ArithmUnitRegisterPanel.h"
 
 #include "ural.hpp"
 
-class ControlRegisterPanel : public QWidget
+/**
+ * Панель индикаторных тиратронов одного регистра
+ */
+class LampPanel : public QWidget
+{
+	Q_OBJECT
+	    
+public:
+	
+	LampPanel(QWidget *parent = 0);
+	
+	virtual ~LampPanel() = default;
+	
+	void setValue(uint64_t);
+	
+protected:
+
+	/**
+	 * Масив изображений отключенного и включенного тиратрона
+	 */
+	static const QPixmap	*_lampPixmaps[2];
+	/**
+	 * Массив индикаторных тиратронов одного регистра
+	 */
+	QVector<QLabel*>	 _lamps;
+};
+
+/**
+ * Панель тиратронов контрольного регистра
+ */
+class ControlRegisterPanel : public LampPanel
 {
 	Q_OBJECT
 	
 public:
+	
 	ControlRegisterPanel(QWidget *parent = 0);
 	
 	~ControlRegisterPanel();
 	
-	void setValue(URAL::Word_t);
-	
 private:
 	
 	Ui::ControlRegisterPanel widget;
+};
+
+/**
+ * Панель тиратронов контрольного регистра
+ */
+class AdderRegisterPanel : public LampPanel
+{
+	Q_OBJECT
 	
-	URAL::Word_t	_value;
+public:
 	
-	QPixmap		*_lampPixmaps[2];
+	AdderRegisterPanel(QWidget *parent = 0);
 	
-	QVector<QLabel*>	_lamps;
+	~AdderRegisterPanel();
+	
+private:
+	
+	Ui::AdderRegisterPanel widget;
+};
+
+/**
+ * Панель тиратронов счётчика команд
+ */
+class PCWidget : public LampPanel
+{
+	Q_OBJECT
+	
+public:
+	
+	PCWidget(QWidget *parent = 0);
+	
+	~PCWidget();
+	
+private:
+	
+	Ui::PCWIdget widget;
+};
+
+/**
+ * Панель тиратронов регистра арифметического устройства
+ */
+class ArithmUnitRegisterPanel : public LampPanel
+{
+	Q_OBJECT
+	
+public:
+	
+	ArithmUnitRegisterPanel(QWidget *parent = 0);
+	
+	~ArithmUnitRegisterPanel();
+	
+private:
+	
+	Ui::ArithmUnitRegisterPanel widget;
 };
 
 #endif	/* _CONTROLREGISTERPANEL_HPP */

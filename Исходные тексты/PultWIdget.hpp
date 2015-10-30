@@ -28,11 +28,23 @@
 class PultWIdget : public QWidget
 {
 	Q_OBJECT
+	
+signals:
+
+	void tactFinished();
+	
 public:
 	
 	PultWIdget(URAL::CPU&);
 	
 	~PultWIdget();
+	
+private slots:
+	
+	void on_singleStepButton_clicked();
+	
+	void on_resetButton_clicked();
+	
 private:
 	
 	Ui::PultWIdget widget;

@@ -28,3 +28,14 @@ _ural(ural)
 PultWIdget::~PultWIdget()
 {
 }
+
+void PultWIdget::on_singleStepButton_clicked()
+{
+	_ural.tact();
+	emit tactFinished();
+}
+
+void PultWIdget::on_resetButton_clicked()
+{
+	emit tactFinished();
+}

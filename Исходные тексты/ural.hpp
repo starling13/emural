@@ -32,61 +32,8 @@ public:
 	
 	typedef	FixedPointFraction<uint64_t, 35>::ModOnesComplement
 		AdderWord;
-	
-	class PACKED SignedMagnitudeDouble
-	{
-	public:
-		
-		SignedMagnitudeDouble() :
-		magnitude(0ll),
-		sign(0)
-		{
-		}
-		
-		SignedMagnitudeDouble(int64_t val)
-		{
-			magnitude = std::abs(val);
-			if (val < 0)
-				sign = 1;
-			else
-				sign = 0;
-		}
-		
-		uint64_t	magnitude:35;
-		uint64_t	sign:1;
-	};
-	
-	class PACKED ModOnesComplementDouble
-	{
-		friend std::ostream& operator <<(std::ostream&,
-		    const ModOnesComplementDouble&);
-	public:
-		
-		ModOnesComplementDouble()
-		{
-			magnitude = 0ull;
-			sign = 0ull;
-			carry = 0ull;
-		}
-		
-		ModOnesComplementDouble(SignedMagnitudeDouble);
-		
-		double floatingPointValue() const;
-		
-		ModOnesComplementDouble &operator =(int64_t);
-		
-		ModOnesComplementDouble operator -() const;
-		
-		ModOnesComplementDouble &operator +=(const ModOnesComplementDouble&);
-		
-		ModOnesComplementDouble operator +(const ModOnesComplementDouble&) const;
-		
-		ModOnesComplementDouble &operator -=(const ModOnesComplementDouble&);
-		
-		uint64_t	magnitude:35;
-		uint64_t	sign:2;
-		uint64_t	carry:1;
-	};
+	typedef	FixedPointFraction<uint64_t, 35>::SignedMagnitude
+		DrumWord;
 	
 	typedef union PACKED HalfWord
 	{
@@ -168,8 +115,7 @@ public:
 			uint64_t	most:18;
 		} halfWords;
 		
-		FixedPointFraction<uint64_t, 35>::SignedMagnitude
-					dPrec;
+		DrumWord		dPrec;
 		
 		struct
 		{

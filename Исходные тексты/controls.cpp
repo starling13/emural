@@ -163,8 +163,6 @@ QRadioButton(parent)
 
 void DigitButton::paintEvent(QPaintEvent*)
 {
-	uint border = this->width() / 6;
-	
 	_painter.begin(this);
 	
 	QFontMetrics met(this->font());
@@ -184,7 +182,7 @@ void DigitButton::paintEvent(QPaintEvent*)
 	_painter.end();
 }
 
-bool DigitButton::hitButton(const QPoint& pos) const
+bool DigitButton::hitButton(const QPoint&) const
 {
 	return (true);
 }

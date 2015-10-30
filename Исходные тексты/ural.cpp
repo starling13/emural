@@ -18,113 +18,14 @@
  */
 #include "ural.hpp"
 
+#include <cstdlib>
 #include <cassert>
 #include <cstring>
+#include <ctime>
 
 #include <iostream>
 #include <bitset>
 #include <stdexcept>
-
-std::ostream& operator <<(std::ostream& stream,
-    const URAL::ModOnesComplementDouble &number)
-{
-	stream << u8"Обратный модифицированный код, фиксированная точка: " <<
-	    number.floatingPointValue() << u8"\n\tпереполнение " << number.carry
-	    << ", знак " << std::bitset<2>(number.sign) << u8" модуль " <<
-	    std::bitset<35>(number.magnitude);
-	
-	return (stream);
-}
-
-URAL::ModOnesComplementDouble::ModOnesComplementDouble(
-    SignedMagnitudeDouble signedMagnitude)
-{
-	if (!signedMagnitude.sign) {
-		this->magnitude = signedMagnitude.magnitude;
-		this->sign = 0;
-	} else {
-		this->magnitude = ~signedMagnitude.magnitude;
-		this->sign = 3;
-	}
-	this->carry = 0ull;
-}
-
-double
-URAL::ModOnesComplementDouble::floatingPointValue() const
-{
-	double res;
-	
-	if (this->sign == 0) {
-		res = this->magnitude;
-		res /= (1ull << 35ull);
-	} else if (this->sign == 3) {
-		res = -double (~this->magnitude);
-		res /= (1ull << 35ull);
-	} else {
-		res = NAN;
-	}
-	
-	return (res);
-}
-
-URAL::ModOnesComplementDouble&
-URAL::ModOnesComplementDouble::operator=(int64_t val)
-{
-	SignedMagnitudeDouble buf(val);
-	
-	(*this) = buf;
-	
-	return (*this);
-}
-
-URAL::ModOnesComplementDouble
-URAL::ModOnesComplementDouble::operator-() const
-{
-	ModOnesComplementDouble result;
-	
-	if (this->sign == 0)
-		result.sign = 3;
-	else if (this->sign == 3)
-		result.sign = 0;
-	else
-		throw std::overflow_error(u8"Недопустимый знак");
-	
-	result.magnitude = ~this->magnitude;
-	result.carry = 0;
-	
-	return (result);
-}
-
-URAL::ModOnesComplementDouble&
-URAL::ModOnesComplementDouble::operator+=(const ModOnesComplementDouble &other)
-{
-	reinterpret_cast<uint64_t&>(*this) += reinterpret_cast<const uint64_t&>(
-	    other);
-	if (this->carry) {
-		reinterpret_cast<uint64_t&>(*this) += 1;
-		this->carry = 0;
-	}
-	
-	return (*this);
-}
-
-URAL::ModOnesComplementDouble
-URAL::ModOnesComplementDouble::operator+(const URAL::ModOnesComplementDouble &other) const
-{
-	ModOnesComplementDouble result(*this);
-	
-	result += other;
-	
-	return (result);
-}
-
-URAL::ModOnesComplementDouble&
-URAL::ModOnesComplementDouble::operator-=(const ModOnesComplementDouble &other)
-{
-	*this += -other;
-	
-	return (*this);
-}
 
 URAL::Word::Word(int64_t value) :
 dPrec(value)
@@ -241,15 +142,20 @@ URAL::Adder::operator=(const Adder &other)
 }
 
 URAL::CPU::CPU() :
-PC(0u),
-S(AdderWord(0ll)),
+S(AdderWord(0)),
 controlRegisterAddress(0),
 _state(OFF)
 {
+	std::srand(std::time(NULL));
+	
 	std::memset(this->commands, 0, sizeof (this->commands));
 	this->commands[0] = &CPU::noop_00;
 	this->commands[1] = &CPU::sum1_01;
 	this->commands[2] = &CPU::sum2_02;
+	
+	S.value = std::rand();
+	R.dPrec = std::rand();
+	PC = std::rand() & (drumHalfWordsNumber-1);
 }
 
 void
@@ -295,6 +201,8 @@ URAL::CPU::setSupplyVoltage(uint8_t index, float value)
 void
 URAL::CPU::tact()
 {
+	assert(this->PC < drumHalfWordsNumber);
+	
 	std::cout << u8"----------ТАКТ----------\n";
 	
 	div_t pc = std::div(this->PC, 2);

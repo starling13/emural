@@ -19,7 +19,7 @@ CCC=g++
 CXX=g++
 FC=gfortran
 AS=as
-QMAKE=qmake-qt4
+QMAKE=qmake
 
 # Macros
 CND_PLATFORM=GNU-Linux-x86
@@ -62,7 +62,7 @@ FORCE:
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS} nbproject/qt-${CND_CONF}.mk
-	"${MAKE}" -f nbproject/qt-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/Урал-1
+	"${MAKE}" -f nbproject/qt-${CND_CONF}.mk .//Урал-1
 
 ${CND_BUILDDIR}/Debug/%.o: nbproject/qt-${CND_CONF}.mk
 	${MAKE} -f nbproject/qt-${CND_CONF}.mk "$@"

@@ -4,6 +4,8 @@
     <logicalFolder name="Исходные тексты"
                    displayName="Исходные тексты"
                    projectFiles="true">
+      <itemPath>Исходные тексты/AdderRegisterPanel.ui</itemPath>
+      <itemPath>Исходные тексты/ArithmUnitRegisterPanel.ui</itemPath>
       <itemPath>Исходные тексты/AuxControlsWidget.cpp</itemPath>
       <itemPath>Исходные тексты/AuxControlsWidget.hpp</itemPath>
       <itemPath>Исходные тексты/AuxControlsWidget.ui</itemPath>
@@ -11,6 +13,7 @@
       <itemPath>Исходные тексты/DrumWidget.cpp</itemPath>
       <itemPath>Исходные тексты/DrumWidget.hpp</itemPath>
       <itemPath>Исходные тексты/DrumWidget.ui</itemPath>
+      <itemPath>Исходные тексты/PCWIdget.ui</itemPath>
       <itemPath>Исходные тексты/PanelWidget.cpp</itemPath>
       <itemPath>Исходные тексты/PanelWidget.hpp</itemPath>
       <itemPath>Исходные тексты/PanelWidget.ui</itemPath>
@@ -54,7 +57,7 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <qt>
-        <destdir>${CND_DISTDIR}/${CND_CONF}</destdir>
+        <destdir>./</destdir>
         <target>Урал-1</target>
         <modules>core gui widgets</modules>
         <mocDir>Временные</mocDir>
@@ -84,6 +87,16 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="Исходные тексты/AdderRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/ArithmUnitRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/AuxControlsWidget.cpp"
             ex="false"
             tool="1"
@@ -109,6 +122,8 @@
       <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -184,6 +199,16 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
+      <item path="Исходные тексты/AdderRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/ArithmUnitRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/AuxControlsWidget.cpp"
             ex="false"
             tool="1"
@@ -209,6 +234,8 @@
       <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -287,10 +314,22 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="Исходные тексты/AdderRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/ArithmUnitRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/ControlRegisterPanel.ui"
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/controlregisterpanel.cpp"
             ex="false"

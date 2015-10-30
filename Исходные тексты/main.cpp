@@ -41,6 +41,11 @@ int main(int argc, char** argv)
 		PultWIdget	pultWidget(ural);
 		PanelWidget	panelWidget(ural);
 		AuxControlsWidget auxControlWidget(ural);
+		
+		QObject::connect(&auxControlWidget, SIGNAL(controlRegisterAddressChanged(size_t)),
+		    &panelWidget, SLOT(controlRegisterUpdated()));
+		QObject::connect(&pultWidget, SIGNAL(tactFinished()),
+		    &panelWidget, SLOT(updateRegisters()));
 	
 		drumWidget.show();
 		pultWidget.show();
