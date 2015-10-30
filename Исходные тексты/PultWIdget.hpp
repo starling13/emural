@@ -22,6 +22,8 @@
 
 #include "ui_PultWIdget.h"
 
+#include <QTimer>
+
 #include "controls.hpp"
 #include "ural.hpp"
 
@@ -45,11 +47,19 @@ private slots:
 	
 	void on_resetButton_clicked();
 	
+	void on_startButton_clicked();
+	
+	void on_stopButton_clicked();
+	
+	void timerSignaled();
+	
 private:
 	
 	Ui::PultWIdget widget;
 	
 	URAL::CPU	&_ural;
+	
+	QTimer		_timer;
 };
 
 #endif	/* _PULTWIDGET_HPP */

@@ -24,6 +24,7 @@
 #include "ui_AdderRegisterPanel.h"
 #include "ui_PCWIdget.h"
 #include "ui_ArithmUnitRegisterPanel.h"
+#include "ui_CommandRegisterPanel.h"
 
 #include "ural.hpp"
 
@@ -124,6 +125,24 @@ public:
 private:
 	
 	Ui::ArithmUnitRegisterPanel widget;
+};
+
+/**
+ * Панель тиратронов регистра команд
+ */
+class CommandRegisterPanel : public LampPanel
+{
+	Q_OBJECT
+	
+public:
+	
+	CommandRegisterPanel(QWidget *parent = 0);
+	
+	~CommandRegisterPanel();
+	
+private:
+	
+	Ui::CommandRegisterPanel widget;
 };
 
 #endif	/* _CONTROLREGISTERPANEL_HPP */

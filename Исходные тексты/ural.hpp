@@ -216,6 +216,8 @@ public:
 		
 		void clearDrum();
 		
+		void reset();
+		
 		const Word_t	&controlRegister() const;
 		void		 setControlRegisterAddress(size_t newVal);
 		
@@ -243,13 +245,19 @@ public:
 			ON
 		};
 		
+		bool doNextCommand();
+		
 		void noop_00();
 		
 		void sum1_01();
 		
 		void sum2_02();
 		
+		void jmp_22();
+		
 		void (CPU::*commands[32])();
+		
+		uint8_t		_currentCommandCounter;
 		
 		size_t		controlRegisterAddress;
 		

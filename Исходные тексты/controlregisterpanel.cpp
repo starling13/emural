@@ -207,3 +207,32 @@ LampPanel(parent)
 ArithmUnitRegisterPanel::~ArithmUnitRegisterPanel()
 {
 }
+
+CommandRegisterPanel::CommandRegisterPanel(QWidget *parent) :
+LampPanel(parent)
+{
+	widget.setupUi(this);
+	
+	_lamps.push_back(widget.lamp0);
+	_lamps.push_back(widget.lamp1);
+	_lamps.push_back(widget.lamp2);
+	_lamps.push_back(widget.lamp3);
+	_lamps.push_back(widget.lamp4);
+	_lamps.push_back(widget.lamp5);
+	_lamps.push_back(widget.lamp6);
+	_lamps.push_back(widget.lamp7);
+	_lamps.push_back(widget.lamp8);
+	_lamps.push_back(widget.lamp9);
+	_lamps.push_back(widget.lamp10);
+	_lamps.push_back(widget.lamp11);
+	_lamps.push_back(widget.lamp12);
+	_lamps.push_back(widget.lamp13);
+	_lamps.push_back(widget.lamp14);
+	_lamps.push_back(widget.lamp15);
+	_lamps.push_back(widget.lamp16);
+	_lamps.push_back(widget.lamp17);
+}
+
+CommandRegisterPanel::~CommandRegisterPanel()
+{
+}

@@ -152,10 +152,20 @@ _state(OFF)
 	this->commands[0] = &CPU::noop_00;
 	this->commands[1] = &CPU::sum1_01;
 	this->commands[2] = &CPU::sum2_02;
+	this->commands[022] = &CPU::jmp_22;
 	
 	S.value = std::rand();
 	R.dPrec = std::rand();
 	PC = std::rand() & (drumHalfWordsNumber-1);
+	commandReg.data = std::rand();
+}
+
+void URAL::CPU::reset()
+{
+	S.value = 0;
+	R.dPrec = 0;
+	PC = 0;
+	commandReg.data = 0;
 }
 
 void
@@ -201,26 +211,34 @@ URAL::CPU::setSupplyVoltage(uint8_t index, float value)
 void
 URAL::CPU::tact()
 {
+	div_t	pc;
+	
 	assert(this->PC < drumHalfWordsNumber);
-	
 	std::cout << u8"----------ТАКТ----------\n";
-	
-	div_t pc = std::div(this->PC, 2);
+	pc = std::div(this->PC, 2);
 	this->commandReg = drum[pc.quot][pc.rem+1];
 	std::cout << u8"Счётчик команд: " << this->PC <<
 	    '\n' << this->commandReg << std::endl;
-	if (this->commands[this->commandReg.command.opCode])
+	if (this->commands[this->commandReg.command.opCode]) {
 		(this->*(this->commands[this->commandReg.command.opCode]))();
-	else
+	} else {
 		std::cout << u8"Неизвестная операция: " << this->commandReg.
 		    command.opCode << std::endl;
-	++this->PC;
+		++this->PC;
+	}	
+}
+
+bool
+URAL::CPU::doNextCommand()
+{
+	return (true);
 }
 
 void
 URAL::CPU::noop_00()
 {
 	std::cout << u8"Пустая операция" << std::endl;
+	++this->PC;
 }
 
 void
@@ -228,7 +246,8 @@ URAL::CPU::sum1_01()
 {
 	std::cout << u8"Сложение 1" << std::endl;
 	
-	this->S.value += drum[commandReg.command.address].dPrec;
+	this->S.value += drum[commandReg.command.address >> 1].dPrec;
+	++this->PC;
 }
 
 void
@@ -236,6 +255,15 @@ URAL::CPU::sum2_02()
 {
 	std::cout << u8"Сложение 2" << std::endl;
 	
-	this->S = AdderWord(0ll);
-	this->S.value += drum[commandReg.command.address].dPrec;
+	this->S.value = drum[commandReg.command.address >> 1].dPrec;
+	++this->PC;
+}
+
+void
+URAL::CPU::jmp_22()
+{
+	std::cout << u8"Безусловный переход" << std::endl;
+	
+	this->PC = drum[commandReg.command.address >> 1].dPrec.magnitude() &
+	    (addressLengthBit-1);
 }

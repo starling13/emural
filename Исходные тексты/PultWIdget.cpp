@@ -23,6 +23,8 @@ PultWIdget::PultWIdget(URAL::CPU &ural) :
 _ural(ural)
 {
 	widget.setupUi(this);
+	
+	QObject::connect(&_timer, SIGNAL(timeout()), this, SLOT(timerSignaled()));
 }
 
 PultWIdget::~PultWIdget()
@@ -37,5 +39,22 @@ void PultWIdget::on_singleStepButton_clicked()
 
 void PultWIdget::on_resetButton_clicked()
 {
+	_ural.reset();
+	emit tactFinished();
+}
+
+void PultWIdget::on_startButton_clicked()
+{
+	_timer.start(10);
+}
+
+void PultWIdget::on_stopButton_clicked()
+{
+	_timer.stop();
+}
+
+void PultWIdget::timerSignaled()
+{
+	_ural.tact();
 	emit tactFinished();
 }

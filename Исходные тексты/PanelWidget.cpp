@@ -42,4 +42,5 @@ void PanelWidget::updateRegisters()
 	this->widget.adderRegisterPanel->setValue(_ural.S.data);
 	this->widget.programCounterPanel->setValue(_ural.PC);
 	this->widget.arithmUnitRegisterPanel->setValue(_ural.R.data);
+	this->widget.commandRegisterPanel->setValue(_ural.commandReg.data);
 }

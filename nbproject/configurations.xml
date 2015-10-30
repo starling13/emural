@@ -9,6 +9,7 @@
       <itemPath>Исходные тексты/AuxControlsWidget.cpp</itemPath>
       <itemPath>Исходные тексты/AuxControlsWidget.hpp</itemPath>
       <itemPath>Исходные тексты/AuxControlsWidget.ui</itemPath>
+      <itemPath>Исходные тексты/CommandRegisterPanel.ui</itemPath>
       <itemPath>Исходные тексты/ControlRegisterPanel.ui</itemPath>
       <itemPath>Исходные тексты/DrumWidget.cpp</itemPath>
       <itemPath>Исходные тексты/DrumWidget.hpp</itemPath>
@@ -108,6 +109,11 @@
             flavor2="0">
       </item>
       <item path="Исходные тексты/AuxControlsWidget.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/CommandRegisterPanel.ui"
             ex="false"
             tool="3"
             flavor2="0">
@@ -224,6 +230,11 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="Исходные тексты/CommandRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/ControlRegisterPanel.ui"
             ex="false"
             tool="3"
@@ -320,6 +331,11 @@
             flavor2="0">
       </item>
       <item path="Исходные тексты/ArithmUnitRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/CommandRegisterPanel.ui"
             ex="false"
             tool="3"
             flavor2="0">
