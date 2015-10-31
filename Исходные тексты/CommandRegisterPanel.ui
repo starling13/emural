@@ -17,16 +17,7 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
+   <property name="margin">
     <number>0</number>
    </property>
    <item>
@@ -131,7 +122,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Р   Е  Г  И  С  Р      К  О  М  А  Н  Д</string>
+      <string>Р   Е  Г  И  С  Т  Р      К  О  М  А  Н  Д</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

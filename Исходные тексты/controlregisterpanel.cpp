@@ -236,3 +236,19 @@ LampPanel(parent)
 CommandRegisterPanel::~CommandRegisterPanel()
 {
 }
+
+CommandDecoderWidget::CommandDecoderWidget(QWidget *parent) :
+LampPanel(parent)
+{
+	widget.setupUi(this);
+	
+	_lamps.push_back(widget.lamp0);
+	_lamps.push_back(widget.lamp1);
+	_lamps.push_back(widget.lamp2);
+	_lamps.push_back(widget.lamp3);
+	_lamps.push_back(widget.lamp4);
+}
+
+CommandDecoderWidget::~CommandDecoderWidget()
+{
+}

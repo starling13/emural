@@ -57,7 +57,7 @@ public:
 			uint64_t	t3:3;
 			uint64_t	t4:3;
 			uint64_t	t5:3;
-			uint64_t	t6:2;
+			uint64_t	t6:3;
 		} triplets;
 		
 		struct
@@ -213,7 +213,24 @@ public:
 		
 		CPU();
 		
+		uint16_t	regSCHK() const
+		{
+			return (_reg_SCHK);
+		}
+		
+		void setRegSCHK(uint16_t newVal)
+		{
+			_reg_SCHK = newVal;
+		}
+		
+		uint16_t	regDSHK() const
+		{
+			return (_DSHK);
+		}
+		
 		void tact();
+		void execute();
+		void fetch();
 		
 		void clearDrum();
 		
@@ -226,9 +243,8 @@ public:
 		
 		Word_t		R;
 		Word_t		drum[drumWordsNumber];
-		HalfWord_t	commandReg;
+		HalfWord_t	_RGK;
 		
-		uint16_t	PC;
 		Adder		S;
 		
 	private:
@@ -267,6 +283,16 @@ public:
 		 * Индекс операции в массиве равен её коду
 		 */
 		void (CPU::*commands[32])();
+		
+		/**
+		 * Регистр СЧК
+		 */
+		uint16_t	_reg_SCHK:11;
+		
+		/**
+		 * ДШК
+		 */
+		uint16_t	_DSHK:5;
 		
 		uint8_t		_currentCommandCounter;
 		

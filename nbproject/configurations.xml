@@ -9,6 +9,7 @@
       <itemPath>Исходные тексты/AuxControlsWidget.cpp</itemPath>
       <itemPath>Исходные тексты/AuxControlsWidget.hpp</itemPath>
       <itemPath>Исходные тексты/AuxControlsWidget.ui</itemPath>
+      <itemPath>Исходные тексты/CommandDecoderWidget.ui</itemPath>
       <itemPath>Исходные тексты/CommandRegisterPanel.ui</itemPath>
       <itemPath>Исходные тексты/ControlRegisterPanel.ui</itemPath>
       <itemPath>Исходные тексты/DrumWidget.cpp</itemPath>
@@ -18,6 +19,9 @@
       <itemPath>Исходные тексты/PanelWidget.cpp</itemPath>
       <itemPath>Исходные тексты/PanelWidget.hpp</itemPath>
       <itemPath>Исходные тексты/PanelWidget.ui</itemPath>
+      <itemPath>Исходные тексты/PowerPultWidget.cpp</itemPath>
+      <itemPath>Исходные тексты/PowerPultWidget.h</itemPath>
+      <itemPath>Исходные тексты/PowerPultWidget.ui</itemPath>
       <itemPath>Исходные тексты/PultWIdget.cpp</itemPath>
       <itemPath>Исходные тексты/PultWIdget.hpp</itemPath>
       <itemPath>Исходные тексты/PultWIdget.ui</itemPath>
@@ -113,6 +117,11 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="Исходные тексты/CommandDecoderWidget.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/CommandRegisterPanel.ui"
             ex="false"
             tool="3"
@@ -136,6 +145,15 @@
       <item path="Исходные тексты/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/PanelWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PowerPultWidget.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -230,6 +248,11 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="Исходные тексты/CommandDecoderWidget.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/CommandRegisterPanel.ui"
             ex="false"
             tool="3"
@@ -253,6 +276,15 @@
       <item path="Исходные тексты/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/PanelWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PowerPultWidget.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -335,6 +367,11 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="Исходные тексты/CommandDecoderWidget.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/CommandRegisterPanel.ui"
             ex="false"
             tool="3"
@@ -346,6 +383,15 @@
             flavor2="0">
       </item>
       <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PowerPultWidget.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="Исходные тексты/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/controlregisterpanel.cpp"
             ex="false"

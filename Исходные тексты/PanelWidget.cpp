@@ -40,7 +40,8 @@ void PanelWidget::updateRegisters()
 {
 	this->widget.controlRegisterPanel->setValue(_ural.controlRegister().data);
 	this->widget.adderRegisterPanel->setValue(_ural.S.data);
-	this->widget.programCounterPanel->setValue(_ural.PC);
+	this->widget.programCounterPanel->setValue(_ural.regSCHK());
 	this->widget.arithmUnitRegisterPanel->setValue(_ural.R.data);
-	this->widget.commandRegisterPanel->setValue(_ural.commandReg.data);
+	this->widget.commandRegisterPanel->setValue(_ural._RGK.data);
+	this->widget.commandDecoderPanel->setValue(_ural.regDSHK());
 }

@@ -51,6 +51,22 @@ private slots:
 	
 	void on_stopButton_clicked();
 	
+	void on_commandResetButton_clicked();
+	
+	void on_commandSetButton_clicked();
+	
+	void on_addr1group_buttonClicked(int);
+	
+	void on_addr2group_buttonClicked(int);
+	
+	void on_addr3group_buttonClicked(int);
+	
+	void on_addr4group_buttonClicked(int);
+	
+	void on_addr5group_buttonClicked(int);
+	
+	void on_addr6group_buttonClicked(int);
+	
 	void timerSignaled();
 	
 private:
@@ -62,6 +78,10 @@ private:
 	URAL::CPU	&_ural;
 	
 	QTimer		_timer;
+	
+	URAL::HalfWord_t	_commandWord;
+	
+	QVector<QButtonGroup*>	_commandButtons;
 };
 
 #endif	/* _PULTWIDGET_HPP */

@@ -25,6 +25,7 @@
 #include "ui_PCWIdget.h"
 #include "ui_ArithmUnitRegisterPanel.h"
 #include "ui_CommandRegisterPanel.h"
+#include "ui_CommandDecoderWidget.h"
 
 #include "ural.hpp"
 
@@ -143,6 +144,21 @@ public:
 private:
 	
 	Ui::CommandRegisterPanel widget;
+};
+
+class CommandDecoderWidget : public LampPanel
+{
+	Q_OBJECT
+	
+public:
+	
+	CommandDecoderWidget(QWidget *parent = 0);
+	
+	~CommandDecoderWidget();
+	
+private:
+	
+	Ui::CommandDecoderWidget widget;
 };
 
 #endif	/* _CONTROLREGISTERPANEL_HPP */

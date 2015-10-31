@@ -617,9 +617,9 @@
    <widget class="PCWidget" name="programCounterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>160</x>
       <y>200</y>
-      <width>341</width>
+      <width>311</width>
       <height>61</height>
      </rect>
     </property>
@@ -652,6 +652,22 @@
       <x>530</x>
       <y>200</y>
       <width>461</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>40</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="CommandDecoderWidget" name="commandDecoderPanel" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>141</width>
       <height>61</height>
      </rect>
     </property>
@@ -704,6 +720,12 @@
    <class>QwtAnalogClock</class>
    <extends>QwtDial</extends>
    <header>qwt_analog_clock.h</header>
+  </customwidget>
+  <customwidget>
+   <class>CommandDecoderWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">controlregisterpanel.hpp</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

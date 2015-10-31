@@ -36,55 +36,55 @@ URAL::HalfWord
 URAL::Word::operator[](uint8_t index) const
 {
 	assert((index > 0) && (index < 3));
-	
-	URAL::HalfWord	result;
-	
+
+	URAL::HalfWord result;
+
 	if (index == 1)
 		result.data = this->halfWords.most;
 	else
 		result.data = this->halfWords.least;
-	
+
 	return (result);
 }
 
 std::ostream&
-operator <<(std::ostream &stream, const URAL::Word_t &word)
+operator<<(std::ostream &stream, const URAL::Word_t &word)
 {
 	char sign;
-	
+
 	stream << "Данные: " <<
 	    std::hex << word.data << '\n' <<
-		u8"Слово двойной точности: ";
+	    u8"Слово двойной точности: ";
 	if (word.dPrec.sign())
 		sign = '-';
 	else
 		sign = '+';
 	stream << sign << word.dPrec.magnitude() << '\n' <<
 	    u8"Восьмеричные триплеты: " << std::oct <<
-		sign <<
-		word.triplets.t12 << ' ' <<
-		word.triplets.t11 << ' ' <<
-		word.triplets.t10 << ' ' <<
-		word.triplets.t9 << ' ' <<
-		word.triplets.t8 << ' ' <<
-		word.triplets.t7 << ' ' <<
-		word.triplets.t6 << ' ' <<
-		word.triplets.t5 << ' ' <<
-		word.triplets.t4 << ' ' <<
-		word.triplets.t3 << ' ' <<
-		word.triplets.t2 << ' ' <<
-		word.triplets.t1 << '\n' <<
+	    sign <<
+	    word.triplets.t12 << ' ' <<
+	    word.triplets.t11 << ' ' <<
+	    word.triplets.t10 << ' ' <<
+	    word.triplets.t9 << ' ' <<
+	    word.triplets.t8 << ' ' <<
+	    word.triplets.t7 << ' ' <<
+	    word.triplets.t6 << ' ' <<
+	    word.triplets.t5 << ' ' <<
+	    word.triplets.t4 << ' ' <<
+	    word.triplets.t3 << ' ' <<
+	    word.triplets.t2 << ' ' <<
+	    word.triplets.t1 << '\n' <<
 	    u8"Десятичные квартеты: " << std::dec <<
-		sign <<
-		word.quartets.q8 << ' ' <<
-		word.quartets.q7 << ' ' <<
-		word.quartets.q6 << ' ' <<
-		word.quartets.q5 << ' ' <<
-		word.quartets.q4 << ' ' <<
-		word.quartets.q3 << ' ' <<
-		word.quartets.q2 << ' ' <<
-		(word.quartets.q1 << 1) << ' ' << '\n';
-	
+	    sign <<
+	    word.quartets.q8 << ' ' <<
+	    word.quartets.q7 << ' ' <<
+	    word.quartets.q6 << ' ' <<
+	    word.quartets.q5 << ' ' <<
+	    word.quartets.q4 << ' ' <<
+	    word.quartets.q3 << ' ' <<
+	    word.quartets.q2 << ' ' <<
+	    (word.quartets.q1 << 1) << ' ' << '\n';
+
 	return (stream);
 }
 
@@ -92,39 +92,38 @@ double
 URAL::HalfWord::floatingPointValue() const
 {
 	double res;
-	
-	res = double (this->value.module) *  (1.0 / double (1 << 17));
+
+	res = double (this->value.module) * (1.0 / double (1 << 17));
 	if (this->value.sign)
 		res = 0.0 - res;
-	
+
 	return (res);
 }
 
 std::ostream&
-operator <<(std::ostream &stream, const URAL::HalfWord_t &word)
+operator<<(std::ostream &stream, const URAL::HalfWord_t &word)
 {
 	char sign;
-	
+
 	stream << "Данные: " <<
 	    std::hex << word.data << '\n' <<
-		u8"Слово обычной точности: ";
+	    u8"Слово обычной точности: ";
 	if (word.value.sign)
 		sign = '-';
 	else
 		sign = '+';
 	stream << sign << word.value.module << '(' << word.floatingPointValue() << ')' << '\n' <<
 	    u8"Восьмеричные триплеты: " << std::oct <<
-		sign <<
-		word.triplets.t6 << ' ' <<
-		word.triplets.t5 << ' ' <<
-		word.triplets.t4 << ' ' <<
-		word.triplets.t3 << ' ' <<
-		word.triplets.t2 << ' ' <<
-		word.triplets.t1 << '\n' <<
+	    word.triplets.t6 << ' ' <<
+	    word.triplets.t5 << ' ' <<
+	    word.triplets.t4 << ' ' <<
+	    word.triplets.t3 << ' ' <<
+	    word.triplets.t2 << ' ' <<
+	    word.triplets.t1 << '\n' <<
 	    u8"Команда:\n" << u8"\tпризнак переадресации: " << word.command.indexFlag <<
-		u8" код операции: " << word.command.opCode << u8" признак длины ячейки: " <<
-		word.command.addrLength << u8" адрес: " << word.command.address;
-	
+	    u8" код операции: " << word.command.opCode << u8" признак длины ячейки: " <<
+	    word.command.addrLength << u8" адрес: " << word.command.address;
+
 	return (stream);
 }
 
@@ -134,20 +133,22 @@ value(val)
 }
 
 URAL::Adder&
-URAL::Adder::operator=(const Adder &other)
+    URAL::Adder::operator=(const Adder &other)
 {
 	this->data = other.data;
-	
+
 	return (*this);
 }
 
 URAL::CPU::CPU() :
 S(AdderWord(0)),
+_reg_SCHK(0),
+_DSHK(0),
 controlRegisterAddress(0),
 _state(OFF)
 {
 	std::srand(std::time(NULL));
-	
+
 	std::memset(this->commands, 0, sizeof (this->commands));
 	this->commands[000] = &CPU::noop_00;
 	this->commands[001] = &CPU::sum1_01;
@@ -155,19 +156,20 @@ _state(OFF)
 	this->commands[003] = &CPU::sub_03;
 	this->commands[017] = &CPU::loadR_17;
 	this->commands[022] = &CPU::jmp_22;
-	
+
 	S.value = std::rand();
 	R.dPrec = std::rand();
-	PC = std::rand() & (drumHalfWordsNumber-1);
-	commandReg.data = std::rand();
+	_reg_SCHK = std::rand() & (drumHalfWordsNumber - 1);
+	_RGK.data = std::rand();
 }
 
 void URAL::CPU::reset()
 {
 	S.value = 0;
 	R.dPrec = 0;
-	PC = 0;
-	commandReg.data = 0;
+	_reg_SCHK = 0;
+	_RGK.data = 0;
+	_DSHK = 0;
 }
 
 void
@@ -188,7 +190,7 @@ URAL::CPU::setControlRegisterAddress(size_t newVal)
 	if (newVal & addressLengthBit)
 		newVal = (newVal & ~addressLengthBit);
 	newVal >>= 1;
-	assert (newVal < drumWordsNumber);
+	assert(newVal < drumWordsNumber);
 
 	controlRegisterAddress = newVal;
 }
@@ -197,10 +199,10 @@ void
 URAL::CPU::setSupplyVoltage(uint8_t index, float value)
 {
 	float average;
-	
-	assert ((index == 1) || (index == 2));
-	
-	_supplyVoltage[index-1] = value;
+
+	assert((index == 1) || (index == 2));
+
+	_supplyVoltage[index - 1] = value;
 	average = (_supplyVoltage[0] + _supplyVoltage[1]) / 2.;
 	if (average < 110.)
 		_state = OFF;
@@ -213,21 +215,31 @@ URAL::CPU::setSupplyVoltage(uint8_t index, float value)
 void
 URAL::CPU::tact()
 {
-	div_t	pc;
-	
-	assert(this->PC < drumHalfWordsNumber);
-//	std::cout << u8"----------ТАКТ----------\n";
-	pc = std::div(this->PC, 2);
-	this->commandReg = drum[pc.quot][pc.rem+1];
-//	std::cout << u8"Счётчик команд: " << this->PC <<
-//	    '\n' << this->commandReg << std::endl;
-	if (this->commands[this->commandReg.command.opCode]) {
-		(this->*(this->commands[this->commandReg.command.opCode]))();
+	execute();
+	fetch();
+}
+
+void
+URAL::CPU::execute()
+{
+	this->_DSHK = this->_RGK.command.opCode;
+	if (this->commands[this->_DSHK]) {
+		(this->*(this->commands[this->_DSHK]))();
 	} else {
-		std::cout << u8"Неизвестная операция: " << this->commandReg.
+		std::cout << u8"Неизвестная операция: " << this->_RGK.
 		    command.opCode << std::endl;
-		++this->PC;
-	}	
+		++this->_reg_SCHK;
+	}
+}
+
+void
+URAL::CPU::fetch()
+{
+	div_t pc;
+
+	assert(this->_reg_SCHK < drumHalfWordsNumber);
+	pc = std::div(this->_reg_SCHK, 2);
+	this->_RGK = drum[pc.quot][pc.rem + 1];
 }
 
 bool
@@ -239,24 +251,22 @@ URAL::CPU::doNextCommand()
 void
 URAL::CPU::loadReg()
 {
-	Word_t	value;
-	
-	value = drum[commandReg.command.address >> 1];
+	Word_t value;
+
+	value = drum[_RGK.command.address >> 1];
 	// Если используется полная ячейка
-	if (commandReg.command.addrLength)
+	if (_RGK.command.addrLength)
 		this->_reg = value;
-	// Если используется половинная
+		// Если используется половинная
 	else
 		this->_reg.halfWords.most =
-		    value[commandReg.command.address % 2 + 1].data,
-		this->_reg.halfWords.least = 0;
+	    value[_RGK.command.address % 2 + 1].data,
+	    this->_reg.halfWords.least = 0;
 }
 
 void
 URAL::CPU::noop_00()
 {
-//	std::cout << u8"Пустая операция" << std::endl;
-	++this->PC;
 }
 
 /**
@@ -270,18 +280,18 @@ URAL::CPU::sum1_01()
 	loadReg();
 	this->S.value += this->_reg.dPrec;
 	this->R = this->_reg;
-	++this->PC;
+	++this->_reg_SCHK;
 }
 
 void
 URAL::CPU::sum2_02()
 {
-//	std::cout << u8"Сложение 2" << std::endl;
-	
+	//	std::cout << u8"Сложение 2" << std::endl;
+
 	loadReg();
 	this->S.value = this->_reg.dPrec;
 	this->R = this->_reg;
-	++this->PC;
+	++this->_reg_SCHK;
 }
 
 void
@@ -290,7 +300,7 @@ URAL::CPU::sub_03()
 	loadReg();
 	this->S.value -= this->_reg.dPrec;
 	this->R = this->_reg;
-	++this->PC;
+	++this->_reg_SCHK;
 }
 
 void
@@ -298,13 +308,13 @@ URAL::CPU::loadR_17()
 {
 	loadReg();
 	this->R = this->_reg;
-	++this->PC;
+	++this->_reg_SCHK;
 }
 
 void
 URAL::CPU::jmp_22()
 {
 	loadReg();
-	this->PC = this->_reg.dPrec.magnitude() &
-	    (addressLengthBit-1);
+	this->_reg_SCHK = this->_reg.dPrec.magnitude() &
+	    (addressLengthBit - 1);
 }
