@@ -20,7 +20,8 @@
 #include "AuxControlsWidget.hpp"
 
 AuxControlsWidget::AuxControlsWidget(URAL::CPU &ural) :
-_controlRegisterPosition(0ul),
+_controlRegisterPosition(0u),
+_addrStopRegister(0u),
 _ural(ural)
 {
 	widget.setupUi(this);
@@ -37,6 +38,19 @@ _ural(ural)
 	widget.controlRegisterGroup->setId(widget.cra10, 9);
 	widget.controlRegisterGroup->setId(widget.cra11, 10);
 	widget.controlRegisterGroup->setId(widget.cra12, 11);
+	
+	widget.addressBlockGroup->setId(widget.ab1, 0);
+	widget.addressBlockGroup->setId(widget.ab2, 1);
+	widget.addressBlockGroup->setId(widget.ab3, 2);
+	widget.addressBlockGroup->setId(widget.ab4, 3);
+	widget.addressBlockGroup->setId(widget.ab5, 4);
+	widget.addressBlockGroup->setId(widget.ab6, 5);
+	widget.addressBlockGroup->setId(widget.ab7, 6);
+	widget.addressBlockGroup->setId(widget.ab8, 7);
+	widget.addressBlockGroup->setId(widget.ab9, 8);
+	widget.addressBlockGroup->setId(widget.ab10, 9);
+	widget.addressBlockGroup->setId(widget.ab11, 10);
+	widget.addressBlockGroup->setId(widget.abUse, 11);
 }
 
 AuxControlsWidget::~AuxControlsWidget()
@@ -58,4 +72,20 @@ void AuxControlsWidget::on_controlRegisterGroup_buttonClicked(QAbstractButton
 	
 	_ural.setControlRegisterAddress(_controlRegisterPosition);
 	emit controlRegisterAddressChanged(_controlRegisterPosition);
+}
+
+void AuxControlsWidget::on_addressBlockGroup_buttonClicked(QAbstractButton
+    *button)
+{
+	QCheckBox *sw = qobject_cast<QCheckBox*>(button);
+	Q_CHECK_PTR(sw);
+	
+	if (sw->isChecked())
+		_addrStopRegister |=
+		    1<<widget.addressBlockGroup->id(button);
+	else
+		_addrStopRegister &=
+		    ~(1<<widget.addressBlockGroup->id(button));
+	
+	_ural.setAddressBlock(_addrStopRegister);
 }

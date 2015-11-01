@@ -42,11 +42,15 @@ private slots:
 	
 	void on_controlRegisterGroup_buttonClicked(QAbstractButton*);
 	
+	void on_addressBlockGroup_buttonClicked(QAbstractButton*);
+	
 private:
 	
 	Ui::AuxControlsWidget	 widget;
 	
-	size_t			 _controlRegisterPosition;
+	uint16_t		_controlRegisterPosition;
+	
+	uint16_t		_addrStopRegister;
 	
 	URAL::CPU		&_ural;
 };

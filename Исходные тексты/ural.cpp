@@ -145,7 +145,8 @@ S(AdderWord(0)),
 _reg_SCHK(0),
 _DSHK(0),
 controlRegisterAddress(0),
-_state(OFF)
+_powerState(OFF),
+_mode(READY)
 {
 	std::srand(std::time(NULL));
 
@@ -205,18 +206,24 @@ URAL::CPU::setSupplyVoltage(uint8_t index, float value)
 	_supplyVoltage[index - 1] = value;
 	average = (_supplyVoltage[0] + _supplyVoltage[1]) / 2.;
 	if (average < 110.)
-		_state = OFF;
+		_powerState = OFF;
 	else if (average < 220)
-		_state = FLOATING;
+		_powerState = FLOATING;
 	else
-		_state = ON;
+		_powerState = ON;
 }
 
-void
+bool
 URAL::CPU::tact()
 {
 	execute();
 	fetch();
+	if (_mode == READY)
+		return (true);
+	else {
+		_mode = READY;
+		return (false);
+	}
 }
 
 void
@@ -240,33 +247,32 @@ URAL::CPU::fetch()
 	assert(this->_reg_SCHK < drumHalfWordsNumber);
 	pc = std::div(this->_reg_SCHK, 2);
 	this->_RGK = drum[pc.quot][pc.rem + 1];
-}
-
-bool
-URAL::CPU::doNextCommand()
-{
-	return (true);
+	if (this->_addressStopReg.value._useBlock)
+		if (this->_addressStopReg.value._address ==
+		    this->_reg_SCHK)
+			this->_mode = STOP;
 }
 
 void
-URAL::CPU::loadReg()
+URAL::CPU::loadR()
 {
 	Word_t value;
 
 	value = drum[_RGK.command.address >> 1];
 	// Если используется полная ячейка
 	if (_RGK.command.addrLength)
-		this->_reg = value;
+		this->R = value;
 		// Если используется половинная
 	else
-		this->_reg.halfWords.most =
+		this->R.halfWords.most =
 	    value[_RGK.command.address % 2 + 1].data,
-	    this->_reg.halfWords.least = 0;
+	    this->R.halfWords.least = 0;
 }
 
 void
 URAL::CPU::noop_00()
 {
+	++this->_reg_SCHK;
 }
 
 /**
@@ -277,27 +283,23 @@ URAL::CPU::noop_00()
 void
 URAL::CPU::sum1_01()
 {
-	loadReg();
-	this->S.value += this->_reg.dPrec;
-	this->R = this->_reg;
+	loadR();
+	this->S.value += this->R.dPrec;
 	++this->_reg_SCHK;
 }
 
 void
 URAL::CPU::sum2_02()
 {
-	//	std::cout << u8"Сложение 2" << std::endl;
-
-	loadReg();
-	this->S.value = this->_reg.dPrec;
-	this->R = this->_reg;
+	loadR();
+	this->S.value = this->R.dPrec;
 	++this->_reg_SCHK;
 }
 
 void
 URAL::CPU::sub_03()
 {
-	loadReg();
+	loadR();
 	this->S.value -= this->_reg.dPrec;
 	this->R = this->_reg;
 	++this->_reg_SCHK;
@@ -306,7 +308,7 @@ URAL::CPU::sub_03()
 void
 URAL::CPU::loadR_17()
 {
-	loadReg();
+	loadR();
 	this->R = this->_reg;
 	++this->_reg_SCHK;
 }
@@ -314,7 +316,5 @@ URAL::CPU::loadR_17()
 void
 URAL::CPU::jmp_22()
 {
-	loadReg();
-	this->_reg_SCHK = this->_reg.dPrec.magnitude() &
-	    (addressLengthBit - 1);
+	this->_reg_SCHK = this->_RGK.command.address;
 }

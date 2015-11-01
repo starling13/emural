@@ -686,10 +686,10 @@
   <widget class="QLabel" name="label_26">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>20</y>
-     <width>211</width>
-     <height>111</height>
+     <x>320</x>
+     <y>10</y>
+     <width>221</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="text">
@@ -1661,7 +1661,7 @@
      </widget>
     </item>
     <item row="2" column="8">
-     <widget class="DigitButton" name="radioButton_130">
+     <widget class="DigitButton" name="reg12_5button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -2364,7 +2364,7 @@
      </widget>
     </item>
     <item row="3" column="8">
-     <widget class="DigitButton" name="radioButton_97">
+     <widget class="DigitButton" name="reg12_4button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -2734,7 +2734,7 @@
      </widget>
     </item>
     <item row="1" column="9">
-     <widget class="DigitButton" name="radioButton_27">
+     <widget class="DigitButton" name="reg11_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -3042,7 +3042,7 @@
      </widget>
     </item>
     <item row="3" column="9">
-     <widget class="DigitButton" name="radioButton_28">
+     <widget class="DigitButton" name="reg11_4button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -3297,7 +3297,7 @@
      </widget>
     </item>
     <item row="5" column="9">
-     <widget class="DigitButton" name="radioButton_30">
+     <widget class="DigitButton" name="reg11_2button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4105,7 +4105,7 @@
      </widget>
     </item>
     <item row="1" column="8">
-     <widget class="DigitButton" name="radioButton_108">
+     <widget class="DigitButton" name="reg12_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4777,7 +4777,7 @@
      </widget>
     </item>
     <item row="7" column="9">
-     <widget class="DigitButton" name="radioButton_24">
+     <widget class="DigitButton" name="reg11_0button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -5029,7 +5029,7 @@
      </widget>
     </item>
     <item row="2" column="9">
-     <widget class="DigitButton" name="radioButton_25">
+     <widget class="DigitButton" name="reg11_5button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -5314,7 +5314,7 @@
      </widget>
     </item>
     <item row="4" column="9">
-     <widget class="DigitButton" name="radioButton_26">
+     <widget class="DigitButton" name="reg11_3button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -5843,7 +5843,7 @@
      </widget>
     </item>
     <item row="4" column="8">
-     <widget class="DigitButton" name="radioButton_133">
+     <widget class="DigitButton" name="reg12_3button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -5983,7 +5983,7 @@
      </widget>
     </item>
     <item row="0" column="8">
-     <widget class="DigitButton" name="radioButton_136">
+     <widget class="DigitButton" name="reg12_7button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -6933,7 +6933,7 @@
      </widget>
     </item>
     <item row="6" column="8">
-     <widget class="DigitButton" name="radioButton_110">
+     <widget class="DigitButton" name="reg12_1button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -9083,7 +9083,7 @@
      </widget>
     </item>
     <item row="7" column="8">
-     <widget class="DigitButton" name="radioButton_118">
+     <widget class="DigitButton" name="reg12_0button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -10091,7 +10091,7 @@
      </widget>
     </item>
     <item row="5" column="8">
-     <widget class="DigitButton" name="radioButton_134">
+     <widget class="DigitButton" name="reg12_2button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -11059,7 +11059,7 @@
      </widget>
     </item>
     <item row="6" column="9">
-     <widget class="DigitButton" name="radioButton_29">
+     <widget class="DigitButton" name="reg11_1button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -12007,7 +12007,7 @@
      </widget>
     </item>
     <item row="0" column="9">
-     <widget class="DigitButton" name="radioButton_4">
+     <widget class="DigitButton" name="reg11_7button">
       <property name="minimumSize">
        <size>
         <width>18</width>

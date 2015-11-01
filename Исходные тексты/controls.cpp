@@ -135,9 +135,8 @@ void Switch::paintEvent(QPaintEvent *event)
 		pm = &_images[1];
 	else
 		pm = &_images[0];
-	qDebug() << pm->width() << pm->height();
-	_painter.drawPixmap(0/*this->width()-pm->width() / 2*/,
-	    this->height() - pm->height(), pm->width(), pm->height(), *pm);
+	_painter.drawPixmap((this->width()-pm->width()) / 2,
+	    (this->height() - pm->height()) / 2, pm->width(), pm->height(), *pm);
 	
 	_painter.end();
 }

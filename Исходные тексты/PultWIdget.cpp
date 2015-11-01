@@ -170,7 +170,10 @@ void PultWIdget::on_addr6group_buttonClicked(int id)
 
 void PultWIdget::timerSignaled()
 {
-	_ural.tact();
+	if (!_ural.tact()) {
+		_timer.stop();
+		emit tactFinished();
+	}
 	if (_tactSkip > 0)
 		--_tactSkip;
 	else {

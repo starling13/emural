@@ -228,9 +228,12 @@ public:
 			return (_DSHK);
 		}
 		
-		void tact();
-		void execute();
-		void fetch();
+		void setAddressBlock(uint16_t newVal)
+		{
+			_addressStopReg._data = newVal;
+		}
+		
+		bool tact();
 		
 		void clearDrum();
 		
@@ -245,14 +248,27 @@ public:
 		Word_t		drum[drumWordsNumber];
 		HalfWord_t	_RGK;
 		
+		/**
+		 * Регистр остановки по адресу
+		 */
+		union PACKED
+		{
+			uint16_t	_data;
+			struct
+			{
+				uint16_t	_address:11;
+				uint16_t	_useBlock:1;
+			} value;
+		}	_addressStopReg;
+		
 		Adder		S;
 		
 	private:
 		
 		/**
-		 * Состояние машины
+		 * Состояние машины по питанию
 		 */
-		enum State_t
+		enum PowerState_t
 		{
 			// Не работает
 			OFF,
@@ -261,10 +277,31 @@ public:
 			// Работает устойчиво
 			ON
 		};
+		/**
+		 * Функциональное состояние
+		 */
+		enum State_t
+		{
+			/**
+			 * готов к исполнению
+			 */
+			READY,
+			/**
+			 * Остановка
+			 */
+			STOP
+		};
 		
-		bool doNextCommand();
+		/**
+		 * Исполнение команды из регистра команд
+                 */
+		void execute();
+		/**
+		 * Загрузка команды в регистр команд
+                 */
+		void fetch();
 		
-		void loadReg();
+		void loadR();
 		
 		void noop_00();
 		
@@ -298,7 +335,9 @@ public:
 		
 		size_t		controlRegisterAddress;
 		
-		State_t		_state;
+		PowerState_t		_powerState;
+		
+		State_t			_mode;
 		
 		// Напряжения питания (В)
 		float		_supplyVoltage[2];
