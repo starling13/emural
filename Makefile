@@ -43,6 +43,7 @@
 #
 # NOCDDL
 
+QMAKE=/usr/bin/qmake-qt4
 
 # Environment 
 MKDIR=mkdir

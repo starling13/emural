@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>419</width>
-    <height>240</height>
+    <width>341</width>
+    <height>327</height>
    </rect>
   </property>
   <property name="palette">
@@ -194,12 +194,15 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>280</y>
-     <width>398</width>
-     <height>51</height>
+     <y>260</y>
+     <width>321</width>
+     <height>62</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QLabel" name="label_40">
       <property name="font">
@@ -217,52 +220,11 @@
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_21">
-      <item>
-       <widget class="Switch" name="cra12">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">controlRegisterGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="cra11">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">controlRegisterGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="2">
        <widget class="Switch" name="cra10">
         <property name="minimumSize">
          <size>
@@ -284,21 +246,8 @@
         </attribute>
        </widget>
       </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="Switch" name="cra9">
+      <item row="0" column="0">
+       <widget class="Switch" name="cra12">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -319,165 +268,7 @@
         </attribute>
        </widget>
       </item>
-      <item>
-       <widget class="Switch" name="cra8">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">controlRegisterGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="cra7">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">controlRegisterGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="Switch" name="cra6">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">controlRegisterGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="cra5">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">controlRegisterGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="Switch" name="cra4">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">controlRegisterGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="Switch" name="cra3">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">controlRegisterGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
+      <item row="0" column="16">
        <widget class="Switch" name="cra2">
         <property name="minimumSize">
          <size>
@@ -499,7 +290,200 @@
         </attribute>
        </widget>
       </item>
-      <item>
+      <item row="0" column="1">
+       <widget class="Switch" name="cra11">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlRegisterGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="0" column="7">
+       <widget class="Switch" name="cra7">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlRegisterGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="0" column="12">
+       <widget class="Switch" name="cra4">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlRegisterGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="0" column="6">
+       <widget class="Switch" name="cra8">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlRegisterGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="0" column="11">
+       <widget class="Switch" name="cra5">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlRegisterGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="Switch" name="cra9">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlRegisterGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="0" column="13">
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="9">
+       <widget class="Switch" name="cra6">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlRegisterGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="8">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="17">
        <widget class="Switch" name="cra1">
         <property name="minimumSize">
          <size>
@@ -521,6 +505,1001 @@
         </attribute>
        </widget>
       </item>
+      <item row="0" column="14">
+       <widget class="Switch" name="cra3">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlRegisterGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item row="1" column="17">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="16">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="14">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="12">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>4</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="11">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="9">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>6</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="7">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>7</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="6">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>8</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>9</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>10</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>11</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>12</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>321</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_6">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="label_41">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>ОСТАНОВКА ПО АДРЕСУ</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="3">
+       <widget class="Switch" name="cra10_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="9">
+       <widget class="Switch" name="cra6_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="Switch" name="cra12_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="11">
+       <widget class="Switch" name="cra4_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="Switch" name="cra9_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="8">
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="1">
+       <spacer name="horizontalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="4">
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="7">
+       <widget class="Switch" name="cra7_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="14">
+       <widget class="Switch" name="cra2_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="15">
+       <widget class="Switch" name="cra1_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="Switch" name="cra11_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="6">
+       <widget class="Switch" name="cra8_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="12">
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="10">
+       <widget class="Switch" name="cra5_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="13">
+       <widget class="Switch" name="cra3_2">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="15">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="14">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="13">
+       <widget class="QLabel" name="label_15">
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="11">
+       <widget class="QLabel" name="label_16">
+        <property name="text">
+         <string>4</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="10">
+       <widget class="QLabel" name="label_17">
+        <property name="text">
+         <string>5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="9">
+       <widget class="QLabel" name="label_18">
+        <property name="text">
+         <string>6</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="7">
+       <widget class="QLabel" name="label_19">
+        <property name="text">
+         <string>7</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="6">
+       <widget class="QLabel" name="label_20">
+        <property name="text">
+         <string>8</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="QLabel" name="label_21">
+        <property name="text">
+         <string>9</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="label_22">
+        <property name="text">
+         <string>10</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_23">
+        <property name="text">
+         <string>11</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_24">
+        <property name="text">
+         <string>12</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>321</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_7">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="label_42">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>ПЕРЕДАЧА УПРАВЛЕНИЯ</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="Switch" name="cra12_3">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="QLabel" name="label_31">
+        <property name="text">
+         <string>6</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLabel" name="label_32">
+        <property name="text">
+         <string>5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="6">
+       <widget class="QLabel" name="label_30">
+        <property name="text">
+         <string>7</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="Switch" name="cra8_3">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="label_35">
+        <property name="text">
+         <string>2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_36">
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="Switch" name="cra11_3">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="label_33">
+        <property name="text">
+         <string>4</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_34">
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="Switch" name="cra7_3">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="Switch" name="cra9_3">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="Switch" name="cra10_3">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="6">
+       <widget class="Switch" name="cra6_3">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>80</y>
+     <width>221</width>
+     <height>48</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="1" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="Switch" name="cra12_4">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label_37">
+      <property name="font">
+       <font>
+        <family>Serif</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>φ</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_27">
+      <property name="text">
+       <string>сброс</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="Switch" name="cra10_4">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_25">
+      <property name="text">
+       <string>блоблокировка</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLabel" name="label_26">
+      <property name="text">
+       <string>остановка по</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QLabel" name="label_38">
+      <property name="font">
+       <font>
+        <family>Serif</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>φ</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLabel" name="label_39">
+      <property name="font">
+       <font>
+        <family>Serif</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>φ</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="BlackPushButton" name="pushButton_4">
+        <property name="minimumSize">
+         <size>
+          <width>18</width>
+          <height>18</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>18</width>
+          <height>18</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
@@ -530,6 +1509,11 @@
   <customwidget>
    <class>Switch</class>
    <extends>QCheckBox</extends>
+   <header location="global">controls.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>BlackPushButton</class>
+   <extends>QPushButton</extends>
    <header location="global">controls.hpp</header>
   </customwidget>
  </customwidgets>
