@@ -124,7 +124,7 @@ protected:
 	
 private:
 	
-	QPolygon	_poly;
+	QPixmap		_images[2];
 	
 	QPainter	_painter;
 };

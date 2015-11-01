@@ -2,9 +2,7 @@
 
 #include <QPaintEvent>
 #include <QMouseEvent>
-#include <qt4/QtCore/qnamespace.h>
-#include <qt4/QtGui/qradiobutton.h>
-#include <qt4/QtGui/qpushbutton.h>
+#include <QDebug>
 
 AbstractSwitch::AbstractSwitch(QWidget* parent) :
 QWidget(parent),
@@ -117,26 +115,29 @@ bool BlackPushButton::hitButton(const QPoint&) const
 Switch::Switch(QWidget* parent) :
 QCheckBox(parent)
 {
+	_images[0].load(QString::fromUtf8(u8":/Изображения/switch_off_24px.png"));
+	_images[1].load(QString::fromUtf8(u8":/Изображения/switch_on_24px.png"));
 }
 
 void Switch::paintEvent(QPaintEvent *event)
 {
-	float chord = this->width() / 8;
-	
+	//float chord = this->width() / 8;
+	const QPixmap *pm;
 	_painter.begin(this);
 	
+	/*
 	_painter.setBrush(Qt::lightGray);
 	_painter.drawConvexPolygon(_poly);
 	_painter.drawEllipse(2*chord, 2*chord, 4*chord, 4*chord);
 	_painter.setBrush(Qt::white);
-	_painter.setPen(Qt::NoPen);
-	if (this->isChecked()) {
-		_painter.drawRect(3.5*chord, 0, chord, 4*chord);
-		_painter.drawEllipse(3*chord, 0, 2*chord, 2*chord);
-	} else {
-		_painter.drawRect(3.5*chord, 4*chord, chord, 4*chord);
-		_painter.drawEllipse(3*chord, 6*chord, 2*chord, 2*chord);
-	}
+	_painter.setPen(Qt::NoPen);*/
+	if (this->isChecked())
+		pm = &_images[1];
+	else
+		pm = &_images[0];
+	qDebug() << pm->width() << pm->height();
+	_painter.drawPixmap(0/*this->width()-pm->width() / 2*/,
+	    this->height() - pm->height(), pm->width(), pm->height(), *pm);
 	
 	_painter.end();
 }
@@ -144,7 +145,7 @@ void Switch::paintEvent(QPaintEvent *event)
 void Switch::resizeEvent(QResizeEvent *event)
 {
 	QCheckBox::resizeEvent(event);
-	
+/*	
 	uint chord = this->width() / 6;
 	
 	_poly.clear();
@@ -153,7 +154,7 @@ void Switch::resizeEvent(QResizeEvent *event)
 	_poly.append(QPoint(5*chord, 3*chord));
 	_poly.append(QPoint(4*chord, 5*chord));
 	_poly.append(QPoint(2*chord, 5*chord));
-	_poly.append(QPoint(chord, 3*chord));
+	_poly.append(QPoint(chord, 3*chord));*/
 }
 
 bool Switch::hitButton(const QPoint&) const
