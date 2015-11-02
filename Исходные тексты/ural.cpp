@@ -300,8 +300,7 @@ void
 URAL::CPU::sub_03()
 {
 	loadR();
-	this->S.value -= this->_reg.dPrec;
-	this->R = this->_reg;
+	this->S.value -= this->R.dPrec;
 	++this->_reg_SCHK;
 }
 
@@ -309,7 +308,6 @@ void
 URAL::CPU::loadR_17()
 {
 	loadR();
-	this->R = this->_reg;
 	++this->_reg_SCHK;
 }
 

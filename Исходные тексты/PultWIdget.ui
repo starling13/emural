@@ -868,9 +868,9 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>150</y>
+     <y>152</y>
      <width>471</width>
-     <height>173</height>
+     <height>171</height>
     </rect>
    </property>
    <property name="palette">
@@ -971,69 +971,6 @@
     <enum>QFrame::Sunken</enum>
    </property>
    <layout class="QGridLayout" name="gridLayout_5">
-    <item row="1" column="20" rowspan="2">
-     <widget class="QPushButton" name="commandResetButton_2">
-      <property name="text">
-       <string>Вз</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="19">
-     <widget class="DigitButton" name="radioButton_77">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>5</string>
-      </property>
-     </widget>
-    </item>
     <item row="7" column="2">
      <widget class="DigitButton" name="addr5_0button">
       <property name="minimumSize">
@@ -1206,7 +1143,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="5" column="13">
+    <item row="5" column="14">
      <widget class="DigitButton" name="radioButton_151">
       <property name="minimumSize">
        <size>
@@ -1660,7 +1597,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="2" column="8">
+    <item row="2" column="9">
      <widget class="DigitButton" name="reg12_5button">
       <property name="minimumSize">
        <size>
@@ -1800,7 +1737,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="1" column="16">
+    <item row="1" column="17">
      <widget class="DigitButton" name="radioButton_82">
       <property name="minimumSize">
        <size>
@@ -1856,7 +1793,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="14">
+    <item row="0" column="15">
      <widget class="DigitButton" name="radioButton_176">
       <property name="minimumSize">
        <size>
@@ -1912,7 +1849,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="13">
+    <item row="4" column="14">
      <widget class="DigitButton" name="radioButton_146">
       <property name="minimumSize">
        <size>
@@ -2108,6 +2045,62 @@
       </attribute>
      </widget>
     </item>
+    <item row="7" column="20">
+     <widget class="DigitButton" name="radioButton_75">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="5">
      <widget class="DigitButton" name="addr2_7button">
       <property name="minimumSize">
@@ -2226,7 +2219,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="1" column="13">
+    <item row="1" column="14">
      <widget class="DigitButton" name="radioButton_141">
       <property name="minimumSize">
        <size>
@@ -2363,7 +2356,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="8">
+    <item row="3" column="9">
      <widget class="DigitButton" name="reg12_4button">
       <property name="minimumSize">
        <size>
@@ -2503,7 +2496,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="4" column="19">
+    <item row="4" column="20">
      <widget class="DigitButton" name="radioButton_57">
       <property name="minimumSize">
        <size>
@@ -2559,7 +2552,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="16">
+    <item row="2" column="17">
      <widget class="DigitButton" name="radioButton_91">
       <property name="minimumSize">
        <size>
@@ -2733,7 +2726,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="1" column="9">
+    <item row="1" column="10">
      <widget class="DigitButton" name="reg11_6button">
       <property name="minimumSize">
        <size>
@@ -2873,7 +2866,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="1" column="17">
+    <item row="1" column="18">
      <widget class="DigitButton" name="radioButton_94">
       <property name="minimumSize">
        <size>
@@ -2929,7 +2922,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="19">
+    <item row="1" column="20">
      <widget class="DigitButton" name="radioButton_69">
       <property name="minimumSize">
        <size>
@@ -2985,7 +2978,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="14">
+    <item row="3" column="15">
      <widget class="DigitButton" name="radioButton_137">
       <property name="minimumSize">
        <size>
@@ -3041,7 +3034,66 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="9">
+    <item row="3" column="4">
+     <widget class="DigitButton" name="addr3_4button">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">addr3group</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="3" column="10">
      <widget class="DigitButton" name="reg11_4button">
       <property name="minimumSize">
        <size>
@@ -3181,66 +3233,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="3" column="4">
-     <widget class="DigitButton" name="addr3_4button">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>4</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">addr3group</string>
-      </attribute>
-     </widget>
-    </item>
-    <item row="4" column="15">
+    <item row="4" column="16">
      <widget class="DigitButton" name="radioButton_13">
       <property name="minimumSize">
        <size>
@@ -3296,7 +3289,7 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="9">
+    <item row="5" column="10">
      <widget class="DigitButton" name="reg11_2button">
       <property name="minimumSize">
        <size>
@@ -3436,63 +3429,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="7" column="19">
-     <widget class="DigitButton" name="radioButton_75">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="10">
+    <item row="2" column="11">
      <widget class="DigitButton" name="radioButton_153">
       <property name="minimumSize">
        <size>
@@ -3774,7 +3711,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="2" column="15">
+    <item row="2" column="16">
      <widget class="DigitButton" name="radioButton_11">
       <property name="minimumSize">
        <size>
@@ -3830,7 +3767,7 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="12">
+    <item row="6" column="13">
      <widget class="DigitButton" name="radioButton_168">
       <property name="minimumSize">
        <size>
@@ -3967,7 +3904,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="10">
+    <item row="7" column="11">
      <widget class="DigitButton" name="radioButton_140">
       <property name="minimumSize">
        <size>
@@ -4104,7 +4041,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="8">
+    <item row="1" column="9">
      <widget class="DigitButton" name="reg12_6button">
       <property name="minimumSize">
        <size>
@@ -4244,7 +4181,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="0" column="19">
+    <item row="0" column="20">
      <widget class="DigitButton" name="radioButton_60">
       <property name="minimumSize">
        <size>
@@ -4300,7 +4237,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="16">
+    <item row="3" column="17">
      <widget class="DigitButton" name="radioButton_73">
       <property name="minimumSize">
        <size>
@@ -4415,7 +4352,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="5" column="19">
+    <item row="5" column="20">
      <widget class="DigitButton" name="radioButton_80">
       <property name="minimumSize">
        <size>
@@ -4471,7 +4408,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="11">
+    <item row="3" column="12">
      <widget class="DigitButton" name="radioButton_163">
       <property name="minimumSize">
        <size>
@@ -4608,7 +4545,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="14">
+    <item row="4" column="15">
      <widget class="DigitButton" name="radioButton_173">
       <property name="minimumSize">
        <size>
@@ -4664,7 +4601,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="17">
+    <item row="7" column="18">
      <widget class="DigitButton" name="radioButton_71">
       <property name="minimumSize">
        <size>
@@ -4720,7 +4657,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="14">
+    <item row="7" column="15">
      <widget class="DigitButton" name="radioButton_158">
       <property name="minimumSize">
        <size>
@@ -4776,7 +4713,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="9">
+    <item row="7" column="10">
      <widget class="DigitButton" name="reg11_0button">
       <property name="minimumSize">
        <size>
@@ -4916,7 +4853,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="2" column="17">
+    <item row="2" column="18">
      <widget class="DigitButton" name="radioButton_63">
       <property name="minimumSize">
        <size>
@@ -4972,7 +4909,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="17">
+    <item row="0" column="18">
      <widget class="DigitButton" name="radioButton_67">
       <property name="minimumSize">
        <size>
@@ -5028,7 +4965,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="9">
+    <item row="2" column="10">
      <widget class="DigitButton" name="reg11_5button">
       <property name="minimumSize">
        <size>
@@ -5313,7 +5250,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="4" column="9">
+    <item row="4" column="10">
      <widget class="DigitButton" name="reg11_3button">
       <property name="minimumSize">
        <size>
@@ -5453,7 +5390,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="0" column="16">
+    <item row="0" column="17">
      <widget class="DigitButton" name="radioButton_87">
       <property name="minimumSize">
        <size>
@@ -5568,7 +5505,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="1" column="10">
+    <item row="1" column="11">
      <widget class="DigitButton" name="radioButton_171">
       <property name="minimumSize">
        <size>
@@ -5705,7 +5642,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="10">
+    <item row="4" column="11">
      <widget class="DigitButton" name="radioButton_147">
       <property name="minimumSize">
        <size>
@@ -5842,7 +5779,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="8">
+    <item row="4" column="9">
      <widget class="DigitButton" name="reg12_3button">
       <property name="minimumSize">
        <size>
@@ -5982,7 +5919,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="0" column="8">
+    <item row="0" column="9">
      <widget class="DigitButton" name="reg12_7button">
       <property name="minimumSize">
        <size>
@@ -6122,7 +6059,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="4" column="11">
+    <item row="4" column="12">
      <widget class="DigitButton" name="radioButton_157">
       <property name="minimumSize">
        <size>
@@ -6259,7 +6196,66 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="10">
+    <item row="4" column="5">
+     <widget class="DigitButton" name="addr2_3button">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">addr2group</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="0" column="11">
      <widget class="DigitButton" name="radioButton_164">
       <property name="minimumSize">
        <size>
@@ -6396,66 +6392,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="5">
-     <widget class="DigitButton" name="addr2_3button">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>3</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">addr2group</string>
-      </attribute>
-     </widget>
-    </item>
-    <item row="4" column="12">
+    <item row="4" column="13">
      <widget class="DigitButton" name="radioButton_166">
       <property name="minimumSize">
        <size>
@@ -6592,7 +6529,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="18">
+    <item row="3" column="19">
      <widget class="DigitButton" name="radioButton_76">
       <property name="minimumSize">
        <size>
@@ -6648,7 +6585,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="15">
+    <item row="1" column="16">
      <widget class="DigitButton" name="radioButton_15">
       <property name="minimumSize">
        <size>
@@ -6876,7 +6813,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="3" column="19">
+    <item row="3" column="20">
      <widget class="DigitButton" name="radioButton_86">
       <property name="minimumSize">
        <size>
@@ -6932,7 +6869,7 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="8">
+    <item row="6" column="9">
      <widget class="DigitButton" name="reg12_1button">
       <property name="minimumSize">
        <size>
@@ -7072,7 +7009,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="5" column="15">
+    <item row="5" column="16">
      <widget class="DigitButton" name="radioButton_14">
       <property name="minimumSize">
        <size>
@@ -7128,7 +7065,63 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="14">
+    <item row="5" column="18">
+     <widget class="DigitButton" name="radioButton_62">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="15">
      <widget class="DigitButton" name="radioButton_170">
       <property name="minimumSize">
        <size>
@@ -7184,7 +7177,93 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="13">
+    <item row="7" column="3">
+     <widget class="DigitButton" name="addr4_0button">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">addr4group</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="6" column="14">
      <widget class="DigitButton" name="radioButton_154">
       <property name="minimumSize">
        <size>
@@ -7321,149 +7400,7 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="17">
-     <widget class="DigitButton" name="radioButton_62">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="3">
-     <widget class="DigitButton" name="addr4_0button">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">addr4group</string>
-      </attribute>
-     </widget>
-    </item>
-    <item row="0" column="12">
+    <item row="0" column="13">
      <widget class="DigitButton" name="radioButton_144">
       <property name="minimumSize">
        <size>
@@ -7600,7 +7537,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="13">
+    <item row="0" column="14">
      <widget class="DigitButton" name="radioButton_138">
       <property name="minimumSize">
        <size>
@@ -7737,7 +7674,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="15">
+    <item row="0" column="16">
      <widget class="DigitButton" name="radioButton_2">
       <property name="minimumSize">
        <size>
@@ -7793,8 +7730,64 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="17">
+    <item row="6" column="18">
      <widget class="DigitButton" name="radioButton_96">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="20">
+     <widget class="DigitButton" name="radioButton_61">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7936,62 +7929,6 @@
      </widget>
     </item>
     <item row="6" column="19">
-     <widget class="DigitButton" name="radioButton_61">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="18">
      <widget class="DigitButton" name="radioButton_79">
       <property name="minimumSize">
        <size>
@@ -8047,7 +7984,7 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="16">
+    <item row="6" column="17">
      <widget class="DigitButton" name="radioButton_81">
       <property name="minimumSize">
        <size>
@@ -8103,7 +8040,7 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="14">
+    <item row="6" column="15">
      <widget class="DigitButton" name="radioButton_150">
       <property name="minimumSize">
        <size>
@@ -8218,7 +8155,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="3" column="15">
+    <item row="3" column="16">
      <widget class="DigitButton" name="radioButton_16">
       <property name="minimumSize">
        <size>
@@ -8274,7 +8211,66 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="10">
+    <item row="7" column="4">
+     <widget class="DigitButton" name="addr3_0button">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">addr3group</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="6" column="11">
      <widget class="DigitButton" name="radioButton_175">
       <property name="minimumSize">
        <size>
@@ -8411,203 +8407,7 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="11">
-     <widget class="DigitButton" name="radioButton_169">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="BrightText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="BrightText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="BrightText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="4">
-     <widget class="DigitButton" name="addr3_0button">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">addr3group</string>
-      </attribute>
-     </widget>
-    </item>
-    <item row="5" column="10">
+    <item row="5" column="11">
      <widget class="DigitButton" name="radioButton_139">
       <property name="minimumSize">
        <size>
@@ -8744,7 +8544,144 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="11">
+    <item row="6" column="12">
+     <widget class="DigitButton" name="radioButton_169">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="BrightText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="BrightText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="BrightText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="12">
      <widget class="DigitButton" name="radioButton_156">
       <property name="minimumSize">
        <size>
@@ -8881,7 +8818,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="18">
+    <item row="1" column="19">
      <widget class="DigitButton" name="radioButton_85">
       <property name="minimumSize">
        <size>
@@ -9082,7 +9019,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="7" column="8">
+    <item row="7" column="9">
      <widget class="DigitButton" name="reg12_0button">
       <property name="minimumSize">
        <size>
@@ -9222,7 +9159,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="1" column="14">
+    <item row="1" column="15">
      <widget class="DigitButton" name="radioButton_148">
       <property name="minimumSize">
        <size>
@@ -9278,7 +9215,7 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="18">
+    <item row="2" column="19">
      <widget class="DigitButton" name="radioButton_70">
       <property name="minimumSize">
        <size>
@@ -9334,7 +9271,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="10">
+    <item row="3" column="11">
      <widget class="DigitButton" name="radioButton_165">
       <property name="minimumSize">
        <size>
@@ -9530,7 +9467,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="2" column="13">
+    <item row="2" column="14">
      <widget class="DigitButton" name="radioButton_155">
       <property name="minimumSize">
        <size>
@@ -9667,7 +9604,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="18">
+    <item row="0" column="19">
      <widget class="DigitButton" name="radioButton_64">
       <property name="minimumSize">
        <size>
@@ -9723,7 +9660,63 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="11">
+    <item row="4" column="19">
+     <widget class="DigitButton" name="radioButton_92">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="12">
      <widget class="DigitButton" name="radioButton_152">
       <property name="minimumSize">
        <size>
@@ -9860,118 +9853,6 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="18">
-     <widget class="DigitButton" name="radioButton_65">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="18">
-     <widget class="DigitButton" name="radioButton_92">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>3</string>
-      </property>
-     </widget>
-    </item>
     <item row="3" column="6">
      <widget class="DigitButton" name="addr1_4button">
       <property name="minimumSize">
@@ -10029,6 +9910,62 @@
       <attribute name="buttonGroup">
        <string notr="true">addr1group</string>
       </attribute>
+     </widget>
+    </item>
+    <item row="5" column="19">
+     <widget class="DigitButton" name="radioButton_65">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
      </widget>
     </item>
     <item row="6" column="6">
@@ -10090,7 +10027,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="5" column="8">
+    <item row="5" column="9">
      <widget class="DigitButton" name="reg12_2button">
       <property name="minimumSize">
        <size>
@@ -10230,7 +10167,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="5" column="12">
+    <item row="5" column="13">
      <widget class="DigitButton" name="radioButton_159">
       <property name="minimumSize">
        <size>
@@ -10367,7 +10304,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="15">
+    <item row="7" column="16">
      <widget class="DigitButton" name="radioButton_12">
       <property name="minimumSize">
        <size>
@@ -10423,7 +10360,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="16">
+    <item row="4" column="17">
      <widget class="DigitButton" name="radioButton_90">
       <property name="minimumSize">
        <size>
@@ -10479,7 +10416,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="18">
+    <item row="7" column="19">
      <widget class="DigitButton" name="radioButton_58">
       <property name="minimumSize">
        <size>
@@ -10535,7 +10472,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="12">
+    <item row="1" column="13">
      <widget class="DigitButton" name="radioButton_149">
       <property name="minimumSize">
        <size>
@@ -10672,7 +10609,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="12">
+    <item row="7" column="13">
      <widget class="DigitButton" name="radioButton_145">
       <property name="minimumSize">
        <size>
@@ -10809,7 +10746,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="16">
+    <item row="7" column="17">
      <widget class="DigitButton" name="radioButton_78">
       <property name="minimumSize">
        <size>
@@ -10865,7 +10802,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="13">
+    <item row="3" column="14">
      <widget class="DigitButton" name="radioButton_142">
       <property name="minimumSize">
        <size>
@@ -11002,7 +10939,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="17">
+    <item row="4" column="18">
      <widget class="DigitButton" name="radioButton_83">
       <property name="minimumSize">
        <size>
@@ -11058,7 +10995,7 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="9">
+    <item row="6" column="10">
      <widget class="DigitButton" name="reg11_1button">
       <property name="minimumSize">
        <size>
@@ -11198,149 +11135,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="6" column="15">
-     <widget class="DigitButton" name="radioButton_10">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="3">
-     <widget class="DigitButton" name="addr4_5button">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>5</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">addr4group</string>
-      </attribute>
-     </widget>
-    </item>
-    <item row="5" column="11">
+    <item row="5" column="12">
      <widget class="DigitButton" name="radioButton_161">
       <property name="minimumSize">
        <size>
@@ -11477,7 +11272,63 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="11">
+    <item row="6" column="16">
+     <widget class="DigitButton" name="radioButton_10">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="12">
      <widget class="DigitButton" name="radioButton_160">
       <property name="minimumSize">
        <size>
@@ -11614,65 +11465,6 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="4">
-     <widget class="DigitButton" name="addr3_5button">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>5</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">addr3group</string>
-      </attribute>
-     </widget>
-    </item>
     <item row="0" column="4">
      <widget class="DigitButton" name="addr3_7button">
       <property name="minimumSize">
@@ -11732,7 +11524,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="7" column="13">
+    <item row="7" column="14">
      <widget class="DigitButton" name="radioButton_172">
       <property name="minimumSize">
        <size>
@@ -11869,7 +11661,66 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="11">
+    <item row="2" column="4">
+     <widget class="DigitButton" name="addr3_5button">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">addr3group</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="1" column="12">
      <widget class="DigitButton" name="radioButton_143">
       <property name="minimumSize">
        <size>
@@ -12006,7 +11857,66 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="9">
+    <item row="3" column="5">
+     <widget class="DigitButton" name="addr2_4button">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">addr2group</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="0" column="10">
      <widget class="DigitButton" name="reg11_7button">
       <property name="minimumSize">
        <size>
@@ -12146,8 +12056,64 @@
       </attribute>
      </widget>
     </item>
-    <item row="3" column="5">
-     <widget class="DigitButton" name="addr2_4button">
+    <item row="5" column="17">
+     <widget class="DigitButton" name="radioButton_66">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="18">
+     <widget class="DigitButton" name="radioButton_93">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -12200,9 +12166,6 @@
       <property name="text">
        <string>4</string>
       </property>
-      <attribute name="buttonGroup">
-       <string notr="true">addr2group</string>
-      </attribute>
      </widget>
     </item>
     <item row="4" column="4">
@@ -12264,8 +12227,8 @@
       </attribute>
      </widget>
     </item>
-    <item row="5" column="16">
-     <widget class="DigitButton" name="radioButton_66">
+    <item row="1" column="5">
+     <widget class="DigitButton" name="addr2_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -12316,67 +12279,14 @@
        </palette>
       </property>
       <property name="text">
-       <string>2</string>
+       <string>6</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">addr2group</string>
+      </attribute>
      </widget>
     </item>
-    <item row="3" column="17">
-     <widget class="DigitButton" name="radioButton_93">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>4</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="12">
+    <item row="2" column="13">
      <widget class="DigitButton" name="radioButton_162">
       <property name="minimumSize">
        <size>
@@ -12513,7 +12423,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="12">
+    <item row="3" column="13">
      <widget class="DigitButton" name="radioButton_167">
       <property name="minimumSize">
        <size>
@@ -12648,65 +12558,6 @@
       <property name="text">
        <string>4</string>
       </property>
-     </widget>
-    </item>
-    <item row="1" column="5">
-     <widget class="DigitButton" name="addr2_6button">
-      <property name="minimumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>106</red>
-            <green>104</green>
-            <blue>100</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>6</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">addr2group</string>
-      </attribute>
      </widget>
     </item>
     <item row="2" column="2">
@@ -13026,7 +12877,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="5" column="14">
+    <item row="5" column="15">
      <widget class="DigitButton" name="radioButton_174">
       <property name="minimumSize">
        <size>
@@ -13079,115 +12930,6 @@
       </property>
       <property name="text">
        <string>2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0" rowspan="2">
-     <widget class="QPushButton" name="commandSetButton">
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>122</red>
-            <green>61</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>122</red>
-            <green>61</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>122</red>
-            <green>61</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>И</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" rowspan="2">
-     <widget class="QPushButton" name="commandResetButton">
-      <property name="text">
-       <string>Вз</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="7" rowspan="2">
-     <widget class="QPushButton" name="commandResetButton_3">
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="20" rowspan="2">
-     <widget class="QPushButton" name="commandSetButton_2">
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>122</red>
-            <green>61</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>122</red>
-            <green>61</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>122</red>
-            <green>61</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string>И</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="7" rowspan="2">
-     <widget class="QPushButton" name="commandResetButton_4">
-      <property name="text">
-       <string>-</string>
       </property>
      </widget>
     </item>
@@ -13879,6 +13621,276 @@
       </attribute>
      </widget>
     </item>
+    <item row="2" column="20">
+     <widget class="DigitButton" name="radioButton_77">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="DigitButton" name="addr4_5button">
+      <property name="minimumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>106</red>
+            <green>104</green>
+            <blue>100</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">addr4group</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="0" column="0" rowspan="8">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QPushButton" name="commandResetButton">
+        <property name="text">
+         <string>Вз</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="commandSetButton">
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>122</red>
+              <green>61</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>122</red>
+              <green>61</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>122</red>
+              <green>61</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="text">
+         <string>И</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="7" rowspan="8">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="commandResetButton_3">
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="commandResetButton_4">
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="21" rowspan="8">
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QPushButton" name="commandResetButton_2">
+        <property name="text">
+         <string>Вз</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="commandSetButton_2">
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>122</red>
+              <green>61</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>122</red>
+              <green>61</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>122</red>
+              <green>61</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="text">
+         <string>И</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget_5">
@@ -14015,6 +14027,15 @@
     </item>
    </layout>
   </widget>
+  <zorder>gridLayoutWidget</zorder>
+  <zorder>gridLayoutWidget_2</zorder>
+  <zorder>gridLayoutWidget_3</zorder>
+  <zorder>label_26</zorder>
+  <zorder>gridLayoutWidget_4</zorder>
+  <zorder>verticalLayoutWidget_2</zorder>
+  <zorder>frame</zorder>
+  <zorder>gridLayoutWidget_5</zorder>
+  <zorder>commandResetButton_3</zorder>
  </widget>
  <customwidgets>
   <customwidget>

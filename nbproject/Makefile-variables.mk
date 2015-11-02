@@ -30,6 +30,14 @@ CND_ARTIFACT_PATH_Test=dist/Test/Урал-1
 CND_PACKAGE_DIR_Test=dist/Test/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Test=emural.tar
 CND_PACKAGE_PATH_Test=dist/Test/GNU-Linux-x86/package/emural.tar
+# DebugKeyDevice configuration
+CND_PLATFORM_DebugKeyDevice=GNU-Linux-x86
+CND_ARTIFACT_DIR_DebugKeyDevice=dist/DebugKeyDevice/GNU-Linux-x86
+CND_ARTIFACT_NAME_DebugKeyDevice=emural
+CND_ARTIFACT_PATH_DebugKeyDevice=dist/DebugKeyDevice/GNU-Linux-x86/emural
+CND_PACKAGE_DIR_DebugKeyDevice=dist/DebugKeyDevice/GNU-Linux-x86/package
+CND_PACKAGE_NAME_DebugKeyDevice=emural.tar
+CND_PACKAGE_PATH_DebugKeyDevice=dist/DebugKeyDevice/GNU-Linux-x86/package/emural.tar
 #
 # include compiler specific variables
 #
