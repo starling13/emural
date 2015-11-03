@@ -377,31 +377,7 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="Исходные тексты/ControlRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/PowerPultWidget.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="Исходные тексты/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Исходные тексты/controlregisterpanel.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="Исходные тексты/controlregisterpanel.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
       </item>
       <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>

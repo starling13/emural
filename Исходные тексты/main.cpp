@@ -35,6 +35,8 @@ int main(int argc, char** argv)
 	int		res;
 	QApplication	app(argc, argv);
 	
+	FixedPointFraction<uint64_t, 36>::SignedMagnitude	a;
+	
 	{
 		URAL::CPU	ural;
 		DrumWidget	drumWidget(ural.drum);

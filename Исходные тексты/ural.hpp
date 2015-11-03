@@ -34,15 +34,22 @@ public:
 		AdderWord;
 	
 	typedef	FixedPointFraction<uint64_t, 35>::SignedMagnitude
-		DrumWord;
+		DoubleCell;
+	typedef	FixedPointFraction<uint64_t, 17>::SignedMagnitude
+		Cell;
 	
 	typedef union PACKED HalfWord
 	{
 	public:
 		
-		double floatingPointValue() const;
+		HalfWord() :
+		sPrec(0)
+		{
+		}
 		
 		uint64_t	data:18;
+		
+		Cell		sPrec;
 		
 		struct
 		{
@@ -95,6 +102,9 @@ public:
 	
 	friend std::ostream &operator <<(std::ostream&, const HalfWord_t&);
 	
+	/**
+	 * Машинное слово (36 бит)
+	 */
 	typedef union PACKED Word
 	{
 	public:
@@ -116,7 +126,7 @@ public:
 			uint64_t	most:18;
 		} halfWords;
 		
-		DrumWord		dPrec;
+		DoubleCell		dPrec;
 		
 		struct
 		{
@@ -248,19 +258,6 @@ public:
 		Word_t		drum[drumWordsNumber];
 		HalfWord_t	_RGK;
 		
-		/**
-		 * Регистр остановки по адресу
-		 */
-		union PACKED
-		{
-			uint16_t	_data;
-			struct
-			{
-				uint16_t	_address:11;
-				uint16_t	_useBlock:1;
-			} value;
-		}	_addressStopReg;
-		
 		Adder		S;
 		
 	private:
@@ -316,9 +313,24 @@ public:
 		
 		void sub_03();
 		
+		void mov_16();
+		
 		void loadR_17();
 		
 		void jmp_22();
+		
+		/**
+		 * Регистр остановки по адресу
+		 */
+		union PACKED
+		{
+			uint16_t	_data;
+			struct
+			{
+				uint16_t	_address:11;
+				uint16_t	_useBlock:1;
+			} value;
+		}	_addressStopReg;
 		
 		/**
 		 * Массив указателей на функции-члены операций.
@@ -346,9 +358,6 @@ public:
 		
 		// Напряжения питания (В)
 		float		_supplyVoltage[2];
-		
-		// входной регистр
-		Word_t		_reg;
 	};
 };
 

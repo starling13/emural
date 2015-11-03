@@ -10,7 +10,7 @@ _state(false)
 {
 }
 
-void BlackButton::paintEvent(QPaintEvent *event)
+void BlackButton::paintEvent(QPaintEvent*)
 {
 	uint border = this->width() / 6;
 	
@@ -48,7 +48,7 @@ void AbstractSwitch::mousePressEvent(QMouseEvent *event)
 		this->setState(!_state);
 }
 
-void AbstractSwitch::mouseReleaseEvent(QMouseEvent *event)
+void AbstractSwitch::mouseReleaseEvent(QMouseEvent*)
 {
 
 }
@@ -84,7 +84,7 @@ QPushButton(parent)
 {
 }
 
-void BlackPushButton::paintEvent(QPaintEvent *event)
+void BlackPushButton::paintEvent(QPaintEvent*)
 {
 	uint border = this->width() / 6;
 	
@@ -119,7 +119,7 @@ QCheckBox(parent)
 	_images[1].load(QString::fromUtf8(u8":/Изображения/switch_on_24px.png"));
 }
 
-void Switch::paintEvent(QPaintEvent *event)
+void Switch::paintEvent(QPaintEvent*)
 {
 	//float chord = this->width() / 8;
 	const QPixmap *pm;

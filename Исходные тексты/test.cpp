@@ -21,21 +21,24 @@
 #include <limits>
 #include <iostream>
 
-#include "ural.hpp"
+//#include "ural.hpp"
+#include "fixed_coding.hpp"
 
 int main(int argc, char** argv)
 {
 	std::cout.precision(std::numeric_limits< double >::digits10);
 	
-	FixedPointFraction<uint64_t, 35>::ModOnesComplement a;
+	FixedPointFraction<uint64_t, 36>::ModOnesComplement	a;
+	FixedPointFraction<uint64_t, 36>::SignedMagnitude	b;
+	
+	a.setMagnitude(3), b.setMagnitude(6);
+	
 	std::cout << a << std::endl;
-	a = -0300000000002ll;
-	std::cout << a << std::endl;
-	FixedPointFraction<uint32_t, 17>::ModOnesComplement b, c;
-	b = 03777, c = -0377;
-	std::cout << b << '\n' << c << '\n' << b+c << std::endl;
-
-	URAL::CPU	ural;
+	std::cout << b << std::endl;
+	
+	a = b;
+	b = a;
+	
 	/*
 	ural.drum[0] = 0000001020004;
 	ural.drum[1] = 0000003000002;

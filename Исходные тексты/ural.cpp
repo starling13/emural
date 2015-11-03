@@ -17,6 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 #include "ural.hpp"
+#include "DrumWidget.hpp"
 
 #include <cstdlib>
 #include <cassert>
@@ -88,18 +89,6 @@ operator<<(std::ostream &stream, const URAL::Word_t &word)
 	return (stream);
 }
 
-double
-URAL::HalfWord::floatingPointValue() const
-{
-	double res;
-
-	res = double (this->value.module) * (1.0 / double (1 << 17));
-	if (this->value.sign)
-		res = 0.0 - res;
-
-	return (res);
-}
-
 std::ostream&
 operator<<(std::ostream &stream, const URAL::HalfWord_t &word)
 {
@@ -112,7 +101,7 @@ operator<<(std::ostream &stream, const URAL::HalfWord_t &word)
 		sign = '-';
 	else
 		sign = '+';
-	stream << sign << word.value.module << '(' << word.floatingPointValue() << ')' << '\n' <<
+	stream << sign << word.value.module << '(' << double(word.sPrec) << ')' << '\n' <<
 	    u8"Восьмеричные триплеты: " << std::oct <<
 	    word.triplets.t6 << ' ' <<
 	    word.triplets.t5 << ' ' <<
@@ -141,7 +130,7 @@ URAL::Adder&
 }
 
 URAL::CPU::CPU() :
-S(AdderWord(0)),
+S(0),
 _reg_SCHK(0),
 _DSHK(0),
 controlRegisterAddress(0),
@@ -155,6 +144,7 @@ _mode(READY)
 	this->commands[001] = &CPU::sum1_01;
 	this->commands[002] = &CPU::sum2_02;
 	this->commands[003] = &CPU::sub_03;
+	this->commands[016] = &CPU::mov_16;
 	this->commands[017] = &CPU::loadR_17;
 	this->commands[022] = &CPU::jmp_22;
 
@@ -162,6 +152,8 @@ _mode(READY)
 	R.dPrec = std::rand();
 	_reg_SCHK = std::rand() & (drumHalfWordsNumber - 1);
 	_RGK.data = std::rand();
+	
+	_addressStopReg._data = 0;
 }
 
 void URAL::CPU::reset()
@@ -301,6 +293,32 @@ URAL::CPU::sub_03()
 {
 	loadR();
 	this->S.value -= this->R.dPrec;
+	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::mov_16()
+{
+	/**
+	 * Значение сумматора в прямом коде
+         */
+	Word_t adderValue;
+	adderValue.dPrec = this->S.value;
+	/**
+	 * Ссылка на двойную ячейку
+         */
+	Word_t &drumValue = drum[_RGK.command.address / 2];
+	
+	// Если используется полная ячейка
+	if (_RGK.command.addrLength)
+		drumValue.dPrec = adderValue.dPrec;
+	// Если используется половинная
+	else
+		if (_RGK.command.address % 2)
+			drumValue.halfWords.least = adderValue.halfWords.most;
+		else
+			drumValue.halfWords.most = adderValue.halfWords.most;
+	
 	++this->_reg_SCHK;
 }
 

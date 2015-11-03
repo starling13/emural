@@ -46,13 +46,34 @@ public:
 	
 typedef typename std::make_signed<base>::type	signed_base;
 
+class ModOnesComplement;
+
 /**
  * Число в прямом коде
  */
 class PACKED SignedMagnitude
 {
+	friend std::ostream& operator <<(std::ostream &stream,
+	    const FixedPointFraction::SignedMagnitude &number)
+	{
+		stream << u8"Прямой код, фиксированная точка"
+		    u8" (база " << sizeof (base) << u8" байт, количество разрядов "
+		    << bits << ") значение " << double(number) <<
+		    "\n\t знак " << bool(number._sign) << u8" модуль " <<
+		    std::bitset<bits>(number._magnitude);
+	
+		return (stream);
+	}
+	
 public:
+	
 	SignedMagnitude();
+	
+	SignedMagnitude(const SignedMagnitude&) = default;
+	
+	SignedMagnitude& operator =(const SignedMagnitude&) = default;
+	
+	SignedMagnitude(const ModOnesComplement&);
 		
 	SignedMagnitude(signed_base);
 	
@@ -60,11 +81,21 @@ public:
 	{
 		return (_magnitude);
 	}
+	void	setMagnitude(base newVal)
+	{
+		_magnitude = newVal;
+	}
 	
 	base	sign() const
 	{
 		return (_sign);
 	}
+	void	setSign(base newVal)
+	{
+		_sign = newVal;
+	}
+	
+	operator double() const;
 	
 private :	
 	base	_magnitude:bits;
@@ -79,33 +110,58 @@ static_assert ((sizeof (base) * 8) >= (bits+2), u8"Неверное число �
 class PACKED ModOnesComplement
 {
 	friend std::ostream& operator <<(std::ostream &stream,
-	    const FixedPointFraction::
-	    ModOnesComplement &number)
+	    const FixedPointFraction::ModOnesComplement &number)
 	{
 		stream << u8"Обратный модифицированный код, фиксированная точка"
 		    u8" (база " << sizeof (base) << u8" байт, количество разрядов "
-		    << bits << ", значение " << number.floatingPointValue() <<
-		    u8"\n\tпереполнение " << number.carry << ", знак " <<
-		    std::bitset<2>(number.sign) << u8" модуль " <<
-		    std::bitset<bits>(number.magnitude);
+		    << bits << ") значение " << double(number) <<
+		    u8"\n\tпереполнение " << number._carry << ", знак " <<
+		    std::bitset<2>(number._sign) << u8" модуль " <<
+		    std::bitset<bits>(number._magnitude);
 	
 		return (stream);
 	}
 public:
+	
 	ModOnesComplement();
 	
-	ModOnesComplement(SignedMagnitude);
+	ModOnesComplement(const ModOnesComplement&) = default;
+	
+	ModOnesComplement& operator =(const ModOnesComplement&) = default;
+	
+	ModOnesComplement(const SignedMagnitude&);
+	
+	ModOnesComplement(signed_base);
+	
 	/**
 	 * Получить представление числа в формате с плавающей точкой
          * @return число с плавающей точкой двойной точности
          */
-	double floatingPointValue() const;
+	operator double() const;
+	
+	base	magnitude() const
+	{
+		return (_magnitude);
+	}
+	void	setMagnitude(base newVal)
+	{
+		_magnitude = newVal;
+	}
+	
+	base	sign() const
+	{
+		return (_sign);
+	}
+	void	setSign(base newVal)
+	{
+		_sign = newVal;
+	}
 	/**
 	 * Оператор присваивания для базового типа данных
          * @param 
          * @return 
          */
-	ModOnesComplement &operator =(signed_base);
+	//ModOnesComplement &operator =(signed_base);
 	
 	ModOnesComplement operator -() const;
 		
@@ -115,9 +171,9 @@ public:
 		
 	ModOnesComplement &operator -=(const ModOnesComplement&);
 private :
-	base	magnitude:bits;
-	base	sign:2;
-	base	carry:1;
+	base	_magnitude:bits;
+	base	_sign:2;
+	base	_carry:1;
 	
 static_assert ((sizeof (base) * 8) >= (bits+4), u8"Неверное число бит");
 };
@@ -127,38 +183,37 @@ static_assert ((sizeof (base) * 8) >= (bits+4), u8"Неверное число �
 template <typename base, size_t bits>
 FixedPointFraction<base, bits>::ModOnesComplement::
     ModOnesComplement() :
-magnitude(0),
-sign(0),
-carry(0)
+_magnitude(0),
+_sign(0),
+_carry(0)
 {
 }
 
 template <typename base, size_t bits>
 FixedPointFraction<base, bits>::ModOnesComplement::
-    ModOnesComplement(FixedPointFraction<base, bits>::SignedMagnitude other)
+    ModOnesComplement(const FixedPointFraction<base, bits>::SignedMagnitude &other)
 {
 	if (!other.sign()) {
-		this->magnitude = other.magnitude();
-		this->sign = 0;
+		this->_magnitude = other.magnitude();
+		this->_sign = 0;
 	} else {
-		this->magnitude = ~other.magnitude();
-		this->sign = 3;
+		this->_magnitude = ~other.magnitude();
+		this->_sign = 3;
 	}
-	this->carry = 0;
+	this->_carry = 0;
 }
 
 template <typename base, size_t bits>
-double
 FixedPointFraction<base, bits>::ModOnesComplement::
-    floatingPointValue() const
+    operator double() const
 {
 	double res;
 	
-	if (this->sign == 0) {
-		res = this->magnitude;
+	if (this->_sign == 0) {
+		res = this->_magnitude;
 		res /= (1ull << bits);
-	} else if (this->sign == 3) {
-		res = -double ((~this->magnitude) & ((base(1) << bits) - 1));
+	} else if (this->_sign == 3) {
+		res = -double ((~this->_magnitude) & ((base(1) << bits) - 1));
 		res /= (1ull << bits);
 	} else {
 		res = NAN;
@@ -167,6 +222,22 @@ FixedPointFraction<base, bits>::ModOnesComplement::
 	return (res);
 }
 
+template <typename base, size_t bits>
+FixedPointFraction<base, bits>::SignedMagnitude::
+    operator double() const
+{
+	double res;
+	
+	if (this->_sign == 0)
+		res = double(this->_magnitude) / (1ull << bits);
+	else if (this->_sign == 3)
+		res = -double(this->_magnitude) / (1ull << bits);
+	else
+		res = NAN;
+	
+	return (res);
+}
+/*
 template <typename base, size_t bits>
 typename FixedPointFraction<base, bits>::ModOnesComplement&
 FixedPointFraction<base, bits>::ModOnesComplement::operator =(signed_base val)
@@ -177,22 +248,22 @@ FixedPointFraction<base, bits>::ModOnesComplement::operator =(signed_base val)
 	
 	return (*this);
 }
-
+*/
 template <typename base, size_t bits>
 typename FixedPointFraction<base, bits>::ModOnesComplement
 FixedPointFraction<base, bits>::ModOnesComplement::operator -() const
 {
 	ModOnesComplement result;
 	
-	if (this->sign == 0)
-		result.sign = 3;
-	else if (this->sign == 3)
-		result.sign = 0;
+	if (this->_sign == 0)
+		result._sign = 3;
+	else if (this->_sign == 3)
+		result._sign = 0;
 	else
 		throw std::overflow_error(u8"Недопустимый знак");
 	
-	result.magnitude = ~this->magnitude;
-	result.carry = 0;
+	result._magnitude = ~this->_magnitude;
+	result._carry = 0;
 	
 	return (result);
 }
@@ -204,9 +275,9 @@ FixedPointFraction<base, bits>::ModOnesComplement::operator +=(const
 {
 	reinterpret_cast<base&>(*this) += reinterpret_cast<const base&>(
 	    other);
-	if (this->carry) {
+	if (this->_carry) {
 		reinterpret_cast<uint64_t&>(*this) += 1;
-		this->carry = 0;
+		this->_carry = 0;
 	}
 	
 	return (*this);
@@ -239,6 +310,34 @@ FixedPointFraction<base, bits>::SignedMagnitude::SignedMagnitude() :
 _magnitude(0),
 _sign(0)
 {
+	_magnitude = 0;
+}
+
+template <typename base, size_t bits>
+FixedPointFraction<base, bits>::SignedMagnitude::SignedMagnitude(
+    const ModOnesComplement &other)
+{
+	if (other.sign() == 0) {
+		this->_sign = 0;
+		this->_magnitude = other.magnitude();
+	} else if (other.sign() == 3) {
+		this->_sign = 1;
+		this->_magnitude = ~other.magnitude();
+	}
+}
+
+template <typename base, size_t bits>
+FixedPointFraction<base, bits>::ModOnesComplement::
+ModOnesComplement(signed_base val) :
+_carry(0)
+{
+	if (val < 0) {
+		_magnitude = ~std::abs(val);
+		_sign = 3;
+	} else {
+		_magnitude = std::abs(val);
+		_sign = 0;
+	}
 }
 
 template <typename base, size_t bits>
