@@ -20,8 +20,8 @@ UI_DIR = "Исходные тексты"
 QMAKE_CC = gcc
 QMAKE_CXX = g++
 DEFINES += 
-INCLUDEPATH += "Исходные тексты" /usr/include/qwt 
-LIBS += -lqwt  
+INCLUDEPATH += "Исходные тексты" 
+LIBS += 
 equals(QT_MAJOR_VERSION, 4) {
 QMAKE_CXXFLAGS += -std=c++11
 }

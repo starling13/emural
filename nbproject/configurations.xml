@@ -82,14 +82,10 @@
           <standard>8</standard>
           <incDir>
             <pElem>"Исходные тексты"</pElem>
-            <pElem>/usr/include/qwt</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
-          <linkerLibItems>
-            <linkerLibLibItem>qwt</linkerLibLibItem>
-          </linkerLibItems>
         </linkerTool>
       </compileType>
       <item path="Исходные тексты/AdderRegisterPanel.ui"
