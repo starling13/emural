@@ -25,6 +25,7 @@
       <itemPath>Исходные тексты/PultWIdget.cpp</itemPath>
       <itemPath>Исходные тексты/PultWIdget.hpp</itemPath>
       <itemPath>Исходные тексты/PultWIdget.ui</itemPath>
+      <itemPath>Исходные тексты/StatusRegisterPanel.ui</itemPath>
       <itemPath>Исходные тексты/controlregisterpanel.cpp</itemPath>
       <itemPath>Исходные тексты/controlregisterpanel.hpp</itemPath>
       <itemPath>Исходные тексты/controls.cpp</itemPath>
@@ -157,6 +158,11 @@
       </item>
       <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Исходные тексты/StatusRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/controlregisterpanel.cpp"
             ex="false"
             tool="1"
@@ -288,6 +294,11 @@
       </item>
       <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Исходные тексты/StatusRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/controlregisterpanel.cpp"
             ex="false"
             tool="1"
@@ -375,6 +386,11 @@
       </item>
       <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Исходные тексты/StatusRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/main.cpp" ex="true" tool="1" flavor2="8">
@@ -452,6 +468,11 @@
       <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Исходные тексты/StatusRegisterPanel.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="Исходные тексты/controlregisterpanel.cpp"
             ex="false"

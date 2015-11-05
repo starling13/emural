@@ -65,6 +65,16 @@ class PACKED SignedMagnitude
 		return (stream);
 	}
 	
+	friend FixedPointFraction::SignedMagnitude
+	abs(const FixedPointFraction::SignedMagnitude &number)
+	{
+		FixedPointFraction::SignedMagnitude	result(number);
+		
+		result._sign = 1 - result._sign;
+		
+		return (result);
+	}
+	
 public:
 	
 	SignedMagnitude();
@@ -121,6 +131,18 @@ class PACKED ModOnesComplement
 	
 		return (stream);
 	}
+	
+	friend FixedPointFraction::ModOnesComplement
+	abs(const FixedPointFraction::ModOnesComplement &number)
+	{
+		FixedPointFraction::ModOnesComplement	result(number);
+		
+		if (result._sign == 0)
+			return (result);
+		else
+			return (-result);
+	}
+	
 public:
 	
 	ModOnesComplement();

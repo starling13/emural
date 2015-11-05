@@ -26,6 +26,7 @@
 #include "ui_ArithmUnitRegisterPanel.h"
 #include "ui_CommandRegisterPanel.h"
 #include "ui_CommandDecoderWidget.h"
+#include "ui_StatusRegisterPanel.h"
 
 #include "ural.hpp"
 
@@ -159,6 +160,21 @@ public:
 private:
 	
 	Ui::CommandDecoderWidget widget;
+};
+
+class StatusRegisterPanel : public LampPanel
+{
+	Q_OBJECT
+	
+public:
+	
+	StatusRegisterPanel(QWidget *parent = 0);
+	
+	~StatusRegisterPanel();
+	
+private:
+	
+	Ui::StatusRegisterPanel widget;
 };
 
 #endif	/* _CONTROLREGISTERPANEL_HPP */

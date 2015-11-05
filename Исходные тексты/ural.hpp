@@ -21,6 +21,7 @@
 #define	URAL_HPP
 
 #include "fixed_coding.hpp"
+#include "controlregisterpanel.hpp"
 
 class URAL
 {
@@ -254,6 +255,31 @@ public:
 		
 		void setSupplyVoltage(uint8_t, float);
 		
+		bool		 omega() const
+		{
+			return (_statusReg._value._omega);
+		}
+		
+		bool		 phi() const
+		{
+			return (_statusReg._value._phi);
+		}
+		
+		uint8_t		statusRegister() const
+		{
+			return (_statusReg._data);
+		}
+		
+		void		setPhiBlock(bool newVal)
+		{
+			_phiBlock = newVal;
+		}
+		
+		void		setPhiStop(bool newVal)
+		{
+			_phiStop = newVal;
+		}
+		
 		Word_t		R;
 		Word_t		drum[drumWordsNumber];
 		HalfWord_t	_RGK;
@@ -311,7 +337,9 @@ public:
                  */
 		void sum2_02();
 		
-		void sub_03();
+		void sub1_03();
+		
+		void sub2_04();
 		
 		void mov_16();
 		
@@ -338,6 +366,16 @@ public:
 		 */
 		void (CPU::*commands[32])();
 		
+		union PACKED
+		{
+			uint8_t	_data;
+			struct
+			{
+				uint8_t	_omega:1;
+				uint8_t	_phi:1;
+			} _value;
+		} _statusReg;
+		
 		/**
 		 * Регистр СЧК
 		 */
@@ -358,6 +396,10 @@ public:
 		
 		// Напряжения питания (В)
 		float		_supplyVoltage[2];
+		
+		bool		_phiBlock;
+		
+		bool		_phiStop;
 	};
 };
 

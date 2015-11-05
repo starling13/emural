@@ -135,7 +135,9 @@ _reg_SCHK(0),
 _DSHK(0),
 controlRegisterAddress(0),
 _powerState(OFF),
-_mode(READY)
+_mode(READY),
+_phiBlock(false),
+_phiStop(false)
 {
 	std::srand(std::time(NULL));
 
@@ -143,7 +145,7 @@ _mode(READY)
 	this->commands[000] = &CPU::noop_00;
 	this->commands[001] = &CPU::sum1_01;
 	this->commands[002] = &CPU::sum2_02;
-	this->commands[003] = &CPU::sub_03;
+	this->commands[003] = &CPU::sub1_03;
 	this->commands[016] = &CPU::mov_16;
 	this->commands[017] = &CPU::loadR_17;
 	this->commands[022] = &CPU::jmp_22;
@@ -154,6 +156,7 @@ _mode(READY)
 	_RGK.data = std::rand();
 	
 	_addressStopReg._data = 0;
+	_statusReg._data = 0;
 }
 
 void URAL::CPU::reset()
@@ -209,6 +212,10 @@ bool
 URAL::CPU::tact()
 {
 	execute();
+	if ((this->S.value.sign() == 3) || (this->S.value.sign() == 0))
+		this->_statusReg._value._phi = 0;
+	else
+		this->_statusReg._value._phi = 1;
 	fetch();
 	if (_mode == READY)
 		return (true);
@@ -239,10 +246,17 @@ URAL::CPU::fetch()
 	assert(this->_reg_SCHK < drumHalfWordsNumber);
 	pc = std::div(this->_reg_SCHK, 2);
 	this->_RGK = drum[pc.quot][pc.rem + 1];
+	// Проверка наличия остановки по адресу
 	if (this->_addressStopReg.value._useBlock)
 		if (this->_addressStopReg.value._address ==
 		    this->_reg_SCHK)
 			this->_mode = STOP;
+	// Проверка реакции на флаг переполнения
+	if (!_phiBlock && this->_statusReg._value._phi)
+		if (_phiStop)
+			this->_mode = STOP;
+		else
+			++this->_reg_SCHK;
 }
 
 void
@@ -257,8 +271,8 @@ URAL::CPU::loadR()
 		// Если используется половинная
 	else
 		this->R.halfWords.most =
-	    value[_RGK.command.address % 2 + 1].data,
-	    this->R.halfWords.least = 0;
+		    value[_RGK.command.address % 2 + 1].data,
+		    this->R.halfWords.least = 0;
 }
 
 void
@@ -289,10 +303,18 @@ URAL::CPU::sum2_02()
 }
 
 void
-URAL::CPU::sub_03()
+URAL::CPU::sub1_03()
 {
 	loadR();
 	this->S.value -= this->R.dPrec;
+	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::sub2_04()
+{
+	loadR();
+	this->S.value = abs(this->S.value) - abs(this->R.dPrec);
 	++this->_reg_SCHK;
 }
 

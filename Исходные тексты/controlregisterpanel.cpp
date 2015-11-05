@@ -252,3 +252,16 @@ LampPanel(parent)
 CommandDecoderWidget::~CommandDecoderWidget()
 {
 }
+
+StatusRegisterPanel::StatusRegisterPanel(QWidget *parent) :
+LampPanel(parent)
+{
+	widget.setupUi(this);
+	
+	_lamps.push_back(widget.omegaLamp);
+	_lamps.push_back(widget.phiLamp);
+}
+
+StatusRegisterPanel::~StatusRegisterPanel()
+{
+}

@@ -89,3 +89,13 @@ void AuxControlsWidget::on_addressBlockGroup_buttonClicked(QAbstractButton
 	
 	_ural.setAddressBlock(_addrStopRegister);
 }
+
+void AuxControlsWidget::on_blockPhiBtn_toggled(bool newVal)
+{
+	_ural.setPhiBlock(newVal);
+}
+
+void AuxControlsWidget::on_stopOnPhiBtn_toggled(bool newVal)
+{
+	_ural.setPhiStop(newVal);
+}

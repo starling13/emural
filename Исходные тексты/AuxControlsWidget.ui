@@ -1359,9 +1359,9 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>50</x>
      <y>80</y>
-     <width>221</width>
+     <width>251</width>
      <height>48</height>
     </rect>
    </property>
@@ -1375,7 +1375,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="Switch" name="blobkPhiBtn">
+       <widget class="Switch" name="blockPhiBtn">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -1427,7 +1427,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="Switch" name="stopOnPhi">
+       <widget class="Switch" name="stopOnPhiBtn">
         <property name="minimumSize">
          <size>
           <width>24</width>

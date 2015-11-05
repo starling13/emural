@@ -44,6 +44,10 @@ private slots:
 	
 	void on_addressBlockGroup_buttonClicked(QAbstractButton*);
 	
+	void on_blockPhiBtn_toggled(bool);
+	
+	void on_stopOnPhiBtn_toggled(bool);
+	
 private:
 	
 	Ui::AuxControlsWidget	 widget;
