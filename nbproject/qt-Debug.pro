@@ -2,25 +2,25 @@
 # Use project properties -> Build -> Qt -> Expert -> Custom Definitions.
 TEMPLATE = app
 DESTDIR = ./
-TARGET = Урал-1
+TARGET = ural1
 VERSION = 1.0.0
 CONFIG -= debug_and_release app_bundle lib_bundle
 CONFIG += debug 
 PKGCONFIG +=
 QT = core gui widgets
-SOURCES += "Исходные тексты/AuxControlsWidget.cpp" "Исходные тексты/DrumWidget.cpp" "Исходные тексты/PanelWidget.cpp" "Исходные тексты/PowerPultWidget.cpp" "Исходные тексты/PultWIdget.cpp" "Исходные тексты/controlregisterpanel.cpp" "Исходные тексты/controls.cpp" "Исходные тексты/intdelegate.cpp" "Исходные тексты/main.cpp" "Исходные тексты/ural.cpp"
-HEADERS += "Исходные тексты/AuxControlsWidget.hpp" "Исходные тексты/DrumWidget.hpp" "Исходные тексты/PanelWidget.hpp" "Исходные тексты/PowerPultWidget.h" "Исходные тексты/PultWIdget.hpp" "Исходные тексты/controlregisterpanel.hpp" "Исходные тексты/controls.hpp" "Исходные тексты/fixed_coding.hpp" "Исходные тексты/intdelegate.h" "Исходные тексты/ural.hpp"
-FORMS += "Исходные тексты/AdderRegisterPanel.ui" "Исходные тексты/ArithmUnitRegisterPanel.ui" "Исходные тексты/AuxControlsWidget.ui" "Исходные тексты/CommandDecoderWidget.ui" "Исходные тексты/CommandRegisterPanel.ui" "Исходные тексты/ControlRegisterPanel.ui" "Исходные тексты/DrumWidget.ui" "Исходные тексты/PCWIdget.ui" "Исходные тексты/PanelWidget.ui" "Исходные тексты/PowerPultWidget.ui" "Исходные тексты/PultWIdget.ui" "Исходные тексты/StatusRegisterPanel.ui"
-RESOURCES += "Исходные тексты/изображения.qrc"
+SOURCES += src/AuxControlsWidget.cpp src/DrumWidget.cpp src/PanelWidget.cpp src/PowerPultWidget.cpp src/PultWIdget.cpp src/controlregisterpanel.cpp src/controls.cpp src/intdelegate.cpp src/main.cpp src/ural.cpp
+HEADERS += src/AuxControlsWidget.hpp src/DrumWidget.hpp src/PanelWidget.hpp src/PowerPultWidget.h src/PultWIdget.hpp src/controlregisterpanel.hpp src/controls.hpp src/fixed_coding.hpp src/intdelegate.h src/ural.hpp
+FORMS += src/AdderRegisterPanel.ui src/ArithmUnitRegisterPanel.ui src/AuxControlsWidget.ui src/CommandDecoderWidget.ui src/CommandRegisterPanel.ui src/ControlRegisterPanel.ui src/DrumWidget.ui src/PCWIdget.ui src/PanelWidget.ui src/PowerPultWidget.ui src/PultWIdget.ui src/StatusRegisterPanel.ui
+RESOURCES += src/images.qrc
 TRANSLATIONS +=
 OBJECTS_DIR = build/Debug/GNU-Linux-x86
-MOC_DIR = Временные
-RCC_DIR = Временные
-UI_DIR = "Исходные тексты"
+MOC_DIR = src
+RCC_DIR = src
+UI_DIR = src
 QMAKE_CC = gcc
 QMAKE_CXX = g++
 DEFINES += 
-INCLUDEPATH += "Исходные тексты" 
+INCLUDEPATH += src 
 LIBS += 
 equals(QT_MAJOR_VERSION, 4) {
 QMAKE_CXXFLAGS += -std=c++11

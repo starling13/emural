@@ -3,3 +3,5 @@ syntax: glob
 private/*
 *.a
 moc_*
+ui_*.h
+qrc_*.cpp

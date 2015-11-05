@@ -562,7 +562,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>140</y>
+      <y>160</y>
       <width>951</width>
       <height>51</height>
      </rect>
@@ -594,7 +594,7 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>200</y>
+      <y>230</y>
       <width>281</width>
       <height>61</height>
      </rect>
@@ -609,9 +609,9 @@
    <widget class="ArithmUnitRegisterPanel" name="arithmUnitRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>80</y>
-      <width>971</width>
+      <x>30</x>
+      <y>90</y>
+      <width>961</width>
       <height>51</height>
      </rect>
     </property>
@@ -626,7 +626,7 @@
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>200</y>
+      <y>230</y>
       <width>471</width>
       <height>61</height>
      </rect>
@@ -642,7 +642,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>200</y>
+      <y>230</y>
       <width>131</width>
       <height>61</height>
      </rect>
@@ -658,7 +658,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>190</y>
+      <y>220</y>
       <width>71</width>
       <height>51</height>
      </rect>

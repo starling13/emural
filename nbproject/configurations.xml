@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="95">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <logicalFolder name="Исходные тексты"
-                   displayName="Исходные тексты"
-                   projectFiles="true">
-      <itemPath>Исходные тексты/AdderRegisterPanel.ui</itemPath>
-      <itemPath>Исходные тексты/ArithmUnitRegisterPanel.ui</itemPath>
-      <itemPath>Исходные тексты/AuxControlsWidget.cpp</itemPath>
-      <itemPath>Исходные тексты/AuxControlsWidget.hpp</itemPath>
-      <itemPath>Исходные тексты/AuxControlsWidget.ui</itemPath>
-      <itemPath>Исходные тексты/CommandDecoderWidget.ui</itemPath>
-      <itemPath>Исходные тексты/CommandRegisterPanel.ui</itemPath>
-      <itemPath>Исходные тексты/ControlRegisterPanel.ui</itemPath>
-      <itemPath>Исходные тексты/DrumWidget.cpp</itemPath>
-      <itemPath>Исходные тексты/DrumWidget.hpp</itemPath>
-      <itemPath>Исходные тексты/DrumWidget.ui</itemPath>
-      <itemPath>Исходные тексты/PCWIdget.ui</itemPath>
-      <itemPath>Исходные тексты/PanelWidget.cpp</itemPath>
-      <itemPath>Исходные тексты/PanelWidget.hpp</itemPath>
-      <itemPath>Исходные тексты/PanelWidget.ui</itemPath>
-      <itemPath>Исходные тексты/PowerPultWidget.cpp</itemPath>
-      <itemPath>Исходные тексты/PowerPultWidget.h</itemPath>
-      <itemPath>Исходные тексты/PowerPultWidget.ui</itemPath>
-      <itemPath>Исходные тексты/PultWIdget.cpp</itemPath>
-      <itemPath>Исходные тексты/PultWIdget.hpp</itemPath>
-      <itemPath>Исходные тексты/PultWIdget.ui</itemPath>
-      <itemPath>Исходные тексты/StatusRegisterPanel.ui</itemPath>
-      <itemPath>Исходные тексты/controlregisterpanel.cpp</itemPath>
-      <itemPath>Исходные тексты/controlregisterpanel.hpp</itemPath>
-      <itemPath>Исходные тексты/controls.cpp</itemPath>
-      <itemPath>Исходные тексты/controls.hpp</itemPath>
-      <itemPath>Исходные тексты/fixed_coding.hpp</itemPath>
-      <itemPath>Исходные тексты/intdelegate.cpp</itemPath>
-      <itemPath>Исходные тексты/intdelegate.h</itemPath>
-      <itemPath>Исходные тексты/main.cpp</itemPath>
-      <itemPath>Исходные тексты/test.cpp</itemPath>
-      <itemPath>Исходные тексты/ural.cpp</itemPath>
-      <itemPath>Исходные тексты/ural.hpp</itemPath>
+    <logicalFolder name="src" displayName="src" projectFiles="true">
+      <itemPath>src/AdderRegisterPanel.ui</itemPath>
+      <itemPath>src/ArithmUnitRegisterPanel.ui</itemPath>
+      <itemPath>src/AuxControlsWidget.cpp</itemPath>
+      <itemPath>src/AuxControlsWidget.hpp</itemPath>
+      <itemPath>src/AuxControlsWidget.ui</itemPath>
+      <itemPath>src/CommandDecoderWidget.ui</itemPath>
+      <itemPath>src/CommandRegisterPanel.ui</itemPath>
+      <itemPath>src/ControlRegisterPanel.ui</itemPath>
+      <itemPath>src/DrumWidget.cpp</itemPath>
+      <itemPath>src/DrumWidget.hpp</itemPath>
+      <itemPath>src/DrumWidget.ui</itemPath>
+      <itemPath>src/PCWIdget.ui</itemPath>
+      <itemPath>src/PanelWidget.cpp</itemPath>
+      <itemPath>src/PanelWidget.hpp</itemPath>
+      <itemPath>src/PanelWidget.ui</itemPath>
+      <itemPath>src/PowerPultWidget.cpp</itemPath>
+      <itemPath>src/PowerPultWidget.h</itemPath>
+      <itemPath>src/PowerPultWidget.ui</itemPath>
+      <itemPath>src/PultWIdget.cpp</itemPath>
+      <itemPath>src/PultWIdget.hpp</itemPath>
+      <itemPath>src/PultWIdget.ui</itemPath>
+      <itemPath>src/StatusRegisterPanel.ui</itemPath>
+      <itemPath>src/controlregisterpanel.cpp</itemPath>
+      <itemPath>src/controlregisterpanel.hpp</itemPath>
+      <itemPath>src/controls.cpp</itemPath>
+      <itemPath>src/controls.hpp</itemPath>
+      <itemPath>src/fixed_coding.hpp</itemPath>
+      <itemPath>src/images.qrc</itemPath>
+      <itemPath>src/intdelegate.cpp</itemPath>
+      <itemPath>src/intdelegate.h</itemPath>
+      <itemPath>src/main.cpp</itemPath>
+      <itemPath>src/test.cpp</itemPath>
+      <itemPath>src/ural.cpp</itemPath>
+      <itemPath>src/ural.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Файлы тестов"
@@ -49,10 +48,10 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>Исходные тексты/изображения.qrc</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>Исходные тексты</Elem>
+    <Elem>src</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -64,11 +63,11 @@
       </toolsSet>
       <qt>
         <destdir>./</destdir>
-        <target>Урал-1</target>
+        <target>ural1</target>
         <modules>core gui widgets</modules>
-        <mocDir>Временные</mocDir>
-        <rccDir>Временные</rccDir>
-        <uiDir>"Исходные тексты"</uiDir>
+        <mocDir>src</mocDir>
+        <rccDir>src</rccDir>
+        <uiDir>src</uiDir>
         <defs>
           <Elem>CXX_LDFLAGS += -static</Elem>
         </defs>
@@ -82,114 +81,78 @@
         <ccTool>
           <standard>8</standard>
           <incDir>
-            <pElem>"Исходные тексты"</pElem>
+            <pElem>src</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
-      <item path="Исходные тексты/AdderRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AdderRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/ArithmUnitRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/ArithmUnitRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/AuxControlsWidget.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/AuxControlsWidget.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/AuxControlsWidget.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/CommandDecoderWidget.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/CommandDecoderWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/CommandRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/CommandRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/ControlRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/ControlRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/DrumWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PCWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PanelWidget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PanelWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PowerPultWidget.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="src/PowerPultWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
+      <item path="src/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PultWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/StatusRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/StatusRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/controlregisterpanel.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="src/controlregisterpanel.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/controlregisterpanel.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/controlregisterpanel.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/controls.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/controls.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/controls.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/controls.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/intdelegate.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/images.qrc" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/intdelegate.h" ex="false" tool="3" flavor2="0">
+      <item path="src/intdelegate.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/intdelegate.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/ural.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/ural.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/изображения.qrc" ex="false" tool="3" flavor2="0">
+      <item path="src/ural.hpp" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="4">
@@ -225,109 +188,73 @@
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
       </compileType>
-      <item path="Исходные тексты/AdderRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AdderRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/ArithmUnitRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/ArithmUnitRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/AuxControlsWidget.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/AuxControlsWidget.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/AuxControlsWidget.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/CommandDecoderWidget.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/CommandDecoderWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/CommandRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/CommandRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/ControlRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/ControlRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/DrumWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PCWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PanelWidget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PanelWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PowerPultWidget.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="src/PowerPultWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
+      <item path="src/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PultWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/StatusRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/StatusRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/controlregisterpanel.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="src/controlregisterpanel.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/controlregisterpanel.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/controlregisterpanel.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/controls.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/controls.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/controls.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/controls.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/intdelegate.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/images.qrc" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/intdelegate.h" ex="false" tool="3" flavor2="0">
+      <item path="src/intdelegate.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/intdelegate.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/test.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/test.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/ural.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/ural.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/изображения.qrc" ex="false" tool="3" flavor2="0">
+      <item path="src/ural.hpp" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Test" type="4">
@@ -364,44 +291,73 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="Исходные тексты/AdderRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AdderRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/ArithmUnitRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/ArithmUnitRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/CommandDecoderWidget.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/CommandRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/AuxControlsWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/StatusRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/CommandDecoderWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/CommandRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/main.cpp" ex="true" tool="1" flavor2="8">
+      <item path="src/ControlRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/test.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="8">
+      <item path="src/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/ural.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/DrumWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/изображения.qrc" ex="false" tool="3" flavor2="0">
+      <item path="src/PCWIdget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PanelWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PowerPultWidget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PultWIdget.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/StatusRegisterPanel.ui" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/controlregisterpanel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/controlregisterpanel.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/controls.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/controls.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/images.qrc" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/intdelegate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/intdelegate.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ural.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ural.hpp" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="DebugKeyDevice" type="4">
@@ -415,94 +371,73 @@
       </qt>
       <compileType>
       </compileType>
-      <item path="Исходные тексты/AuxControlsWidget.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AdderRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/AuxControlsWidget.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/ArithmUnitRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/CommandDecoderWidget.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/CommandRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/ControlRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/AuxControlsWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/CommandDecoderWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/CommandRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/DrumWidget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/ControlRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PCWIdget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/DrumWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/DrumWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/DrumWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PanelWidget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PCWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PowerPultWidget.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="src/PanelWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
+      <item path="src/PanelWidget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PanelWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/PowerPultWidget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/PowerPultWidget.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/PultWIdget.ui" ex="false" tool="3" flavor2="0">
+      <item path="src/PowerPultWidget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/StatusRegisterPanel.ui"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/PultWIdget.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/controlregisterpanel.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
+      <item path="src/PultWIdget.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/controlregisterpanel.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="src/PultWIdget.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/controls.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/StatusRegisterPanel.ui" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/controls.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/controlregisterpanel.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/controlregisterpanel.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/intdelegate.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/controls.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/intdelegate.h" ex="false" tool="3" flavor2="0">
+      <item path="src/controls.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/fixed_coding.hpp" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/test.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/images.qrc" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/ural.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/intdelegate.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Исходные тексты/ural.hpp" ex="false" tool="3" flavor2="0">
+      <item path="src/intdelegate.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Исходные тексты/изображения.qrc" ex="false" tool="3" flavor2="0">
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ural.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ural.hpp" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

@@ -13,8 +13,8 @@ CND_BUILDDIR=build
 CND_DLIB_EXT=so
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=.//Урал-1
-OUTPUT_BASENAME=Урал-1
+OUTPUT_PATH=.//ural1
+OUTPUT_BASENAME=ural1
 PACKAGE_TOP_DIR=emural/
 
 # Functions
