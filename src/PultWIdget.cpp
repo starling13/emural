@@ -119,6 +119,7 @@ void PultWIdget::on_startButton_clicked()
 void PultWIdget::on_stopButton_clicked()
 {
 	_timer.stop();
+    emit stopped();
 }
 
 void PultWIdget::on_commandResetButton_clicked()
