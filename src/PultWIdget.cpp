@@ -99,13 +99,15 @@ PultWIdget::~PultWIdget()
 
 void PultWIdget::on_singleStepButton_clicked()
 {
-	_ural.tact();
+    _ural.tact();
+    emit stopped();
 	emit tactFinished();
 }
 
 void PultWIdget::on_resetButton_clicked()
 {
 	_ural.reset();
+    emit stopped();
 	emit tactFinished();
 }
 
@@ -172,6 +174,7 @@ void PultWIdget::timerSignaled()
 {
 	if (!_ural.tact()) {
 		_timer.stop();
+        emit stopped();
 		emit tactFinished();
 	}
 	if (_tactSkip > 0)

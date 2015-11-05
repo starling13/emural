@@ -27,8 +27,17 @@ class URAL
 {
 public:
 	
+    /*
+     * Число полных ячеек в барабане
+     */
 	static const size_t	drumWordsNumber = 02000;
+    /*
+     * Число коротких ячеек
+     */
 	static const size_t	drumHalfWordsNumber = drumWordsNumber * 2;
+    /*
+     * Бит признака длины ячейки
+     */
 	static const size_t	addressLengthBit = 04000;
 	
 	typedef	FixedPointFraction<uint64_t, 35>::ModOnesComplement
@@ -38,6 +47,8 @@ public:
 		DoubleCell;
 	typedef	FixedPointFraction<uint64_t, 17>::SignedMagnitude
 		Cell;
+
+    enum Format { BIN = 2, OCT = 8};
 	
 	typedef union PACKED HalfWord
 	{

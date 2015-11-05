@@ -38,6 +38,8 @@ public:
 public slots:
 	
 	void setPosition(int);
+
+    void updateView();
 	
 private slots:
 	
@@ -50,12 +52,10 @@ private slots:
 	void on_clearButton_clicked();
 
 private:
+
+    QString formatValue(quint64);
 	
-	enum Format { BIN = 2, OCT = 8 };
-	
-	void updateView();
-	
-	Format	_format;
+    URAL::Format	_format;
 	
 	URAL::Word_t (&_drum)[URAL::drumWordsNumber];
 	

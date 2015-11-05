@@ -28,10 +28,10 @@ QWidget(parent)
 	// загрузить их
 	if (!_lampPixmaps[0])
 		_lampPixmaps[0] = new QPixmap(QString::fromUtf8(
-		    u8":/Изображения/lamp_off.png"));
+            u8":/images/lamp_off.png"));
 	if (!_lampPixmaps[1])
 		_lampPixmaps[1] = new QPixmap(QString::fromUtf8(
-		    u8":/Изображения/lamp_on.png"));
+            u8":/images/lamp_on.png"));
 }
 
 void LampPanel::setValue(uint64_t newValue)

@@ -48,6 +48,8 @@ int main(int argc, char** argv)
 		    &panelWidget, SLOT(controlRegisterUpdated()));
 		QObject::connect(&pultWidget, SIGNAL(tactFinished()),
 		    &panelWidget, SLOT(updateRegisters()));
+        QObject::connect(&pultWidget, SIGNAL(stopped()),
+            &drumWidget, SLOT(updateView()));
 	
 		drumWidget.show();
 		pultWidget.show();

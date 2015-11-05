@@ -23,7 +23,8 @@ HEADERS += \
     src/DrumWidget.hpp \
     src/controls.hpp \
     src/controlregisterpanel.hpp \
-    src/AuxControlsWidget.hpp
+    src/AuxControlsWidget.hpp \
+    src/delegates.hpp
 
 SOURCES += \
     src/ural.cpp \
@@ -35,7 +36,8 @@ SOURCES += \
     src/DrumWidget.cpp \
     src/controls.cpp \
     src/controlregisterpanel.cpp \
-    src/AuxControlsWidget.cpp
+    src/AuxControlsWidget.cpp \
+    src/delegates.cpp
 
 FORMS += \
     src/PultWIdget.ui \
@@ -48,7 +50,8 @@ FORMS += \
     src/CommandDecoderWidget.ui \
     src/AuxControlsWidget.ui \
     src/ArithmUnitRegisterPanel.ui \
-    src/AdderRegisterPanel.ui
+    src/AdderRegisterPanel.ui \
+    src/StatusRegisterPanel.ui
 
 RESOURCES += \
     src/images.qrc

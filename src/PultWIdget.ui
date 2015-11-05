@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>837</width>
-    <height>419</height>
+    <height>402</height>
    </rect>
   </property>
   <property name="palette">
@@ -195,7 +195,7 @@
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>350</y>
+     <y>330</y>
      <width>311</width>
      <height>61</height>
     </rect>
@@ -466,7 +466,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>190</y>
+     <y>170</y>
      <width>141</width>
      <height>82</height>
     </rect>
@@ -573,7 +573,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>330</y>
+     <y>310</y>
      <width>156</width>
      <height>82</height>
     </rect>
@@ -683,30 +683,11 @@
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label_26">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>10</y>
-     <width>221</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="изображения.qrc">:/Изображения/logo.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QWidget" name="gridLayoutWidget_4">
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>330</y>
+     <y>310</y>
      <width>161</width>
      <height>82</height>
     </rect>
@@ -820,7 +801,7 @@
    <property name="geometry">
     <rect>
      <x>650</x>
-     <y>220</y>
+     <y>200</y>
      <width>61</width>
      <height>51</height>
     </rect>
@@ -868,7 +849,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>152</y>
+     <y>132</y>
      <width>471</width>
      <height>171</height>
     </rect>
@@ -13897,7 +13878,7 @@
    <property name="geometry">
     <rect>
      <x>650</x>
-     <y>330</y>
+     <y>310</y>
      <width>180</width>
      <height>82</height>
     </rect>
@@ -14027,15 +14008,25 @@
     </item>
    </layout>
   </widget>
-  <zorder>gridLayoutWidget</zorder>
-  <zorder>gridLayoutWidget_2</zorder>
-  <zorder>gridLayoutWidget_3</zorder>
-  <zorder>label_26</zorder>
-  <zorder>gridLayoutWidget_4</zorder>
-  <zorder>verticalLayoutWidget_2</zorder>
-  <zorder>frame</zorder>
-  <zorder>gridLayoutWidget_5</zorder>
-  <zorder>commandResetButton_3</zorder>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>10</y>
+     <width>251</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="images.qrc">:/images/logo.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -14055,17 +14046,17 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="изображения.qrc"/>
+  <include location="images.qrc"/>
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="reg11group"/>
   <buttongroup name="addr5group"/>
-  <buttongroup name="addr4group"/>
-  <buttongroup name="addr3group"/>
-  <buttongroup name="addr2group"/>
   <buttongroup name="addr1group"/>
+  <buttongroup name="addr4group"/>
   <buttongroup name="reg12group"/>
+  <buttongroup name="addr3group"/>
   <buttongroup name="addr6group"/>
+  <buttongroup name="reg11group"/>
+  <buttongroup name="addr2group"/>
  </buttongroups>
 </ui>

@@ -274,7 +274,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -305,7 +305,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -336,7 +336,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -367,7 +367,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -411,7 +411,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_on.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -442,7 +442,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -499,7 +499,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -530,7 +530,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -561,7 +561,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -592,7 +592,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_on.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -636,7 +636,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -667,7 +667,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -698,7 +698,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -729,7 +729,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -760,7 +760,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -804,7 +804,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -955,7 +955,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -999,7 +999,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1030,7 +1030,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1061,7 +1061,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1092,7 +1092,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1123,7 +1123,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1154,7 +1154,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1198,7 +1198,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_on.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1242,7 +1242,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1273,7 +1273,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1307,7 +1307,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1341,7 +1341,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1385,7 +1385,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1416,7 +1416,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_on.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1460,7 +1460,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1491,7 +1491,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1522,7 +1522,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1553,7 +1553,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1584,7 +1584,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1615,7 +1615,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -5404,7 +5404,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="изображения.qrc">:/Изображения/lamp_off.png</pixmap>
+        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -5416,7 +5416,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="изображения.qrc"/>
+  <include location="images.qrc"/>
  </resources>
  <connections/>
 </ui>

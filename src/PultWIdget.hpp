@@ -34,6 +34,8 @@ class PultWIdget : public QWidget
 signals:
 
 	void tactFinished();
+
+    void stopped();
 	
 public:
 	

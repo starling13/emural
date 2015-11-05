@@ -252,11 +252,12 @@ URAL::CPU::fetch()
 		    this->_reg_SCHK)
 			this->_mode = STOP;
 	// Проверка реакции на флаг переполнения
-	if (!_phiBlock && this->_statusReg._value._phi)
+    if (!_phiBlock && this->_statusReg._value._phi) {
 		if (_phiStop)
 			this->_mode = STOP;
 		else
 			++this->_reg_SCHK;
+    }
 }
 
 void
@@ -321,14 +322,10 @@ URAL::CPU::sub2_04()
 void
 URAL::CPU::mov_16()
 {
-	/**
-	 * Значение сумматора в прямом коде
-         */
+    //Значение сумматора в прямом коде
 	Word_t adderValue;
 	adderValue.dPrec = this->S.value;
-	/**
-	 * Ссылка на двойную ячейку
-         */
+    //Ссылка на двойную ячейку
 	Word_t &drumValue = drum[_RGK.command.address / 2];
 	
 	// Если используется полная ячейка

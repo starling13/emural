@@ -716,8 +716,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="изображения.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

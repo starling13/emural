@@ -25,15 +25,19 @@
 #include <QDebug>
 #include <QMessageBox>
 
+#include "delegates.hpp"
+
 DrumWidget::DrumWidget(URAL::Word_t (&drum)[URAL::drumWordsNumber]) :
-_format(OCT),
+_format(URAL::OCT),
 _drum(drum),
 _position(0ul)
 {
 	widget.setupUi(this);
 	
-	widget.formatGroup->setId(widget.octSwitch, OCT);
-	widget.formatGroup->setId(widget.binSwitch, BIN);
+    widget.formatGroup->setId(widget.octSwitch, URAL::OCT);
+    widget.formatGroup->setId(widget.binSwitch, URAL::BIN);
+
+    widget.drumView->setItemDelegate(new NumberDelegate(18, _format, this));
 }
 
 DrumWidget::~DrumWidget()
@@ -61,9 +65,10 @@ void DrumWidget::on_drumScroll_valueChanged(int value)
 
 void DrumWidget::on_formatGroup_buttonClicked(int newVal)
 {
-	Q_ASSERT((newVal == OCT) || (newVal == BIN));
+    Q_ASSERT((newVal == URAL::OCT) || (newVal == URAL::BIN));
 	
-	this->_format = Format(newVal);
+    this->_format = URAL::Format(newVal);
+    widget.drumView->setItemDelegate(new NumberDelegate(18, _format, this));
 	this->updateView();
 }
 
@@ -117,14 +122,28 @@ void DrumWidget::updateView()
 		    QString::number(this->_position + 2*i, 8)));
 		this->widget.drumView->setVerticalHeaderItem(i, item);
 
-		item = new QTableWidgetItem(QString::number(
-		    _drum[wordIndex][1].data, int(this->_format)));
+        item = new QTableWidgetItem(formatValue(_drum[wordIndex][1].data));
 		this->widget.drumView->setItem(i, 0, item);
 		
-		item = new QTableWidgetItem(QString::number(
-		    _drum[wordIndex][2].data, int(this->_format)));
+        item = new QTableWidgetItem(formatValue(_drum[wordIndex][2].data));
 		this->widget.drumView->setItem(i, 1, item);
 	}
 	
 	this->widget.drumView->blockSignals(false);
+}
+
+QString DrumWidget::formatValue(quint64 val)
+{
+    QString result = QString::number(val, int(this->_format));
+    switch (this->_format) {
+    case URAL::BIN:
+        while (result.length() < 18)
+            result.prepend('0');
+        break;
+    case URAL::OCT:
+        while (result.length() < 6)
+            result.prepend('0');
+        break;
+    }
+    return (result);
 }

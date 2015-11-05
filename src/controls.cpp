@@ -115,8 +115,8 @@ bool BlackPushButton::hitButton(const QPoint&) const
 Switch::Switch(QWidget* parent) :
 QCheckBox(parent)
 {
-	_images[0].load(QString::fromUtf8(u8":/Изображения/switch_off_24px.png"));
-	_images[1].load(QString::fromUtf8(u8":/Изображения/switch_on_24px.png"));
+    _images[0].load(QString::fromUtf8(u8":/images/switch_off_24px.png"));
+    _images[1].load(QString::fromUtf8(u8":/images/switch_on_24px.png"));
 }
 
 void Switch::paintEvent(QPaintEvent*)
