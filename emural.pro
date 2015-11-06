@@ -24,7 +24,8 @@ HEADERS += \
     src/controls.hpp \
     src/controlregisterpanel.hpp \
     src/AuxControlsWidget.hpp \
-    src/delegates.hpp
+    src/delegates.hpp \
+    src/analogclock.h
 
 SOURCES += \
     src/ural.cpp \
@@ -37,7 +38,8 @@ SOURCES += \
     src/controls.cpp \
     src/controlregisterpanel.cpp \
     src/AuxControlsWidget.cpp \
-    src/delegates.cpp
+    src/delegates.cpp \
+    src/analogclock.cpp
 
 FORMS += \
     src/PultWIdget.ui \
