@@ -53,7 +53,10 @@ FORMS += \
     src/AuxControlsWidget.ui \
     src/ArithmUnitRegisterPanel.ui \
     src/AdderRegisterPanel.ui \
-    src/StatusRegisterPanel.ui
+    src/StatusRegisterPanel.ui \
+    src/ModesPanel.ui \
+    src/DebugPanel.ui \
+    src/StopReasonsPanel.ui
 
 RESOURCES += \
     src/images.qrc

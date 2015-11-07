@@ -20,9 +20,12 @@
 #ifndef _PANELWIDGET_HPP
 #define	_PANELWIDGET_HPP
 
-#include "ui_PanelWidget.h"
-
 #include "ural.hpp"
+
+namespace Ui
+{
+    class PanelWidget;
+}
 
 class PanelWidget : public QWidget
 {
@@ -42,7 +45,7 @@ public:
 	
 private:
 	
-	Ui::PanelWidget widget;
+    Ui::PanelWidget &widget;
 	
 	const URAL::CPU &_ural;
 };

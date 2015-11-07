@@ -146,6 +146,7 @@ _phiStop(false)
 	this->commands[001] = &CPU::sum1_01;
 	this->commands[002] = &CPU::sum2_02;
 	this->commands[003] = &CPU::sub1_03;
+    this->commands[004] = &CPU::sub2_04;
 	this->commands[016] = &CPU::mov_16;
 	this->commands[017] = &CPU::loadR_17;
 	this->commands[022] = &CPU::jmp_22;
@@ -315,7 +316,7 @@ void
 URAL::CPU::sub2_04()
 {
 	loadR();
-	this->S.value = abs(this->S.value) - abs(this->R.dPrec);
+    this->S.value = abs(this->S.value) - abs(this->R.dPrec);
 	++this->_reg_SCHK;
 }
 

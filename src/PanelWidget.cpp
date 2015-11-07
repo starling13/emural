@@ -18,8 +18,10 @@
  */
 
 #include "PanelWidget.hpp"
+#include "ui_PanelWidget.h"
 
 PanelWidget::PanelWidget(const URAL::CPU &ural) :
+widget(*(new Ui::PanelWidget)),
 _ural(ural)
 {
 	widget.setupUi(this);
@@ -29,6 +31,7 @@ _ural(ural)
 
 PanelWidget::~PanelWidget()
 {
+    delete &widget;
 }
 
 void PanelWidget::controlRegisterUpdated()

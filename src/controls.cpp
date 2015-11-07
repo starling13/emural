@@ -15,6 +15,7 @@ void BlackButton::paintEvent(QPaintEvent*)
 	uint border = this->width() / 6;
 	
 	_painter.begin(this);
+    _painter.setRenderHint(QPainter::Antialiasing);
 	
 	_painter.setBrush(_solid);
 	_painter.setPen(Qt::NoPen);
@@ -89,6 +90,7 @@ void BlackPushButton::paintEvent(QPaintEvent*)
 	uint border = this->width() / 6;
 	
 	_painter.begin(this);
+    _painter.setRenderHint(QPainter::Antialiasing);
 	_painter.setPen(Qt::black);
 	
 	if (!this->isDown()) {
@@ -169,6 +171,7 @@ QRadioButton(parent)
 void DigitButton::paintEvent(QPaintEvent*)
 {
 	_painter.begin(this);
+    _painter.setRenderHint(QPainter::Antialiasing);
 	
 	QFontMetrics met(this->font());
 	uint horizontalMargin = (this->width()-met.width(this->text()))/2;
@@ -178,8 +181,10 @@ void DigitButton::paintEvent(QPaintEvent*)
 	if (!this->isChecked()) {
 		_painter.setPen(Qt::NoPen);
 		_painter.drawEllipse(0, 0, this->width(), this->height());
-	} else
+    } else {
+        _painter.setPen(QPen(this->palette().buttonText().color(),2));
 		_painter.drawEllipse(0, 0, this->width()-1, this->height()-1);
+    }
 	if (!this->isChecked())
 		_painter.setPen(this->palette().buttonText().color());
 	_painter.drawText(horizontalMargin, met.height()+verticalMargin, this->text());

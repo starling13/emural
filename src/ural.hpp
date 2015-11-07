@@ -23,10 +23,12 @@
 #include "fixed_coding.hpp"
 #include "controlregisterpanel.hpp"
 
+/**
+ * @brief пакет эмулятора Урал
+ */
 class URAL
 {
 public:
-	
     /*
      * Число полных ячеек в барабане
      */
@@ -39,17 +41,28 @@ public:
      * Бит признака длины ячейки
      */
 	static const size_t	addressLengthBit = 04000;
-	
+    /*
+     * Полная ячейка в модифицированном обратном коде (сумматор)
+     */
 	typedef	FixedPointFraction<uint64_t, 35>::ModOnesComplement
 		AdderWord;
-	
+    /*
+     * Полная ячейка в прямом коде (регистр АУ, барабан)
+     */
 	typedef	FixedPointFraction<uint64_t, 35>::SignedMagnitude
 		DoubleCell;
+    /*
+     * Короткая ячейка в прямом коде (регистр АУ, барабан)
+     */
 	typedef	FixedPointFraction<uint64_t, 17>::SignedMagnitude
 		Cell;
-
+    /*
+     * Формат ввода-вывода
+     */
     enum Format { BIN = 2, OCT = 8};
-	
+    /*
+     * Расширеный тип короткой ячейки
+     */
 	typedef union PACKED HalfWord
 	{
 	public:
@@ -120,26 +133,19 @@ public:
 	typedef union PACKED Word
 	{
 	public:
-		
 		Word() :
 		dPrec(0)
 		{
 		}
-
 		Word(int64_t);
-		
 		HalfWord operator [](uint8_t) const;
-		
 		uint64_t	data:36;
-		
 		struct
 		{
 			uint64_t	least:18;
 			uint64_t	most:18;
 		} halfWords;
-		
 		DoubleCell		dPrec;
-		
 		struct
 		{
 			uint64_t	t1:3;
@@ -155,7 +161,6 @@ public:
 			uint64_t	t11:3;
 			uint64_t	t12:2;
 		} triplets;
-		
 		struct
 		{
 			uint64_t	q1:3;
@@ -168,7 +173,6 @@ public:
 			uint64_t	q8:4;
 			uint64_t	q9:4;
 		} quartets;
-		
 		struct
 		{
 			uint64_t	b1:1;
@@ -209,17 +213,14 @@ public:
 			uint64_t	b36:1;
 		} bits;
 	} Word_t;
-	
+
 	friend std::ostream &operator <<(std::ostream&, const Word_t&);
-	
+
 	union PACKED Adder
 	{
 	public:
-		
 		Adder(AdderWord);
-		
 		Adder &operator =(const Adder&);
-		
 		uint64_t	data;
 		AdderWord	value;
 		struct
@@ -228,69 +229,53 @@ public:
 			uint64_t	word2:18;
 		};
 	};
-	
+
 	class CPU
 	{
 	public:
-		
 		CPU();
-		
 		uint16_t	regSCHK() const
 		{
 			return (_reg_SCHK);
 		}
-		
 		void setRegSCHK(uint16_t newVal)
 		{
 			_reg_SCHK = newVal;
 		}
-		
 		uint16_t	regDSHK() const
 		{
 			return (_DSHK);
 		}
-		
 		void setAddressBlock(uint16_t newVal)
 		{
 			_addressStopReg._data = newVal;
 		}
-		
 		bool tact();
-		
 		void clearDrum();
-		
 		void reset();
-		
 		const Word_t	&controlRegister() const;
 		void		 setControlRegisterAddress(size_t newVal);
-		
 		void setSupplyVoltage(uint8_t, float);
-		
 		bool		 omega() const
 		{
 			return (_statusReg._value._omega);
 		}
-		
 		bool		 phi() const
 		{
 			return (_statusReg._value._phi);
 		}
-		
 		uint8_t		statusRegister() const
 		{
 			return (_statusReg._data);
 		}
-		
 		void		setPhiBlock(bool newVal)
 		{
 			_phiBlock = newVal;
 		}
-		
 		void		setPhiStop(bool newVal)
 		{
 			_phiStop = newVal;
 		}
-		
 		Word_t		R;
 		Word_t		drum[drumWordsNumber];
 		HalfWord_t	_RGK;
@@ -328,11 +313,11 @@ public:
 		
 		/**
 		 * Исполнение команды из регистра команд
-                 */
+         */
 		void execute();
 		/**
 		 * Загрузка команды в регистр команд
-                 */
+         */
 		void fetch();
 		
 		void loadR();
@@ -341,11 +326,11 @@ public:
 		void noop_00();
 		/**
 		 * @brief сложение
-                 */
+         */
 		void sum1_01();
 		/**
 		 * @brief сложение с нулём (послыка в сумматор)
-                 */
+         */
 		void sum2_02();
 		
 		void sub1_03();

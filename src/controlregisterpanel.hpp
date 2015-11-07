@@ -27,8 +27,15 @@
 #include "ui_CommandRegisterPanel.h"
 #include "ui_CommandDecoderWidget.h"
 #include "ui_StatusRegisterPanel.h"
+#include "ui_ModesPanel.h"
 
 #include "ural.hpp"
+
+namespace Ui
+{
+    class StopReasonsPanel;
+    class DebugPanel;
+}
 
 /**
  * Панель индикаторных тиратронов одного регистра
@@ -175,6 +182,51 @@ public:
 private:
 	
 	Ui::StatusRegisterPanel widget;
+};
+
+class ModesPanel : public LampPanel
+{
+    Q_OBJECT
+
+public:
+
+    ModesPanel(QWidget *parent = 0);
+
+    ~ModesPanel();
+
+private:
+
+    Ui::ModesPanel widget;
+};
+
+class StopReasonsPanel : public LampPanel
+{
+    Q_OBJECT
+
+public:
+
+    StopReasonsPanel(QWidget *parent = 0);
+
+    ~StopReasonsPanel();
+
+private:
+
+    Ui::StopReasonsPanel &widget;
+};
+
+class DebugPanel : public LampPanel
+{
+    Q_OBJECT
+
+public:
+
+    DebugPanel(QWidget *parent = 0);
+
+    ~DebugPanel();
+
+private:
+
+    Ui::DebugPanel &widget;
 };
 
 #endif	/* _CONTROLREGISTERPANEL_HPP */

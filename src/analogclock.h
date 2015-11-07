@@ -55,9 +55,13 @@ public:
 
 protected:
 
-    void paintEvent(QPaintEvent*);
+    void paintEvent(QPaintEvent*) override;
 
-    void resizeEvent(QResizeEvent*);
+    void resizeEvent(QResizeEvent*) override;
+
+    void mouseMoveEvent(QMouseEvent*) override;
+
+    void mousePressEvent(QMouseEvent*) override;
 
 private slots:
 

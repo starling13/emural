@@ -70,7 +70,7 @@ class PACKED SignedMagnitude
 	{
 		FixedPointFraction::SignedMagnitude	result(number);
 		
-		result._sign = 1 - result._sign;
+        result._sign = 0;
 		
 		return (result);
 	}
@@ -192,6 +192,8 @@ public:
 	ModOnesComplement operator +(const ModOnesComplement&) const;
 		
 	ModOnesComplement &operator -=(const ModOnesComplement&);
+
+    ModOnesComplement operator -(const ModOnesComplement&) const;
 private :
 	base	_magnitude:bits;
 	base	_sign:2;
@@ -325,6 +327,18 @@ FixedPointFraction<base, bits>::ModOnesComplement::operator -=(const
 	(*this) += -other;
 	
 	return (*this);
+}
+
+template <typename base, size_t bits>
+typename FixedPointFraction<base, bits>::ModOnesComplement
+FixedPointFraction<base, bits>::ModOnesComplement::operator -(const
+    ModOnesComplement &other) const
+{
+    ModOnesComplement res = (*this);
+
+    res -= other;
+
+    return (res);
 }
 
 template <typename base, size_t bits>

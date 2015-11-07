@@ -19,6 +19,9 @@
 
 #include "controlregisterpanel.hpp"
 
+#include "ui_StopReasonsPanel.h"
+#include "ui_DebugPanel.h"
+
 const QPixmap	*LampPanel::_lampPixmaps[2] = {NULL, NULL};
 
 LampPanel::LampPanel(QWidget *parent) :
@@ -264,4 +267,56 @@ LampPanel(parent)
 
 StatusRegisterPanel::~StatusRegisterPanel()
 {
+}
+
+ModesPanel::ModesPanel(QWidget *parent) :
+LampPanel(parent)
+{
+    widget.setupUi(this);
+
+    _lamps.push_back(widget.lampStop);
+    _lamps.push_back(widget.lampPeriodicSend);
+    _lamps.push_back(widget.lampPrint2);
+    _lamps.push_back(widget.lampPrint1);
+    _lamps.push_back(widget.lampPerforating);
+    _lamps.push_back(widget.lampPrintResults);
+    _lamps.push_back(widget.lampPerfolentRead);
+    _lamps.push_back(widget.lampReadMagnetLent);
+}
+
+ModesPanel::~ModesPanel()
+{
+}
+
+StopReasonsPanel::StopReasonsPanel(QWidget *parent) :
+LampPanel(parent),
+widget(*(new Ui::StopReasonsPanel))
+{
+    widget.setupUi(this);
+
+    _lamps.push_back(widget.lampPerfRead);
+    _lamps.push_back(widget.lampMagnetRead);
+    _lamps.push_back(widget.lampPowerFail);
+}
+
+StopReasonsPanel::~StopReasonsPanel()
+{
+    delete &widget;
+}
+
+DebugPanel::DebugPanel(QWidget *parent) :
+LampPanel(parent),
+widget(*(new Ui::DebugPanel))
+{
+    widget.setupUi(this);
+
+    _lamps.push_back(widget.lampPhi);
+    _lamps.push_back(widget.lampDrum);
+    _lamps.push_back(widget.lampCommandReg);
+    _lamps.push_back(widget.lampMaintenance);
+}
+
+DebugPanel::~DebugPanel()
+{
+    delete &widget;
 }
