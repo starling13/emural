@@ -145,6 +145,13 @@ public:
 			uint64_t	least:18;
 			uint64_t	most:18;
 		} halfWords;
+        struct
+        {
+            uint64_t	q1:9;
+            uint64_t	q2:9;
+            uint64_t	q3:9;
+            uint64_t	q4:9;
+        } quaters;
 		DoubleCell		dPrec;
 		struct
 		{
@@ -225,9 +232,9 @@ public:
 		AdderWord	value;
 		struct
 		{
-			uint64_t	word1:18;
+            uint64_t	word1:18;
 			uint64_t	word2:18;
-		};
+        } words;
 	};
 
 	class CPU
@@ -336,6 +343,8 @@ public:
 		void sub1_03();
 		
 		void sub2_04();
+
+        void mul2_06();
 		
 		void mov_16();
 		
@@ -376,15 +385,17 @@ public:
 		 * Регистр СЧК
 		 */
 		uint16_t	_reg_SCHK:11;
-		
 		/**
 		 * ДШК
 		 */
 		uint16_t	_DSHK:5;
+        /*
+         * РГМ
+         */
+        Word_t      _RGM;
+        uint16_t    _DRG:6;
 		
-		uint8_t		_currentCommandCounter;
-		
-		size_t		controlRegisterAddress;
+        size_t		_controlRegisterAddress;
 		
 		PowerState_t		_powerState;
 		

@@ -87,10 +87,10 @@ public:
 		
 	SignedMagnitude(signed_base);
 	
-	base	magnitude() const
-	{
-		return (_magnitude);
-	}
+    base	magnitude() const
+    {
+        return (_magnitude);
+    }
 	void	setMagnitude(base newVal)
 	{
 		_magnitude = newVal;
@@ -107,9 +107,10 @@ public:
 	
 	operator double() const;
 	
-private :	
-	base	_magnitude:bits;
-	base	_sign:1;
+    base	_magnitude:bits;
+    base	_sign:1;
+
+private :
 
 static_assert ((sizeof (base) * 8) >= (bits+2), u8"Неверное число бит");
 };
@@ -194,10 +195,11 @@ public:
 	ModOnesComplement &operator -=(const ModOnesComplement&);
 
     ModOnesComplement operator -(const ModOnesComplement&) const;
+
+    base	_magnitude:bits;
+    base	_sign:2;
+    base	_carry:1;
 private :
-	base	_magnitude:bits;
-	base	_sign:2;
-	base	_carry:1;
 	
 static_assert ((sizeof (base) * 8) >= (bits+4), u8"Неверное число бит");
 };

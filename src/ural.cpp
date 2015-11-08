@@ -133,7 +133,7 @@ URAL::CPU::CPU() :
 S(0),
 _reg_SCHK(0),
 _DSHK(0),
-controlRegisterAddress(0),
+_controlRegisterAddress(0),
 _powerState(OFF),
 _mode(READY),
 _phiBlock(false),
@@ -147,6 +147,7 @@ _phiStop(false)
 	this->commands[002] = &CPU::sum2_02;
 	this->commands[003] = &CPU::sub1_03;
     this->commands[004] = &CPU::sub2_04;
+    this->commands[006] = &CPU::mul2_06;
 	this->commands[016] = &CPU::mov_16;
 	this->commands[017] = &CPU::loadR_17;
 	this->commands[022] = &CPU::jmp_22;
@@ -178,7 +179,7 @@ URAL::CPU::clearDrum()
 const URAL::Word_t&
 URAL::CPU::controlRegister() const
 {
-	return (drum[controlRegisterAddress]);
+    return (drum[_controlRegisterAddress]);
 }
 
 void
@@ -189,7 +190,7 @@ URAL::CPU::setControlRegisterAddress(size_t newVal)
 	newVal >>= 1;
 	assert(newVal < drumWordsNumber);
 
-	controlRegisterAddress = newVal;
+    _controlRegisterAddress = newVal;
 }
 
 void
@@ -318,6 +319,42 @@ URAL::CPU::sub2_04()
 	loadR();
     this->S.value = abs(this->S.value) - abs(this->R.dPrec);
 	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::mul2_06()
+{
+    bool sign;
+
+    loadR();
+    this->_RGM = this->R;
+    this->R.dPrec = this->S.value;
+    this->S.data = 0;
+
+    sign = _RGM.dPrec.sign() != R.dPrec.sign();
+    if (sign)
+        S.value._sign = 3;
+    else
+        S.value._sign = 0;
+    for (uint i=0; i<35; ++i) {
+        std::cout << "СМ " << std::bitset<18>(S.words.word2) << ' ' <<
+            std::bitset<18>(S.words.word1) << std::endl;
+        std::cout << "РГАУ " << std::bitset<18>(R.halfWords.most) <<
+            ' ' << std::bitset<18>(R.halfWords.least) << std::endl;
+        std::cout << "РГМ " << _RGM << std::endl;
+        std::cout << "ДРГ " << std::bitset<6>(_DRG) << std::endl;
+        _DRG >>= 1;
+        _DRG |= R.bits.b1 << 5;
+        R.dPrec._magnitude >>= 1;
+        _RGM.quaters.q4 <<=1;
+        if (_RGM.bits.b36)
+            if (sign)
+                S.value._magnitude += ~R.dPrec._magnitude;
+            else
+                S.value._magnitude += R.dPrec._magnitude;
+    }
+
+    ++this->_reg_SCHK;
 }
 
 void
