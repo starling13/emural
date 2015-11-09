@@ -354,6 +354,8 @@ public:
 		
 		void loadR_17();
 		
+        void jmp_21();
+
 		void jmp_22();
 		
 		/**

@@ -147,9 +147,11 @@ _phiStop(false)
 	this->commands[002] = &CPU::sum2_02;
 	this->commands[003] = &CPU::sub1_03;
     this->commands[004] = &CPU::sub2_04;
+    this->commands[005] = &CPU::mul1_05;
     this->commands[006] = &CPU::mul2_06;
 	this->commands[016] = &CPU::mov_16;
 	this->commands[017] = &CPU::loadR_17;
+    this->commands[021] = &CPU::jmp_21;
 	this->commands[022] = &CPU::jmp_22;
 
 	S.value = std::rand();
@@ -305,9 +307,9 @@ URAL::CPU::multiply()
         _RGM.data <<=1;
         if (_RGM.bits.b36) {
             if (sign) {
-                _DSM += ~_DRG;
+                _DSM += ~_DRG & 077;
             } else {
-                _DSM += _DRG;
+                _DSM += _DRG & 077;
             }
             S.value += R.dPrec;
         }
@@ -318,8 +320,8 @@ URAL::CPU::multiply()
         }
     }
     // Округление результата
-    if (_DSM > 040)
-        S.value._magnitude += 1;
+    //if (_DSM > 040)
+    //    S.value += 1;
 
     this->R.data = 0;
 }
@@ -340,6 +342,10 @@ URAL::CPU::sum1_01()
 {
     loadReg(this->R);
 	this->S.value += this->R.dPrec;
+    if (this->S.value.sign() == 3)
+        this->_statusReg._value._omega = 1;
+    else
+        this->_statusReg._value._omega = 0;
 	++this->_reg_SCHK;
 }
 
@@ -348,6 +354,10 @@ URAL::CPU::sum2_02()
 {
     loadReg(this->R);
 	this->S.value = this->R.dPrec;
+    if (this->S.value.sign() == 3)
+        this->_statusReg._value._omega = 1;
+    else
+        this->_statusReg._value._omega = 0;
 	++this->_reg_SCHK;
 }
 
@@ -356,6 +366,10 @@ URAL::CPU::sub1_03()
 {
     loadReg(this->R);
 	this->S.value -= this->R.dPrec;
+    if (this->S.value.sign() == 3)
+        this->_statusReg._value._omega = 1;
+    else
+        this->_statusReg._value._omega = 0;
 	++this->_reg_SCHK;
 }
 
@@ -364,6 +378,10 @@ URAL::CPU::sub2_04()
 {
     loadReg(this->R);
     this->S.value = abs(this->S.value) - abs(this->R.dPrec);
+    if (this->S.value.sign() == 3)
+        this->_statusReg._value._omega = 1;
+    else
+        this->_statusReg._value._omega = 0;
 	++this->_reg_SCHK;
 }
 
@@ -373,7 +391,10 @@ URAL::CPU::mul1_05()
     loadReg(this->_RGM);
 
     multiply();
-
+    if (this->S.value.sign() == 3)
+        this->_statusReg._value._omega = 1;
+    else
+        this->_statusReg._value._omega = 0;
     ++this->_reg_SCHK;
 }
 
@@ -385,7 +406,10 @@ URAL::CPU::mul2_06()
     this->S.data = 0;
 
     multiply();
-
+    if (this->S.value.sign() == 3)
+        this->_statusReg._value._omega = 1;
+    else
+        this->_statusReg._value._omega = 0;
     ++this->_reg_SCHK;
 }
 
@@ -407,7 +431,11 @@ URAL::CPU::mov_16()
 			drumValue.halfWords.least = adderValue.halfWords.most;
 		else
 			drumValue.halfWords.most = adderValue.halfWords.most;
-	
+
+    if (this->S.value.sign() == 3)
+        this->_statusReg._value._omega = 1;
+    else
+        this->_statusReg._value._omega = 0;
 	++this->_reg_SCHK;
 }
 
@@ -415,7 +443,20 @@ void
 URAL::CPU::loadR_17()
 {
     loadReg(this->R);
+    if (this->R.dPrec.magnitude() == 0)
+        this->_statusReg._value._omega = 1;
+    else
+        this->_statusReg._value._omega = 0;
 	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::jmp_21()
+{
+    if (this->_statusReg._value._omega)
+        this->_reg_SCHK = this->_RGK.command.address;
+    else
+        ++this->_reg_SCHK;
 }
 
 void
