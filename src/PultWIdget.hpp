@@ -58,25 +58,23 @@ private slots:
 	void on_commandSetButton_clicked();
 	
 	void on_addr1group_buttonClicked(int);
-	
 	void on_addr2group_buttonClicked(int);
-	
 	void on_addr3group_buttonClicked(int);
-	
 	void on_addr4group_buttonClicked(int);
-	
 	void on_addr5group_buttonClicked(int);
-	
 	void on_addr6group_buttonClicked(int);
 
+    void on_reg1group_buttonClicked(int);
+    void on_reg2group_buttonClicked(int);
+    void on_reg3group_buttonClicked(int);
+    void on_reg4group_buttonClicked(int);
+    void on_reg5group_buttonClicked(int);
+    void on_reg6group_buttonClicked(int);
+    void on_reg7group_buttonClicked(int);
     void on_reg8group_buttonClicked(int);
-
     void on_reg9group_buttonClicked(int);
-
     void on_reg10group_buttonClicked(int);
-
     void on_reg11group_buttonClicked(int);
-
     void on_reg12group_buttonClicked(int);
 
     void on_adderSetButton_clicked();

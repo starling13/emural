@@ -1125,7 +1125,7 @@
      </widget>
     </item>
     <item row="5" column="14">
-     <widget class="DigitButton" name="radioButton_151">
+     <widget class="DigitButton" name="reg7_2button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -1259,6 +1259,9 @@
       <property name="text">
        <string>2</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg7group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="3">
@@ -1719,7 +1722,7 @@
      </widget>
     </item>
     <item row="1" column="17">
-     <widget class="DigitButton" name="radioButton_82">
+     <widget class="DigitButton" name="reg4_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -1772,10 +1775,13 @@
       <property name="text">
        <string>6</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg4group</string>
+      </attribute>
      </widget>
     </item>
     <item row="0" column="15">
-     <widget class="DigitButton" name="radioButton_176">
+     <widget class="DigitButton" name="reg6_7button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -1828,10 +1834,13 @@
       <property name="text">
        <string>7</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg6group</string>
+      </attribute>
      </widget>
     </item>
     <item row="4" column="14">
-     <widget class="DigitButton" name="radioButton_146">
+     <widget class="DigitButton" name="reg7_3button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -1965,6 +1974,9 @@
       <property name="text">
        <string>3</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg7group</string>
+      </attribute>
      </widget>
     </item>
     <item row="1" column="6">
@@ -2027,7 +2039,7 @@
      </widget>
     </item>
     <item row="7" column="20">
-     <widget class="DigitButton" name="radioButton_75">
+     <widget class="DigitButton" name="reg1_0button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -2080,6 +2092,9 @@
       <property name="text">
        <string>0</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg1group</string>
+      </attribute>
      </widget>
     </item>
     <item row="0" column="5">
@@ -2201,7 +2216,7 @@
      </widget>
     </item>
     <item row="1" column="14">
-     <widget class="DigitButton" name="radioButton_141">
+     <widget class="DigitButton" name="reg7_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -2335,6 +2350,9 @@
       <property name="text">
        <string>6</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg7group</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="9">
@@ -2478,7 +2496,7 @@
      </widget>
     </item>
     <item row="4" column="20">
-     <widget class="DigitButton" name="radioButton_57">
+     <widget class="DigitButton" name="reg1_3button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -2531,10 +2549,13 @@
       <property name="text">
        <string>3</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg1group</string>
+      </attribute>
      </widget>
     </item>
     <item row="2" column="17">
-     <widget class="DigitButton" name="radioButton_91">
+     <widget class="DigitButton" name="reg4_5button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -2587,6 +2608,9 @@
       <property name="text">
        <string>5</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg4group</string>
+      </attribute>
      </widget>
     </item>
     <item row="0" column="6">
@@ -2848,7 +2872,7 @@
      </widget>
     </item>
     <item row="1" column="18">
-     <widget class="DigitButton" name="radioButton_94">
+     <widget class="DigitButton" name="reg3_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -2901,10 +2925,13 @@
       <property name="text">
        <string>6</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg3group</string>
+      </attribute>
      </widget>
     </item>
     <item row="1" column="20">
-     <widget class="DigitButton" name="radioButton_69">
+     <widget class="DigitButton" name="reg1_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -2957,10 +2984,13 @@
       <property name="text">
        <string>6</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg1group</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="15">
-     <widget class="DigitButton" name="radioButton_137">
+     <widget class="DigitButton" name="reg6_4button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -3013,6 +3043,9 @@
       <property name="text">
        <string>4</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg6group</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="4">
@@ -3215,7 +3248,7 @@
      </widget>
     </item>
     <item row="4" column="16">
-     <widget class="DigitButton" name="radioButton_13">
+     <widget class="DigitButton" name="reg5_3button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -3268,6 +3301,9 @@
       <property name="text">
        <string>3</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg5group</string>
+      </attribute>
      </widget>
     </item>
     <item row="5" column="10">
@@ -3696,7 +3732,7 @@
      </widget>
     </item>
     <item row="2" column="16">
-     <widget class="DigitButton" name="radioButton_11">
+     <widget class="DigitButton" name="reg5_5button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -3749,6 +3785,9 @@
       <property name="text">
        <string>5</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg5group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="13">
@@ -4172,7 +4211,7 @@
      </widget>
     </item>
     <item row="0" column="20">
-     <widget class="DigitButton" name="radioButton_60">
+     <widget class="DigitButton" name="reg1_7button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4225,10 +4264,13 @@
       <property name="text">
        <string>7</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg1group</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="17">
-     <widget class="DigitButton" name="radioButton_73">
+     <widget class="DigitButton" name="reg4_4button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4281,6 +4323,9 @@
       <property name="text">
        <string>4</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg4group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="5">
@@ -4343,7 +4388,7 @@
      </widget>
     </item>
     <item row="5" column="20">
-     <widget class="DigitButton" name="radioButton_80">
+     <widget class="DigitButton" name="reg1_2button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4396,6 +4441,9 @@
       <property name="text">
        <string>2</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg1group</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="12">
@@ -4539,7 +4587,7 @@
      </widget>
     </item>
     <item row="4" column="15">
-     <widget class="DigitButton" name="radioButton_173">
+     <widget class="DigitButton" name="reg6_3button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4592,10 +4640,13 @@
       <property name="text">
        <string>3</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg6group</string>
+      </attribute>
      </widget>
     </item>
     <item row="7" column="18">
-     <widget class="DigitButton" name="radioButton_71">
+     <widget class="DigitButton" name="reg3_0button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4648,10 +4699,13 @@
       <property name="text">
        <string>0</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg3group</string>
+      </attribute>
      </widget>
     </item>
     <item row="7" column="15">
-     <widget class="DigitButton" name="radioButton_158">
+     <widget class="DigitButton" name="reg6_0button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4704,6 +4758,9 @@
       <property name="text">
        <string>0</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg6group</string>
+      </attribute>
      </widget>
     </item>
     <item row="7" column="10">
@@ -4847,7 +4904,7 @@
      </widget>
     </item>
     <item row="2" column="18">
-     <widget class="DigitButton" name="radioButton_63">
+     <widget class="DigitButton" name="reg3_5button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4900,10 +4957,13 @@
       <property name="text">
        <string>5</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg3group</string>
+      </attribute>
      </widget>
     </item>
     <item row="0" column="18">
-     <widget class="DigitButton" name="radioButton_67">
+     <widget class="DigitButton" name="reg3_7button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -4956,6 +5016,9 @@
       <property name="text">
        <string>7</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg3group</string>
+      </attribute>
      </widget>
     </item>
     <item row="2" column="10">
@@ -5384,7 +5447,7 @@
      </widget>
     </item>
     <item row="0" column="17">
-     <widget class="DigitButton" name="radioButton_87">
+     <widget class="DigitButton" name="reg4_7button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -5437,6 +5500,9 @@
       <property name="text">
        <string>7</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg4group</string>
+      </attribute>
      </widget>
     </item>
     <item row="1" column="4">
@@ -6538,7 +6604,7 @@
      </widget>
     </item>
     <item row="3" column="19">
-     <widget class="DigitButton" name="radioButton_76">
+     <widget class="DigitButton" name="reg2_4button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -6591,10 +6657,13 @@
       <property name="text">
        <string>4</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg2group</string>
+      </attribute>
      </widget>
     </item>
     <item row="1" column="16">
-     <widget class="DigitButton" name="radioButton_15">
+     <widget class="DigitButton" name="reg5_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -6647,6 +6716,9 @@
       <property name="text">
        <string>6</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg5group</string>
+      </attribute>
      </widget>
     </item>
     <item row="5" column="3">
@@ -6822,7 +6894,7 @@
      </widget>
     </item>
     <item row="3" column="20">
-     <widget class="DigitButton" name="radioButton_86">
+     <widget class="DigitButton" name="reg1_4button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -6875,6 +6947,9 @@
       <property name="text">
        <string>4</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg1group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="9">
@@ -7018,7 +7093,7 @@
      </widget>
     </item>
     <item row="5" column="16">
-     <widget class="DigitButton" name="radioButton_14">
+     <widget class="DigitButton" name="reg5_2button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7071,10 +7146,13 @@
       <property name="text">
        <string>2</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg5group</string>
+      </attribute>
      </widget>
     </item>
     <item row="5" column="18">
-     <widget class="DigitButton" name="radioButton_62">
+     <widget class="DigitButton" name="reg3_2button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7127,10 +7205,13 @@
       <property name="text">
        <string>2</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg3group</string>
+      </attribute>
      </widget>
     </item>
     <item row="2" column="15">
-     <widget class="DigitButton" name="radioButton_170">
+     <widget class="DigitButton" name="reg6_5button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7183,6 +7264,9 @@
       <property name="text">
        <string>5</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg6group</string>
+      </attribute>
      </widget>
     </item>
     <item row="7" column="3">
@@ -7272,7 +7356,7 @@
      </widget>
     </item>
     <item row="6" column="14">
-     <widget class="DigitButton" name="radioButton_154">
+     <widget class="DigitButton" name="reg7_1button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7406,6 +7490,9 @@
       <property name="text">
        <string>1</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg7group</string>
+      </attribute>
      </widget>
     </item>
     <item row="0" column="13">
@@ -7549,7 +7636,7 @@
      </widget>
     </item>
     <item row="0" column="14">
-     <widget class="DigitButton" name="radioButton_138">
+     <widget class="DigitButton" name="reg7_7button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7683,10 +7770,13 @@
       <property name="text">
        <string>7</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg7group</string>
+      </attribute>
      </widget>
     </item>
     <item row="0" column="16">
-     <widget class="DigitButton" name="radioButton_2">
+     <widget class="DigitButton" name="reg5_7button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7739,10 +7829,13 @@
       <property name="text">
        <string>7</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg5group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="18">
-     <widget class="DigitButton" name="radioButton_96">
+     <widget class="DigitButton" name="reg3_1button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7795,10 +7888,13 @@
       <property name="text">
        <string>1</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg3group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="20">
-     <widget class="DigitButton" name="radioButton_61">
+     <widget class="DigitButton" name="reg1_1button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7851,6 +7947,9 @@
       <property name="text">
        <string>1</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg1group</string>
+      </attribute>
      </widget>
     </item>
     <item row="1" column="2">
@@ -7940,7 +8039,7 @@
      </widget>
     </item>
     <item row="6" column="19">
-     <widget class="DigitButton" name="radioButton_79">
+     <widget class="DigitButton" name="reg2_1button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -7993,10 +8092,13 @@
       <property name="text">
        <string>1</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg2group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="17">
-     <widget class="DigitButton" name="radioButton_81">
+     <widget class="DigitButton" name="reg4_1button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -8049,10 +8151,13 @@
       <property name="text">
        <string>1</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg4group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="15">
-     <widget class="DigitButton" name="radioButton_150">
+     <widget class="DigitButton" name="reg6_1button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -8105,6 +8210,9 @@
       <property name="text">
        <string>1</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg6group</string>
+      </attribute>
      </widget>
     </item>
     <item row="7" column="5">
@@ -8167,7 +8275,7 @@
      </widget>
     </item>
     <item row="3" column="16">
-     <widget class="DigitButton" name="radioButton_16">
+     <widget class="DigitButton" name="reg5_4button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -8220,6 +8328,9 @@
       <property name="text">
        <string>4</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg5group</string>
+      </attribute>
      </widget>
     </item>
     <item row="7" column="4">
@@ -8842,7 +8953,7 @@
      </widget>
     </item>
     <item row="1" column="19">
-     <widget class="DigitButton" name="radioButton_85">
+     <widget class="DigitButton" name="reg2_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -8895,6 +9006,9 @@
       <property name="text">
        <string>6</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg2group</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="2">
@@ -9183,7 +9297,7 @@
      </widget>
     </item>
     <item row="1" column="15">
-     <widget class="DigitButton" name="radioButton_148">
+     <widget class="DigitButton" name="reg6_6button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -9236,10 +9350,13 @@
       <property name="text">
        <string>6</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg6group</string>
+      </attribute>
      </widget>
     </item>
     <item row="2" column="19">
-     <widget class="DigitButton" name="radioButton_70">
+     <widget class="DigitButton" name="reg2_5button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -9292,6 +9409,9 @@
       <property name="text">
        <string>5</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg2group</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="11">
@@ -9494,7 +9614,7 @@
      </widget>
     </item>
     <item row="2" column="14">
-     <widget class="DigitButton" name="radioButton_155">
+     <widget class="DigitButton" name="reg7_5button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -9628,10 +9748,13 @@
       <property name="text">
        <string>5</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg7group</string>
+      </attribute>
      </widget>
     </item>
     <item row="0" column="19">
-     <widget class="DigitButton" name="radioButton_64">
+     <widget class="DigitButton" name="reg2_7button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -9684,10 +9807,13 @@
       <property name="text">
        <string>7</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg2group</string>
+      </attribute>
      </widget>
     </item>
     <item row="4" column="19">
-     <widget class="DigitButton" name="radioButton_92">
+     <widget class="DigitButton" name="reg2_3button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -9740,6 +9866,9 @@
       <property name="text">
        <string>3</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg2group</string>
+      </attribute>
      </widget>
     </item>
     <item row="0" column="12">
@@ -9942,7 +10071,7 @@
      </widget>
     </item>
     <item row="5" column="19">
-     <widget class="DigitButton" name="radioButton_65">
+     <widget class="DigitButton" name="reg2_2button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -9995,6 +10124,9 @@
       <property name="text">
        <string>2</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg2group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="6">
@@ -10337,7 +10469,7 @@
      </widget>
     </item>
     <item row="7" column="16">
-     <widget class="DigitButton" name="radioButton_12">
+     <widget class="DigitButton" name="reg5_0button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -10390,10 +10522,13 @@
       <property name="text">
        <string>0</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg5group</string>
+      </attribute>
      </widget>
     </item>
     <item row="4" column="17">
-     <widget class="DigitButton" name="radioButton_90">
+     <widget class="DigitButton" name="reg4_3button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -10446,10 +10581,13 @@
       <property name="text">
        <string>3</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg4group</string>
+      </attribute>
      </widget>
     </item>
     <item row="7" column="19">
-     <widget class="DigitButton" name="radioButton_58">
+     <widget class="DigitButton" name="reg2_0button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -10502,6 +10640,9 @@
       <property name="text">
        <string>0</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg2group</string>
+      </attribute>
      </widget>
     </item>
     <item row="1" column="13">
@@ -10785,7 +10926,7 @@
      </widget>
     </item>
     <item row="7" column="17">
-     <widget class="DigitButton" name="radioButton_78">
+     <widget class="DigitButton" name="reg4_0button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -10838,10 +10979,13 @@
       <property name="text">
        <string>0</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg4group</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="14">
-     <widget class="DigitButton" name="radioButton_142">
+     <widget class="DigitButton" name="reg7_4button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -10975,10 +11119,13 @@
       <property name="text">
        <string>4</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg7group</string>
+      </attribute>
      </widget>
     </item>
     <item row="4" column="18">
-     <widget class="DigitButton" name="radioButton_83">
+     <widget class="DigitButton" name="reg3_3button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -11031,6 +11178,9 @@
       <property name="text">
        <string>3</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg3group</string>
+      </attribute>
      </widget>
     </item>
     <item row="6" column="10">
@@ -11314,7 +11464,7 @@
      </widget>
     </item>
     <item row="6" column="16">
-     <widget class="DigitButton" name="radioButton_10">
+     <widget class="DigitButton" name="reg5_1button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -11367,6 +11517,9 @@
       <property name="text">
        <string>1</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg5group</string>
+      </attribute>
      </widget>
     </item>
     <item row="2" column="12">
@@ -11569,7 +11722,7 @@
      </widget>
     </item>
     <item row="7" column="14">
-     <widget class="DigitButton" name="radioButton_172">
+     <widget class="DigitButton" name="reg7_0button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -11703,6 +11856,9 @@
       <property name="text">
        <string>0</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg7group</string>
+      </attribute>
      </widget>
     </item>
     <item row="2" column="4">
@@ -12104,7 +12260,7 @@
      </widget>
     </item>
     <item row="5" column="17">
-     <widget class="DigitButton" name="radioButton_66">
+     <widget class="DigitButton" name="reg4_2button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -12157,10 +12313,13 @@
       <property name="text">
        <string>2</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg4group</string>
+      </attribute>
      </widget>
     </item>
     <item row="3" column="18">
-     <widget class="DigitButton" name="radioButton_93">
+     <widget class="DigitButton" name="reg3_4button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -12213,6 +12372,9 @@
       <property name="text">
        <string>4</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg3group</string>
+      </attribute>
      </widget>
     </item>
     <item row="4" column="4">
@@ -12931,7 +13093,7 @@
      </widget>
     </item>
     <item row="5" column="15">
-     <widget class="DigitButton" name="radioButton_174">
+     <widget class="DigitButton" name="reg6_2button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -12984,6 +13146,9 @@
       <property name="text">
        <string>2</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg6group</string>
+      </attribute>
      </widget>
     </item>
     <item row="0" column="1">
@@ -13675,7 +13840,7 @@
      </widget>
     </item>
     <item row="2" column="20">
-     <widget class="DigitButton" name="radioButton_77">
+     <widget class="DigitButton" name="reg1_5button">
       <property name="minimumSize">
        <size>
         <width>18</width>
@@ -13728,6 +13893,9 @@
       <property name="text">
        <string>5</string>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">reg1group</string>
+      </attribute>
      </widget>
     </item>
     <item row="2" column="3">
@@ -14122,16 +14290,23 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="addr6group"/>
-  <buttongroup name="reg11group"/>
   <buttongroup name="addr2group"/>
   <buttongroup name="addr5group"/>
+  <buttongroup name="reg10group"/>
   <buttongroup name="addr1group"/>
+  <buttongroup name="reg9group"/>
   <buttongroup name="addr4group"/>
+  <buttongroup name="reg8group"/>
   <buttongroup name="reg12group"/>
   <buttongroup name="addr3group"/>
-  <buttongroup name="reg10group"/>
-  <buttongroup name="reg9group"/>
-  <buttongroup name="reg8group"/>
+  <buttongroup name="addr6group"/>
+  <buttongroup name="reg11group"/>
+  <buttongroup name="reg7group"/>
+  <buttongroup name="reg6group"/>
+  <buttongroup name="reg5group"/>
+  <buttongroup name="reg4group"/>
+  <buttongroup name="reg3group"/>
+  <buttongroup name="reg2group"/>
+  <buttongroup name="reg1group"/>
  </buttongroups>
 </ui>
