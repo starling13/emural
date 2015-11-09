@@ -166,7 +166,7 @@ public:
 			uint64_t	t9:3;
 			uint64_t	t10:3;
 			uint64_t	t11:3;
-			uint64_t	t12:2;
+            uint64_t	t12:3;
 		} triplets;
 		struct
 		{
@@ -327,7 +327,9 @@ public:
          */
 		void fetch();
 		
-		void loadR();
+        void loadReg(Word_t&);
+
+        void multiply();
 		
 		//////////////// ОПЕРАЦИИ ////////////////
 		void noop_00();
@@ -343,6 +345,8 @@ public:
 		void sub1_03();
 		
 		void sub2_04();
+
+        void mul1_05();
 
         void mul2_06();
 		
@@ -394,6 +398,7 @@ public:
          */
         Word_t      _RGM;
         uint16_t    _DRG:6;
+        uint16_t    _DSM:7;
 		
         size_t		_controlRegisterAddress;
 		

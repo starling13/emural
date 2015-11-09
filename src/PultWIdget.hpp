@@ -68,6 +68,20 @@ private slots:
 	void on_addr5group_buttonClicked(int);
 	
 	void on_addr6group_buttonClicked(int);
+
+    void on_reg8group_buttonClicked(int);
+
+    void on_reg9group_buttonClicked(int);
+
+    void on_reg10group_buttonClicked(int);
+
+    void on_reg11group_buttonClicked(int);
+
+    void on_reg12group_buttonClicked(int);
+
+    void on_adderSetButton_clicked();
+
+    void on_adderResetButton_clicked();
 	
 	void timerSignaled();
 	
@@ -82,8 +96,12 @@ private:
 	QTimer		_timer;
 	
 	URAL::HalfWord_t	_commandWord;
+
+    URAL::Word_t        _adderWord;
 	
 	QVector<QButtonGroup*>	_commandButtons;
+
+    QVector<QButtonGroup*>	_adderButtons;
 };
 
 #endif	/* _PULTWIDGET_HPP */

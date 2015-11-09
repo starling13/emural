@@ -63,7 +63,7 @@ operator<<(std::ostream &stream, const URAL::Word_t &word)
 	stream << sign << word.dPrec.magnitude() << '\n' <<
 	    u8"Восьмеричные триплеты: " << std::oct <<
 	    sign <<
-	    word.triplets.t12 << ' ' <<
+        word.triplets.t12 << ' ' <<
 	    word.triplets.t11 << ' ' <<
 	    word.triplets.t10 << ' ' <<
 	    word.triplets.t9 << ' ' <<
@@ -263,19 +263,65 @@ URAL::CPU::fetch()
 }
 
 void
-URAL::CPU::loadR()
+URAL::CPU::loadReg(Word_t &reg)
 {
 	Word_t value;
 
 	value = drum[_RGK.command.address >> 1];
 	// Если используется полная ячейка
 	if (_RGK.command.addrLength)
-		this->R = value;
+        reg = value;
 		// Если используется половинная
 	else
-		this->R.halfWords.most =
+        reg.halfWords.most =
 		    value[_RGK.command.address % 2 + 1].data,
-		    this->R.halfWords.least = 0;
+            reg.halfWords.least = 0;
+}
+
+void
+URAL::CPU::multiply()
+{
+    bool sign;
+
+    // Обнуление дополнительного регистра и дополнительного сумматора
+    this->_DSM = this->_DRG = 0;
+    // Вычисление знака произведения
+    sign = _RGM.dPrec.sign() != R.dPrec.sign();
+    if (sign)
+        R.dPrec._sign = 1;
+    else
+        R.dPrec._sign = 0;
+    for (uint i=0; i<35; ++i) {
+        std::cout << "СМ " << std::bitset<18>(S.words.word2) << ' ' <<
+            std::bitset<18>(S.words.word1) << std::endl;
+        std::cout << "РГАУ " << std::bitset<18>(R.halfWords.most) <<
+            ' ' << std::bitset<18>(R.halfWords.least) << std::endl;
+        std::cout << "РГМ " << std::bitset<9>(_RGM.quaters.q4) << std::endl;
+        std::cout << "ДРГ " << std::bitset<6>(_DRG) << std::endl;
+        std::cout << "ДСМ " << std::bitset<7>(_DSM) << std::endl;
+        _DRG >>= 1;
+        _DRG |= R.bits.b1 << 5;
+        R.dPrec._magnitude >>= 1;
+        _RGM.data <<=1;
+        if (_RGM.bits.b36) {
+            if (sign) {
+                _DSM += ~_DRG;
+            } else {
+                _DSM += _DRG;
+            }
+            S.value += R.dPrec;
+        }
+        // Перенос старшего разряда из дополнительного регистра в сумматор
+        if (_DSM > 077) {
+            S.value._magnitude += 1;
+            _DSM &= 077;
+        }
+    }
+    // Округление результата
+    if (_DSM > 040)
+        S.value._magnitude += 1;
+
+    this->R.data = 0;
 }
 
 void
@@ -292,7 +338,7 @@ URAL::CPU::noop_00()
 void
 URAL::CPU::sum1_01()
 {
-	loadR();
+    loadReg(this->R);
 	this->S.value += this->R.dPrec;
 	++this->_reg_SCHK;
 }
@@ -300,7 +346,7 @@ URAL::CPU::sum1_01()
 void
 URAL::CPU::sum2_02()
 {
-	loadR();
+    loadReg(this->R);
 	this->S.value = this->R.dPrec;
 	++this->_reg_SCHK;
 }
@@ -308,7 +354,7 @@ URAL::CPU::sum2_02()
 void
 URAL::CPU::sub1_03()
 {
-	loadR();
+    loadReg(this->R);
 	this->S.value -= this->R.dPrec;
 	++this->_reg_SCHK;
 }
@@ -316,43 +362,29 @@ URAL::CPU::sub1_03()
 void
 URAL::CPU::sub2_04()
 {
-	loadR();
+    loadReg(this->R);
     this->S.value = abs(this->S.value) - abs(this->R.dPrec);
 	++this->_reg_SCHK;
 }
 
 void
+URAL::CPU::mul1_05()
+{
+    loadReg(this->_RGM);
+
+    multiply();
+
+    ++this->_reg_SCHK;
+}
+
+void
 URAL::CPU::mul2_06()
 {
-    bool sign;
-
-    loadR();
-    this->_RGM = this->R;
+    loadReg(this->_RGM);
     this->R.dPrec = this->S.value;
     this->S.data = 0;
 
-    sign = _RGM.dPrec.sign() != R.dPrec.sign();
-    if (sign)
-        S.value._sign = 3;
-    else
-        S.value._sign = 0;
-    for (uint i=0; i<35; ++i) {
-        std::cout << "СМ " << std::bitset<18>(S.words.word2) << ' ' <<
-            std::bitset<18>(S.words.word1) << std::endl;
-        std::cout << "РГАУ " << std::bitset<18>(R.halfWords.most) <<
-            ' ' << std::bitset<18>(R.halfWords.least) << std::endl;
-        std::cout << "РГМ " << _RGM << std::endl;
-        std::cout << "ДРГ " << std::bitset<6>(_DRG) << std::endl;
-        _DRG >>= 1;
-        _DRG |= R.bits.b1 << 5;
-        R.dPrec._magnitude >>= 1;
-        _RGM.quaters.q4 <<=1;
-        if (_RGM.bits.b36)
-            if (sign)
-                S.value._magnitude += ~R.dPrec._magnitude;
-            else
-                S.value._magnitude += R.dPrec._magnitude;
-    }
+    multiply();
 
     ++this->_reg_SCHK;
 }
@@ -382,7 +414,7 @@ URAL::CPU::mov_16()
 void
 URAL::CPU::loadR_17()
 {
-	loadR();
+    loadReg(this->R);
 	++this->_reg_SCHK;
 }
 

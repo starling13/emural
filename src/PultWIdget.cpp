@@ -37,6 +37,12 @@ _ural(ural)
 	_commandButtons.push_back(this->widget.addr4group);
 	_commandButtons.push_back(this->widget.addr5group);
 	_commandButtons.push_back(this->widget.addr6group);
+
+    _adderButtons.push_back(this->widget.reg8group);
+    _adderButtons.push_back(this->widget.reg9group);
+    _adderButtons.push_back(this->widget.reg10group);
+    _adderButtons.push_back(this->widget.reg11group);
+    _adderButtons.push_back(this->widget.reg12group);
 	
 	this->widget.addr1group->setId(this->widget.addr1_0button, 0);
 	this->widget.addr1group->setId(this->widget.addr1_1button, 1);
@@ -91,6 +97,52 @@ _ural(ural)
 	this->widget.addr6group->setId(this->widget.addr6_5button, 5);
 	this->widget.addr6group->setId(this->widget.addr6_6button, 6);
 	this->widget.addr6group->setId(this->widget.addr6_7button, 7);
+
+    this->widget.reg8group->setId(this->widget.reg8_0button, 0);
+    this->widget.reg8group->setId(this->widget.reg8_1button, 1);
+    this->widget.reg8group->setId(this->widget.reg8_2button, 2);
+    this->widget.reg8group->setId(this->widget.reg8_3button, 3);
+    this->widget.reg8group->setId(this->widget.reg8_4button, 4);
+    this->widget.reg8group->setId(this->widget.reg8_5button, 5);
+    this->widget.reg8group->setId(this->widget.reg8_6button, 6);
+    this->widget.reg8group->setId(this->widget.reg8_7button, 7);
+
+    this->widget.reg9group->setId(this->widget.reg9_0button, 0);
+    this->widget.reg9group->setId(this->widget.reg9_1button, 1);
+    this->widget.reg9group->setId(this->widget.reg9_2button, 2);
+    this->widget.reg9group->setId(this->widget.reg9_3button, 3);
+    this->widget.reg9group->setId(this->widget.reg9_4button, 4);
+    this->widget.reg9group->setId(this->widget.reg9_5button, 5);
+    this->widget.reg9group->setId(this->widget.reg9_6button, 6);
+    this->widget.reg9group->setId(this->widget.reg9_7button, 7);
+
+    this->widget.reg10group->setId(this->widget.reg10_0button, 0);
+    this->widget.reg10group->setId(this->widget.reg10_1button, 1);
+    this->widget.reg10group->setId(this->widget.reg10_2button, 2);
+    this->widget.reg10group->setId(this->widget.reg10_3button, 3);
+    this->widget.reg10group->setId(this->widget.reg10_4button, 4);
+    this->widget.reg10group->setId(this->widget.reg10_5button, 5);
+    this->widget.reg10group->setId(this->widget.reg10_6button, 6);
+    this->widget.reg10group->setId(this->widget.reg10_7button, 7);
+
+    this->widget.reg11group->setId(this->widget.reg11_0button, 0);
+    this->widget.reg11group->setId(this->widget.reg11_1button, 1);
+    this->widget.reg11group->setId(this->widget.reg11_2button, 2);
+    this->widget.reg11group->setId(this->widget.reg11_3button, 3);
+    this->widget.reg11group->setId(this->widget.reg11_4button, 4);
+    this->widget.reg11group->setId(this->widget.reg11_5button, 5);
+    this->widget.reg11group->setId(this->widget.reg11_6button, 6);
+    this->widget.reg11group->setId(this->widget.reg11_7button, 7);
+
+    this->widget.reg12group->setId(this->widget.reg12_0button, 0);
+    this->widget.reg12group->setId(this->widget.reg12_1button, 1);
+    this->widget.reg12group->setId(this->widget.reg12_2button, 2);
+    this->widget.reg12group->setId(this->widget.reg12_3button, 3);
+    this->widget.reg12group->setId(this->widget.reg12_4button, 4);
+    this->widget.reg12group->setId(this->widget.reg12_5button, 5);
+    this->widget.reg12group->setId(this->widget.reg12_6button, 6);
+    this->widget.reg12group->setId(this->widget.reg12_7button, 7);
+
 }
 
 PultWIdget::~PultWIdget()
@@ -135,10 +187,29 @@ void PultWIdget::on_commandResetButton_clicked()
 	this->_commandWord.data = 0ull;
 }
 
+void PultWIdget::on_adderResetButton_clicked()
+{
+    foreach (QButtonGroup *group, this->_adderButtons) {
+        QAbstractButton	*button = group->checkedButton();
+        if (button) {
+            group->setExclusive(false);
+            button->setChecked(false);
+            group->setExclusive(true);
+        }
+    }
+    this->_adderWord.data = 0ull;
+}
+
 void PultWIdget::on_commandSetButton_clicked()
 {
 	_ural._RGK = this->_commandWord;
 	emit tactFinished();
+}
+
+void PultWIdget::on_adderSetButton_clicked()
+{
+    _ural.S.value = this->_adderWord.dPrec;
+    emit tactFinished();
 }
 
 void PultWIdget::on_addr1group_buttonClicked(int id)
@@ -169,6 +240,31 @@ void PultWIdget::on_addr5group_buttonClicked(int id)
 void PultWIdget::on_addr6group_buttonClicked(int id)
 {
 	_commandWord.triplets.t6 = id;
+}
+
+void PultWIdget::on_reg8group_buttonClicked(int id)
+{
+    _adderWord.triplets.t8 = id;
+}
+
+void PultWIdget::on_reg9group_buttonClicked(int id)
+{
+    _adderWord.triplets.t9 = id;
+}
+
+void PultWIdget::on_reg10group_buttonClicked(int id)
+{
+    _adderWord.triplets.t10 = id;
+}
+
+void PultWIdget::on_reg11group_buttonClicked(int id)
+{
+    _adderWord.triplets.t11 = id;
+}
+
+void PultWIdget::on_reg12group_buttonClicked(int id)
+{
+    _adderWord.triplets.t12 = id;
 }
 
 void PultWIdget::timerSignaled()
