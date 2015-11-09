@@ -1,6 +1,13 @@
 #include "analogclock.h"
 
+#ifndef _USE_MATH_DEFINES
+#define _USE_MATH_DEFINES 1
+#endif
 #include <cmath>
+
+#ifndef M_PI
+#define M_PI 3.1415927
+#endif
 
 #include <QPaintEvent>
 #include <QTimer>
@@ -23,8 +30,8 @@ public:
             QStaticText("3"), QStaticText("4"), QStaticText("5"), QStaticText("6"),
             QStaticText("7"), QStaticText("8"), QStaticText("9"), QStaticText("10"),
             QStaticText("11"), QStaticText("12")},
-    _timeState(IDLE),
-    _time(0,0,0)
+    _time(0,0,0),
+    _timeState(IDLE)
     {
     }
 
@@ -34,11 +41,11 @@ public:
     QPixmap _background;
     QPainter _painter;
     int     _side;
+    const QStaticText minutes[12];
+    const QStaticText hours[12];
     QTime   _time;
     TimerState _timeState;
 
-    const QStaticText minutes[12];
-    const QStaticText hours[12];
 };
 
 AnalogClock::AnalogClock(QWidget *parent) :
@@ -64,7 +71,7 @@ void AnalogClock::onTimerSignaled()
     this->update();
 }
 
-void AnalogClock::paintEvent(QPaintEvent *event)
+void AnalogClock::paintEvent(QPaintEvent*)
 {
     static const QPoint hourHand[5] = {
         QPoint(-2, 3),
@@ -236,7 +243,7 @@ void AnalogClock::resizeEvent(QResizeEvent *event)
     // Draw semicircle with texts on every 30".
     painter.setFont(largeFont);
     for (int i = 1; i <= 12; ++i) {
-        double c = cos(i * M_PI / 6.0), s = sin(i * M_PI / 6.0);
+        double c = std::cos(i * M_PI / 6.0), s = std::sin(i * M_PI / 6.0);
         QPoint p(center.x() + 0.35*side * s - side/36.0,
                  center.y() - 0.35*side * c - side/34.0);
         painter.drawStaticText(p, _data.hours[i-1]);

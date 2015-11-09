@@ -369,13 +369,14 @@ FixedPointFraction<base, bits>::ModOnesComplement::
 ModOnesComplement(signed_base val) :
 _carry(0)
 {
-	if (val < 0) {
-		_magnitude = ~std::abs(val);
+    if (val < 0)
+        val = -val;
+
+    _magnitude = base(val);
+    if (val < 0)
 		_sign = 3;
-	} else {
-		_magnitude = std::abs(val);
+    else
 		_sign = 0;
-	}
 }
 
 template <typename base, size_t bits>
