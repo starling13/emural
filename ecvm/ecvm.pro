@@ -56,5 +56,11 @@ FORMS    += \
 RESOURCES += \
     images.qrc
 
+unix {
 LIBS += \
     -Wl,-rpath=../libural -L../libural/ -lural
+}
+
+win32 {
+win32-g++:LIBS += ../libural/debug/libural.a
+}

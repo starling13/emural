@@ -1,5 +1,6 @@
 #include "ural_cpu.hpp"
 
+#include <cstdlib>
 #include <ctime>
 #include <cstring>
 #include <cassert>
@@ -170,7 +171,7 @@ URAL::CPU::multiply()
         R.dPrec._sign = 1;
     else
         R.dPrec._sign = 0;
-    for (uint i=0; i<35; ++i) {
+    for (unsigned i=0; i<35; ++i) {
         std::cout << "СМ " << std::bitset<18>(S.words.word2) << ' ' <<
             std::bitset<18>(S.words.word1) << std::endl;
         std::cout << "РГАУ " << std::bitset<18>(R.halfWords.most) <<
