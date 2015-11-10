@@ -5,7 +5,7 @@
  * Created on 1 Ноябрь 2015 г., 0:36
  */
 
-#include "PowerPultWidget.h"
+#include "PowerPultWidget.hpp"
 
 PowerPultWidget::PowerPultWidget()
 {

@@ -17,89 +17,46 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _PULTWIDGET_HPP
-#define	_PULTWIDGET_HPP
+#ifndef _AUXCONTROLSWIDGET_HPP
+#define	_AUXCONTROLSWIDGET_HPP
 
-#include "ui_PultWIdget.h"
+#include "ural_cpu.hpp"
 
-#include <QTimer>
+#include "ui_AuxControlsWidget.h"
 
-#include "controls.hpp"
-#include "ural.hpp"
-
-class PultWIdget : public QWidget
+class AuxControlsWidget : public QWidget
 {
 	Q_OBJECT
-	
-signals:
 
-	void tactFinished();
-
-    void stopped();
+signals:	
 	
+	void controlRegisterAddressChanged(size_t);
+
 public:
 	
-	PultWIdget(URAL::CPU&);
+	AuxControlsWidget(URAL::CPU&);
 	
-	~PultWIdget();
+	~AuxControlsWidget();
 	
 private slots:
 	
-	void on_singleStepButton_clicked();
+	void on_controlRegisterGroup_buttonClicked(QAbstractButton*);
 	
-	void on_resetButton_clicked();
+	void on_addressBlockGroup_buttonClicked(QAbstractButton*);
 	
-	void on_startButton_clicked();
+	void on_blockPhiBtn_toggled(bool);
 	
-	void on_stopButton_clicked();
-	
-	void on_commandResetButton_clicked();
-	
-	void on_commandSetButton_clicked();
-	
-	void on_addr1group_buttonClicked(int);
-	void on_addr2group_buttonClicked(int);
-	void on_addr3group_buttonClicked(int);
-	void on_addr4group_buttonClicked(int);
-	void on_addr5group_buttonClicked(int);
-	void on_addr6group_buttonClicked(int);
-
-    void on_reg1group_buttonClicked(int);
-    void on_reg2group_buttonClicked(int);
-    void on_reg3group_buttonClicked(int);
-    void on_reg4group_buttonClicked(int);
-    void on_reg5group_buttonClicked(int);
-    void on_reg6group_buttonClicked(int);
-    void on_reg7group_buttonClicked(int);
-    void on_reg8group_buttonClicked(int);
-    void on_reg9group_buttonClicked(int);
-    void on_reg10group_buttonClicked(int);
-    void on_reg11group_buttonClicked(int);
-    void on_reg12group_buttonClicked(int);
-
-    void on_adderSetButton_clicked();
-
-    void on_adderResetButton_clicked();
-	
-	void timerSignaled();
+	void on_stopOnPhiBtn_toggled(bool);
 	
 private:
 	
-	uint8_t _tactSkip;
+	Ui::AuxControlsWidget	 widget;
 	
-	Ui::PultWIdget widget;
+	uint16_t		_controlRegisterPosition;
 	
-	URAL::CPU	&_ural;
+	uint16_t		_addrStopRegister;
 	
-	QTimer		_timer;
-	
-	URAL::HalfWord_t	_commandWord;
-
-    URAL::Word_t        _adderWord;
-	
-	QVector<QButtonGroup*>	_commandButtons;
-
-    QVector<QButtonGroup*>	_adderButtons;
+	URAL::CPU		&_ural;
 };
 
-#endif	/* _PULTWIDGET_HPP */
+#endif	/* _AUXCONTROLSWIDGET_HPP */

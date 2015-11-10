@@ -17,47 +17,39 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <cstdlib>
-#include <iostream>
+#ifndef _PANELWIDGET_HPP
+#define	_PANELWIDGET_HPP
 
-#include <QTimer>
-#include <QApplication>
+#include "ural_cpu.hpp"
 
-#include "DrumWidget.hpp"
-#include "PultWIdget.hpp"
-#include "PanelWidget.hpp"
-#include "AuxControlsWidget.hpp"
+#include <QWidget>
 
-using namespace std;
-
-int main(int argc, char** argv)
+namespace Ui
 {
-	int		res;
-	QApplication	app(argc, argv);
-	
-	FixedPointFraction<uint64_t, 36>::SignedMagnitude	a;
-	
-	{
-		URAL::CPU	ural;
-		DrumWidget	drumWidget(ural.drum);
-		PultWIdget	pultWidget(ural);
-		PanelWidget	panelWidget(ural);
-		AuxControlsWidget auxControlWidget(ural);
-		
-		QObject::connect(&auxControlWidget, SIGNAL(controlRegisterAddressChanged(size_t)),
-		    &panelWidget, SLOT(controlRegisterUpdated()));
-		QObject::connect(&pultWidget, SIGNAL(tactFinished()),
-		    &panelWidget, SLOT(updateRegisters()));
-        QObject::connect(&pultWidget, SIGNAL(stopped()),
-            &drumWidget, SLOT(updateView()));
-	
-		drumWidget.show();
-		pultWidget.show();
-		panelWidget.show();
-		auxControlWidget.show();
-	
-		res = app.exec();
-	}
-	
-	return (res);
+    class PanelWidget;
 }
+
+class PanelWidget : public QWidget
+{
+	Q_OBJECT
+	
+public slots:
+	
+	void updateRegisters();
+	
+	void controlRegisterUpdated();
+	
+public:
+	
+	PanelWidget(const URAL::CPU&);
+	
+	~PanelWidget();
+	
+private:
+	
+    Ui::PanelWidget &widget;
+	
+	const URAL::CPU &_ural;
+};
+
+#endif	/* _PANELWIDGET_HPP */

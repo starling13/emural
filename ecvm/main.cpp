@@ -17,46 +17,48 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _AUXCONTROLSWIDGET_HPP
-#define	_AUXCONTROLSWIDGET_HPP
+#include <cstdlib>
+#include <iostream>
 
-#include "ural.hpp"
+#include <QTimer>
+#include <QApplication>
 
-#include "ui_AuxControlsWidget.h"
+#include "DrumWidget.hpp"
+#include "PultWIdget.hpp"
+#include "PanelWidget.hpp"
+#include "AuxControlsWidget.hpp"
+#include "ural_cpu.hpp"
 
-class AuxControlsWidget : public QWidget
+using namespace std;
+
+int main(int argc, char** argv)
 {
-	Q_OBJECT
-
-signals:	
+	int		res;
+	QApplication	app(argc, argv);
 	
-	void controlRegisterAddressChanged(size_t);
-
-public:
+	FixedPointFraction<uint64_t, 36>::SignedMagnitude	a;
 	
-	AuxControlsWidget(URAL::CPU&);
+	{
+		URAL::CPU	ural;
+		DrumWidget	drumWidget(ural.drum);
+		PultWIdget	pultWidget(ural);
+		PanelWidget	panelWidget(ural);
+		AuxControlsWidget auxControlWidget(ural);
+		
+		QObject::connect(&auxControlWidget, SIGNAL(controlRegisterAddressChanged(size_t)),
+		    &panelWidget, SLOT(controlRegisterUpdated()));
+		QObject::connect(&pultWidget, SIGNAL(tactFinished()),
+		    &panelWidget, SLOT(updateRegisters()));
+        QObject::connect(&pultWidget, SIGNAL(stopped()),
+            &drumWidget, SLOT(updateView()));
 	
-	~AuxControlsWidget();
+		drumWidget.show();
+		pultWidget.show();
+		panelWidget.show();
+		auxControlWidget.show();
 	
-private slots:
+		res = app.exec();
+	}
 	
-	void on_controlRegisterGroup_buttonClicked(QAbstractButton*);
-	
-	void on_addressBlockGroup_buttonClicked(QAbstractButton*);
-	
-	void on_blockPhiBtn_toggled(bool);
-	
-	void on_stopOnPhiBtn_toggled(bool);
-	
-private:
-	
-	Ui::AuxControlsWidget	 widget;
-	
-	uint16_t		_controlRegisterPosition;
-	
-	uint16_t		_addrStopRegister;
-	
-	URAL::CPU		&_ural;
-};
-
-#endif	/* _AUXCONTROLSWIDGET_HPP */
+	return (res);
+}
