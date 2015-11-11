@@ -58,12 +58,11 @@ void PunchTapeViewWidget::paintEvent(QPaintEvent*)
 
     _painter.begin(this);
 
-    _painter.scale(width() / 350.0, height() / (ratio * 350.0));
+    _painter.scale(width() / 400.0, height() / (ratio * 400.0));
     _painter.setBrush(Qt::white);
-    _painter.setPen(Qt::NoPen);
 
     int frameCounter = 0;
-    int scaledHeight = 350.0 * ratio;
+    int scaledHeight = 400.0 * ratio;
     while (frameTop < scaledHeight) {
         if (_tape->tapeData().size() > _position+frameCounter)
             drawFrame(frameCounter++);
@@ -82,17 +81,25 @@ void PunchTapeViewWidget::drawFrame(int number)
 
     qDebug() << __PRETTY_FUNCTION__;
 
+    unsigned hShift = 50.0;
     unsigned shift = 190.0 * number;
-    _painter.fillRect(0, shift, 350.0, 190.0, Qt::black);
+    _painter.fillRect(0, shift, hShift, 190.0, Qt::white);
+    _painter.setPen(Qt::black);
+    _painter.drawLine(0,shift,hShift,shift);
+    _painter.setFont(QFont("Sans", 17.0));
+    _painter.drawText(0.0, shift+10.0, hShift, 50.0, 0, QString::number(_position+number));
+
+    _painter.setPen(Qt::NoPen);
+    _painter.fillRect(hShift, shift, 350.0, 190.0, Qt::black);
 
     for (int i=0; i<4; ++i) {
-        _painter.drawRect(20.150, shift + 13.85 + 47.5*i, 28.0, 19.8);
-        _painter.drawRect(301.85, shift + 13.85 + 47.5*i, 28.0, 19.8);
+        _painter.drawRect(hShift+20.150, shift + 13.85 + 47.5*i, 28.0, 19.8);
+        _painter.drawRect(hShift+301.85, shift + 13.85 + 47.5*i, 28.0, 19.8);
 
         for (int j=0; j<11; ++j) {
             char digit = _tape->tapeData().at(_position+number).data[j];
             if (digit & (1<<(3-i)))
-                _painter.drawRect(52.0 + 23.0*j, shift + 9.75 + 47.5*i, 13.0, 28.0);
+                _painter.drawRect(hShift+52.0 + 23.0*j, shift + 9.75 + 47.5*i, 13.0, 28.0);
         }
     }
 }
@@ -123,11 +130,8 @@ void ControlReadDevice::punchNumber(PunchTape::Number newVal)
     if (_tape.tapeData().size() < ui.scrollBar->value()+2)
         _tape.tapeData().resize(ui.scrollBar->value()+2);
     ui.scrollBar->setMaximum(_tape.tapeData().size()-1);
-    if (ui.scrollBar->value()>0)
-         ui.scrollBar->setValue(ui.scrollBar->value()+1);
-        _tape.tapeData().operator [](ui.scrollBar->value()+1) = newVal;
-    else
-        _tape.tapeData().operator [](ui.scrollBar->value()) = newVal;
+    ui.scrollBar->setValue(ui.scrollBar->value()+1);
+    _tape.tapeData().operator [](ui.scrollBar->value()) = newVal;
 }
 
 void ControlReadDevice::newTape()
@@ -146,7 +150,7 @@ void ControlReadDevice::loadTape()
     QString fileName;
 
     fileName = QFileDialog::getOpenFileName(this, QString::fromUtf8(
-            u8"ыбор файла перфоленты для загрузки"), QDir::homePath(), "*.upt");
+        u8"ыбор файла перфоленты для загрузки"), QDir::homePath(), "*.upt");
     if (!fileName.isEmpty()) {
         QFile file(fileName);
         if (file.open(QFile::ReadOnly)) {

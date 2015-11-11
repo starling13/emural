@@ -460,7 +460,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>8</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys7group</string>
@@ -600,7 +600,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>8</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys8group</string>
@@ -686,7 +686,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>8</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys4group</string>
@@ -826,7 +826,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>6</string>
+       <string>9</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys9group</string>
@@ -903,7 +903,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>8</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys2group</string>
@@ -989,7 +989,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>9</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys6group</string>
@@ -1075,7 +1075,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>9</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys5group</string>
@@ -1215,7 +1215,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>5</string>
+       <string>8</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys9group</string>
@@ -1274,7 +1274,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>8</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys3group</string>
@@ -8173,7 +8173,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>9</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys2group</string>
@@ -8313,7 +8313,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>9</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys8group</string>
@@ -8399,7 +8399,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>8</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys6group</string>
@@ -8458,7 +8458,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>8</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys1group</string>
@@ -8598,7 +8598,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>9</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys7group</string>
@@ -8657,7 +8657,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>9</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys3group</string>
@@ -8743,7 +8743,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>8</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys5group</string>
@@ -8802,7 +8802,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>9</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys1group</string>
@@ -8888,7 +8888,7 @@
        </palette>
       </property>
       <property name="text">
-       <string>7</string>
+       <string>9</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">keys4group</string>
@@ -8919,8 +8919,6 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="keys4group"/>
-  <buttongroup name="keys7group"/>
   <buttongroup name="keys3group"/>
   <buttongroup name="keys6group"/>
   <buttongroup name="keys9group"/>
@@ -8928,5 +8926,7 @@
   <buttongroup name="keys5group"/>
   <buttongroup name="keys8group"/>
   <buttongroup name="keys1group"/>
+  <buttongroup name="keys4group"/>
+  <buttongroup name="keys7group"/>
  </buttongroups>
 </ui>

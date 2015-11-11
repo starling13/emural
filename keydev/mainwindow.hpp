@@ -38,6 +38,12 @@ private slots:
 
     void on_punchButton_clicked();
 
+    void on_zoneButton_clicked();
+
+    void on_returnButton_clicked();
+
+    void on_minusButton_clicked();
+
 private:
 
     Q_DISABLE_COPY(KeyDevice)

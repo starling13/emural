@@ -174,20 +174,20 @@ void DigitButton::paintEvent(QPaintEvent*)
     _painter.setRenderHint(QPainter::Antialiasing);
 	
 	QFontMetrics met(this->font());
-	uint horizontalMargin = (this->width()-met.width(this->text()))/2;
-	uint verticalMargin = (this->height()-met.height())/2;
+    double horizontalMargin = (this->width()-met.width(this->text()))/2.0;
+    double verticalMargin = (this->height()-met.height())/2.0;
 
 	_painter.setBrush(this->palette().button());
 	if (!this->isChecked()) {
 		_painter.setPen(Qt::NoPen);
-		_painter.drawEllipse(0, 0, this->width(), this->height());
+        _painter.drawEllipse(1, 1, this->width()-1, this->height()-1);
     } else {
         _painter.setPen(QPen(this->palette().buttonText().color(),2));
-		_painter.drawEllipse(0, 0, this->width()-1, this->height()-1);
+        _painter.drawEllipse(1, 1, this->width()-2, this->height()-2);
     }
 	if (!this->isChecked())
 		_painter.setPen(this->palette().buttonText().color());
-	_painter.drawText(horizontalMargin, met.height()+verticalMargin, this->text());
+    _painter.drawText(horizontalMargin+0.5, met.height()+verticalMargin-1.5, this->text());
 	
 	_painter.end();
 }

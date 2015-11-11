@@ -1,6 +1,8 @@
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
 
+#include <cstring>
+
 KeyDevice::KeyDevice(ControlReadDevice &crd, QWidget *parent) :
     QWidget(parent),
     ui(*(new Ui::KeyDevice)),
@@ -16,6 +18,7 @@ KeyDevice::KeyDevice(ControlReadDevice &crd, QWidget *parent) :
     _buttons.push_back(this->ui.keys6group);
     _buttons.push_back(this->ui.keys7group);
     _buttons.push_back(this->ui.keys8group);
+    _buttons.push_back(this->ui.keys9group);
 
     this->ui.keys1group->setId(this->ui.reg1_0button, 0);
     this->ui.keys1group->setId(this->ui.reg1_1button, 1);
@@ -175,4 +178,27 @@ void KeyDevice::on_andButton_clicked()
 void KeyDevice::on_punchButton_clicked()
 {
     _controlRead.punchNumber(_number);
+}
+
+void KeyDevice::on_zoneButton_clicked()
+{
+    _number.data[1] = 2;
+}
+
+void KeyDevice::on_returnButton_clicked()
+{
+    foreach (QButtonGroup *group, this->_buttons) {
+        QAbstractButton	*button = group->checkedButton();
+        if (button) {
+            group->setExclusive(false);
+            button->setChecked(false);
+            group->setExclusive(true);
+        }
+    }
+    std::memset(&_number, 0, sizeof (_number));
+}
+
+void KeyDevice::on_minusButton_clicked()
+{
+    _number.data[1] = 4;
 }
