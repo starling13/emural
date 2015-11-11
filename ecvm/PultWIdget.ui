@@ -14291,22 +14291,22 @@
  <connections/>
  <buttongroups>
   <buttongroup name="addr2group"/>
-  <buttongroup name="addr5group"/>
-  <buttongroup name="reg10group"/>
-  <buttongroup name="addr1group"/>
-  <buttongroup name="reg9group"/>
-  <buttongroup name="addr4group"/>
-  <buttongroup name="reg8group"/>
-  <buttongroup name="reg12group"/>
-  <buttongroup name="addr3group"/>
-  <buttongroup name="addr6group"/>
-  <buttongroup name="reg11group"/>
-  <buttongroup name="reg7group"/>
-  <buttongroup name="reg6group"/>
   <buttongroup name="reg5group"/>
+  <buttongroup name="reg11group"/>
+  <buttongroup name="addr1group"/>
   <buttongroup name="reg4group"/>
+  <buttongroup name="reg10group"/>
   <buttongroup name="reg3group"/>
+  <buttongroup name="addr6group"/>
+  <buttongroup name="reg9group"/>
   <buttongroup name="reg2group"/>
+  <buttongroup name="addr5group"/>
+  <buttongroup name="reg8group"/>
+  <buttongroup name="addr4group"/>
   <buttongroup name="reg1group"/>
+  <buttongroup name="reg7group"/>
+  <buttongroup name="addr3group"/>
+  <buttongroup name="reg6group"/>
+  <buttongroup name="reg12group"/>
  </buttongroups>
 </ui>

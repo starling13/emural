@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     libural \
-    ecvm
+    ecvm \
+    keydev
