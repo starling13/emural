@@ -27,6 +27,7 @@
 #include "PultWIdget.hpp"
 #include "PanelWidget.hpp"
 #include "AuxControlsWidget.hpp"
+#include "printdevice.hpp"
 #include "ural_cpu.hpp"
 
 using namespace std;
@@ -44,6 +45,7 @@ int main(int argc, char** argv)
 		PultWIdget	pultWidget(ural);
 		PanelWidget	panelWidget(ural);
 		AuxControlsWidget auxControlWidget(ural);
+        PrintDevice pDevice;
 		
 		QObject::connect(&auxControlWidget, SIGNAL(controlRegisterAddressChanged(size_t)),
 		    &panelWidget, SLOT(controlRegisterUpdated()));
@@ -51,11 +53,16 @@ int main(int argc, char** argv)
 		    &panelWidget, SLOT(updateRegisters()));
         QObject::connect(&pultWidget, SIGNAL(stopped()),
             &drumWidget, SLOT(updateView()));
+        QObject::connect(&auxControlWidget, SIGNAL(printMode(bool)),
+            &pDevice, SLOT(setMode(bool)));
+        QObject::connect(&auxControlWidget, SIGNAL(printAdder(quint64)),
+            &pDevice, SLOT(printWord(quint64)));
 	
 		drumWidget.show();
 		pultWidget.show();
 		panelWidget.show();
 		auxControlWidget.show();
+        pDevice.show();
 	
 		res = app.exec();
 	}

@@ -32,6 +32,10 @@ signals:
 	
 	void controlRegisterAddressChanged(size_t);
 
+    void printAdder(quint64);
+
+    void printMode(bool);
+
 public:
 	
 	AuxControlsWidget(URAL::CPU&);
@@ -47,6 +51,10 @@ private slots:
 	void on_blockPhiBtn_toggled(bool);
 	
 	void on_stopOnPhiBtn_toggled(bool);
+
+    void on_prinAdderBtn_clicked();
+
+    void on_printModeSwitch_toggled(bool);
 	
 private:
 	

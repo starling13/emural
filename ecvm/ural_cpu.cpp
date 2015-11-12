@@ -198,8 +198,12 @@ URAL::CPU::multiply()
         }
     }
     // Округление результата
-    //if (_DSM > 040)
-    //    S.value += 1;
+    if (S.value._sign == 0)
+        if (_DSM >= 040)
+            S.value._magnitude += 1;
+    else if (S.value._sign == 3)
+        if (_DSM <= 037)
+            S.value._magnitude -= 1;
 
     this->R.data = 0;
 }

@@ -127,11 +127,11 @@ ControlReadDevice::~ControlReadDevice()
 
 void ControlReadDevice::punchNumber(PunchTape::Number newVal)
 {
-    if (_tape.tapeData().size() < ui.scrollBar->value()+2)
-        _tape.tapeData().resize(ui.scrollBar->value()+2);
+    if (_tape.tapeData().size() < ui.scrollBar->value()+3)
+        _tape.tapeData().resize(ui.scrollBar->value()+3);
     ui.scrollBar->setMaximum(_tape.tapeData().size()-1);
     ui.scrollBar->setValue(ui.scrollBar->value()+1);
-    _tape.tapeData().operator [](ui.scrollBar->value()) = newVal;
+    _tape.tapeData().operator [](ui.scrollBar->value()+1) = newVal;
 }
 
 void ControlReadDevice::newTape()

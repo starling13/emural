@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     PanelWidget.cpp \
     PowerPultWidget.cpp \
     PultWIdget.cpp \
-    ural_cpu.cpp
+    ural_cpu.cpp \
+    printdevice.cpp
 
 HEADERS  += \
     AuxControlsWidget.hpp \
@@ -34,7 +35,8 @@ HEADERS  += \
     PanelWidget.hpp \
     PultWIdget.hpp \
     ural_cpu.hpp \
-    PowerPultWidget.hpp
+    PowerPultWidget.hpp \
+    printdevice.hpp
 
 FORMS    += \
     AdderRegisterPanel.ui \
@@ -51,7 +53,8 @@ FORMS    += \
     PowerPultWidget.ui \
     PultWIdget.ui \
     StatusRegisterPanel.ui \
-    StopReasonsPanel.ui
+    StopReasonsPanel.ui \
+    printdevice.ui
 
 RESOURCES += \
     images.qrc

@@ -58,7 +58,7 @@ public:
     /*
      * Формат ввода-вывода
      */
-    enum Format { BIN = 2, OCT = 8};
+    enum Format {BIN = 2, OCT = 8, DEC = 10};
     /*
      * Расширеный тип короткой ячейки
      */

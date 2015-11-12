@@ -99,3 +99,15 @@ void AuxControlsWidget::on_stopOnPhiBtn_toggled(bool newVal)
 {
 	_ural.setPhiStop(newVal);
 }
+
+void AuxControlsWidget::on_prinAdderBtn_clicked()
+{
+    URAL::Word_t word;
+    word.dPrec = _ural.S.value;
+    emit printAdder(word.data);
+}
+
+void AuxControlsWidget::on_printModeSwitch_toggled(bool newVal)
+{
+    emit printMode(newVal);
+}
