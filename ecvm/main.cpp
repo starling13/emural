@@ -40,6 +40,8 @@ int main(int argc, char** argv)
 	FixedPointFraction<uint64_t, 36>::SignedMagnitude	a;
 	
 	{
+        Q_DECLARE_METATYPE(URAL::HalfWord_t);
+
 		URAL::CPU	ural;
 		DrumWidget	drumWidget(ural.drum);
 		PultWIdget	pultWidget(ural);

@@ -3,13 +3,13 @@
 
 #include <QWidget>
 
-#include "ural.hpp"
+#include "ural_cpu.hpp"
 
 namespace Ui {
 class PrintDevice;
 }
 
-class PrintDevice : public QWidget
+class PrintDevice : public QWidget, public URAL::CPU::IPrintDevice
 {
     Q_OBJECT
 
@@ -23,9 +23,13 @@ public slots:
 
     void setMode(bool);
 
-    void printWord(quint64);
+    void printWord(quint64) override;
+
+    void printCommand(URAL::HalfWord_t) override;
 
 private:
+
+    QString wordToString(URAL::Word_t);
 
     Ui::PrintDevice &ui;
 

@@ -26,7 +26,26 @@ class URAL::CPU
 {
 public:
 
-    CPU();
+    class IPrintDevice final
+    {
+    public:
+
+        virtual ~IPrintDevice() = default;
+
+        virtual void printWord(uint64_t) = 0;
+
+        virtual void printCommand(URAL::HalfWord_t) = 0;
+
+    protected:
+
+        IPrintDevice() = default;
+
+    private:
+
+        IPrintDevice(const IPrintDevice&) = delete;
+    };
+
+    CPU(IPrintDevice&);
 
     uint16_t	regSCHK() const
     {
@@ -201,6 +220,9 @@ private:
     bool		_phiBlock;
 
     bool		_phiStop;
+
+    // Ссылка на реализацию ЦПУ
+    IPrintDevice    &_printDevice;
 };
 
 #endif
