@@ -22,8 +22,6 @@
 
 #include "ui_PultWIdget.h"
 
-#include <QTimer>
-
 #include "controls.hpp"
 #include "ural_cpu.hpp"
 
@@ -33,9 +31,13 @@ class PultWIdget : public QWidget
 	
 signals:
 
-	void tactFinished();
+    void start();
 
-    void stopped();
+    void stop();
+
+    void singleStep();
+
+    void regsUpdated();
 	
 public:
 	
@@ -81,8 +83,6 @@ private slots:
 
     void on_adderResetButton_clicked();
 	
-	void timerSignaled();
-	
 private:
 	
 	uint8_t _tactSkip;
@@ -90,8 +90,6 @@ private:
 	Ui::PultWIdget widget;
 	
 	URAL::CPU	&_ural;
-	
-	QTimer		_timer;
 	
 	URAL::HalfWord_t	_commandWord;
 

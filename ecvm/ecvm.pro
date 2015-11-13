@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     PowerPultWidget.cpp \
     PultWIdget.cpp \
     ural_cpu.cpp \
-    printdevice.cpp
+    printdevice.cpp \
+    qural.cpp
 
 HEADERS  += \
     AuxControlsWidget.hpp \
@@ -36,7 +37,8 @@ HEADERS  += \
     PultWIdget.hpp \
     ural_cpu.hpp \
     PowerPultWidget.hpp \
-    printdevice.hpp
+    printdevice.hpp \
+    qural.hpp
 
 FORMS    += \
     AdderRegisterPanel.ui \

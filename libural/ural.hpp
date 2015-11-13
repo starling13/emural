@@ -236,6 +236,25 @@ public:
         } words;
 	};
 
+    class IPrintDevice
+    {
+    public:
+
+        virtual ~IPrintDevice() = default;
+
+        virtual void printWord(URAL::Word_t) = 0;
+
+        virtual void printCommand(uint16_t, URAL::HalfWord_t) = 0;
+
+    protected:
+
+        IPrintDevice() = default;
+
+    private:
+
+        IPrintDevice(const IPrintDevice&) = delete;
+    };
+
     class CPU;
 };
 

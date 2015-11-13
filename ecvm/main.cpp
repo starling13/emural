@@ -22,6 +22,7 @@
 
 #include <QTimer>
 #include <QApplication>
+#include <QThread>
 
 #include "DrumWidget.hpp"
 #include "PultWIdget.hpp"
@@ -29,6 +30,7 @@
 #include "AuxControlsWidget.hpp"
 #include "printdevice.hpp"
 #include "ural_cpu.hpp"
+#include "qural.hpp"
 
 using namespace std;
 
@@ -40,25 +42,36 @@ int main(int argc, char** argv)
 	FixedPointFraction<uint64_t, 36>::SignedMagnitude	a;
 	
 	{
-        Q_DECLARE_METATYPE(URAL::HalfWord_t);
-
-		URAL::CPU	ural;
+        QtPrintDevice pDevice;
+        URAL::CPU	ural(pDevice);
 		DrumWidget	drumWidget(ural.drum);
 		PultWIdget	pultWidget(ural);
 		PanelWidget	panelWidget(ural);
 		AuxControlsWidget auxControlWidget(ural);
-        PrintDevice pDevice;
-		
+        URALWrapper wrapper(ural);
+        QThread     uralThread;
+
+        wrapper.moveToThread(&uralThread);
+
 		QObject::connect(&auxControlWidget, SIGNAL(controlRegisterAddressChanged(size_t)),
 		    &panelWidget, SLOT(controlRegisterUpdated()));
-		QObject::connect(&pultWidget, SIGNAL(tactFinished()),
+        QObject::connect(&pultWidget, SIGNAL(regsUpdated()),
 		    &panelWidget, SLOT(updateRegisters()));
-        QObject::connect(&pultWidget, SIGNAL(stopped()),
+        QObject::connect(&wrapper, SIGNAL(stopped()),
             &drumWidget, SLOT(updateView()));
+        QObject::connect(&pultWidget, SIGNAL(singleStep()),
+            &wrapper, SLOT(singleStep()), Qt::QueuedConnection);
+        QObject::connect(&pultWidget, SIGNAL(start()),
+            &wrapper, SLOT(start()));
+        QObject::connect(&pultWidget, SIGNAL(stop()),
+            &wrapper, SLOT(stop()));
+        QObject::connect(&wrapper, SIGNAL(tactFinished()),
+            &panelWidget, SLOT(updateRegisters()), Qt::QueuedConnection);
         QObject::connect(&auxControlWidget, SIGNAL(printMode(bool)),
             &pDevice, SLOT(setMode(bool)));
-        QObject::connect(&auxControlWidget, SIGNAL(printAdder(quint64)),
-            &pDevice, SLOT(printWord(quint64)));
+
+        pDevice.start();
+        uralThread.start();
 	
 		drumWidget.show();
 		pultWidget.show();

@@ -102,12 +102,26 @@ void AuxControlsWidget::on_stopOnPhiBtn_toggled(bool newVal)
 
 void AuxControlsWidget::on_prinAdderBtn_clicked()
 {
-    URAL::Word_t word;
-    word.dPrec = _ural.S.value;
-    emit printAdder(word.data);
+    _ural.printAdder();
 }
 
 void AuxControlsWidget::on_printModeSwitch_toggled(bool newVal)
 {
     emit printMode(newVal);
+}
+
+void AuxControlsWidget::on_printMode1_toggled(bool newVal)
+{
+    if (newVal)
+        _ural.setPrintMode(URAL::CPU::PRINT_MODE1);
+    else
+        _ural.setPrintMode(URAL::CPU::PRINT_NONE);
+}
+
+void AuxControlsWidget::on_printMode2_toggled(bool newVal)
+{
+    if (newVal)
+        _ural.setPrintMode(URAL::CPU::PRINT_MODE2);
+    else
+        _ural.setPrintMode(URAL::CPU::PRINT_NONE);
 }

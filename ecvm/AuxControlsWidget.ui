@@ -1595,7 +1595,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="Switch" name="cra12_5">
+       <widget class="Switch" name="printMode1">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -1621,7 +1621,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="Switch" name="cra10_6">
+       <widget class="Switch" name="printMode2">
         <property name="minimumSize">
          <size>
           <width>24</width>

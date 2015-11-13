@@ -26,26 +26,21 @@ class URAL::CPU
 {
 public:
 
-    class IPrintDevice final
+    /**
+     * @brief Режим печати программы
+     */
+    enum PrintMode
     {
-    public:
-
-        virtual ~IPrintDevice() = default;
-
-        virtual void printWord(uint64_t) = 0;
-
-        virtual void printCommand(URAL::HalfWord_t) = 0;
-
-    protected:
-
-        IPrintDevice() = default;
-
-    private:
-
-        IPrintDevice(const IPrintDevice&) = delete;
+        PRINT_NONE,
+        PRINT_MODE1,
+        PRINT_MODE2
     };
 
     CPU(IPrintDevice&);
+
+    void printAdder();
+
+    void printCommand();
 
     uint16_t	regSCHK() const
     {
@@ -89,6 +84,11 @@ public:
     {
         _phiStop = newVal;
     }
+    void setPrintMode(PrintMode newVal)
+    {
+        _printMode = newVal;
+    }
+
     Word_t		R;
     Word_t		drum[drumWordsNumber];
     HalfWord_t	_RGK;
@@ -123,7 +123,6 @@ private:
          */
         STOP
     };
-
     /**
      * Исполнение команды из регистра команд
      */
@@ -183,12 +182,17 @@ private:
      */
     void (CPU::*commands[32])();
 
+    /**
+     * @brief Регистр состояния
+     */
     union PACKED
     {
         uint8_t	_data;
         struct
         {
+            // Флаг омега
             uint8_t	_omega:1;
+            // Флаг фи
             uint8_t	_phi:1;
         } _value;
     } _statusReg;
@@ -201,26 +205,29 @@ private:
      * ДШК
      */
     uint16_t	_DSHK:5;
-    /*
-     * РГМ
+    /**
+     * @brief РГМ
      */
     Word_t      _RGM;
+    // Дополнительный регистр
     uint16_t    _DRG:6;
+    // Дополнительный сумматор
     uint16_t    _DSM:7;
 
+    // Адрес контрольного регистра
     size_t		_controlRegisterAddress;
-
+    // Состояние по питанию
     PowerState_t		_powerState;
-
+    // Состояние по остановкам
     State_t			_mode;
-
     // Напряжения питания (В)
     float		_supplyVoltage[2];
-
+    // Флаг блокировки фи
     bool		_phiBlock;
-
+    // Флаг остановки по фи
     bool		_phiStop;
-
+    // Режим вывода на печать, устанавливаемый с пульта
+    PrintMode   _printMode;
     // Ссылка на реализацию ЦПУ
     IPrintDevice    &_printDevice;
 };

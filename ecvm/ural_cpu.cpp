@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-URAL::CPU::CPU() :
+URAL::CPU::CPU(IPrintDevice &pDevice) :
 S(0),
 _reg_SCHK(0),
 _DSHK(0),
@@ -15,7 +15,9 @@ _controlRegisterAddress(0),
 _powerState(OFF),
 _mode(READY),
 _phiBlock(false),
-_phiStop(false)
+_phiStop(false),
+_printDevice(pDevice),
+_printMode(PRINT_NONE)
 {
     std::srand(std::time(NULL));
 
@@ -39,6 +41,18 @@ _phiStop(false)
 
     _addressStopReg._data = 0;
     _statusReg._data = 0;
+}
+
+void URAL::CPU::printAdder()
+{
+    URAL::Word_t word;
+    word.dPrec = S.value;
+    _printDevice.printWord(word);
+}
+
+void URAL::CPU::printCommand()
+{
+    _printDevice.printCommand(_reg_SCHK, _RGK);
 }
 
 void URAL::CPU::reset()
@@ -94,11 +108,15 @@ bool
 URAL::CPU::tact()
 {
     execute();
+    if (_printMode > PRINT_MODE1)
+        printAdder();
     if ((this->S.value.sign() == 3) || (this->S.value.sign() == 0))
         this->_statusReg._value._phi = 0;
     else
         this->_statusReg._value._phi = 1;
     fetch();
+    if (_printMode > PRINT_NONE)
+        printCommand();
     if (_mode == READY)
         return (true);
     else {

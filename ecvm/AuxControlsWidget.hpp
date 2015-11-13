@@ -32,8 +32,6 @@ signals:
 	
 	void controlRegisterAddressChanged(size_t);
 
-    void printAdder(quint64);
-
     void printMode(bool);
 
 public:
@@ -55,6 +53,10 @@ private slots:
     void on_prinAdderBtn_clicked();
 
     void on_printModeSwitch_toggled(bool);
+
+    void on_printMode1_toggled(bool);
+
+    void on_printMode2_toggled(bool);
 	
 private:
 	

@@ -99,7 +99,7 @@ void PunchTapeViewWidget::drawFrame(int number)
         for (int j=0; j<11; ++j) {
             char digit = _tape->tapeData().at(_position+number).data[j];
             if (digit & (1<<(3-i)))
-                _painter.drawRect(hShift+52.0 + 23.0*j, shift + 9.75 + 47.5*i, 13.0, 28.0);
+                _painter.drawRect(hShift+53.0 + 23.0*j, shift + 9.0 + 47.5*i, 12.0, 30.0);
         }
     }
 }

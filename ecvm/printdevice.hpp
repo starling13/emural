@@ -1,41 +1,81 @@
 #ifndef PRINTDEVICE_HPP
 #define PRINTDEVICE_HPP
 
-#include <QWidget>
-
 #include "ural_cpu.hpp"
+
+#include <QWidget>
+#include <QMetaType>
+#include <QThread>
+#include <QMutex>
+#include <QWaitCondition>
+#include <QTime>
+
+Q_DECLARE_METATYPE(URAL::Word_t);
+Q_DECLARE_METATYPE(URAL::HalfWord_t);
 
 namespace Ui {
 class PrintDevice;
 }
 
-class PrintDevice : public QWidget, public URAL::CPU::IPrintDevice
+class QtPrintDevice : public QWidget, public URAL::IPrintDevice
 {
     Q_OBJECT
 
 public:
 
-    PrintDevice(QWidget *parent = 0);
+    QtPrintDevice(QWidget *parent = 0);
+    ~QtPrintDevice();
 
-    ~PrintDevice();
+    void start();
+    void printWord(URAL::Word_t) override;
+    void printCommand(quint16, URAL::HalfWord_t) override;
 
 public slots:
 
     void setMode(bool);
 
-    void printWord(quint64) override;
+private slots:
 
-    void printCommand(URAL::HalfWord_t) override;
+    void printBuffer(QString);
 
 private:
 
     QString wordToString(URAL::Word_t);
+    QString commandToString(URAL::HalfWord_t);
 
-    Ui::PrintDevice &ui;
+    class Worker;
+    friend class Worker;
 
-    URAL::Format    _mode;
+    QMutex               _cpuLock;
+    QWaitCondition       _uralCondition,    _cpuCondition;
+    Ui::PrintDevice     &ui;
+    URAL::Format         _mode;
+    quint16              _counter;
+    Worker              &_worker;
+    QTime               _startTime;
+    QString             _buffer;
+};
 
-    quint16     _counter;
+class QtPrintDevice::Worker : public QThread
+{
+    Q_OBJECT
+
+signals:
+
+    void print(QString);
+
+public:
+
+    Worker(QtPrintDevice&);
+
+protected:
+
+    void run() override;
+
+private:
+
+    QtPrintDevice   &_owner;
+
 };
 
 #endif // PRINTDEVICE_HPP

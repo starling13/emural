@@ -19,6 +19,7 @@
 
 #include "PultWIdget.hpp"
 #include <QDebug>
+#include <QThread>
 
 #define TACT_SKIP 0
 
@@ -27,9 +28,6 @@ _tactSkip(TACT_SKIP),
 _ural(ural)
 {
 	widget.setupUi(this);
-	
-	QObject::connect(&_timer, SIGNAL(timeout()), this,
-	    SLOT(timerSignaled()));
 	
 	_commandButtons.push_back(this->widget.addr1group);
 	_commandButtons.push_back(this->widget.addr2group);
@@ -220,27 +218,24 @@ PultWIdget::~PultWIdget()
 
 void PultWIdget::on_singleStepButton_clicked()
 {
-    _ural.tact();
-    emit stopped();
-	emit tactFinished();
+    qDebug() << QThread::currentThread();
+    emit singleStep();
 }
 
 void PultWIdget::on_resetButton_clicked()
 {
 	_ural.reset();
-    emit stopped();
-	emit tactFinished();
+    emit regsUpdated();
 }
 
 void PultWIdget::on_startButton_clicked()
 {
-	_timer.start(10);
+    emit start();
 }
 
 void PultWIdget::on_stopButton_clicked()
 {
-	_timer.stop();
-    emit stopped();
+    emit stop();
 }
 
 void PultWIdget::on_commandResetButton_clicked()
@@ -272,13 +267,13 @@ void PultWIdget::on_adderResetButton_clicked()
 void PultWIdget::on_commandSetButton_clicked()
 {
 	_ural._RGK = this->_commandWord;
-	emit tactFinished();
+    emit regsUpdated();
 }
 
 void PultWIdget::on_adderSetButton_clicked()
 {
     _ural.S.value = this->_adderWord.dPrec;
-    emit tactFinished();
+    emit regsUpdated();
 }
 
 void PultWIdget::on_addr1group_buttonClicked(int id)
@@ -369,19 +364,4 @@ void PultWIdget::on_reg11group_buttonClicked(int id)
 void PultWIdget::on_reg12group_buttonClicked(int id)
 {
     _adderWord.triplets.t12 = id;
-}
-
-void PultWIdget::timerSignaled()
-{
-	if (!_ural.tact()) {
-		_timer.stop();
-        emit stopped();
-		emit tactFinished();
-	}
-	if (_tactSkip > 0)
-		--_tactSkip;
-	else {
-		_tactSkip = TACT_SKIP;
-		emit tactFinished();
-	}
 }
