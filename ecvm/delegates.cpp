@@ -18,8 +18,12 @@ _format(format)
         _validator = new QRegExpValidator(QRegExp(QString("[0-7]{%1}").arg(
             _bitCount / 3)), this);
         break;
+    case URAL::DEC :
+        _mask.fill('9', _bitCount / 4);
+        _validator = new QRegExpValidator(QRegExp(QString("[0-9]{%1}").arg(
+            _bitCount / 4)), this);
+        break;
     }
-    //_mask.append(";_");
 }
 
 NumberDelegate::~NumberDelegate()

@@ -9,18 +9,19 @@
 
 URAL::CPU::CPU(IPrintDevice &pDevice) :
 S(0),
+_controlSwitchRegister(0),
 _reg_SCHK(0),
 _DSHK(0),
 _controlRegisterAddress(0),
 _powerState(OFF),
-_mode(READY),
 _phiBlock(false),
 _phiStop(false),
-_printDevice(pDevice),
-_printMode(PRINT_NONE)
+_printMode(PRINT_NONE),
+_printDevice(pDevice)
 {
     std::srand(std::time(NULL));
 
+    // Инициализация массива указателей на функции-члены операций
     std::memset(this->commands, 0, sizeof (this->commands));
     this->commands[000] = &CPU::noop_00;
     this->commands[001] = &CPU::sum1_01;
@@ -33,7 +34,9 @@ _printMode(PRINT_NONE)
     this->commands[017] = &CPU::loadR_17;
     this->commands[021] = &CPU::jmp_21;
     this->commands[022] = &CPU::jmp_22;
+    this->commands[023] = &CPU::cjmp_23;
 
+    // Неопределённые значения регистров
     S.value = std::rand();
     R.dPrec = std::rand();
     _reg_SCHK = std::rand() & (drumHalfWordsNumber - 1);
@@ -41,6 +44,10 @@ _printMode(PRINT_NONE)
 
     _addressStopReg._data = 0;
     _statusReg._data = 0;
+}
+
+URAL::CPU::~CPU()
+{
 }
 
 void URAL::CPU::printAdder()
@@ -107,6 +114,7 @@ URAL::CPU::setSupplyVoltage(uint8_t index, float value)
 bool
 URAL::CPU::tact()
 {
+    _statusReg._value._stop = READY;
     execute();
     if (_printMode > PRINT_MODE1)
         printAdder();
@@ -117,10 +125,9 @@ URAL::CPU::tact()
     fetch();
     if (_printMode > PRINT_NONE)
         printCommand();
-    if (_mode == READY)
+    if (_statusReg._value._stop == READY)
         return (true);
     else {
-        _mode = READY;
         return (false);
     }
 }
@@ -150,11 +157,11 @@ URAL::CPU::fetch()
     if (this->_addressStopReg.value._useBlock)
         if (this->_addressStopReg.value._address ==
             this->_reg_SCHK)
-            this->_mode = STOP;
+            this->_statusReg._value._stop = STOP;
     // Проверка реакции на флаг переполнения
     if (!_phiBlock && this->_statusReg._value._phi) {
         if (_phiStop)
-            this->_mode = STOP;
+            this->_statusReg._value._stop = STOP;
         else
             ++this->_reg_SCHK;
     }
@@ -216,13 +223,13 @@ URAL::CPU::multiply()
         }
     }
     // Округление результата
-    if (S.value._sign == 0)
+    if (S.value._sign == 0) {
         if (_DSM >= 040)
             S.value._magnitude += 1;
-    else if (S.value._sign == 3)
+    } else if (S.value._sign == 3) {
         if (_DSM <= 037)
             S.value._magnitude -= 1;
-
+    }
     this->R.data = 0;
 }
 
@@ -363,4 +370,12 @@ void
 URAL::CPU::jmp_22()
 {
     this->_reg_SCHK = this->_RGK.command.address;
+}
+
+void
+URAL::CPU::cjmp_23()
+{
+    ++this->_reg_SCHK;
+    if (_controlSwitchRegister & (1 << this->_RGK.triplets.t1))
+        ++this->_reg_SCHK;
 }

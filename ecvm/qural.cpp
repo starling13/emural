@@ -26,14 +26,20 @@ void URALWrapper::start()
 void URALWrapper::stop()
 {
     _timer.stop();
+    emit stopped();
 }
 
 void URALWrapper::timerSignaled()
 {
+    QObject::disconnect(&_timer, SIGNAL(timeout()), this,
+        SLOT(timerSignaled()));
     if (!_ural.tact()) {
         _timer.stop();
         emit tactFinished();
         emit stopped();
-    } else
+    } else {
         emit tactFinished();
+    }
+    QObject::connect(&_timer, SIGNAL(timeout()), this,
+        SLOT(timerSignaled()));
 }

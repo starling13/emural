@@ -45,6 +45,8 @@ private slots:
 	void on_controlRegisterGroup_buttonClicked(QAbstractButton*);
 	
 	void on_addressBlockGroup_buttonClicked(QAbstractButton*);
+    
+    void on_controlSwitchGroup_buttonClicked(QAbstractButton*);
 	
 	void on_blockPhiBtn_toggled(bool);
 	
@@ -65,6 +67,8 @@ private:
 	uint16_t		_controlRegisterPosition;
 	
 	uint16_t		_addrStopRegister;
+    
+    u_int8_t        _controlSwitchRegister;
 	
 	URAL::CPU		&_ural;
 };

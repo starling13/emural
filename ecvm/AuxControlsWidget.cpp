@@ -22,6 +22,7 @@
 AuxControlsWidget::AuxControlsWidget(URAL::CPU &ural) :
 _controlRegisterPosition(0u),
 _addrStopRegister(0u),
+_controlSwitchRegister(0),
 _ural(ural)
 {
 	widget.setupUi(this);
@@ -51,6 +52,14 @@ _ural(ural)
 	widget.addressBlockGroup->setId(widget.ab10, 9);
 	widget.addressBlockGroup->setId(widget.ab11, 10);
 	widget.addressBlockGroup->setId(widget.abUse, 11);
+    
+    widget.controlSwitchGroup->setId(widget.sw1, 1);
+    widget.controlSwitchGroup->setId(widget.sw2, 2);
+    widget.controlSwitchGroup->setId(widget.sw3, 3);
+    widget.controlSwitchGroup->setId(widget.sw4, 4);
+    widget.controlSwitchGroup->setId(widget.sw5, 5);
+    widget.controlSwitchGroup->setId(widget.sw6, 6);
+    widget.controlSwitchGroup->setId(widget.sw7, 7);
 }
 
 AuxControlsWidget::~AuxControlsWidget()
@@ -90,6 +99,22 @@ void AuxControlsWidget::on_addressBlockGroup_buttonClicked(QAbstractButton
 	_ural.setAddressBlock(_addrStopRegister);
 }
 
+void AuxControlsWidget::on_controlSwitchGroup_buttonClicked(QAbstractButton
+    *button)
+{
+	QCheckBox *sw = qobject_cast<QCheckBox*>(button);
+	Q_CHECK_PTR(sw);
+	
+	if (sw->isChecked())
+		_controlSwitchRegister |=
+            1<<widget.controlSwitchGroup->id(button);
+	else
+		_controlSwitchRegister &=
+		    ~(1<<widget.controlSwitchGroup->id(button));
+	
+	_ural.setControlSwitchRegister(_controlSwitchRegister);
+}
+
 void AuxControlsWidget::on_blockPhiBtn_toggled(bool newVal)
 {
 	_ural.setPhiBlock(newVal);
@@ -113,15 +138,15 @@ void AuxControlsWidget::on_printModeSwitch_toggled(bool newVal)
 void AuxControlsWidget::on_printMode1_toggled(bool newVal)
 {
     if (newVal)
-        _ural.setPrintMode(URAL::CPU::PRINT_MODE1);
+        _ural.setPrintMode(URAL::PRINT_MODE1);
     else
-        _ural.setPrintMode(URAL::CPU::PRINT_NONE);
+        _ural.setPrintMode(URAL::PRINT_NONE);
 }
 
 void AuxControlsWidget::on_printMode2_toggled(bool newVal)
 {
     if (newVal)
-        _ural.setPrintMode(URAL::CPU::PRINT_MODE2);
+        _ural.setPrintMode(URAL::PRINT_MODE2);
     else
-        _ural.setPrintMode(URAL::CPU::PRINT_NONE);
+        _ural.setPrintMode(URAL::PRINT_NONE);
 }

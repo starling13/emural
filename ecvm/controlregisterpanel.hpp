@@ -184,6 +184,9 @@ private:
 	Ui::StatusRegisterPanel widget;
 };
 
+/**
+ * @brief Панель режимов работы
+ */
 class ModesPanel : public LampPanel
 {
     Q_OBJECT

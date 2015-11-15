@@ -28,6 +28,18 @@
 class URAL
 {
 public:
+    /**
+     * @brief Режим печати программы
+     */
+    enum PrintMode
+    {
+        // Отсутствие печати
+        PRINT_NONE,
+        // Печать I
+        PRINT_MODE1,
+        // Печать II
+        PRINT_MODE2
+    };
     /*
      * Число полных ячеек в барабане
      */

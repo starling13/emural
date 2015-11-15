@@ -1150,7 +1150,7 @@
        <number>0</number>
       </property>
       <item row="0" column="0">
-       <widget class="Switch" name="cra12_3">
+       <widget class="Switch" name="sw1">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -1166,6 +1166,9 @@
         <property name="text">
          <string/>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlSwitchGroup</string>
+        </attribute>
        </widget>
       </item>
       <item row="1" column="5">
@@ -1199,7 +1202,7 @@
        </widget>
       </item>
       <item row="0" column="4">
-       <widget class="Switch" name="cra8_3">
+       <widget class="Switch" name="sw5">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -1215,6 +1218,9 @@
         <property name="text">
          <string/>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlSwitchGroup</string>
+        </attribute>
        </widget>
       </item>
       <item row="1" column="1">
@@ -1238,7 +1244,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="Switch" name="cra11_3">
+       <widget class="Switch" name="sw2">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -1254,6 +1260,9 @@
         <property name="text">
          <string/>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlSwitchGroup</string>
+        </attribute>
        </widget>
       </item>
       <item row="1" column="3">
@@ -1277,7 +1286,7 @@
        </widget>
       </item>
       <item row="0" column="5">
-       <widget class="Switch" name="cra7_3">
+       <widget class="Switch" name="sw6">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -1293,10 +1302,13 @@
         <property name="text">
          <string/>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlSwitchGroup</string>
+        </attribute>
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="Switch" name="cra9_3">
+       <widget class="Switch" name="sw4">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -1312,10 +1324,13 @@
         <property name="text">
          <string/>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlSwitchGroup</string>
+        </attribute>
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="Switch" name="cra10_3">
+       <widget class="Switch" name="sw3">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -1331,10 +1346,13 @@
         <property name="text">
          <string/>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlSwitchGroup</string>
+        </attribute>
        </widget>
       </item>
       <item row="0" column="6">
-       <widget class="Switch" name="cra6_3">
+       <widget class="Switch" name="sw7">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -1350,6 +1368,9 @@
         <property name="text">
          <string/>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">controlSwitchGroup</string>
+        </attribute>
        </widget>
       </item>
      </layout>
@@ -1758,12 +1779,17 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="controlRegisterGroup">
+  <buttongroup name="addressBlockGroup">
    <property name="exclusive">
     <bool>false</bool>
    </property>
   </buttongroup>
-  <buttongroup name="addressBlockGroup">
+  <buttongroup name="controlSwitchGroup">
+   <property name="exclusive">
+    <bool>false</bool>
+   </property>
+  </buttongroup>
+  <buttongroup name="controlRegisterGroup">
    <property name="exclusive">
     <bool>false</bool>
    </property>

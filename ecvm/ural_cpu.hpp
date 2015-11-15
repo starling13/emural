@@ -22,24 +22,20 @@
 
 #include "ural.hpp"
 
+/**
+ * @brief Процессор Урал-1 (АУ и УУ)
+ */
 class URAL::CPU
 {
 public:
-
     /**
-     * @brief Режим печати программы
+     * @brief Конструктор
+     * @param printDevice ссылка на экземпляр реализации ЦПУ
      */
-    enum PrintMode
-    {
-        PRINT_NONE,
-        PRINT_MODE1,
-        PRINT_MODE2
-    };
-
     CPU(IPrintDevice&);
+    ~CPU();
 
     void printAdder();
-
     void printCommand();
 
     uint16_t	regSCHK() const
@@ -50,20 +46,17 @@ public:
     {
         _reg_SCHK = newVal;
     }
+
     uint16_t	regDSHK() const
     {
         return (_DSHK);
     }
+
     void setAddressBlock(uint16_t newVal)
     {
         _addressStopReg._data = newVal;
     }
-    bool tact();
-    void clearDrum();
-    void reset();
-    const Word_t	&controlRegister() const;
-    void		 setControlRegisterAddress(size_t newVal);
-    void setSupplyVoltage(uint8_t, float);
+
     bool		 omega() const
     {
         return (_statusReg._value._omega);
@@ -72,10 +65,19 @@ public:
     {
         return (_statusReg._value._phi);
     }
-    uint8_t		statusRegister() const
+    uint16_t		statusRegister() const
     {
         return (_statusReg._data);
     }
+
+    bool tact();
+
+    void clearDrum();
+    void reset();
+    const Word_t	&controlRegister() const;
+    void		 setControlRegisterAddress(size_t newVal);
+    void setSupplyVoltage(uint8_t, float);
+
     void		setPhiBlock(bool newVal)
     {
         _phiBlock = newVal;
@@ -87,6 +89,10 @@ public:
     void setPrintMode(PrintMode newVal)
     {
         _printMode = newVal;
+    }
+    void setControlSwitchRegister(uint8_t newVal)
+    {
+        _controlSwitchRegister = newVal;
     }
 
     Word_t		R;
@@ -117,11 +123,11 @@ private:
         /**
          * готов к исполнению
          */
-        READY,
+        READY = 0,
         /**
          * Остановка
          */
-        STOP
+        STOP = 1
     };
     /**
      * Исполнение команды из регистра команд
@@ -163,6 +169,8 @@ private:
 
     void jmp_22();
 
+    void cjmp_23();
+
     /**
      * Регистр остановки по адресу
      */
@@ -187,15 +195,21 @@ private:
      */
     union PACKED
     {
-        uint8_t	_data;
+        uint16_t	_data;
+        uint8_t	_bytes[2];
         struct
         {
             // Флаг омега
-            uint8_t	_omega:1;
+            uint16_t	_omega:1;
             // Флаг фи
-            uint8_t	_phi:1;
+            uint16_t	_phi:1;
+            uint16_t    __padding:6;
+            // Остановка
+            uint16_t    _stop:1;
         } _value;
     } _statusReg;
+    
+    uint8_t     _controlSwitchRegister;
 
     /**
      * Регистр СЧК
@@ -218,8 +232,6 @@ private:
     size_t		_controlRegisterAddress;
     // Состояние по питанию
     PowerState_t		_powerState;
-    // Состояние по остановкам
-    State_t			_mode;
     // Напряжения питания (В)
     float		_supplyVoltage[2];
     // Флаг блокировки фи
