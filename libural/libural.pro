@@ -33,5 +33,6 @@ unix {
 }
 
 win32 {
+    QMAKE_CXXFLAGS += -D__NO_INLINE__
     CONFIG += dll
 }

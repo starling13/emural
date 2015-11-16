@@ -72,7 +72,7 @@ private:
 	
 	uint16_t		_addrStopRegister;
     
-    u_int8_t        _controlSwitchRegister;
+    uint8_t        _controlSwitchRegister;
 	
 	URAL::CPU		&_ural;
 };

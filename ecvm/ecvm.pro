@@ -67,5 +67,6 @@ LIBS += \
 }
 
 win32 {
-win32-g++:LIBS += ../libural/debug/libural.a
+QMAKE_CXXFLAGS += -D__NO_INLINE__
+win32-g++:LIBS += -Wl,-rpath=../libural/release/ -L../libural/release/ ../libural/release/ural.dll
 }

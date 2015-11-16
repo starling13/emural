@@ -21,7 +21,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "intdelegate.h"
+#include "intdelegate.hpp"
 
 IntDelegate::IntDelegate(QObject *parent,
         int iMin, int iMax, int iStep) : QItemDelegate(parent),
