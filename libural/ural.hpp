@@ -243,9 +243,9 @@ public:
 		AdderWord	value;
 		struct
 		{
-            uint64_t	word1:18;
+			uint64_t	word1:18;
 			uint64_t	word2:18;
-        } words;
+		} words;
 	};
 
     class IPrintDevice

@@ -55,6 +55,7 @@ URAL::CPU::CPU(IPrintDevice &pDevice) :
 	this->commands[006] = &CPU::mul2_06;
 	this->commands[016] = &CPU::mov_16;
 	this->commands[017] = &CPU::loadR_17;
+	this->commands[020] = &CPU::load_20;
 	this->commands[021] = &CPU::jmp_21;
 	this->commands[022] = &CPU::jmp_22;
 	this->commands[023] = &CPU::cjmp_23;
@@ -397,6 +398,23 @@ URAL::CPU::loadR_17()
 		this->_statusReg._value._omega = 1;
 	else
 		this->_statusReg._value._omega = 0;
+	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::load_20()
+{
+	if (this->_RGK.command.addrLength == 0) {
+		this->S.words.word2 = this->_RGK.command.address;
+		this->S.words.word1 = 0;
+		this->S.value._sign = 0;
+		this->_statusReg._value._omega = 1;
+	} else {
+		this->S.words.word2 = ~this->_RGK.command.address;
+		this->S.words.word1 = 0;
+		this->S.value._sign = 3;
+		this->_statusReg._value._omega = 0;
+	}
 	++this->_reg_SCHK;
 }
 

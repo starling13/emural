@@ -168,11 +168,17 @@ private:
 	 * @brief сложение с нулём (послыка в сумматор)
 	 */
 	void sum2_02();
-
+	/**
+	 * @brief вычитание
+	 */
 	void sub1_03();
-
+	/**
+	 * @brief вычитание модулей
+	 */
 	void sub2_04();
-
+	/**
+	 * @brief умножение с
+	 */
 	void mul1_05();
 
 	void mul2_06();
@@ -180,6 +186,8 @@ private:
 	void mov_16();
 
 	void loadR_17();
+
+	void load_20();
 
 	void jmp_21();
 
@@ -212,7 +220,7 @@ private:
 	union PACKED
 	{
 		uint16_t	_data;
-		uint8_t	_bytes[2];
+		uint8_t		_bytes[2];
 		struct
 		{
 			// Флаг омега
