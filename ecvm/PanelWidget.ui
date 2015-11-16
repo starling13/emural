@@ -432,7 +432,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>PanelWidget</string>
+   <string>Панель индикации</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QFrame#mainFrame {
