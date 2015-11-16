@@ -32,13 +32,13 @@ HEADERS  += \
     controlregisterpanel.hpp \
     delegates.hpp \
     DrumWidget.hpp \
-    intdelegate.h \
     PanelWidget.hpp \
     PultWIdget.hpp \
     ural_cpu.hpp \
     PowerPultWidget.hpp \
     printdevice.hpp \
-    qural.hpp
+    qural.hpp \
+    intdelegate.hpp
 
 FORMS    += \
     AdderRegisterPanel.ui \

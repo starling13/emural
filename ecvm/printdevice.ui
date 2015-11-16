@@ -15,14 +15,39 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>Очистить</string>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="bottomMargin">
+      <number>0</number>
      </property>
-    </widget>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/images/edit-clear.png</normaloff>:/images/edit-clear.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="addCommentButton">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/images/list-add.png</normaloff>:/images/list-add.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="commentLine"/>
+     </item>
+    </layout>
    </item>
    <item>
-    <widget class="QPlainTextEdit" name="textArea">
+    <widget class="QTextEdit" name="textArea">
      <property name="palette">
       <palette>
        <active>
@@ -66,14 +91,24 @@
        <pointsize>12</pointsize>
       </font>
      </property>
-     <property name="readOnly">
-      <bool>true</bool>
+     <property name="styleSheet">
+      <string notr="true">
+</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Monospace'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton</sender>
@@ -82,12 +117,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>152</x>
-     <y>21</y>
+     <x>31</x>
+     <y>25</y>
     </hint>
     <hint type="destinationlabel">
      <x>152</x>
-     <y>195</y>
+     <y>199</y>
     </hint>
    </hints>
   </connection>

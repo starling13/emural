@@ -4,7 +4,9 @@
 		<file>../images/logo.png</file>
 		<file>../images/lamp_on.png</file>
 		<file>../images/lamp_off.png</file>
-                <file>../images/switch_on_24px.png</file>
+		<file>../images/switch_on_24px.png</file>
 		<file>../images/switch_off_24px.png</file>
+		<file>../images/edit-clear.png</file>
+		<file>../images/list-add.png</file>
     </qresource>
 </RCC>
