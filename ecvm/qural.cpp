@@ -26,10 +26,16 @@
 #include <QDebug>
 
 URALWrapper::URALWrapper(URAL::CPU &ural) :
-	_ural(ural)
+	_ural(ural),
+	_timer(*(new QTimer(NULL)))
 {
-	QObject::connect(&_timer, SIGNAL(timeout()), this,
-			 SLOT(timerSignaled()));
+	_timer.start(10);
+}
+
+URALWrapper::~URALWrapper()
+{
+	_timer.stop();
+	delete &_timer;
 }
 
 void URALWrapper::singleStep()
@@ -44,12 +50,14 @@ void URALWrapper::singleStep()
 void URALWrapper::start()
 {
 	_ural.start();
-	_timer.start(10);
+	QObject::connect(&_timer, SIGNAL(timeout()), this,
+	    SLOT(timerSignaled()));
 }
 
 void URALWrapper::stop()
 {
-	_timer.stop();
+	QObject::disconnect(&_timer, SIGNAL(timeout()), this,
+	    SLOT(timerSignaled()));
 	_ural.stop();
 	emit stopped();
 }
@@ -57,14 +65,13 @@ void URALWrapper::stop()
 void URALWrapper::timerSignaled()
 {
 	QObject::disconnect(&_timer, SIGNAL(timeout()), this,
-			    SLOT(timerSignaled()));
+	    SLOT(timerSignaled()));
 	if (!_ural.tact()) {
-		_timer.stop();
 		emit tactFinished();
 		emit stopped();
 	} else {
 		emit tactFinished();
+		QObject::connect(&_timer, SIGNAL(timeout()), this,
+		    SLOT(timerSignaled()));
 	}
-	QObject::connect(&_timer, SIGNAL(timeout()), this,
-			 SLOT(timerSignaled()));
 }

@@ -94,35 +94,36 @@ void Logger::Log::log(Verbosity_t verbosity, const Args&... args)
 
 class URALWrapper : public QObject
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
 
-    URALWrapper(URAL::CPU&);
+	URALWrapper(URAL::CPU&);
+	~URALWrapper();
 
 signals:
 
-    void stopped();
+	void stopped();
 
-    void tactFinished();
+	void tactFinished();
 
 public slots:
 
-    void singleStep();
+	void singleStep();
 
-    void start();
+	void start();
 
-    void stop();
+	void stop();
 
 private slots:
 
-    void timerSignaled();
+	void timerSignaled();
 
 private:
 
-    URAL::CPU   &_ural;
+	URAL::CPU   &_ural;
 
-    QTimer		_timer;
+	QTimer		&_timer;
 };
 
 #endif // QURAL_HPP

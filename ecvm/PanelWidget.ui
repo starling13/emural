@@ -561,9 +561,9 @@
    <widget class="ControlRegisterPanel" name="controlRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>50</x>
       <y>150</y>
-      <width>1021</width>
+      <width>1011</width>
       <height>51</height>
      </rect>
     </property>
@@ -577,9 +577,9 @@
    <widget class="AdderRegisterPanel" name="adderRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>10</y>
-      <width>1031</width>
+      <width>1041</width>
       <height>51</height>
      </rect>
     </property>
@@ -609,9 +609,9 @@
    <widget class="ArithmUnitRegisterPanel" name="arithmUnitRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>80</y>
-      <width>1011</width>
+      <width>1021</width>
       <height>51</height>
      </rect>
     </property>
@@ -625,9 +625,9 @@
    <widget class="CommandRegisterPanel" name="commandRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>590</x>
+      <x>600</x>
       <y>220</y>
-      <width>471</width>
+      <width>461</width>
       <height>61</height>
      </rect>
     </property>
@@ -657,7 +657,7 @@
    <widget class="StatusRegisterPanel" name="statusRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>500</x>
+      <x>510</x>
       <y>210</y>
       <width>71</width>
       <height>51</height>
