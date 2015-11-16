@@ -51,6 +51,10 @@
      <property name="text">
       <string>Стереть</string>
      </property>
+     <property name="icon">
+      <iconset resource="images.qrc">
+       <normaloff>:/images/edit-clear.png</normaloff>:/images/edit-clear.png</iconset>
+     </property>
     </widget>
    </item>
    <item>
@@ -95,7 +99,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
  <slots>
   <slot>on_drumScroll_valueChanged(int)</slot>
