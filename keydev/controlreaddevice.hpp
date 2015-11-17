@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QMenu>
 #include <QPainter>
+#include "ural.hpp"
 
 namespace Ui {
 class ControlReadDevice;
@@ -16,33 +17,22 @@ class PunchTape
 {
 public:
 
-    struct Number
-    {
-        Number() :
-            data{0,0,0,0,0,0,0,0,0,0,0}
-        {
-        }
-        quint8 data[11];
-    };
+	PunchTape();
 
-    typedef QVector<Number> Numbers;
+	~PunchTape();
 
-    PunchTape();
+	void loadData(const QByteArray&);
 
-    ~PunchTape();
+	void saveData(QByteArray&);
 
-    void loadData(const QByteArray&);
-
-    void saveData(QByteArray&);
-
-    Numbers &tapeData()
-    {
-        return (_data);
-    }
+	URAL::Numbers &tapeData()
+	{
+		return (_data);
+	}
 
 private:
 
-    Numbers _data;
+	URAL::Numbers _data;
 };
 
 /**
@@ -50,33 +40,33 @@ private:
  */
 class PunchTapeViewWidget : public QWidget
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
 
-    PunchTapeViewWidget(QWidget *parent = NULL);
-    ~PunchTapeViewWidget();
+	PunchTapeViewWidget(QWidget *parent = NULL);
+	~PunchTapeViewWidget();
 
-    void setTape(PunchTape*);
+	void setTape(PunchTape*);
 
 public slots:
 
-    void setPosition(int newVal)
-    {
-        _position = newVal;
-        this->update();
-    }
+	void setPosition(int newVal)
+	{
+		_position = newVal;
+		this->update();
+	}
 
 protected:
 
-    void paintEvent(QPaintEvent*) override;
+	void paintEvent(QPaintEvent*) override;
 
 private:
 
-    void drawFrame(int);
-    PunchTape  *_tape;
-    QPainter    _painter;
-    int         _position;
+	void drawFrame(int);
+	PunchTape  *_tape;
+	QPainter    _painter;
+	int         _position;
 };
 
 /**
@@ -84,33 +74,33 @@ private:
  */
 class ControlReadDevice : public QWidget
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
 
-    ControlReadDevice(QWidget *parent = NULL);
+	ControlReadDevice(QWidget *parent = NULL);
 
-    ~ControlReadDevice();
+	~ControlReadDevice();
 
-    void punchNumber(PunchTape::Number);
+	void punchNumber(URAL::Number);
 
 protected:
 
-    void contextMenuEvent(QContextMenuEvent*) override;
+	void contextMenuEvent(QContextMenuEvent*) override;
 
 private slots:
 
-    void newTape();
-    void loadTape();
-    void saveTape();
+	void newTape();
+	void loadTape();
+	void saveTape();
 
 private:
 
-    Ui::ControlReadDevice &ui;
+	Ui::ControlReadDevice &ui;
 
-    PunchTape   _tape;
+	PunchTape   _tape;
 
-    QMenu   _contextMenu;
+	QMenu   _contextMenu;
 };
 
 #endif // CONTROLREADDEVICE_HPP

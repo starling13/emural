@@ -48,7 +48,7 @@ private:
 
     Q_DISABLE_COPY(KeyDevice)
 
-    PunchTape::Number   _number;
+    URAL::Number   _number;
 
     Ui::KeyDevice &ui;
 

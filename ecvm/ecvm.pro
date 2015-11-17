@@ -25,7 +25,8 @@ SOURCES += main.cpp \
     PultWIdget.cpp \
     ural_cpu.cpp \
     printdevice.cpp \
-    qural.cpp
+    qural.cpp \
+    punchdrives.cpp
 
 HEADERS  += \
     AuxControlsWidget.hpp \
@@ -38,7 +39,8 @@ HEADERS  += \
     PowerPultWidget.hpp \
     printdevice.hpp \
     qural.hpp \
-    intdelegate.hpp
+    intdelegate.hpp \
+    punchdrives.hpp
 
 FORMS    += \
     AdderRegisterPanel.ui \
@@ -58,8 +60,7 @@ FORMS    += \
     StopReasonsPanel.ui \
     printdevice.ui
 
-RESOURCES += \
-    images.qrc
+RESOURCES +=
 
 unix {
 LIBS += \

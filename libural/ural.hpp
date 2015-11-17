@@ -20,6 +20,8 @@
 #ifndef URAL_HPP
 #define	URAL_HPP
 
+#include <vector>
+
 #include "fixed_coding.hpp"
 
 /**
@@ -28,58 +30,58 @@
 class URAL
 {
 public:
-    /**
-     * @brief Режим печати программы
-     */
-    enum PrintMode
-    {
-        // Отсутствие печати
-        PRINT_NONE,
-        // Печать I
-        PRINT_MODE1,
-        // Печать II
-        PRINT_MODE2
-    };
-    /*
-     * Число полных ячеек в барабане
-     */
+	/**
+	 * @brief Режим печати программы
+	 */
+	enum PrintMode
+	{
+		// Отсутствие печати
+		PRINT_NONE,
+		// Печать I
+		PRINT_MODE1,
+		// Печать II
+		PRINT_MODE2
+	};
+	/**
+	 * @brief Число полных ячеек в барабане
+	 */
 	static const size_t	drumWordsNumber = 02000;
-    /*
-     * Число коротких ячеек
-     */
+	/**
+	 * @brief Число коротких ячеек
+	 */
 	static const size_t	drumHalfWordsNumber = drumWordsNumber * 2;
-    /*
-     * Бит признака длины ячейки
-     */
+	/**
+	 * @brief Бит признака длины ячейки
+	 */
 	static const size_t	addressLengthBit = 04000;
-    /*
-     * Полная ячейка в модифицированном обратном коде (сумматор)
-     */
+	/**
+	 * @brief Полная ячейка в модифицированном обратном коде (сумматор)
+	 */
 	typedef	FixedPointFraction<uint64_t, 35>::ModOnesComplement
-		AdderWord;
-    /*
-     * Полная ячейка в прямом коде (регистр АУ, барабан)
-     */
+	    AdderWord;
+	/*
+	 * Полная ячейка в прямом коде (регистр АУ, барабан)
+	 */
 	typedef	FixedPointFraction<uint64_t, 35>::SignedMagnitude
-		DoubleCell;
-    /*
-     * Короткая ячейка в прямом коде (регистр АУ, барабан)
-     */
+	DoubleCell;
+	/*
+	 * Короткая ячейка в прямом коде (регистр АУ, барабан)
+	 */
 	typedef	FixedPointFraction<uint64_t, 17>::SignedMagnitude
-		Cell;
-    /*
-     * Формат ввода-вывода
-     */
-    enum Format {BIN = 2, OCT = 8, DEC = 10};
-    /*
-     * Расширеный тип короткой ячейки
-     */
+	Cell;
+	/*
+	 * Формат ввода-вывода
+	 */
+	enum Format {BIN = 2, OCT = 8, DEC = 10};
+	/*
+	 * Расширеный тип короткой ячейки
+	 */
 	typedef union PACKED HalfWord
 	{
 	public:
 		
 		HalfWord() :
-		sPrec(0)
+			sPrec(0)
 		{
 		}
 		
@@ -145,7 +147,7 @@ public:
 	{
 	public:
 		Word() :
-		dPrec(0)
+			dPrec(0)
 		{
 		}
 		Word(int64_t);
@@ -156,13 +158,13 @@ public:
 			uint64_t	least:18;
 			uint64_t	most:18;
 		} halfWords;
-        struct
-        {
-            uint64_t	q1:9;
-            uint64_t	q2:9;
-            uint64_t	q3:9;
-            uint64_t	q4:9;
-        } quaters;
+		struct
+		{
+			uint64_t	q1:9;
+			uint64_t	q2:9;
+			uint64_t	q3:9;
+			uint64_t	q4:9;
+		} quaters;
 		DoubleCell		dPrec;
 		struct
 		{
@@ -177,7 +179,7 @@ public:
 			uint64_t	t9:3;
 			uint64_t	t10:3;
 			uint64_t	t11:3;
-            uint64_t	t12:3;
+			uint64_t	t12:3;
 		} triplets;
 		struct
 		{
@@ -248,26 +250,65 @@ public:
 		} words;
 	};
 
-    class IPrintDevice
-    {
-    public:
+	/**
+	 * @brief Интерфейс цифрового печатающего устройства
+	 */
+	class IPrintDevice
+	{
+	public:
 
-        virtual ~IPrintDevice() = default;
+		virtual ~IPrintDevice() = default;
 
-        virtual void printWord(URAL::Word_t) = 0;
+		virtual void printWord(URAL::Word_t) = 0;
 
-        virtual void printCommand(uint16_t, URAL::HalfWord_t) = 0;
+		virtual void printCommand(uint16_t, URAL::HalfWord_t) = 0;
 
-    protected:
+	protected:
 
-        IPrintDevice() = default;
+		IPrintDevice() = default;
 
-    private:
+	private:
 
-        IPrintDevice(const IPrintDevice&) = delete;
-    };
+		IPrintDevice(const IPrintDevice&) = delete;
+	};
 
-    class CPU;
+	/**
+	 * @brief Число на носителе УВВ (ленте)
+	 */
+	struct Number
+	{
+	    Number() :
+		data{0,0,0,0,0,0,0,0,0,0,0}
+	    {
+	    }
+	    uint8_t data[11];
+	};
+
+	typedef std::vector<URAL::Number> Numbers;
+
+	/**
+	 * @brief Интерфейс внешнего накопителя
+	 */
+	class IExtMemoryDevice
+	{
+	public:
+
+		virtual ~IExtMemoryDevice() = default;
+
+		virtual URAL::Word_t readWord() = 0;
+
+		virtual URAL::HalfWord_t readHalfWord() = 0;
+
+	protected:
+
+		IExtMemoryDevice() = default;
+
+	private:
+
+		IExtMemoryDevice(const IExtMemoryDevice&) = delete;
+	};
+
+	class CPU;
 };
 
 #endif	/* URAL_HPP */
