@@ -36,7 +36,7 @@ public:
 	 * @brief Конструктор
 	 * @param printDevice ссылка на экземпляр реализации ЦПУ
 	 */
-	CPU(IPrintDevice&);
+	CPU(IPrintDevice&, IExtMemoryDevice&);
 	~CPU();
 
 	void		 printAdder();
@@ -132,8 +132,8 @@ private:
 		ON
 	};
 	/**
-     * Функциональное состояние
-     */
+	 * Функциональное состояние
+	 */
 	enum State_t
 	{
 		/**
@@ -145,6 +145,15 @@ private:
 		 */
 		STOP = 1
 	};
+
+	enum OperationState_t
+	{
+		// Нет незавершённой операции
+		OP_IDLE = 0,
+		// Групповая операция
+		OP_GROUP_START = 1
+	};
+
 	/**
 	 * Исполнение команды из регистра команд
 	 */
@@ -206,6 +215,8 @@ private:
 	 * @brief передача управления по ключу
 	 */
 	void cjmp_23();
+
+	void group_31();
 
 	/**
 	 * Регистр остановки по адресу
@@ -278,6 +289,11 @@ private:
 	PrintMode   _printMode;
 	// Ссылка на реализацию ЦПУ
 	IPrintDevice    &_printDevice;
+	IExtMemoryDevice &_punchReader;
+	// Состояние по выполнению операций
+	OperationState_t	_opState;
+	uint16_t		_groupOpStartAddress;
+	uint16_t		_groupOpEndAddress;
 };
 
 #endif

@@ -35,6 +35,7 @@
 #include "printdevice.hpp"
 #include "ural_cpu.hpp"
 #include "qural.hpp"
+#include "punchdrives.hpp"
 
 using namespace std;
 
@@ -43,17 +44,16 @@ int main(int argc, char** argv)
 	int		res;
 	QApplication	app(argc, argv);
 	
-	FixedPointFraction<uint64_t, 36>::SignedMagnitude	a;
-	
 	{
-		QtPrintDevice pDevice;
-		URAL::CPU	ural(pDevice);
-		DrumWidget	drumWidget(ural.drum);
-		PultWIdget	pultWidget(ural);
-		PanelWidget	panelWidget(ural);
-		AuxControlsWidget auxControlWidget(ural);
-		URALWrapper wrapper(ural);
-		QThread     uralThread;
+		QtPrintDevice		pDevice;
+		QtPunchDrive		punchDrive;
+		URAL::CPU		ural(pDevice, punchDrive);
+		DrumWidget		drumWidget(ural.drum);
+		PultWIdget		pultWidget(ural);
+		PanelWidget		panelWidget(ural);
+		AuxControlsWidget	auxControlWidget(ural);
+		URALWrapper		wrapper(ural);
+		QThread			uralThread;
 
 		wrapper.moveToThread(&uralThread);
 
@@ -84,6 +84,7 @@ int main(int argc, char** argv)
 		panelWidget.show();
 		auxControlWidget.show();
 		pDevice.show();
+		punchDrive.show();
 
 		res = app.exec();
 	}

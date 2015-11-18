@@ -4,36 +4,13 @@
 #include <QWidget>
 #include <QMenu>
 #include <QPainter>
+
 #include "ural.hpp"
+#include "qcommon.hpp"
 
 namespace Ui {
 class ControlReadDevice;
 }
-
-/**
- * @brief Перфолента
- */
-class PunchTape
-{
-public:
-
-	PunchTape();
-
-	~PunchTape();
-
-	void loadData(const QByteArray&);
-
-	void saveData(QByteArray&);
-
-	URAL::Numbers &tapeData()
-	{
-		return (_data);
-	}
-
-private:
-
-	URAL::Numbers _data;
-};
 
 /**
  * @brief Виджет просмотра перфоленты
@@ -47,7 +24,7 @@ public:
 	PunchTapeViewWidget(QWidget *parent = NULL);
 	~PunchTapeViewWidget();
 
-	void setTape(PunchTape*);
+	void setTape(URAL::PunchTape*);
 
 public slots:
 
@@ -63,16 +40,17 @@ protected:
 
 private:
 
-	void drawFrame(int);
-	PunchTape  *_tape;
-	QPainter    _painter;
-	int         _position;
+	void	drawFrame(size_t);
+
+	URAL::PunchTape	*_tape;
+	QPainter	 _painter;
+	size_t		 _position;
 };
 
 /**
  * @brief Виджет контрольно-считывающего устройства
  */
-class ControlReadDevice : public QWidget
+class ControlReadDevice : public QWidget, public TapeLoader
 {
 	Q_OBJECT
 
@@ -96,11 +74,9 @@ private slots:
 
 private:
 
-	Ui::ControlReadDevice &ui;
+	Ui::ControlReadDevice	&ui;
 
-	PunchTape   _tape;
-
-	QMenu   _contextMenu;
+	QMenu			 _contextMenu;
 };
 
 #endif // CONTROLREADDEVICE_HPP

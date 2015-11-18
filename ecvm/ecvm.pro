@@ -58,7 +58,8 @@ FORMS    += \
     PultWIdget.ui \
     StatusRegisterPanel.ui \
     StopReasonsPanel.ui \
-    printdevice.ui
+    printdevice.ui \
+    punchtapewidget.ui
 
 RESOURCES +=
 

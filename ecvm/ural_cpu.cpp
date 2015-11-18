@@ -30,7 +30,7 @@
 
 #include <iostream>
 
-URAL::CPU::CPU(IPrintDevice &pDevice) :
+URAL::CPU::CPU(IPrintDevice &pDevice, IExtMemoryDevice &punchReader) :
 	S(0),
 	_controlSwitchRegister(0),
 	_reg_SCHK(0),
@@ -40,7 +40,9 @@ URAL::CPU::CPU(IPrintDevice &pDevice) :
 	_phiBlock(false),
 	_phiStop(false),
 	_printMode(PRINT_NONE),
-	_printDevice(pDevice)
+	_printDevice(pDevice),
+	_punchReader(punchReader),
+	_opState(OP_IDLE)
 {
 	std::srand(std::time(NULL));
 
@@ -439,4 +441,14 @@ URAL::CPU::cjmp_23()
 	++this->_reg_SCHK;
 	if (_controlSwitchRegister & (1 << this->_RGK.triplets.t1))
 		++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::group_31()
+{
+	if (this->_opState == OP_IDLE) {
+		this->_opState = OP_GROUP_START;
+		this->_groupOpStartAddress = this->_RGK.command.address;
+	}
+	++this->_reg_SCHK;
 }

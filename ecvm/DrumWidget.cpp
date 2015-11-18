@@ -148,6 +148,8 @@ QString DrumWidget::formatValue(quint64 val)
         while (result.length() < 6)
             result.prepend('0');
         break;
+    default:
+	    break;
     }
     return (result);
 }

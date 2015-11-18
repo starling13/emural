@@ -297,7 +297,7 @@ public:
 
 		virtual URAL::Word_t readWord() = 0;
 
-		virtual URAL::HalfWord_t readHalfWord() = 0;
+		virtual bool readHalfWord(URAL::HalfWord_t&) = 0;
 
 	protected:
 
@@ -306,6 +306,31 @@ public:
 	private:
 
 		IExtMemoryDevice(const IExtMemoryDevice&) = delete;
+	};
+
+	/**
+	 * @brief Перфолента
+	 */
+	class PunchTape
+	{
+	public:
+
+		PunchTape();
+
+		~PunchTape();
+
+		void		 loadData(const uint8_t*, size_t);
+
+		void		 saveData(uint8_t*, size_t);
+
+		URAL::Numbers	&tapeData()
+		{
+			return (_data);
+		}
+
+	private:
+
+		URAL::Numbers	_data;
 	};
 
 	class CPU;

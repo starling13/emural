@@ -15,13 +15,15 @@ DEFINES += LIBURAL_LIBRARY
 SOURCES += \
     ural.cpp \
     controls.cpp \
-    analogclock.cpp
+    analogclock.cpp \
+    qcommon.cpp
 
 HEADERS += \
     fixed_coding.hpp \
     ural.hpp \
     controls.hpp \
-    analogclock.h
+    analogclock.h \
+    qcommon.hpp
 
 UI_DIR = uics
 MOC_DIR = mocs

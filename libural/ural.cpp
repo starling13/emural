@@ -128,3 +128,43 @@ URAL::Adder&
 
 	return (*this);
 }
+
+
+URAL::PunchTape::PunchTape()
+{
+}
+
+URAL::PunchTape::~PunchTape()
+{
+}
+
+void
+URAL::PunchTape::loadData(const uint8_t *data, size_t size)
+{
+	URAL::Number  buffer;
+	size_t position;
+
+	_data.clear();
+	position = 0;
+	while (size >= position+11) {
+		for (int i=0; i<11; ++i)
+			buffer.data[i] = data[position+i];
+		_data.push_back(buffer);
+		position += 11;
+	}
+}
+
+void
+URAL::PunchTape::saveData(uint8_t *data, size_t size)
+{
+	int position;
+
+	position = 0;
+	for (URAL::Number &number : _data) {
+		for (unsigned i=0; i<11; ++i) {
+			assert(position+i < size);
+			data[position+i] = number.data[i];
+		}
+		position += 11;
+	}
+}

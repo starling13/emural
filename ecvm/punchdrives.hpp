@@ -25,12 +25,16 @@
 #define PUNCHDRIVES_HPP
 
 #include "ural.hpp"
+#include "qcommon.hpp"
 
 #include <QWidget>
-#include <QMutex>
-#include <QWaitCondition>
+#include <QAbstractTableModel>
 
-class QtPunchDrive : public QWidget, public URAL::IExtMemoryDevice
+namespace Ui {
+    class PunchTapeWidget;
+} // namespace Ui
+
+class QtPunchDrive : public QWidget, public TapeLoader, public URAL::IExtMemoryDevice
 {
 	Q_OBJECT
 
@@ -39,14 +43,52 @@ public:
 	QtPunchDrive();
 	~QtPunchDrive();
 
-//	URAL::Word_t	readWord() override;
+	URAL::Word_t	readWord() override;
+	bool readHalfWord(URAL::HalfWord_t&) override;
 
-//	URAL::HalfWord_t readHalfWord() override;
+private slots:
+
+	void on_loadTapeButton_clicked();
+
 private:
 
-	QMutex	_lock;
-	QWaitCondition	_uralCond, tapeCond;
-	URAL::Numbers	_tape;
+	Q_DISABLE_COPY(QtPunchDrive)
+
+	class	TapeTableModel;
+	friend class	TapeTableModel;
+
+	Ui::PunchTapeWidget	&widget;
+	ssize_t			 _tapePosition;
+	TapeTableModel		&_tapeModel;
+};
+
+class QtPunchDrive::TapeTableModel : public QAbstractTableModel
+{
+	Q_OBJECT
+
+public:
+
+	TapeTableModel(QtPunchDrive&);
+
+	int rowCount(const QModelIndex&) const override;
+	int columnCount(const QModelIndex&) const override;
+	QVariant data(const QModelIndex&, int) const override;
+	QVariant headerData(int, Qt::Orientation, int) const override;
+
+	void updateData()
+	{
+		this->reset();
+	}
+
+private:
+
+	enum Columns_t
+	{
+		ZONE = 0,
+		NUMBER = 1,
+	};
+
+	QtPunchDrive	&_owner;
 };
 
 #endif // PUNCHDRIVES_HPP

@@ -3,46 +3,11 @@
 
 #include <cstring>
 #include <string>
+#include <cassert>
 
 #include <QDebug>
 #include <QFileDialog>
 #include <QContextMenuEvent>
-
-PunchTape::PunchTape()
-{
-}
-
-PunchTape::~PunchTape()
-{
-}
-
-void PunchTape::loadData(const QByteArray &data)
-{
-	URAL::Number  buffer;
-	int position;
-
-	_data.clear();
-	position = 0;
-	while (data.size() >= position+11) {
-		for (int i=0; i<11; ++i)
-			buffer.data[i] = data[position+i];
-		_data.push_back(buffer);
-		position += 11;
-	}
-}
-
-void PunchTape::saveData(QByteArray &data)
-{
-	int position;
-
-	data.resize(0);
-	position = 0;
-	for (URAL::Number &number : _data) {
-		for (int i=0; i<11; ++i)
-			data[position+i] = number.data[i];
-		position += 11;
-	}
-}
 
 PunchTapeViewWidget::PunchTapeViewWidget(QWidget *parent) :
 	QWidget(parent),
@@ -54,7 +19,7 @@ PunchTapeViewWidget::~PunchTapeViewWidget()
 {
 }
 
-void PunchTapeViewWidget::setTape(PunchTape *newVal)
+void PunchTapeViewWidget::setTape(URAL::PunchTape *newVal)
 {
 	_tape = newVal;
 	_position = 0;
@@ -87,7 +52,7 @@ void PunchTapeViewWidget::paintEvent(QPaintEvent*)
 	_painter.end();
 }
 
-void PunchTapeViewWidget::drawFrame(int number)
+void PunchTapeViewWidget::drawFrame(size_t number)
 {
 	Q_CHECK_PTR(_tape);
 	Q_ASSERT(_tape->tapeData().size() >= _position+number);
@@ -140,7 +105,7 @@ ControlReadDevice::~ControlReadDevice()
 
 void ControlReadDevice::punchNumber(URAL::Number newVal)
 {
-	if (_tape.tapeData().size() < ui.scrollBar->value()+3)
+	if (_tape.tapeData().size() < ui.scrollBar->value()+3u)
 		_tape.tapeData().resize(ui.scrollBar->value()+3);
 	ui.scrollBar->setMaximum(_tape.tapeData().size()-1);
 	ui.scrollBar->setValue(ui.scrollBar->value()+1);
@@ -151,6 +116,7 @@ void ControlReadDevice::newTape()
 {
 	_tape.tapeData().clear();
 	ui.scrollBar->setMaximum(0);
+	ui.stretchViewWidget->update();
 }
 
 void ControlReadDevice::contextMenuEvent(QContextMenuEvent *event)
@@ -160,42 +126,10 @@ void ControlReadDevice::contextMenuEvent(QContextMenuEvent *event)
 
 void ControlReadDevice::loadTape()
 {
-	QString fileName;
-
-	fileName = QFileDialog::getOpenFileName(this, QString::fromUtf8(
-	    u8"ыбор файла перфоленты для загрузки"), QDir::homePath(), "*.upt");
-	if (!fileName.isEmpty()) {
-		QFile file(fileName);
-		if (file.open(QFile::ReadOnly)) {
-			QByteArray ba, line, bytes(11, Qt::Uninitialized);
-			while (true) {
-				line = file.readLine(file.size());
-				bytes.clear();
-				if (line.isEmpty())
-					break;
-				if (line[0] == '#')
-					continue;
-				if (line.size() < 11) {
-					qWarning() << QString::fromUtf8(u8"Слишком короткая строка");
-					continue;
-				}
-				for (int i=0; i<11; ++i) {
-					char c = line[i];
-					if (isdigit(c))
-						bytes[i] = std::atoi(std::string("").append(1, c).c_str());
-					else
-						qWarning() << QString::fromUtf8(u8"Не цифра") << int (c);
-				}
-				ba.append(bytes);
-			};
-			_tape.loadData(ba);
-			if (_tape.tapeData().size() > 1)
-				ui.scrollBar->setMaximum(_tape.tapeData().size()-1);
-			else
-				ui.stretchViewWidget->update();
-		} else
-			qWarning() << QString::fromUtf8(u8"евозможно открыть файл") << fileName;
-	}
+	this->loadTapeFromFile();
+	if (_tape.tapeData().size() > 1)
+		ui.scrollBar->setMaximum(_tape.tapeData().size()-1);
+	ui.stretchViewWidget->update();
 }
 
 void ControlReadDevice::saveTape()
@@ -210,7 +144,7 @@ void ControlReadDevice::saveTape()
 			QByteArray ba(_tape.tapeData().size()*11, Qt::Uninitialized);
 			QByteArray buf(_tape.tapeData().size()*12, Qt::Uninitialized);
 			buf.resize(0);
-			_tape.saveData(ba);
+			_tape.saveData((uint8_t*)ba.data(), ba.size());
 			for (int i=0; i<ba.size(); i+=11) {
 				for (int j=0; j<11; ++j)
 					buf.push_back(QString::number(ba[i+j]).at(0).toAscii());
