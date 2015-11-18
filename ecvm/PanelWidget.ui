@@ -670,7 +670,7 @@
      </size>
     </property>
    </widget>
-   <widget class="AnalogClock" name="clock" native="true">
+   <widget class="USSRTankClock" name="clock" native="true">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -786,7 +786,7 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>AnalogClock</class>
+   <class>USSRTankClock</class>
    <extends>QWidget</extends>
    <header location="global">analogclock.h</header>
    <container>1</container>

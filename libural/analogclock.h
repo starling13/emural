@@ -1,79 +1,62 @@
-/****************************************************************************
-**
-** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies).
-** Contact: http://www.qt-project.org/legal
-**
-** This file is part of the examples of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:BSD$
-** You may use this file under the terms of the BSD license as follows:
-**
-** "Redistribution and use in source and binary forms, with or without
-** modification, are permitted provided that the following conditions are
-** met:
-**   * Redistributions of source code must retain the above copyright
-**     notice, this list of conditions and the following disclaimer.
-**   * Redistributions in binary form must reproduce the above copyright
-**     notice, this list of conditions and the following disclaimer in
-**     the documentation and/or other materials provided with the
-**     distribution.
-**   * Neither the name of Digia Plc and its Subsidiary(-ies) nor the names
-**     of its contributors may be used to endorse or promote products derived
-**     from this software without specific prior written permission.
-**
-**
-** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+/*
+ *   emural - эмулятор ЭЦВМ семейства "Урал"
+ *
+ *   Copyright (C) 2015 А.В. Скворцов <starling13@gmail.com>
+ *
+ *   Данная программа является свободным программным обеспечением. Вы
+ *   вправе распространять её и/или модифицировать в соответствии с
+ *   условиями версии 2, либо по вашему выбору с условиями более поздней
+ *   версии Стандартной Общественной Лицензии GNU, опубликованной Free
+ *   Software Foundation.
+ *
+ *   Мы распространяем данную программу в надежде на то, что она будет
+ *   вам полезной, однако НЕ ПРЕДОСТАВЛЯЕМ НА НЕЁ НИКАКИХ ГАРАНТИЙ, в том
+ *   числе ГАРАНТИИ ТОВАРНОГО СОСТОЯНИЯ ПРИ ПРОДАЖЕ и ПРИГОДНОСТИ ДЛЯ
+ *   ИСПОЛЬЗОВАНИЯ В КОНКРЕТНЫХ ЦЕЛЯХ. Для получения более подробной
+ *   информации ознакомьтесь со Стандартной Общественной Лицензией GNU.
+ *
+ *   Вместе с данной программой вы должны были получить экземпляр
+ *   Стандартной Общественной Лицензии GNU. Если вы его не получили,
+ *   сообщите об этом в Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
 
 #ifndef ANALOGCLOCK_H
 #define ANALOGCLOCK_H
 
 #include <QWidget>
 
-class AnalogClock : public QWidget
+class USSRTankClock : public QWidget
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
 
-    AnalogClock(QWidget *parent = 0);
+	USSRTankClock(QWidget *parent = NULL);
 
-    ~AnalogClock();
+	~USSRTankClock();
 
 protected:
 
-    void paintEvent(QPaintEvent*) override;
+	void paintEvent(QPaintEvent*) override;
 
-    void resizeEvent(QResizeEvent*) override;
+	void resizeEvent(QResizeEvent*) override;
 
-    void mouseMoveEvent(QMouseEvent*) override;
+	void mouseMoveEvent(QMouseEvent*) override;
 
-    void mousePressEvent(QMouseEvent*) override;
+	void mousePressEvent(QMouseEvent*) override;
 
 private slots:
 
-    void onTimerSignaled();
+	void onTimerSignaled();
 
 private:
 
-    Q_DISABLE_COPY(AnalogClock)
+	Q_DISABLE_COPY(USSRTankClock)
 
-    class AnalogClockData;
+	class AnalogClockData;
 
-    AnalogClockData &_data;
+	AnalogClockData &_data;
 };
 
 #endif
