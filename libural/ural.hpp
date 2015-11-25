@@ -267,6 +267,10 @@ public:
 
 		virtual void printCommand(uint16_t, URAL::HalfWord_t) = 0;
 
+		virtual void printResult(URAL::Word_t) = 0;
+
+		virtual void lineFeed() = 0;
+
 	protected:
 
 		IPrintDevice() = default;
@@ -285,6 +289,7 @@ public:
 		data{0,0,0,0,0,0,0,0,0,0,0}
 	    {
 	    }
+
 	    uint8_t data[11];
 	};
 

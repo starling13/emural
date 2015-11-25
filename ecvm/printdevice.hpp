@@ -55,6 +55,8 @@ public:
 	void start();
 	void printWord(URAL::Word_t) override;
 	void printCommand(quint16, URAL::HalfWord_t) override;
+	void printResult(URAL::Word_t) override;
+	void lineFeed() override;
 
 public slots:
 
@@ -63,8 +65,9 @@ public slots:
 private slots:
 
 	void printBuffer(QString);
-
 	void on_addCommentButton_clicked();
+	void on_groupModeSwitch_toggled(bool);
+	void on_counterResetButton_clicked();
 
 private:
 
@@ -82,6 +85,7 @@ private:
 	Worker		&_worker;
 	QTime		 _startTime;
 	QString		 _buffer;
+	bool		 _groupCount;
 };
 
 class QtPrintDevice::Worker : public QThread

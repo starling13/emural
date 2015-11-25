@@ -146,12 +146,23 @@ private:
 		STOP = 1
 	};
 
+	// Состояние по групповым операциям
 	enum OperationState_t
 	{
 		// Нет незавершённой операции
 		OP_IDLE = 0,
-		// Групповая операция
-		OP_GROUP_START = 1
+		// Групповая операция началась
+		OP_GROUP_START = 1,
+		// Групповая операция выбрана
+		OP_GROUP_SELECTED = 1,
+		OP_NUMBER
+	};
+
+	enum TapeMode_t
+	{
+		TAPE_PUNCH_READ,
+		TAPE_MAGNET_READ,
+		TAPE_MAGNET_WRITE,
 	};
 
 	/**
@@ -173,6 +184,8 @@ private:
 	 * @brief сложение
 	 */
 	void sum1_01();
+	// выбор групповой операции
+	void groupTapeRead_01();
 	/**
 	 * @brief сложение с нулём (послыка в сумматор)
 	 */
@@ -218,6 +231,10 @@ private:
 
 	void group_31();
 
+	void print_32();
+
+	void feed_34();
+
 	/**
 	 * Регистр остановки по адресу
 	 */
@@ -235,7 +252,7 @@ private:
 	 * Массив указателей на функции-члены операций.
 	 * Индекс операции в массиве равен её коду
 	 */
-	void (CPU::*commands[32])();
+	void (CPU::*commands[OP_NUMBER][32])();
 
 	/**
 	 * @brief Регистр состояния
@@ -292,6 +309,12 @@ private:
 	IExtMemoryDevice &_punchReader;
 	// Состояние по выполнению операций
 	OperationState_t	_opState;
+	// Тип групповой операции (перфолента/магнитная лента)
+	TapeMode_t		_groupMode;
+	// Зона ленты
+	uint16_t		_tapeZone;
+	// Длинная ячейка
+	bool			_tapeAddressMode;
 	uint16_t		_groupOpStartAddress;
 	uint16_t		_groupOpEndAddress;
 };

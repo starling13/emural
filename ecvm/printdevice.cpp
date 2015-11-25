@@ -38,10 +38,8 @@ void QtPrintDevice::Worker::run()
 	while (true) {
 		QMutexLocker    locker(&_owner._cpuLock);
 
-		qDebug() << "Wait" << _owner._buffer;
 		while (_owner._buffer.isEmpty())
 			_owner._cpuCondition.wait(&_owner._cpuLock);
-		qDebug() << "Received" << _owner._buffer;
 		_owner._startTime.start();
 		emit print(_owner._buffer);
 
@@ -58,12 +56,13 @@ QtPrintDevice::QtPrintDevice(QWidget *parent) :
 	ui(*(new Ui::PrintDevice)),
 	_mode(URAL::DEC),
 	_counter(0),
-	_worker(*(new Worker(*this)))
+	_worker(*(new Worker(*this))),
+	_groupCount(false)
 {
 	ui.setupUi(this);
 
 	QObject::connect(&_worker, SIGNAL(print(QString)), this, SLOT(printBuffer(QString)),
-			 Qt::QueuedConnection);
+	   Qt::QueuedConnection);
 }
 
 QtPrintDevice::~QtPrintDevice()
@@ -101,6 +100,16 @@ void QtPrintDevice::on_addCommentButton_clicked()
 	    "</em></p>"));
 }
 
+void QtPrintDevice::on_counterResetButton_clicked()
+{
+	_counter = 0;
+}
+
+void QtPrintDevice::on_groupModeSwitch_toggled(bool newVal)
+{
+	_groupCount = newVal;
+}
+
 void QtPrintDevice::printWord(URAL::Word_t word)
 {
 	QMutexLocker    locker(&_cpuLock);
@@ -109,8 +118,6 @@ void QtPrintDevice::printWord(URAL::Word_t word)
 		_uralCondition.wait(&_cpuLock);
 	_buffer = QString("&nbsp;&nbsp;&nbsp;&nbsp;").append(wordToString(word));
 	_cpuCondition.wakeAll();
-
-	qDebug() << "printWord Sent" << _buffer;
 }
 
 void QtPrintDevice::printCommand(quint16 addr, URAL::HalfWord_t command)
@@ -123,8 +130,40 @@ void QtPrintDevice::printCommand(quint16 addr, URAL::HalfWord_t command)
 		_buffer.append(QString::number((addr >> i)&7));
 	_buffer.append("&nbsp;&nbsp;&nbsp;&nbsp;").append(commandToString(command));
 	_cpuCondition.wakeAll();
+}
 
-	qDebug() << "printCommand Sent" << _buffer;
+void QtPrintDevice::printResult(URAL::Word_t word)
+{
+	QMutexLocker    locker(&_cpuLock);
+
+	while (!_buffer.isEmpty())
+		_uralCondition.wait(&_cpuLock);
+	if (!_groupCount) {
+		++_counter;
+		_buffer = QString::number(_counter);
+		while (_buffer.size() < 4)
+			_buffer.prepend('0');
+	} else
+		_buffer = QString("&nbsp;&nbsp;&nbsp;&nbsp;");
+	_buffer.append(QString("&nbsp;&nbsp;&nbsp;&nbsp;").
+	    append(wordToString(word)));
+	_cpuCondition.wakeAll();
+}
+
+void QtPrintDevice::lineFeed()
+{
+	QMutexLocker    locker(&_cpuLock);
+
+	while (!_buffer.isEmpty())
+		_uralCondition.wait(&_cpuLock);
+	if (_groupCount) {
+		++_counter;
+		_buffer = QString::number(_counter);
+		while (_buffer.size() < 4)
+			_buffer.prepend('0');
+	} else
+		_buffer = ' ';
+	_cpuCondition.wakeAll();
 }
 
 QString QtPrintDevice::wordToString(URAL::Word_t word)

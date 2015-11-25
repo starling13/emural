@@ -48,19 +48,23 @@ URAL::CPU::CPU(IPrintDevice &pDevice, IExtMemoryDevice &punchReader) :
 
 	// Инициализация массива указателей на функции-члены операций
 	std::memset(this->commands, 0, sizeof (this->commands));
-	this->commands[000] = &CPU::noop_00;
-	this->commands[001] = &CPU::sum1_01;
-	this->commands[002] = &CPU::sum2_02;
-	this->commands[003] = &CPU::sub1_03;
-	this->commands[004] = &CPU::sub2_04;
-	this->commands[005] = &CPU::mul1_05;
-	this->commands[006] = &CPU::mul2_06;
-	this->commands[016] = &CPU::mov_16;
-	this->commands[017] = &CPU::loadR_17;
-	this->commands[020] = &CPU::load_20;
-	this->commands[021] = &CPU::jmp_21;
-	this->commands[022] = &CPU::jmp_22;
-	this->commands[023] = &CPU::cjmp_23;
+	this->commands[OP_IDLE][000] = &CPU::noop_00;
+	this->commands[OP_IDLE][001] = &CPU::sum1_01;
+	this->commands[OP_IDLE][002] = &CPU::sum2_02;
+	this->commands[OP_IDLE][003] = &CPU::sub1_03;
+	this->commands[OP_IDLE][004] = &CPU::sub2_04;
+	this->commands[OP_IDLE][005] = &CPU::mul1_05;
+	this->commands[OP_IDLE][006] = &CPU::mul2_06;
+	this->commands[OP_IDLE][016] = &CPU::mov_16;
+	this->commands[OP_IDLE][017] = &CPU::loadR_17;
+	this->commands[OP_IDLE][020] = &CPU::load_20;
+	this->commands[OP_IDLE][021] = &CPU::jmp_21;
+	this->commands[OP_IDLE][022] = &CPU::jmp_22;
+	this->commands[OP_IDLE][023] = &CPU::cjmp_23;
+	this->commands[OP_IDLE][032] = &CPU::print_32;
+	this->commands[OP_IDLE][034] = &CPU::feed_34;
+
+	this->commands[OP_GROUP_START][001] = &CPU::groupTapeRead_01;
 
 	// Неопределённые значения регистров
 	S.value = std::rand();
@@ -182,8 +186,10 @@ void
 URAL::CPU::execute()
 {
 	this->_DSHK = this->_RGK.command.opCode;
-	if (this->commands[this->_DSHK]) {
-		(this->*(this->commands[this->_DSHK]))();
+
+	assert(this->_opState < OP_NUMBER);
+	if (this->commands[this->_opState][this->_DSHK]) {
+		(this->*(this->commands[this->_opState][this->_DSHK]))();
 	} else {
 		std::cout << u8"Неизвестная операция: " << this->_RGK.
 			     command.opCode << std::endl;
@@ -299,6 +305,16 @@ URAL::CPU::sum1_01()
 		this->_statusReg._value._omega = 1;
 	else
 		this->_statusReg._value._omega = 0;
+	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::groupTapeRead_01()
+{
+	_opState = OP_GROUP_SELECTED;
+	_groupMode = TAPE_MAGNET_READ;
+	_tapeZone = _RGK.command.address;
+	_tapeAddressMode = _RGK.command.addrLength;
 	++this->_reg_SCHK;
 }
 
@@ -446,9 +462,21 @@ URAL::CPU::cjmp_23()
 void
 URAL::CPU::group_31()
 {
-	if (this->_opState == OP_IDLE) {
-		this->_opState = OP_GROUP_START;
-		this->_groupOpStartAddress = this->_RGK.command.address;
-	}
+	this->_opState = OP_GROUP_START;
+	this->_groupOpStartAddress = this->_RGK.command.address;
+	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::print_32()
+{
+	this->_printDevice.printResult(this->drum[_RGK.command.address >> 1]);
+	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::feed_34()
+{
+	this->_printDevice.lineFeed();
 	++this->_reg_SCHK;
 }

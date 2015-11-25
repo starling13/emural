@@ -61,9 +61,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>160</red>
-        <green>160</green>
-        <blue>160</blue>
+        <red>159</red>
+        <green>159</green>
+        <blue>159</blue>
        </color>
       </brush>
      </colorrole>
@@ -117,9 +117,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>160</red>
-        <green>160</green>
-        <blue>160</blue>
+        <red>159</red>
+        <green>159</green>
+        <blue>159</blue>
        </color>
       </brush>
      </colorrole>
@@ -164,18 +164,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>160</red>
-        <green>160</green>
-        <blue>160</blue>
+        <red>159</red>
+        <green>159</green>
+        <blue>159</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>160</red>
-        <green>160</green>
-        <blue>160</blue>
+        <red>159</red>
+        <green>159</green>
+        <blue>159</blue>
        </color>
       </brush>
      </colorrole>
@@ -14261,7 +14261,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="images.qrc">:/images/logo.png</pixmap>
+    <pixmap resource="../libural/images.qrc">:/images/logo.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -14286,27 +14286,27 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="images.qrc"/>
+  <include location="../libural/images.qrc"/>
  </resources>
  <connections/>
  <buttongroups>
   <buttongroup name="addr5group"/>
-  <buttongroup name="reg5group"/>
+  <buttongroup name="reg6group"/>
   <buttongroup name="addr4group"/>
-  <buttongroup name="reg4group"/>
+  <buttongroup name="reg5group"/>
   <buttongroup name="addr3group"/>
   <buttongroup name="reg12group"/>
-  <buttongroup name="reg3group"/>
-  <buttongroup name="reg9group"/>
+  <buttongroup name="reg4group"/>
   <buttongroup name="addr2group"/>
   <buttongroup name="reg11group"/>
-  <buttongroup name="reg2group"/>
-  <buttongroup name="reg8group"/>
+  <buttongroup name="reg3group"/>
+  <buttongroup name="reg9group"/>
   <buttongroup name="addr1group"/>
+  <buttongroup name="reg2group"/>
   <buttongroup name="reg10group"/>
+  <buttongroup name="reg8group"/>
+  <buttongroup name="addr6group"/>
   <buttongroup name="reg1group"/>
   <buttongroup name="reg7group"/>
-  <buttongroup name="addr6group"/>
-  <buttongroup name="reg6group"/>
  </buttongroups>
 </ui>
