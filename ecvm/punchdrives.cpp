@@ -50,6 +50,14 @@ void QtPunchDrive::on_loadTapeButton_clicked()
 	this->_tapeModel.updateData();
 }
 
+void
+QtPunchDrive::searchZone(uint8_t number)
+{
+	URAL::HalfWord_t	result;
+
+	while (!readHalfWord(result));
+}
+
 URAL::Word_t QtPunchDrive::readWord()
 {
 	URAL::Word_t	result;

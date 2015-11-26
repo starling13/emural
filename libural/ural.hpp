@@ -304,6 +304,8 @@ public:
 
 		virtual ~IExtMemoryDevice() = default;
 
+		virtual void searchZone(uint8_t) = 0;
+
 		virtual URAL::Word_t readWord() = 0;
 
 		virtual bool readHalfWord(URAL::HalfWord_t&) = 0;

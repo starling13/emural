@@ -315,6 +315,7 @@ URAL::CPU::groupTapeRead_01()
 	_groupMode = TAPE_MAGNET_READ;
 	_tapeZone = _RGK.command.address;
 	_tapeAddressMode = _RGK.command.addrLength;
+	_punchReader.searchZone(_tapeZone);
 	++this->_reg_SCHK;
 }
 

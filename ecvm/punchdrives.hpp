@@ -43,8 +43,9 @@ public:
 	QtPunchDrive();
 	~QtPunchDrive();
 
+	void		searchZone(uint8_t) override;
 	URAL::Word_t	readWord() override;
-	bool readHalfWord(URAL::HalfWord_t&) override;
+	bool		readHalfWord(URAL::HalfWord_t&) override;
 
 private slots:
 
