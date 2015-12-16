@@ -393,25 +393,23 @@ URAL::CPU::div_07()
 	bool partSign = !(this->_RGAU.dPrec.signEquals(this->S.value));
 
 	this->S.value -= this->_RGAU.dPrec;
+	std::cout << this->S.value << std::endl;
 	if (this->S.value.sign() != enumSign) {
 		for (int i=0; i<36; ++i) {
-			std::cout << "Iteration " << i << std::endl;
-			std::cout << this->S.value << '\n' <<
-			    std::bitset<36>(this->_RGCH) << std::endl;
+			std::cout << "digit -" << i+1 << '\n';
 			this->S.value.lshift(1);
+			std::cout << "shifted reminder\n" << this->S.value << "\n" << std::endl;
 			this->_RGCH <<= 1;
-			std::cout << this->S.value << '\n' <<
-			    std::bitset<36>(this->_RGCH) << std::endl;
-			std::cout << "digit -" << i+1;
-			if (this->S.value.sign() == 3) {
+			if (this->S.value.sign() == 3)
 				this->S.value += this->_RGAU.dPrec;
-				std::cout << " " << 0;
-			} else {
+			else
 				this->S.value -= this->_RGAU.dPrec;
+			std::cout << "reminder\n" << this->S.value << "\n" << std::endl;
+			if (this->S.value.sign() == enumSign) {
 				this->_RGCH |= 1;
-				std::cout << " " << 1;
-			}
-			std::cout << std::endl;
+				std::cout << " " << 1 << '\n';
+			} else
+				std::cout << " " << 0 << '\n';
 		}
 		this->S.value.setMagnitude(this->_RGCH>>1);
 		if (partSign)
