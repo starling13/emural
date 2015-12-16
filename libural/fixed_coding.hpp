@@ -38,7 +38,7 @@
  * точкой
  * 
  * @param base базовый целочисленный тип данных
- * @param bits число значащих бит, не считая згнаковых
+ * @param bits число значащих бит, не считая знаковых
  * 
  * ПРЕДУСЛОВИЕ число разрядов, включая знаковые не превышает число бит в базовом
  *     целочисленном типе
@@ -47,7 +47,11 @@ template <typename base, size_t bits>
 class FixedPointFraction
 {
 public:
-	
+
+/**
+ * Целочисленный элементарный тип данных, равный по числу байт базовому,
+ * но гарантированно являющийся знаковым
+ */
 typedef typename std::make_signed<base>::type	signed_base;
 
 class ModOnesComplement;
@@ -74,7 +78,7 @@ class PACKED SignedMagnitude
 	{
 		FixedPointFraction::SignedMagnitude	result(number);
 		
-        result._sign = 0;
+		result._sign = 0;
 		
 		return (result);
 	}
@@ -91,10 +95,10 @@ public:
 		
 	SignedMagnitude(signed_base);
 	
-    base	magnitude() const
-    {
-        return (_magnitude);
-    }
+	base	magnitude() const
+	{
+		return (_magnitude);
+	}
 	void	setMagnitude(base newVal)
 	{
 		_magnitude = newVal;
@@ -110,9 +114,18 @@ public:
 	}
 	
 	operator double() const;
+
+	bool	signEquals(const ModOnesComplement&) const;
 	
-    base	_magnitude:bits;
-    base	_sign:1;
+	/**
+	 * @brief модуль
+	 */
+	base	_magnitude:bits;
+
+	/**
+	 * @brief знак
+	 */
+	base	_sign:1;
 
 private :
 
@@ -198,11 +211,13 @@ public:
 		
 	ModOnesComplement &operator -=(const ModOnesComplement&);
 
-    ModOnesComplement operator -(const ModOnesComplement&) const;
+	ModOnesComplement operator -(const ModOnesComplement&) const;
 
-    base	_magnitude:bits;
-    base	_sign:2;
-    base	_carry:1;
+	ModOnesComplement &lshift(size_t);
+
+	base	_magnitude:bits;
+	base	_sign:2;
+	base	_carry:1;
 private :
 	
 static_assert ((sizeof (base) * 8) >= (bits+4), u8"Неверное число бит");
@@ -336,6 +351,17 @@ FixedPointFraction<base, bits>::ModOnesComplement::operator -=(const
 }
 
 template <typename base, size_t bits>
+typename FixedPointFraction<base, bits>::ModOnesComplement&
+FixedPointFraction<base, bits>::ModOnesComplement::lshift(size_t count)
+{
+	bool carry = this->_magnitude & (base(1)<<(bits-1));
+
+	this->_magnitude <<= count;
+	if (carry)
+		this->_magnitude |= 1;
+}
+
+template <typename base, size_t bits>
 typename FixedPointFraction<base, bits>::ModOnesComplement
 FixedPointFraction<base, bits>::ModOnesComplement::operator -(const
     ModOnesComplement &other) const
@@ -366,6 +392,17 @@ FixedPointFraction<base, bits>::SignedMagnitude::SignedMagnitude(
 		this->_sign = 1;
 		this->_magnitude = ~other.magnitude();
 	}
+}
+
+template <typename base, size_t bits>
+bool
+FixedPointFraction<base, bits>::SignedMagnitude::signEquals(const ModOnesComplement &other) const
+{
+	if (((other.sign() == 0) && (this->_sign == 0)) ||
+	    ((other.sign() == 3) && (this->_sign == 1))) {
+		return (true);
+	} else
+		return (false);
 }
 
 template <typename base, size_t bits>

@@ -55,6 +55,7 @@ URAL::CPU::CPU(IPrintDevice &pDevice, IExtMemoryDevice &punchReader) :
 	this->commands[OP_IDLE][004] = &CPU::sub2_04;
 	this->commands[OP_IDLE][005] = &CPU::mul1_05;
 	this->commands[OP_IDLE][006] = &CPU::mul2_06;
+	this->commands[OP_IDLE][007] = &CPU::div_07;
 	this->commands[OP_IDLE][016] = &CPU::mov_16;
 	this->commands[OP_IDLE][017] = &CPU::loadR_17;
 	this->commands[OP_IDLE][020] = &CPU::load_20;
@@ -68,7 +69,7 @@ URAL::CPU::CPU(IPrintDevice &pDevice, IExtMemoryDevice &punchReader) :
 
 	// Неопределённые значения регистров
 	S.value = std::rand();
-	R.dPrec = std::rand();
+	_RGAU.dPrec = std::rand();
 	_reg_SCHK = std::rand() & (drumHalfWordsNumber - 1);
 	_RGK.data = std::rand();
 
@@ -95,7 +96,7 @@ void URAL::CPU::printCommand()
 void URAL::CPU::reset()
 {
 	S.value = 0;
-	R.dPrec = 0;
+	_RGAU.dPrec = 0;
 	_reg_SCHK = 0;
 	_RGK.data = 0;
 	_DSHK = 0;
@@ -243,22 +244,22 @@ URAL::CPU::multiply()
 	// Обнуление дополнительного регистра и дополнительного сумматора
 	this->_DSM = this->_DRG = 0;
 	// Вычисление знака произведения
-	sign = _RGM.dPrec.sign() != R.dPrec.sign();
+	sign = _RGM.dPrec.sign() != _RGAU.dPrec.sign();
 	if (sign)
-		R.dPrec._sign = 1;
+		_RGAU.dPrec._sign = 1;
 	else
-		R.dPrec._sign = 0;
+		_RGAU.dPrec._sign = 0;
 	for (unsigned i=0; i<35; ++i) {
 		std::cout << "СМ " << std::bitset<18>(S.words.word2) << ' ' <<
 			     std::bitset<18>(S.words.word1) << std::endl;
-		std::cout << "РГАУ " << std::bitset<18>(R.halfWords.most) <<
-			     ' ' << std::bitset<18>(R.halfWords.least) << std::endl;
+		std::cout << "РГАУ " << std::bitset<18>(_RGAU.halfWords.most) <<
+			     ' ' << std::bitset<18>(_RGAU.halfWords.least) << std::endl;
 		std::cout << "РГМ " << std::bitset<9>(_RGM.quaters.q4) << std::endl;
 		std::cout << "ДРГ " << std::bitset<6>(_DRG) << std::endl;
 		std::cout << "ДСМ " << std::bitset<7>(_DSM) << std::endl;
 		_DRG >>= 1;
-		_DRG |= R.bits.b1 << 5;
-		R.dPrec._magnitude >>= 1;
+		_DRG |= _RGAU.bits.b1 << 5;
+		_RGAU.dPrec._magnitude >>= 1;
 		_RGM.data <<=1;
 		if (_RGM.bits.b36) {
 			if (sign) {
@@ -266,7 +267,7 @@ URAL::CPU::multiply()
 			} else {
 				_DSM += _DRG & 077;
 			}
-			S.value += R.dPrec;
+			S.value += _RGAU.dPrec;
 		}
 		// Перенос старшего разряда из дополнительного регистра в сумматор
 		if (_DSM > 077) {
@@ -282,7 +283,7 @@ URAL::CPU::multiply()
 		if (_DSM <= 037)
 			S.value._magnitude -= 1;
 	}
-	this->R.data = 0;
+	this->_RGAU.data = 0;
 }
 
 void
@@ -299,8 +300,8 @@ URAL::CPU::noop_00()
 void
 URAL::CPU::sum1_01()
 {
-	loadReg(this->R);
-	this->S.value += this->R.dPrec;
+	loadReg(this->_RGAU);
+	this->S.value += this->_RGAU.dPrec;
 	if (this->S.value.sign() == 3)
 		this->_statusReg._value._omega = 1;
 	else
@@ -322,8 +323,8 @@ URAL::CPU::groupTapeRead_01()
 void
 URAL::CPU::sum2_02()
 {
-	loadReg(this->R);
-	this->S.value = this->R.dPrec;
+	loadReg(this->_RGAU);
+	this->S.value = this->_RGAU.dPrec;
 	if (this->S.value.sign() == 3)
 		this->_statusReg._value._omega = 1;
 	else
@@ -334,8 +335,8 @@ URAL::CPU::sum2_02()
 void
 URAL::CPU::sub1_03()
 {
-	loadReg(this->R);
-	this->S.value -= this->R.dPrec;
+	loadReg(this->_RGAU);
+	this->S.value -= this->_RGAU.dPrec;
 	if (this->S.value.sign() == 3)
 		this->_statusReg._value._omega = 1;
 	else
@@ -346,8 +347,8 @@ URAL::CPU::sub1_03()
 void
 URAL::CPU::sub2_04()
 {
-	loadReg(this->R);
-	this->S.value = abs(this->S.value) - abs(this->R.dPrec);
+	loadReg(this->_RGAU);
+	this->S.value = abs(this->S.value) - abs(this->_RGAU.dPrec);
 	if (this->S.value.sign() == 3)
 		this->_statusReg._value._omega = 1;
 	else
@@ -371,8 +372,8 @@ URAL::CPU::mul1_05()
 void
 URAL::CPU::mul2_06()
 {
-	loadReg(this->_RGM);
-	this->R.dPrec = this->S.value;
+	loadReg(this->_RGAU);
+	this->_RGAU.dPrec = this->S.value;
 	this->S.data = 0;
 
 	multiply();
@@ -380,6 +381,53 @@ URAL::CPU::mul2_06()
 		this->_statusReg._value._omega = 1;
 	else
 		this->_statusReg._value._omega = 0;
+	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::div_07()
+{
+	loadReg(this->_RGAU);
+
+	uint64_t enumSign = this->S.value.sign();
+	bool partSign = !(this->_RGAU.dPrec.signEquals(this->S.value));
+
+	this->S.value -= this->_RGAU.dPrec;
+	if (this->S.value.sign() != enumSign) {
+		for (int i=0; i<36; ++i) {
+			std::cout << "Iteration " << i << std::endl;
+			std::cout << this->S.value << '\n' <<
+			    std::bitset<36>(this->_RGCH) << std::endl;
+			this->S.value.lshift(1);
+			this->_RGCH <<= 1;
+			std::cout << this->S.value << '\n' <<
+			    std::bitset<36>(this->_RGCH) << std::endl;
+			std::cout << "digit -" << i+1;
+			if (this->S.value.sign() == 3) {
+				this->S.value += this->_RGAU.dPrec;
+				std::cout << " " << 0;
+			} else {
+				this->S.value -= this->_RGAU.dPrec;
+				this->_RGCH |= 1;
+				std::cout << " " << 1;
+			}
+			std::cout << std::endl;
+		}
+		this->S.value.setMagnitude(this->_RGCH>>1);
+		if (partSign)
+			this->S.value.setSign(3);
+		else
+			this->S.value.setSign(0);
+
+		if (this->_RGCH % 2) {
+			if (this->S.value.sign())
+				this->S.value -= 1;
+			else
+				this->S.value += 1;
+		}
+	} else
+		this->S.value.setSign(1);
+
 	++this->_reg_SCHK;
 }
 
@@ -412,8 +460,8 @@ URAL::CPU::mov_16()
 void
 URAL::CPU::loadR_17()
 {
-	loadReg(this->R);
-	if (this->R.dPrec.magnitude() == 0)
+	loadReg(this->_RGAU);
+	if (this->_RGAU.dPrec.magnitude() == 0)
 		this->_statusReg._value._omega = 1;
 	else
 		this->_statusReg._value._omega = 0;

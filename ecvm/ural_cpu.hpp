@@ -111,7 +111,11 @@ public:
 		_controlSwitchRegister = newVal;
 	}
 
-	Word_t		R;
+	/**
+	 * @brief регистр арифметического устройства
+	 */
+	Word_t		_RGAU;
+
 	Word_t		drum[drumWordsNumber];
 	HalfWord_t	_RGK;
 
@@ -199,11 +203,15 @@ private:
 	 */
 	void sub2_04();
 	/**
-	 * @brief умножение с
+	 * @brief умножение с подсуммированием
 	 */
 	void mul1_05();
-
+	/**
+	 * @brief умножение
+	 */
 	void mul2_06();
+
+	void div_07();
 	/**
 	 * @brief посылка в память
 	 */
@@ -283,10 +291,17 @@ private:
 	 * ДШК
 	 */
 	uint16_t	_DSHK:5;
+
 	/**
 	 * @brief РГМ
 	 */
 	Word_t      _RGM;
+
+	/**
+	 * @brief РГЧ
+	 */
+	uint64_t      _RGCH:36;
+
 	// Дополнительный регистр
 	uint16_t    _DRG:6;
 	// Дополнительный сумматор
