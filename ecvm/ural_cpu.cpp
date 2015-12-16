@@ -392,7 +392,10 @@ URAL::CPU::div_07()
 	uint64_t enumSign = this->S.value.sign();
 	bool partSign = !(this->_RGAU.dPrec.signEquals(this->S.value));
 
-	this->S.value -= this->_RGAU.dPrec;
+	if (this->S.value.sign() == 3)
+		this->S.value += this->_RGAU.dPrec;
+	else
+		this->S.value -= this->_RGAU.dPrec;
 	std::cout << this->S.value << std::endl;
 	if (this->S.value.sign() != enumSign) {
 		for (int i=0; i<36; ++i) {
@@ -406,23 +409,25 @@ URAL::CPU::div_07()
 				this->S.value -= this->_RGAU.dPrec;
 			std::cout << "reminder\n" << this->S.value << "\n" << std::endl;
 			if (this->S.value.sign() == enumSign) {
-				this->_RGCH |= 1;
-				std::cout << " " << 1 << '\n';
-			} else
-				std::cout << " " << 0 << '\n';
+				this->_RGCH |= uint64_t(!partSign);
+				std::cout << " " << uint64_t(!partSign) << '\n';
+			} else {
+				this->_RGCH |= uint64_t(partSign);
+				std::cout << " " << uint64_t(partSign) << '\n';
+			}
 		}
 		this->S.value.setMagnitude(this->_RGCH>>1);
 		if (partSign)
 			this->S.value.setSign(3);
 		else
 			this->S.value.setSign(0);
-
+		/*
 		if (this->_RGCH % 2) {
 			if (this->S.value.sign())
 				this->S.value -= 1;
 			else
 				this->S.value += 1;
-		}
+		}*/
 	} else
 		this->S.value.setSign(1);
 
