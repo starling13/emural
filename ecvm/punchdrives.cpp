@@ -55,7 +55,27 @@ QtPunchDrive::searchZone(uint8_t number)
 {
 	URAL::HalfWord_t	result;
 
-	while (!readHalfWord(result));
+	qDebug() << __PRETTY_FUNCTION__ << int(number);
+
+	while (true) {
+		// Поиск кадра с признаком номера зоны
+		while (!readHalfWord(result));
+		qDebug() << QString::fromUtf8(u8"Номер зоны");
+		if ((number / 0100) == (result.triplets.t3-2)) {
+			number -= (result.triplets.t3-2) * 0100;
+			readHalfWord(result);
+			if ((number / 010) == result.triplets.t3) {
+				number -= result.triplets.t3 * 010;
+				readHalfWord(result);
+				if (number == result.triplets.t3) {
+					qDebug() << QString::fromUtf8(u8"Зона найдена");
+					readHalfWord(result);
+					readHalfWord(result);
+					break;
+				}
+			}
+		}
+	}
 }
 
 URAL::Word_t QtPunchDrive::readWord()
@@ -101,10 +121,11 @@ bool QtPunchDrive::readHalfWord(URAL::HalfWord_t &result)
 		result.triplets.t5 = number.data[3];
 		result.triplets.t6 = number.data[2];
 		if (number.data[1] == 4)
+			// Знак минус
 			result.bits.b18 = 1;
 		else if (number.data[1] == 2)
-			result.bits.b18 = 0;
-			res = true;
+			// Признак зоны
+			result.bits.b18 = 0, res = true;
 		if (_tapePosition >= _tape.tapeData().size()-1)
 			_tapePosition = 0;
 		else

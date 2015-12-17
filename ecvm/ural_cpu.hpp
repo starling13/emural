@@ -159,7 +159,7 @@ private:
 		OP_GROUP_START = 1,
 		// Групповая операция выбрана
 		OP_GROUP_SELECTED = 1,
-		OP_NUMBER
+		OP_NUMBER_OF_STATES
 	};
 
 	enum TapeMode_t
@@ -184,6 +184,9 @@ private:
 
 	//////////////// ОПЕРАЦИИ ////////////////
 	void noop_00();
+
+	void groupTapeReadEnd_00();
+
 	/**
 	 * @brief сложение
 	 */
@@ -260,7 +263,7 @@ private:
 	 * Массив указателей на функции-члены операций.
 	 * Индекс операции в массиве равен её коду
 	 */
-	void (CPU::*commands[OP_NUMBER][32])();
+	void (CPU::*commands[OP_NUMBER_OF_STATES][32])();
 
 	/**
 	 * @brief Регистр состояния

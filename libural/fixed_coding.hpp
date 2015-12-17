@@ -359,6 +359,8 @@ FixedPointFraction<base, bits>::ModOnesComplement::lshift(size_t count)
 	this->_magnitude <<= count;
 	if (carry)
 		this->_magnitude |= 1;
+
+	return (*this);
 }
 
 template <typename base, size_t bits>

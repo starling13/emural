@@ -62,10 +62,13 @@ URAL::CPU::CPU(IPrintDevice &pDevice, IExtMemoryDevice &punchReader) :
 	this->commands[OP_IDLE][021] = &CPU::jmp_21;
 	this->commands[OP_IDLE][022] = &CPU::jmp_22;
 	this->commands[OP_IDLE][023] = &CPU::cjmp_23;
+	this->commands[OP_IDLE][031] = &CPU::group_31;
 	this->commands[OP_IDLE][032] = &CPU::print_32;
 	this->commands[OP_IDLE][034] = &CPU::feed_34;
 
 	this->commands[OP_GROUP_START][001] = &CPU::groupTapeRead_01;
+
+	this->commands[OP_GROUP_SELECTED][000] = &CPU::groupTapeReadEnd_00;
 
 	// Неопределённые значения регистров
 	S.value = std::rand();
@@ -188,12 +191,12 @@ URAL::CPU::execute()
 {
 	this->_DSHK = this->_RGK.command.opCode;
 
-	assert(this->_opState < OP_NUMBER);
+	assert(this->_opState < OP_NUMBER_OF_STATES);
 	if (this->commands[this->_opState][this->_DSHK]) {
 		(this->*(this->commands[this->_opState][this->_DSHK]))();
 	} else {
-		std::cout << u8"Неизвестная операция: " << this->_RGK.
-			     command.opCode << std::endl;
+		std::cout << u8"Неизвестная операция: " << std::oct << this->_RGK.
+		    command.opCode << std::dec << std::endl;
 		++this->_reg_SCHK;
 	}
 }
@@ -313,10 +316,26 @@ void
 URAL::CPU::groupTapeRead_01()
 {
 	_opState = OP_GROUP_SELECTED;
-	_groupMode = TAPE_MAGNET_READ;
+	_groupMode = TAPE_PUNCH_READ;
 	_tapeZone = _RGK.command.address;
 	_tapeAddressMode = _RGK.command.addrLength;
 	_punchReader.searchZone(_tapeZone);
+	++this->_reg_SCHK;
+}
+
+void
+URAL::CPU::groupTapeReadEnd_00()
+{
+	HalfWord_t	buf;
+	_opState = OP_IDLE;
+	for (uint16_t p=this->_groupOpStartAddress;
+	     p<=this->_RGK.command.address; ++p) {
+		_punchReader.readHalfWord(buf);
+		if (p%2)
+			this->drum[p/2].halfWords.most = buf.data;
+		else
+			this->drum[p/2].halfWords.least = buf.data;
+	}
 	++this->_reg_SCHK;
 }
 
