@@ -35,6 +35,7 @@ public:
 	/**
 	 * @brief Конструктор
 	 * @param printDevice ссылка на экземпляр реализации ЦПУ
+	 * @param memoryDevice сылка на экземпляр реализации НПЛ
 	 */
 	CPU(IPrintDevice&, IExtMemoryDevice&);
 	~CPU();
@@ -94,7 +95,7 @@ public:
 	void		 setControlRegisterAddress(size_t newVal);
 	void		 setSupplyVoltage(uint8_t, float);
 
-	void		setPhiBlock(bool newVal)
+	void		 setPhiBlock(bool newVal)
 	{
 		_phiBlock = newVal;
 	}
@@ -115,10 +116,17 @@ public:
 	 * @brief регистр арифметического устройства
 	 */
 	Word_t		_RGAU;
-
+	/**
+	 * @brief накопитель на магнитном барабане НМБ (ОЗУ)
+	 */
 	Word_t		drum[drumWordsNumber];
+	/**
+	 * @brief регистр команд
+	 */
 	HalfWord_t	_RGK;
-
+	/**
+	 * @brief сумматор
+	 */
 	Adder		S;
 
 private:
@@ -261,7 +269,7 @@ private:
 
 	/**
 	 * Массив указателей на функции-члены операций.
-	 * Индекс операции в массиве равен её коду
+	 * Первый индекс - состояние по ГО, второй - код в РГК
 	 */
 	void (CPU::*commands[OP_NUMBER_OF_STATES][32])();
 

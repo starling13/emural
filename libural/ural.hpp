@@ -293,7 +293,7 @@ public:
 	    uint8_t data[11];
 	};
 
-	typedef std::vector<URAL::Number> Numbers;
+	typedef std::vector<Number> Numbers;
 
 	/**
 	 * @brief Интерфейс внешнего накопителя
