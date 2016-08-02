@@ -40,11 +40,11 @@
 #include <QPixmap>
 #include <QRadialGradient>
 
-class USSRTankClock::AnalogClockData
+class TankClockWidget::TankClockData
 {
 public:
 
-	AnalogClockData() :
+        TankClockData() :
 		minutes {QStaticText("5"), QStaticText("10"),
 			 QStaticText("15"), QStaticText("20"), QStaticText("25"), QStaticText("30"),
 			 QStaticText("35"), QStaticText("40"), QStaticText("45"), QStaticText("50"),
@@ -71,9 +71,9 @@ public:
 
 };
 
-USSRTankClock::USSRTankClock(QWidget *parent) :
+TankClockWidget::TankClockWidget(QWidget *parent) :
 	QWidget(parent),
-	_data(*(new AnalogClockData))
+        _data(*(new TankClockData))
 {
 	resize(200, 200);
 	_data._timer.start(1000);
@@ -82,19 +82,19 @@ USSRTankClock::USSRTankClock(QWidget *parent) :
 	this->setMouseTracking(true);
 }
 
-USSRTankClock::~USSRTankClock()
+TankClockWidget::~TankClockWidget()
 {
 	delete &_data;
 }
 
-void USSRTankClock::onTimerSignaled()
+void TankClockWidget::onTimerSignaled()
 {
-	if (_data._timeState == AnalogClockData::STARTED)
+        if (_data._timeState == TankClockData::STARTED)
 		_data._time = _data._time.addSecs(1);
 	this->update();
 }
 
-void USSRTankClock::paintEvent(QPaintEvent*)
+void TankClockWidget::paintEvent(QPaintEvent*)
 {
 	static const QPoint hourHand[5] = {
 		QPoint(-2, 3),
@@ -197,7 +197,7 @@ void USSRTankClock::paintEvent(QPaintEvent*)
 	painter.end();
 }
 
-void USSRTankClock::resizeEvent(QResizeEvent *event)
+void TankClockWidget::resizeEvent(QResizeEvent *event)
 {
 	QWidget::resizeEvent(event);
 
@@ -297,7 +297,7 @@ void USSRTankClock::resizeEvent(QResizeEvent *event)
 	painter.end();
 }
 
-void USSRTankClock::mouseMoveEvent(QMouseEvent *event)
+void TankClockWidget::mouseMoveEvent(QMouseEvent *event)
 {
 	int quantum = qMin(width(), height()) / 10;
 
@@ -315,7 +315,7 @@ void USSRTankClock::mouseMoveEvent(QMouseEvent *event)
 		this->setCursor(QCursor(Qt::ArrowCursor));
 }
 
-void USSRTankClock::mousePressEvent(QMouseEvent *event)
+void TankClockWidget::mousePressEvent(QMouseEvent *event)
 {
 	int quantum = qMin(width(), height()) / 10;
 
@@ -326,12 +326,12 @@ void USSRTankClock::mousePressEvent(QMouseEvent *event)
 			_data._time.second();
 		else if ((event->x() > rect().center().x() + 3*quantum) &&
 			 (event->x() < rect().center().x() + 4*quantum))
-			if (_data._timeState == AnalogClockData::IDLE) {
-				_data._timeState = AnalogClockData::STARTED;
-			} else if (_data._timeState == AnalogClockData::STARTED) {
-				_data._timeState = AnalogClockData::STOPPED;
+                        if (_data._timeState == TankClockData::IDLE) {
+                                _data._timeState = TankClockData::STARTED;
+                        } else if (_data._timeState == TankClockData::STARTED) {
+                                _data._timeState = TankClockData::STOPPED;
 			} else
-				_data._timeState = AnalogClockData::IDLE,
+                                _data._timeState = TankClockData::IDLE,
 						_data._time = QTime(0,0,0);
 		else
 			this->setCursor(QCursor(Qt::ArrowCursor));

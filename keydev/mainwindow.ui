@@ -8919,14 +8919,14 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="keys3group"/>
   <buttongroup name="keys6group"/>
-  <buttongroup name="keys9group"/>
-  <buttongroup name="keys2group"/>
-  <buttongroup name="keys5group"/>
   <buttongroup name="keys8group"/>
-  <buttongroup name="keys1group"/>
+  <buttongroup name="keys3group"/>
+  <buttongroup name="keys5group"/>
   <buttongroup name="keys4group"/>
   <buttongroup name="keys7group"/>
+  <buttongroup name="keys1group"/>
+  <buttongroup name="keys2group"/>
+  <buttongroup name="keys9group"/>
  </buttongroups>
 </ui>

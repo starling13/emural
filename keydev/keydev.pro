@@ -22,7 +22,8 @@ HEADERS  += mainwindow.hpp \
     controlreaddevice.hpp
 
 FORMS    += mainwindow.ui \
-    controlreaddevice.ui
+    controlreaddevice.ui \
+    outputpuncher.ui
 
 unix {
 LIBS += \

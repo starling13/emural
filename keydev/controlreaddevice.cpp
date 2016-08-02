@@ -160,7 +160,7 @@ void ControlReadDevice::saveTape()
 	QString fileName;
 
 	fileName = QFileDialog::getSaveFileName(this, QString::fromUtf8(
-	    u8"ыбор файла перфоленты для загрузки"),QDir::homePath(), "*.upt");
+	    u8"Выбор файла перфоленты для загрузки"),QDir::homePath(), "*.upt");
 	if (!fileName.isEmpty()) {
 		QFile file(fileName);
 		if (file.open(QFile::WriteOnly)) {
@@ -170,7 +170,7 @@ void ControlReadDevice::saveTape()
 			_tape.saveData((uint8_t*)ba.data(), ba.size());
 			for (int i=0; i<ba.size(); i+=11) {
 				for (int j=0; j<11; ++j)
-					buf.push_back(QString::number(ba[i+j]).at(0).toAscii());
+					buf.push_back(QString::number(ba[i+j]).at(0).toLatin1());
 				buf.push_back('\n');
 			}
 			file.write(buf);

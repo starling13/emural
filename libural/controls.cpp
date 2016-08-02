@@ -38,7 +38,7 @@ void BlackButton::paintEvent(QPaintEvent*)
 	uint border = this->width() / 6;
 	
 	_painter.begin(this);
-    _painter.setRenderHint(QPainter::Antialiasing);
+	_painter.setRenderHint(QPainter::Antialiasing);
 	
 	_painter.setBrush(_solid);
 	_painter.setPen(Qt::NoPen);
@@ -113,7 +113,7 @@ void BlackPushButton::paintEvent(QPaintEvent*)
 	uint border = this->width() / 6;
 	
 	_painter.begin(this);
-    _painter.setRenderHint(QPainter::Antialiasing);
+	_painter.setRenderHint(QPainter::Antialiasing);
 	_painter.setPen(Qt::black);
 	
 	if (!this->isDown()) {
@@ -140,8 +140,8 @@ bool BlackPushButton::hitButton(const QPoint&) const
 Switch::Switch(QWidget* parent) :
 QCheckBox(parent)
 {
-    _images[0].load(QString::fromUtf8(u8":/images/switch_off_24px.png"));
-    _images[1].load(QString::fromUtf8(u8":/images/switch_on_24px.png"));
+	_images[0].load(QString::fromUtf8(u8":/images/switch_off_24px.png"));
+	_images[1].load(QString::fromUtf8(u8":/images/switch_on_24px.png"));
 }
 
 void Switch::paintEvent(QPaintEvent*)
@@ -194,23 +194,23 @@ QRadioButton(parent)
 void DigitButton::paintEvent(QPaintEvent*)
 {
 	_painter.begin(this);
-    _painter.setRenderHint(QPainter::Antialiasing);
+	_painter.setRenderHint(QPainter::Antialiasing);
 	
 	QFontMetrics met(this->font());
-    double horizontalMargin = (this->width()-met.width(this->text()))/2.0;
-    double verticalMargin = (this->height()-met.height())/2.0;
+	double horizontalMargin = (this->width()-met.width(this->text()))/2.0;
+	double verticalMargin = (this->height()-met.height())/2.0;
 
 	_painter.setBrush(this->palette().button());
 	if (!this->isChecked()) {
 		_painter.setPen(Qt::NoPen);
-        _painter.drawEllipse(1, 1, this->width()-1, this->height()-1);
-    } else {
-        _painter.setPen(QPen(this->palette().buttonText().color(),2));
-        _painter.drawEllipse(1, 1, this->width()-2, this->height()-2);
-    }
+		_painter.drawEllipse(1, 1, this->width()-1, this->height()-1);
+	} else {
+		_painter.setPen(QPen(this->palette().buttonText().color(),2));
+		_painter.drawEllipse(1, 1, this->width()-2, this->height()-2);
+	}
 	if (!this->isChecked())
 		_painter.setPen(this->palette().buttonText().color());
-    _painter.drawText(horizontalMargin+0.5, met.height()+verticalMargin-1.5, this->text());
+	_painter.drawText(horizontalMargin+0.5, met.height()+verticalMargin-1.5, this->text());
 	
 	_painter.end();
 }

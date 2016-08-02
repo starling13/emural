@@ -368,11 +368,11 @@ typename FixedPointFraction<base, bits>::ModOnesComplement
 FixedPointFraction<base, bits>::ModOnesComplement::operator -(const
     ModOnesComplement &other) const
 {
-    ModOnesComplement res = (*this);
+	ModOnesComplement res = (*this);
 
-    res -= other;
+	res -= other;
 
-    return (res);
+	return (res);
 }
 
 template <typename base, size_t bits>
@@ -412,13 +412,13 @@ FixedPointFraction<base, bits>::ModOnesComplement::
 ModOnesComplement(signed_base val) :
 _carry(0)
 {
-    if (val < 0)
-        val = -val;
+	if (val < 0)
+		val = -val;
 
-    _magnitude = base(val);
-    if (val < 0)
+	_magnitude = base(val);
+	if (val < 0)
 		_sign = 3;
-    else
+	else
 		_sign = 0;
 }
 

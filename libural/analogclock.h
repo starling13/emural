@@ -26,15 +26,15 @@
 
 #include <QWidget>
 
-class USSRTankClock : public QWidget
+class TankClockWidget : public QWidget
 {
 	Q_OBJECT
-
+	Q_DISABLE_COPY(TankClockWidget)
 public:
 
-	USSRTankClock(QWidget *parent = NULL);
+        TankClockWidget(QWidget *parent = NULL);
 
-	~USSRTankClock();
+        ~TankClockWidget();
 
 protected:
 
@@ -52,11 +52,9 @@ private slots:
 
 private:
 
-	Q_DISABLE_COPY(USSRTankClock)
+        class TankClockData;
 
-	class AnalogClockData;
-
-	AnalogClockData &_data;
+        TankClockData &_data;
 };
 
 #endif

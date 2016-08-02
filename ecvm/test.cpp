@@ -1,96 +1,64 @@
 /*
- *   emural - эмулятор ЭЦВМ семейства "Урал"
- *
- *   Copyright (C) 2015 А.В. Скворцов <starling13@gmail.com>
- *
  *   Данная программа является свободным программным обеспечением. Вы
  *   вправе распространять её и/или модифицировать в соответствии с
  *   условиями версии 2, либо по вашему выбору с условиями более поздней
  *   версии Стандартной Общественной Лицензии GNU, опубликованной Free
  *   Software Foundation.
- *
+
  *   Мы распространяем данную программу в надежде на то, что она будет
  *   вам полезной, однако НЕ ПРЕДОСТАВЛЯЕМ НА НЕЁ НИКАКИХ ГАРАНТИЙ, в том
  *   числе ГАРАНТИИ ТОВАРНОГО СОСТОЯНИЯ ПРИ ПРОДАЖЕ и ПРИГОДНОСТИ ДЛЯ
  *   ИСПОЛЬЗОВАНИЯ В КОНКРЕТНЫХ ЦЕЛЯХ. Для получения более подробной
  *   информации ознакомьтесь со Стандартной Общественной Лицензией GNU.
- *
+
  *   Вместе с данной программой вы должны были получить экземпляр
  *   Стандартной Общественной Лицензии GNU. Если вы его не получили,
  *   сообщите об этом в Free Software Foundation, Inc.,
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef PUNCHDRIVES_HPP
-#define PUNCHDRIVES_HPP
+#include <cstdlib>
+#include <limits>
+#include <iostream>
 
-#include "ural.hpp"
-#include "qcommon.hpp"
+//#include "ural.hpp"
+#include "fixed_coding.hpp"
 
-#include <QWidget>
-#include <QAbstractTableModel>
-
-namespace Ui {
-    class PunchTapeWidget;
-} // namespace Ui
-
-class QtPunchDrive : public QWidget, public TapeLoader, public URAL::IExtMemoryDevice
+int main(int argc, char** argv)
 {
-	Q_OBJECT
-
-public:
-
-	QtPunchDrive();
-	~QtPunchDrive();
-
-	void		searchZone(uint8_t) override;
-	URAL::Word_t	readWord() override;
-	bool		readHalfWord(URAL::HalfWord_t&) override;
-
-private slots:
-
-	void on_loadTapeButton_clicked();
-
-private:
-
-	Q_DISABLE_COPY(QtPunchDrive)
-
-	class	TapeTableModel;
-	friend class	TapeTableModel;
-
-	Ui::PunchTapeWidget	&widget;
-	ssize_t			 _tapePosition;
-	TapeTableModel		&_tapeModel;
-};
-
-class QtPunchDrive::TapeTableModel : public QAbstractTableModel
-{
-	Q_OBJECT
-
-public:
-
-	TapeTableModel(QtPunchDrive&);
-
-	int rowCount(const QModelIndex&) const override;
-	int columnCount(const QModelIndex&) const override;
-	QVariant data(const QModelIndex&, int) const override;
-	QVariant headerData(int, Qt::Orientation, int) const override;
-
-	void updateData()
-	{
-		this->beginResetModel();
-		this->endResetModel();
-	}
-
-private:
-
-	enum Columns_t
-	{
-		ZONE = 0,
-		NUMBER = 1,
-	};
-
-	QtPunchDrive	&_owner;
-};
-
-#endif // PUNCHDRIVES_HPP
+	std::cout.precision(std::numeric_limits< double >::digits10);
+	
+	FixedPointFraction<uint64_t, 36>::ModOnesComplement	a;
+	FixedPointFraction<uint64_t, 36>::SignedMagnitude	b;
+	
+	a.setMagnitude(3), b.setMagnitude(6);
+	
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	
+	a = b;
+	b = a;
+	
+	/*
+	ural.drum[0] = 0000001020004;
+	ural.drum[1] = 0000003000002;
+	ural.drum[2] = 0000005000004;
+	ural.drum[3] = 0000007000006;
+	ural.drum[4] = 0000011000010;
+	ural.drum[5] = 0000013000012;
+	
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	ural.tact();
+	*/
+	return (EXIT_SUCCESS);
+}          

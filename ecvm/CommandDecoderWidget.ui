@@ -282,7 +282,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
+        <pixmap resource="../libural/images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -313,7 +313,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
+        <pixmap resource="../libural/images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -469,7 +469,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
+        <pixmap resource="../libural/images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -503,7 +503,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
+        <pixmap resource="../libural/images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -534,7 +534,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="images.qrc">:/images/lamp_off.png</pixmap>
+        <pixmap resource="../libural/images.qrc">:/images/lamp_off.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -873,7 +873,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="images.qrc"/>
+  <include location="../libural/images.qrc"/>
  </resources>
  <connections/>
 </ui>
