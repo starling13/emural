@@ -54,12 +54,10 @@ QStyleOptionViewItem&, const QModelIndex&) const
 
 void IntDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
- //  CGlobal *g = CGlobal::getInstance();
-   int kk = index.model()->data(index, Qt::DisplayRole).toInt();
- //  QDate d = g->_DATA(kk);
+	int kk = index.model()->data(index, Qt::DisplayRole).toInt();
 
-   QSpinBox *edit = qobject_cast<QSpinBox*>(editor);
-   edit->setValue(kk);
+	QSpinBox *edit = qobject_cast<QSpinBox*>(editor);
+	edit->setValue(kk);
 }
 
 

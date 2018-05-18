@@ -641,9 +641,9 @@
    <widget class="CommandDecoderWidget" name="commandDecoderPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>220</y>
-      <width>141</width>
+      <width>151</width>
       <height>61</height>
      </rect>
     </property>

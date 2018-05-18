@@ -38,10 +38,10 @@ _position(0ul)
 {
 	widget.setupUi(this);
 	
-    widget.formatGroup->setId(widget.octSwitch, URAL::OCT);
-    widget.formatGroup->setId(widget.binSwitch, URAL::BIN);
+	widget.formatGroup->setId(widget.octSwitch, URAL::OCT);
+	widget.formatGroup->setId(widget.binSwitch, URAL::BIN);
 
-    widget.drumView->setItemDelegate(new NumberDelegate(18, _format, this));
+	widget.drumView->setItemDelegate(new NumberDelegate(18, _format, this));
 }
 
 DrumWidget::~DrumWidget()
@@ -69,10 +69,10 @@ void DrumWidget::on_drumScroll_valueChanged(int value)
 
 void DrumWidget::on_formatGroup_buttonClicked(int newVal)
 {
-    Q_ASSERT((newVal == URAL::OCT) || (newVal == URAL::BIN));
+	Q_ASSERT((newVal == URAL::OCT) || (newVal == URAL::BIN));
 	
-    this->_format = URAL::Format(newVal);
-    widget.drumView->setItemDelegate(new NumberDelegate(18, _format, this));
+	this->_format = URAL::Format(newVal);
+	widget.drumView->setItemDelegate(new NumberDelegate(18, _format, this));
 	this->updateView();
 }
 

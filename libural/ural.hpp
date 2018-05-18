@@ -67,12 +67,12 @@ public:
 	 * Полная ячейка в прямом коде (регистр АУ, барабан)
 	 */
 	typedef	FixedPointFraction<uint64_t, 35>::SignedMagnitude
-	DoubleCell;
+	    DoubleCell;
 	/*
 	 * Короткая ячейка в прямом коде (регистр АУ, барабан)
 	 */
 	typedef	FixedPointFraction<uint64_t, 17>::SignedMagnitude
-	Cell;
+	    Cell;
 	/*
 	 * Формат ввода-вывода
 	 */

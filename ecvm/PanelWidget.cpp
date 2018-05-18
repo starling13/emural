@@ -35,7 +35,7 @@ _ural(ural)
 
 PanelWidget::~PanelWidget()
 {
-    delete &widget;
+	delete &widget;
 }
 
 void PanelWidget::controlRegisterUpdated()
@@ -52,5 +52,5 @@ void PanelWidget::updateRegisters()
 	this->widget.commandRegisterPanel->setValue(_ural._RGK.data);
 	this->widget.commandDecoderPanel->setValue(_ural.regDSHK());
 	this->widget.statusRegisterPanel->setValue(_ural.statusRegister());
-    this->widget.modesPanel->setValue(_ural.statusRegister() >> 8);
+	this->widget.modesPanel->setValue(_ural.statusRegister() >> 8);
 }

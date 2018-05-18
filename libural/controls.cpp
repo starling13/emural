@@ -1,7 +1,7 @@
 /*
  *   emural - эмулятор ЭЦВМ семейства "Урал"
  *
- *   Copyright (C) 2015 А.В. Скворцов <starling13@gmail.com>
+ *   Copyright (C) 2015-2018 А.В. Скворцов <starling13@gmail.com>
  *
  *   Данная программа является свободным программным обеспечением. Вы
  *   вправе распространять её и/или модифицировать в соответствии с
@@ -217,5 +217,5 @@ void DigitButton::paintEvent(QPaintEvent*)
 
 bool DigitButton::hitButton(const QPoint&) const
 {
-	return (true);
+	return true;
 }
