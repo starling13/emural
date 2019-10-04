@@ -24,6 +24,8 @@
 #ifndef PUNCHDRIVES_HPP
 #define PUNCHDRIVES_HPP
 
+#include <unistd.h>
+
 #include "ural.hpp"
 #include "qcommon.hpp"
 
