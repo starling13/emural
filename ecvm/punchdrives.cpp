@@ -104,7 +104,7 @@ URAL::Word_t QtPunchDrive::readWord()
 			++_tapePosition;
 	}
 
-	return (result);
+	return result;
 }
 
 bool QtPunchDrive::readHalfWord(URAL::HalfWord_t &result)

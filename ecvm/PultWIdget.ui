@@ -189,14 +189,14 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Пульт</string>
+   <string>Main control panel</string>
   </property>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
      <x>330</x>
      <y>330</y>
-     <width>311</width>
+     <width>325</width>
      <height>61</height>
     </rect>
    </property>
@@ -467,7 +467,7 @@
     <rect>
      <x>20</x>
      <y>170</y>
-     <width>141</width>
+     <width>144</width>
      <height>82</height>
     </rect>
    </property>
@@ -574,7 +574,7 @@
     <rect>
      <x>10</x>
      <y>310</y>
-     <width>156</width>
+     <width>170</width>
      <height>82</height>
     </rect>
    </property>
@@ -688,7 +688,7 @@
     <rect>
      <x>160</x>
      <y>310</y>
-     <width>161</width>
+     <width>170</width>
      <height>82</height>
     </rect>
    </property>
@@ -14119,7 +14119,7 @@
     <rect>
      <x>650</x>
      <y>310</y>
-     <width>180</width>
+     <width>187</width>
      <height>82</height>
     </rect>
    </property>
@@ -14290,23 +14290,23 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="addr5group"/>
-  <buttongroup name="reg6group"/>
-  <buttongroup name="addr4group"/>
-  <buttongroup name="reg5group"/>
-  <buttongroup name="addr3group"/>
-  <buttongroup name="reg12group"/>
-  <buttongroup name="reg4group"/>
-  <buttongroup name="addr2group"/>
-  <buttongroup name="reg11group"/>
-  <buttongroup name="reg3group"/>
-  <buttongroup name="reg9group"/>
-  <buttongroup name="addr1group"/>
-  <buttongroup name="reg2group"/>
   <buttongroup name="reg10group"/>
-  <buttongroup name="reg8group"/>
-  <buttongroup name="addr6group"/>
+  <buttongroup name="reg5group"/>
   <buttongroup name="reg1group"/>
+  <buttongroup name="reg2group"/>
+  <buttongroup name="addr4group"/>
+  <buttongroup name="reg12group"/>
+  <buttongroup name="reg8group"/>
+  <buttongroup name="addr2group"/>
+  <buttongroup name="reg6group"/>
+  <buttongroup name="addr6group"/>
+  <buttongroup name="reg3group"/>
+  <buttongroup name="addr3group"/>
+  <buttongroup name="addr1group"/>
+  <buttongroup name="reg4group"/>
   <buttongroup name="reg7group"/>
+  <buttongroup name="reg11group"/>
+  <buttongroup name="reg9group"/>
+  <buttongroup name="addr5group"/>
  </buttongroups>
 </ui>

@@ -188,7 +188,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Правая панель</string>
+   <string>Right panel</string>
   </property>
   <widget class="QWidget" name="verticalLayoutWidget_3">
    <property name="geometry">
@@ -1556,8 +1556,8 @@
     <rect>
      <x>40</x>
      <y>130</y>
-     <width>271</width>
-     <height>76</height>
+     <width>282</width>
+     <height>80</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_5">
@@ -1779,7 +1779,7 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="addressBlockGroup">
+  <buttongroup name="controlRegisterGroup">
    <property name="exclusive">
     <bool>false</bool>
    </property>
@@ -1789,7 +1789,7 @@
     <bool>false</bool>
    </property>
   </buttongroup>
-  <buttongroup name="controlRegisterGroup">
+  <buttongroup name="addressBlockGroup">
    <property name="exclusive">
     <bool>false</bool>
    </property>

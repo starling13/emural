@@ -11,19 +11,19 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Магнитный барабан (ОЗУ)</string>
+   <string>Magnetic drum (RAM)</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Представление</string>
+      <string>Representation</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QRadioButton" name="octSwitch">
         <property name="text">
-         <string>Восьмеричное</string>
+         <string>Octal</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -36,7 +36,7 @@
       <item>
        <widget class="QRadioButton" name="binSwitch">
         <property name="text">
-         <string>Двоичное</string>
+         <string>Binary</string>
         </property>
         <attribute name="buttonGroup">
          <string notr="true">formatGroup</string>
@@ -49,7 +49,7 @@
    <item>
     <widget class="QPushButton" name="clearButton">
      <property name="text">
-      <string>Стереть</string>
+      <string>Clear</string>
      </property>
      <property name="icon">
       <iconset resource="../libural/images.qrc">

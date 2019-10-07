@@ -113,9 +113,9 @@ ControlReadDevice::ControlReadDevice(QWidget *parent) :
 
 	ui.stretchViewWidget->setTape(&_tape);
 
-	_contextMenu.addAction(QString::fromUtf8(u8"Новая"), this, SLOT(newTape()));
-	_contextMenu.addAction(QString::fromUtf8(u8"Загрузить"), this, SLOT(loadTape()));
-	_contextMenu.addAction(QString::fromUtf8(u8"Сохранить"), this, SLOT(saveTape()));
+    _contextMenu.addAction(tr("New tape"), this, SLOT(newTape()));
+    _contextMenu.addAction(tr("Load tape"), this, SLOT(loadTape()));
+    _contextMenu.addAction(tr("Save tape"), this, SLOT(saveTape()));
 
 	QObject::connect(this->ui.scrollBar, SIGNAL(valueChanged(int)),
 	    this->ui.stretchViewWidget, SLOT(setPosition(int)));
@@ -159,8 +159,8 @@ void ControlReadDevice::saveTape()
 {
 	QString fileName;
 
-	fileName = QFileDialog::getSaveFileName(this, QString::fromUtf8(
-	    u8"Выбор файла перфоленты для загрузки"),QDir::homePath(), "*.upt");
+    fileName = QFileDialog::getSaveFileName(this, tr("Select punch tape file"),
+        QDir::homePath(), "*.upt");
 	if (!fileName.isEmpty()) {
 		QFile file(fileName);
 		if (file.open(QFile::WriteOnly)) {
@@ -175,6 +175,6 @@ void ControlReadDevice::saveTape()
 			}
 			file.write(buf);
 		} else
-			qWarning() << QString::fromUtf8(u8"евозможно открыть файл") << fileName;
+            qWarning() << tr("Can't open file") << fileName;
 	}
 }

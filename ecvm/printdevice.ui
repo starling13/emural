@@ -80,7 +80,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Цифровое печатающее устройство</string>
+   <string>Digital print device</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

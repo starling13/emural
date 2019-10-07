@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>НПЛ</string>
+   <string>Punch tape device</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -56,20 +56,20 @@
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Представление</string>
+      <string>Representation</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QRadioButton" name="radioButton_2">
         <property name="text">
-         <string>восьмеричное</string>
+         <string>Octal</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QRadioButton" name="radioButton">
         <property name="text">
-         <string>десятичное</string>
+         <string>Deciamal</string>
         </property>
        </widget>
       </item>

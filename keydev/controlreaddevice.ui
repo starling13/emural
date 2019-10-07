@@ -26,7 +26,7 @@
    <enum>Qt::DefaultContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string>Контрольно-считывающее устройство</string>
+   <string>Control reading device</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
