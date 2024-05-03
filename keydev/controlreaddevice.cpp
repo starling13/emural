@@ -1,24 +1,19 @@
 /*
- *   emural - эмулятор ЭЦВМ семейства "Урал"
+ * This file is part of EMURAL - emulator for Ural computer from 1950s
+ * Copyright (C) 2015-2024 Andrey V. Skvortsov <starling13@gmail.com>
  *
- *   Copyright (C) 2015 А.В. Скворцов <starling13@gmail.com>
+ * EMURAL is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *   Данная программа является свободным программным обеспечением. Вы
- *   вправе распространять её и/или модифицировать в соответствии с
- *   условиями версии 2, либо по вашему выбору с условиями более поздней
- *   версии Стандартной Общественной Лицензии GNU, опубликованной Free
- *   Software Foundation.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *   Мы распространяем данную программу в надежде на то, что она будет
- *   вам полезной, однако НЕ ПРЕДОСТАВЛЯЕМ НА НЕЁ НИКАКИХ ГАРАНТИЙ, в том
- *   числе ГАРАНТИИ ТОВАРНОГО СОСТОЯНИЯ ПРИ ПРОДАЖЕ и ПРИГОДНОСТИ ДЛЯ
- *   ИСПОЛЬЗОВАНИЯ В КОНКРЕТНЫХ ЦЕЛЯХ. Для получения более подробной
- *   информации ознакомьтесь со Стандартной Общественной Лицензией GNU.
- *
- *   Вместе с данной программой вы должны были получить экземпляр
- *   Стандартной Общественной Лицензии GNU. Если вы его не получили,
- *   сообщите об этом в Free Software Foundation, Inc.,
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "controlreaddevice.hpp"
@@ -113,9 +108,9 @@ ControlReadDevice::ControlReadDevice(QWidget *parent) :
 
 	ui.stretchViewWidget->setTape(&_tape);
 
-    _contextMenu.addAction(tr("New tape"), this, SLOT(newTape()));
-    _contextMenu.addAction(tr("Load tape"), this, SLOT(loadTape()));
-    _contextMenu.addAction(tr("Save tape"), this, SLOT(saveTape()));
+	_contextMenu.addAction(tr("New tape"), this, SLOT(newTape()));
+	_contextMenu.addAction(tr("Load tape"), this, SLOT(loadTape()));
+	_contextMenu.addAction(tr("Save tape"), this, SLOT(saveTape()));
 
 	QObject::connect(this->ui.scrollBar, SIGNAL(valueChanged(int)),
 	    this->ui.stretchViewWidget, SLOT(setPosition(int)));
@@ -159,7 +154,7 @@ void ControlReadDevice::saveTape()
 {
 	QString fileName;
 
-    fileName = QFileDialog::getSaveFileName(this, tr("Select punch tape file"),
+	fileName = QFileDialog::getSaveFileName(this, tr("Select punch tape file"),
         QDir::homePath(), "*.upt");
 	if (!fileName.isEmpty()) {
 		QFile file(fileName);
@@ -175,6 +170,6 @@ void ControlReadDevice::saveTape()
 			}
 			file.write(buf);
 		} else
-            qWarning() << tr("Can't open file") << fileName;
+			qWarning() << tr("Can't open file") << fileName;
 	}
 }
