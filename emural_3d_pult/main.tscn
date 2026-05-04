@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://pult.gd" type="Script" id=2]
@@ -66,191 +66,236 @@ extents = Vector3( 0.02, 0.02, 0.02 )
 [sub_resource type="BoxShape" id=11]
 extents = Vector3( 0.4, 0.02, 0.02 )
 
+[sub_resource type="PlaneMesh" id=13]
+size = Vector2( 12, 4 )
+
+[sub_resource type="PlaneMesh" id=14]
+size = Vector2( 12, 4 )
+
+[sub_resource type="PlaneMesh" id=15]
+size = Vector2( 12, 4 )
+
+[sub_resource type="PlaneMesh" id=16]
+size = Vector2( 12, 4 )
+
 [sub_resource type="PlaneMesh" id=12]
-size = Vector2( 15, 4 )
+size = Vector2( 4, 4 )
 
 [node name="ural_control_room" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="Camera" type="Camera" parent="."]
+[node name="ural" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.724357 )
+
+[node name="Camera" type="Camera" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 0.972691, 0.232104, 0, -0.232104, 0.972691, 0.0248571, 0.337938, 1.08418 )
 fov = 45.0
 
-[node name="pult" type="StaticBody" parent="."]
+[node name="pult" type="StaticBody" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 0.965925, -0.258819, 0, 0.258819, 0.965925, 0.179195, -0.198547, 0.219245 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="pult"]
+[node name="CollisionShape" type="CollisionShape" parent="ural/pult"]
 shape = SubResource( 4 )
 
-[node name="group8_00" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_00" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.12, 0.05, 0 )
 
-[node name="group8_01" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_01" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.09, 0.05, 0 )
 
-[node name="group8_02" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_02" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.06, 0.05, 0 )
 
-[node name="group8_03" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_03" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.03, 0.05, 0 )
 
-[node name="group8_04" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_04" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.05, 0 )
 
-[node name="group8_05" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_05" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.03, 0.05, 0 )
 
-[node name="group8_06" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_06" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.06, 0.05, 0 )
 
-[node name="group8_07" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_07" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.09, 0.05, 0 )
 
-[node name="group8_08" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_08" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.12, 0.05, 0 )
 
-[node name="group8_09" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_09" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.15, 0.05, 0 )
 
-[node name="group8_10" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_10" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.18, 0.05, 0 )
 
-[node name="group8_11" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_11" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.21, 0.05, 0 )
 
-[node name="group8_1_00" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_1_00" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.28, 0.05, 0 )
 
-[node name="group8_1_01" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_1_01" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.31, 0.05, 0 )
 
-[node name="group8_1_02" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_1_02" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.34, 0.05, 0 )
 
-[node name="group8_1_03" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_1_03" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.37, 0.05, 0 )
 
-[node name="group8_1_04" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_1_04" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0.05, 0 )
 
-[node name="group8_1_05" parent="pult" instance=ExtResource( 3 )]
+[node name="group8_1_05" parent="ural/pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.43, 0.05, 0 )
 
-[node name="addr_vz" parent="pult" instance=ExtResource( 5 )]
+[node name="addr_vz" parent="ural/pult" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.165752, 0.0441066, -0.034713 )
 
-[node name="central_cabinet" type="MeshInstance" parent="."]
+[node name="central_cabinet" type="MeshInstance" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.165 )
 mesh = ExtResource( 4 )
+skeleton = NodePath("../..")
 
-[node name="left_short_glass_door" type="Spatial" parent="."]
+[node name="left_short_glass_door" type="Spatial" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
 script = ExtResource( 11 )
 
-[node name="LeftShortGlassDoor" type="MeshInstance" parent="left_short_glass_door"]
+[node name="LeftShortGlassDoor" type="MeshInstance" parent="ural/left_short_glass_door"]
 mesh = ExtResource( 7 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="left_short_glass_door"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ural/left_short_glass_door"]
 anims/open_close = SubResource( 6 )
 
-[node name="StaticBody" type="StaticBody" parent="left_short_glass_door"]
+[node name="StaticBody" type="StaticBody" parent="ural/left_short_glass_door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="left_short_glass_door/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ural/left_short_glass_door/StaticBody"]
 shape = SubResource( 5 )
 
-[node name="main_table" type="MeshInstance" parent="."]
+[node name="main_table" type="MeshInstance" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19, 0.37 )
 mesh = ExtResource( 10 )
+skeleton = NodePath("../..")
 
-[node name="right_short_glass_door" type="Spatial" parent="."]
+[node name="right_short_glass_door" type="Spatial" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
 script = ExtResource( 12 )
 
-[node name="RightShortGlassDoor" type="MeshInstance" parent="right_short_glass_door"]
+[node name="RightShortGlassDoor" type="MeshInstance" parent="ural/right_short_glass_door"]
 mesh = ExtResource( 8 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody" type="StaticBody" parent="right_short_glass_door"]
+[node name="StaticBody" type="StaticBody" parent="ural/right_short_glass_door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="right_short_glass_door/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ural/right_short_glass_door/StaticBody"]
 shape = SubResource( 7 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="right_short_glass_door"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ural/right_short_glass_door"]
 anims/open_close = SubResource( 8 )
 
-[node name="panel" type="Spatial" parent="."]
+[node name="panel" type="Spatial" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0 )
 script = ExtResource( 13 )
 
-[node name="Panel" type="MeshInstance" parent="panel"]
+[node name="Panel" type="MeshInstance" parent="ural/panel"]
 mesh = ExtResource( 6 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody" type="StaticBody" parent="panel"]
+[node name="StaticBody" type="StaticBody" parent="ural/panel"]
 
-[node name="CollisionShape" type="CollisionShape" parent="panel/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ural/panel/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.3, 0 )
 shape = SubResource( 9 )
 
-[node name="CollisionShape2" type="CollisionShape" parent="panel/StaticBody"]
+[node name="CollisionShape2" type="CollisionShape" parent="ural/panel/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, 0 )
 shape = SubResource( 10 )
 
-[node name="left_punch_device_cover" type="Spatial" parent="."]
+[node name="left_punch_device_cover" type="Spatial" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.095, 0.02 )
 script = ExtResource( 14 )
 
-[node name="LeftPunchDeviceCover" type="MeshInstance" parent="left_punch_device_cover"]
+[node name="LeftPunchDeviceCover" type="MeshInstance" parent="ural/left_punch_device_cover"]
 mesh = ExtResource( 9 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody" type="StaticBody" parent="left_punch_device_cover"]
+[node name="StaticBody" type="StaticBody" parent="ural/left_punch_device_cover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8 )
 
-[node name="CollisionShape" type="CollisionShape" parent="left_punch_device_cover/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ural/left_punch_device_cover/StaticBody"]
 shape = SubResource( 11 )
 
-[node name="right_punch_device_cover" type="Spatial" parent="."]
+[node name="right_punch_device_cover" type="Spatial" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, -0.095, 0.02 )
 script = ExtResource( 15 )
 
-[node name="RightPunchDeviceCover" type="MeshInstance" parent="right_punch_device_cover"]
+[node name="RightPunchDeviceCover" type="MeshInstance" parent="ural/right_punch_device_cover"]
 mesh = ExtResource( 9 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody" type="StaticBody" parent="right_punch_device_cover"]
+[node name="StaticBody" type="StaticBody" parent="ural/right_punch_device_cover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8 )
 
-[node name="CollisionShape" type="CollisionShape" parent="right_punch_device_cover/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ural/right_punch_device_cover/StaticBody"]
 shape = SubResource( 11 )
 
-[node name="floor" type="MeshInstance" parent="."]
+[node name="OmniLight" type="OmniLight" parent="ural/right_punch_device_cover"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0.4 )
+light_color = Color( 1, 0.988235, 0.694118, 1 )
+light_energy = 0.1
+light_specular = 1.0
+
+[node name="room" type="Spatial" parent="."]
+
+[node name="floor" type="MeshInstance" parent="room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
-mesh = SubResource( 12 )
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
 
-[node name="north_wall" type="MeshInstance" parent="."]
+[node name="north_wall" type="MeshInstance" parent="room"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -2 )
-mesh = SubResource( 12 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
 
-[node name="south_wall" type="MeshInstance" parent="."]
+[node name="south_wall" type="MeshInstance" parent="room"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 2 )
-mesh = SubResource( 12 )
+mesh = SubResource( 15 )
+skeleton = NodePath("../..")
 
-[node name="lamp_01" type="OmniLight" parent="."]
+[node name="lamp_01" type="OmniLight" parent="room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 1 )
+light_color = Color( 1, 0.937255, 0.6, 1 )
+light_energy = 0.5
+light_specular = 0.1
 shadow_enabled = true
 
-[node name="lamp_02" type="OmniLight" parent="."]
+[node name="lamp_02" type="OmniLight" parent="room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 1 )
+light_color = Color( 1, 0.937255, 0.6, 1 )
+light_energy = 0.5
+light_specular = 0.1
 shadow_enabled = true
 
-[node name="upper" type="MeshInstance" parent="."]
+[node name="upper" type="MeshInstance" parent="room"]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 3, 0 )
-mesh = SubResource( 12 )
+mesh = SubResource( 16 )
+skeleton = NodePath("../..")
 
-[connection signal="left_pressed" from="pult/addr_vz" to="pult" method="_on_addr_vz_left_pressed"]
-[connection signal="left_released" from="pult/addr_vz" to="pult" method="_on_addr_vz_left_released"]
+[node name="western_wall" type="MeshInstance" parent="room"]
+transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -6, 1, 0 )
+mesh = SubResource( 12 )
+skeleton = NodePath("../..")
+
+[node name="western_wall2" type="MeshInstance" parent="room"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 6, 1, 0 )
+mesh = SubResource( 12 )
+skeleton = NodePath("../..")
+
+[connection signal="left_pressed" from="ural/pult/addr_vz" to="ural/pult" method="_on_addr_vz_left_pressed"]
+[connection signal="left_released" from="ural/pult/addr_vz" to="ural/pult" method="_on_addr_vz_left_released"]
