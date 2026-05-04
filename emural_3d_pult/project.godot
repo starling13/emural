@@ -20,8 +20,7 @@ Door="*res://door.gd"
 
 [display]
 
-window/size/width=720
-window/size/height=480
+window/size/height=800
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -39,5 +38,6 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/shadow_atlas/size=8192
 quality/filters/use_nearest_mipmap_filter=true
 quality/filters/msaa=4
