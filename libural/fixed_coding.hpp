@@ -110,19 +110,26 @@ public:
 	
 	operator double() const;
 
-	bool	signEquals(const ModOnesComplement&) const;
-	
-	/**
-	 * @brief модуль
-	 */
-	base	_magnitude:bits;
+    SignedMagnitude &operator >>=(int v)
+    {
+        this->_magnitude >> v;
+        return *this;
+    }
 
-	/**
-	 * @brief знак
-	 */
-	base	_sign:1;
+	bool	signEquals(const ModOnesComplement&) const;
+
 
 private :
+
+    /**
+     * @brief модуль
+     */
+    base	_magnitude:bits;
+
+    /**
+     * @brief знак
+     */
+    base	_sign:1;
 
 static_assert ((sizeof (base) * 8) >= (bits+2), u8"Неверное число бит");
 };

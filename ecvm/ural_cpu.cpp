@@ -244,9 +244,9 @@ URAL::CPU::multiply()
 	// Вычисление знака произведения
 	sign = _RGM.dPrec.sign() != _RGAU.dPrec.sign();
 	if (sign)
-		_RGAU.dPrec._sign = 1;
+        _RGAU.dPrec.setSign(1);
 	else
-		_RGAU.dPrec._sign = 0;
+        _RGAU.dPrec.setSign(0);
 	for (unsigned i=0; i<35; ++i) {
 		std::cout << "СМ " << std::bitset<18>(S.words.word2) << ' ' <<
 			     std::bitset<18>(S.words.word1) << std::endl;
@@ -257,7 +257,7 @@ URAL::CPU::multiply()
 		std::cout << "ДСМ " << std::bitset<7>(_DSM) << std::endl;
 		_DRG >>= 1;
 		_DRG |= _RGAU.bits.b1 << 5;
-		_RGAU.dPrec._magnitude >>= 1;
+        _RGAU.dPrec >>= 1;
 		_RGM.data <<=1;
 		if (_RGM.bits.b36) {
 			if (sign) {

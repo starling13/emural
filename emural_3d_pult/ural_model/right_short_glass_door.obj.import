@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/right_short_glass_door.obj-88cd3ec53a3ca6453ec715c5a96e4189.mesh"
+
+[deps]
+
+files=[ "res://.import/right_short_glass_door.obj-88cd3ec53a3ca6453ec715c5a96e4189.mesh" ]
+
+source_file="res://ural_model/right_short_glass_door.obj"
+dest_files=[ "res://.import/right_short_glass_door.obj-88cd3ec53a3ca6453ec715c5a96e4189.mesh", "res://.import/right_short_glass_door.obj-88cd3ec53a3ca6453ec715c5a96e4189.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true
