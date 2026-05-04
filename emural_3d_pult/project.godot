@@ -14,6 +14,10 @@ config/name="emural_3d_room"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Door="*res://door.gd"
+
 [display]
 
 window/size/width=720

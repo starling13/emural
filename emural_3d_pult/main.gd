@@ -23,20 +23,3 @@ func _input(event):
 			$Camera.fov = max(20.0, $Camera.fov-1)
 		elif e.button_index == BUTTON_WHEEL_DOWN:
 			$Camera.fov = min(90.0, $Camera.fov+1)
-
-
-func _on_left_short_glass_door_mouse_entered():
-	Input.set_default_cursor_shape(Input.CURSOR_CAN_DROP)
-
-
-func _on_left_short_glass_door_mouse_exited():
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-
-
-func _on_left_short_glass_door_input_event(camera, event, position, normal, shape_idx):
-	if event is InputEventMouseButton:
-		var e: InputEventMouseButton = event as InputEventMouseButton
-		if e.pressed and e.button_index == BUTTON_LEFT:
-			$left_short_glass_door/AnimationPlayer.play("open_close")
-		elif e.pressed and e.button_index == BUTTON_RIGHT:
-			$left_short_glass_door/AnimationPlayer.play_backwards("open_close")
