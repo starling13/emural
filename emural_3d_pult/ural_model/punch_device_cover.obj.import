@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/punch_device_cover.obj-afb65661d8f02e53268c982d182f49de.mesh"
+
+[deps]
+
+files=[ "res://.import/punch_device_cover.obj-afb65661d8f02e53268c982d182f49de.mesh" ]
+
+source_file="res://ural_model/punch_device_cover.obj"
+dest_files=[ "res://.import/punch_device_cover.obj-afb65661d8f02e53268c982d182f49de.mesh", "res://.import/punch_device_cover.obj-afb65661d8f02e53268c982d182f49de.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/main_table.obj-b031378b669957ba4a20a86f93742e85.mesh"
+
+[deps]
+
+files=[ "res://.import/main_table.obj-b031378b669957ba4a20a86f93742e85.mesh" ]
+
+source_file="res://ural_model/main_table.obj"
+dest_files=[ "res://.import/main_table.obj-b031378b669957ba4a20a86f93742e85.mesh", "res://.import/main_table.obj-b031378b669957ba4a20a86f93742e85.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true
