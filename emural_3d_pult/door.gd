@@ -32,7 +32,6 @@ func _input(event):
 		if e.button_index == BUTTON_LEFT:
 			if not e.pressed and self._state_grabbed:
 				self._state_grabbed = false
-				print(self._state_grabbed)
 	elif event is InputEventMouseMotion and self._state_grabbed:
 		var e: InputEventMouseMotion = event as InputEventMouseMotion
 		self.open_state -= e.relative.y / 300.0

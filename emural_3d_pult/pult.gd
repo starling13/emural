@@ -44,7 +44,6 @@ func _ready():
 	$group8_1_05.set_color(Color.red)
 	self._command_reg_keyboard.append($group8_1_05)
 
-
 func _on_addr_vz_left_pressed():
 	$addr_vz.set_state(true)
 	for b in self._adder_keyboard:
@@ -63,3 +62,19 @@ func _on_com_reg_vz_left_pressed():
 
 func _on_com_reg_vz_left_released():
 	$com_reg_vz.set_state(false)
+
+
+func _on_start_button_left_pressed():
+	$start_button.set_state(true)
+	Ural.start()
+
+func _on_start_button_left_released():
+	$start_button.set_state(false)
+
+
+func _on_stop_button_left_pressed():
+	$stop_button.set_state(true)
+	Ural.stop()
+
+func _on_stop_button_left_released():
+	$stop_button.set_state(false)

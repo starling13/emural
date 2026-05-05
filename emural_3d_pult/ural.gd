@@ -33,7 +33,7 @@ class Word:
 enum state_t {IDLE=0, RUN=1}
 
 # Current state
-var _state: int = state_t.RUN
+var _state: int = state_t.IDLE
 
 # Command counter (СЧК - SCHK)
 var _schk: int = 0
@@ -44,18 +44,24 @@ var _rgk: HalfWord = HalfWord.new(0)
 # Magnetic drum (RAM)
 var _drum: Array = []
 
+
 func _init():
 	print("URAL CPU init")
 	
 	for i in range(1024):
 		_drum.append(Word.new(0))
-	
+
+
 func _ready():
 	print("URAL CPU ready")
 	
 	
 func get_rgk() -> HalfWord:
 	return _rgk
+
+
+func get_schk() -> int:
+	return _schk
 
 	
 func _physics_process(delta):
@@ -64,7 +70,16 @@ func _physics_process(delta):
 			pass
 		state_t.RUN:
 			step()
-	
+
+
+func start():
+	_state = state_t.RUN
+
+
+func stop():
+	_state = state_t.IDLE
+
+
 func step():
 	var ea = _schk / 2
 	var mod = _schk % 2

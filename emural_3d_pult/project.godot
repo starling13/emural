@@ -22,7 +22,9 @@ LampPanel="*res://lamp_panel.gd"
 
 [display]
 
+window/size/width=1280
 window/size/height=800
+window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

@@ -3,8 +3,8 @@
 [ext_resource path="res://lamp.gd" type="Script" id=1]
 
 [sub_resource type="SphereMesh" id=1]
-radius = 0.005
-height = 0.01
+radius = 0.008
+height = 0.016
 radial_segments = 6
 rings = 6
 
@@ -18,9 +18,12 @@ emission_operator = 0
 emission_on_uv2 = false
 
 [sub_resource type="CylinderMesh" id=3]
-top_radius = 0.006
-bottom_radius = 0.006
+resource_local_to_scene = true
+top_radius = 0.01
+bottom_radius = 0.01
 height = 0.01
+radial_segments = 8
+rings = 1
 
 [node name="lamp" type="Spatial"]
 script = ExtResource( 1 )

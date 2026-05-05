@@ -170,6 +170,12 @@ transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.165752, 0
 [node name="com_reg_vz" parent="ural/pult" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, -0.5, 0.044, -0.035 )
 
+[node name="start_button" parent="ural/pult" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.166314, 0.0597487, 0.129098 )
+
+[node name="stop_button" parent="ural/pult" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.113702, 0.0597488, 0.129098 )
+
 [node name="central_cabinet" type="MeshInstance" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.165 )
 mesh = ExtResource( 4 )
@@ -234,13 +240,40 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, 0 )
 shape = SubResource( 10 )
 
 [node name="schk_panel" type="Spatial" parent="ural/panel"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.056416, 0.00423771 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0736541, 0.0942609, 0.00423771 )
 script = ExtResource( 18 )
 
 [node name="lamp_00" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
 
 [node name="lamp_01" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0, 0 )
+
+[node name="lamp_02" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0 )
+
+[node name="lamp_03" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.071, 0, 0 )
+
+[node name="lamp_04" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091, 0, 0 )
+
+[node name="lamp_05" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11, 0, 0 )
+
+[node name="lamp_06" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135, 0, 0 )
+
+[node name="lamp_07" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, 0, 0 )
+
+[node name="lamp_08" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.175, 0, 0 )
+
+[node name="lamp_09" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21, 0, 0 )
+
+[node name="lamp_10" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0 )
 
 [node name="left_punch_device_cover" type="Spatial" parent="ural"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.095, 0.02 )
@@ -328,3 +361,7 @@ skeleton = NodePath("../..")
 [connection signal="left_released" from="ural/pult/addr_vz" to="ural/pult" method="_on_addr_vz_left_released"]
 [connection signal="left_pressed" from="ural/pult/com_reg_vz" to="ural/pult" method="_on_com_reg_vz_left_pressed"]
 [connection signal="left_released" from="ural/pult/com_reg_vz" to="ural/pult" method="_on_com_reg_vz_left_released"]
+[connection signal="left_pressed" from="ural/pult/start_button" to="ural/pult" method="_on_start_button_left_pressed"]
+[connection signal="left_released" from="ural/pult/start_button" to="ural/pult" method="_on_start_button_left_released"]
+[connection signal="left_pressed" from="ural/pult/stop_button" to="ural/pult" method="_on_stop_button_left_pressed"]
+[connection signal="left_released" from="ural/pult/stop_button" to="ural/pult" method="_on_stop_button_left_released"]
