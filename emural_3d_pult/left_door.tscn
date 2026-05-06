@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://left_door.gd" type="Script" id=1]
+[ext_resource path="res://gray_steel.tres" type="Material" id=2]
+[ext_resource path="res://ural_model/left_tall_glass_door.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://glass.tres" type="Material" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.02, 0.02, 0.02 )
+
+[node name="left_door" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="LeftTallGlassDoor" type="MeshInstance" parent="."]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44, -0.1, 0.02 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )

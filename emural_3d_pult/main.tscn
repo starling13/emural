@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://pult.gd" type="Script" id=2]
@@ -18,25 +18,33 @@
 [ext_resource path="res://wood1.jpg" type="Texture" id=16]
 [ext_resource path="res://lamp.tscn" type="PackedScene" id=17]
 [ext_resource path="res://schk_panel.gd" type="Script" id=18]
+[ext_resource path="res://panel.png" type="Texture" id=19]
+[ext_resource path="res://gray_steel.tres" type="Material" id=20]
+[ext_resource path="res://ural_model/talll_cabinet.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://left_door.tscn" type="PackedScene" id=22]
+[ext_resource path="res://right_door.tscn" type="PackedScene" id=23]
+[ext_resource path="res://player.gd" type="Script" id=24]
+[ext_resource path="res://noise.tres" type="Texture" id=25]
+[ext_resource path="res://ural_model/pult.obj" type="ArrayMesh" id=26]
+[ext_resource path="res://pult.png" type="Texture" id=27]
 
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 2, 0.05, 0.5 )
+[sub_resource type="SpatialMaterial" id=18]
+albedo_texture = ExtResource( 16 )
 
-[sub_resource type="Animation" id=6]
-resource_name = "open_close"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ) ]
-}
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.4, 0.02, 0.02 )
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_texture = ExtResource( 16 )
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_texture = ExtResource( 19 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.02, 0.02, 0.02 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.02, 0.02, 0.02 )
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.02, 0.02, 0.02 )
@@ -63,23 +71,18 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -90, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=9]
-extents = Vector3( 0.02, 0.02, 0.02 )
+[sub_resource type="SpatialMaterial" id=25]
+albedo_texture = ExtResource( 27 )
 
-[sub_resource type="BoxShape" id=10]
-extents = Vector3( 0.02, 0.02, 0.02 )
-
-[sub_resource type="SpatialMaterial" id=18]
-albedo_texture = ExtResource( 16 )
-
-[sub_resource type="BoxShape" id=11]
-extents = Vector3( 0.4, 0.02, 0.02 )
-
-[sub_resource type="SpatialMaterial" id=19]
-albedo_texture = ExtResource( 16 )
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.75, 0.01, 0.2 )
 
 [sub_resource type="PlaneMesh" id=13]
 size = Vector2( 12, 4 )
+
+[sub_resource type="SpatialMaterial" id=24]
+albedo_color = Color( 1, 0.996078, 0.580392, 1 )
+roughness_texture = ExtResource( 25 )
 
 [sub_resource type="PlaneMesh" id=14]
 size = Vector2( 12, 4 )
@@ -93,223 +96,297 @@ size = Vector2( 12, 4 )
 [sub_resource type="PlaneMesh" id=12]
 size = Vector2( 4, 4 )
 
+[sub_resource type="CapsuleShape" id=21]
+radius = 0.5
+height = 0.9
+
 [node name="ural_control_room" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="ural" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.724357 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.183 )
 
-[node name="Camera" type="Camera" parent="ural"]
-transform = Transform( 1, 0, 0, 0, 0.972691, 0.232104, 0, -0.232104, 0.972691, 0.0248571, 0.337938, 1.08418 )
-fov = 45.0
+[node name="central_module" type="Spatial" parent="ural"]
 
-[node name="pult" type="StaticBody" parent="ural"]
-transform = Transform( 1, 0, 0, 0, 0.965925, -0.258819, 0, 0.258819, 0.965925, 0.179195, -0.198547, 0.219245 )
-script = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ural/pult"]
-shape = SubResource( 4 )
-
-[node name="group8_00" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.12, 0.05, 0 )
-
-[node name="group8_01" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.09, 0.05, 0 )
-
-[node name="group8_02" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.06, 0.05, 0 )
-
-[node name="group8_03" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.03, 0.05, 0 )
-
-[node name="group8_04" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.05, 0 )
-
-[node name="group8_05" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.03, 0.05, 0 )
-
-[node name="group8_06" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.06, 0.05, 0 )
-
-[node name="group8_07" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.09, 0.05, 0 )
-
-[node name="group8_08" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.12, 0.05, 0 )
-
-[node name="group8_09" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.15, 0.05, 0 )
-
-[node name="group8_10" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.18, 0.05, 0 )
-
-[node name="group8_11" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.21, 0.05, 0 )
-
-[node name="group8_1_00" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.28, 0.05, 0 )
-
-[node name="group8_1_01" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.31, 0.05, 0 )
-
-[node name="group8_1_02" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.34, 0.05, 0 )
-
-[node name="group8_1_03" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.37, 0.05, 0 )
-
-[node name="group8_1_04" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4, 0.05, 0 )
-
-[node name="group8_1_05" parent="ural/pult" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.43, 0.05, 0 )
-
-[node name="addr_vz" parent="ural/pult" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.165752, 0.0441066, -0.034713 )
-
-[node name="com_reg_vz" parent="ural/pult" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, -0.5, 0.044, -0.035 )
-
-[node name="start_button" parent="ural/pult" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.166314, 0.0597487, 0.129098 )
-
-[node name="stop_button" parent="ural/pult" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.113702, 0.0597488, 0.129098 )
-
-[node name="central_cabinet" type="MeshInstance" parent="ural"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.165 )
-mesh = ExtResource( 4 )
-skeleton = NodePath("../..")
-
-[node name="left_short_glass_door" type="Spatial" parent="ural"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
-script = ExtResource( 11 )
-
-[node name="LeftShortGlassDoor" type="MeshInstance" parent="ural/left_short_glass_door"]
-mesh = ExtResource( 7 )
-skeleton = NodePath("../../..")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ural/left_short_glass_door"]
-anims/open_close = SubResource( 6 )
-
-[node name="StaticBody" type="StaticBody" parent="ural/left_short_glass_door"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ural/left_short_glass_door/StaticBody"]
-shape = SubResource( 5 )
-
-[node name="main_table" type="MeshInstance" parent="ural"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19, 0.37 )
-mesh = ExtResource( 10 )
-skeleton = NodePath("../..")
-material/0 = SubResource( 17 )
-
-[node name="right_short_glass_door" type="Spatial" parent="ural"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
-script = ExtResource( 12 )
-
-[node name="RightShortGlassDoor" type="MeshInstance" parent="ural/right_short_glass_door"]
-mesh = ExtResource( 8 )
-skeleton = NodePath("../../..")
-
-[node name="StaticBody" type="StaticBody" parent="ural/right_short_glass_door"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ural/right_short_glass_door/StaticBody"]
-shape = SubResource( 7 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ural/right_short_glass_door"]
-anims/open_close = SubResource( 8 )
-
-[node name="panel" type="Spatial" parent="ural"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0 )
-script = ExtResource( 13 )
-
-[node name="Panel" type="MeshInstance" parent="ural/panel"]
-mesh = ExtResource( 6 )
-skeleton = NodePath("../../..")
-
-[node name="StaticBody" type="StaticBody" parent="ural/panel"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ural/panel/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.3, 0 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="ural/panel/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, 0 )
-shape = SubResource( 10 )
-
-[node name="schk_panel" type="Spatial" parent="ural/panel"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0736541, 0.0942609, 0.00423771 )
-script = ExtResource( 18 )
-
-[node name="lamp_00" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-
-[node name="lamp_01" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0, 0 )
-
-[node name="lamp_02" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0 )
-
-[node name="lamp_03" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.071, 0, 0 )
-
-[node name="lamp_04" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091, 0, 0 )
-
-[node name="lamp_05" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11, 0, 0 )
-
-[node name="lamp_06" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135, 0, 0 )
-
-[node name="lamp_07" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, 0, 0 )
-
-[node name="lamp_08" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.175, 0, 0 )
-
-[node name="lamp_09" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21, 0, 0 )
-
-[node name="lamp_10" parent="ural/panel/schk_panel" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0 )
-
-[node name="left_punch_device_cover" type="Spatial" parent="ural"]
+[node name="left_punch_device_cover" type="Spatial" parent="ural/central_module"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.095, 0.02 )
 script = ExtResource( 14 )
 
-[node name="LeftPunchDeviceCover" type="MeshInstance" parent="ural/left_punch_device_cover"]
+[node name="LeftPunchDeviceCover" type="MeshInstance" parent="ural/central_module/left_punch_device_cover"]
 mesh = ExtResource( 9 )
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 material/0 = SubResource( 18 )
 
-[node name="StaticBody" type="StaticBody" parent="ural/left_punch_device_cover"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8 )
+[node name="StaticBody" type="StaticBody" parent="ural/central_module/left_punch_device_cover"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224264, -0.497598, 1.01156 )
 
-[node name="CollisionShape" type="CollisionShape" parent="ural/left_punch_device_cover/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ural/central_module/left_punch_device_cover/StaticBody"]
 shape = SubResource( 11 )
 
-[node name="right_punch_device_cover" type="Spatial" parent="ural"]
+[node name="right_punch_device_cover" type="Spatial" parent="ural/central_module"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, -0.095, 0.02 )
 script = ExtResource( 15 )
 
-[node name="RightPunchDeviceCover" type="MeshInstance" parent="ural/right_punch_device_cover"]
+[node name="RightPunchDeviceCover" type="MeshInstance" parent="ural/central_module/right_punch_device_cover"]
 mesh = ExtResource( 9 )
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 material/0 = SubResource( 19 )
 
-[node name="StaticBody" type="StaticBody" parent="ural/right_punch_device_cover"]
+[node name="StaticBody" type="StaticBody" parent="ural/central_module/right_punch_device_cover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8 )
 
-[node name="CollisionShape" type="CollisionShape" parent="ural/right_punch_device_cover/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ural/central_module/right_punch_device_cover/StaticBody"]
 shape = SubResource( 11 )
 
-[node name="OmniLight" type="OmniLight" parent="ural/right_punch_device_cover"]
+[node name="OmniLight" type="OmniLight" parent="ural/central_module/right_punch_device_cover"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0.4 )
-light_energy = 0.25
+light_energy = 0.0
 light_specular = 1.0
-omni_range = 0.5
+shadow_enabled = true
+omni_range = 1.0
+
+[node name="panel" type="Spatial" parent="ural/central_module"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0 )
+script = ExtResource( 13 )
+
+[node name="Panel" type="MeshInstance" parent="ural/central_module/panel"]
+mesh = ExtResource( 6 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 20 )
+material/1 = ExtResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="ural/central_module/panel"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ural/central_module/panel/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.3, 0 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="ural/central_module/panel/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3, 0 )
+shape = SubResource( 10 )
+
+[node name="schk_panel" type="Spatial" parent="ural/central_module/panel"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0736541, 0.0942609, 0.00423771 )
+script = ExtResource( 18 )
+
+[node name="lamp_00" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+
+[node name="lamp_01" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0, 0 )
+
+[node name="lamp_02" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0 )
+
+[node name="lamp_03" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.071, 0, 0 )
+
+[node name="lamp_04" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091, 0, 0 )
+
+[node name="lamp_05" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11, 0, 0 )
+
+[node name="lamp_06" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135, 0, 0 )
+
+[node name="lamp_07" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, 0, 0 )
+
+[node name="lamp_08" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.175, 0, 0 )
+
+[node name="lamp_09" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21, 0, 0 )
+
+[node name="lamp_10" parent="ural/central_module/panel/schk_panel" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0 )
+
+[node name="central_cabinet" type="MeshInstance" parent="ural/central_module"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.162 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 20 )
+
+[node name="left_short_glass_door" type="Spatial" parent="ural/central_module"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
+script = ExtResource( 11 )
+
+[node name="LeftShortGlassDoor" type="MeshInstance" parent="ural/central_module/left_short_glass_door"]
+mesh = ExtResource( 7 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="ural/central_module/left_short_glass_door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ural/central_module/left_short_glass_door/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="main_table" type="MeshInstance" parent="ural/central_module"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19, 0.37 )
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 17 )
+
+[node name="right_short_glass_door" type="Spatial" parent="ural/central_module"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
+script = ExtResource( 12 )
+
+[node name="RightShortGlassDoor" type="MeshInstance" parent="ural/central_module/right_short_glass_door"]
+mesh = ExtResource( 8 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 20 )
+
+[node name="StaticBody" type="StaticBody" parent="ural/central_module/right_short_glass_door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ural/central_module/right_short_glass_door/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ural/central_module/right_short_glass_door"]
+anims/open_close = SubResource( 8 )
+
+[node name="pult_panel" type="Spatial" parent="ural/central_module"]
+
+[node name="Pult" type="MeshInstance" parent="ural/central_module/pult_panel"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12, 0.215 )
+mesh = ExtResource( 26 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 25 )
+material/1 = ExtResource( 20 )
+
+[node name="pult" type="StaticBody" parent="ural/central_module/pult_panel"]
+transform = Transform( 1, 0, 0, 0, 0.970295, -0.241922, 0, 0.241922, 0.970295, 0.043, -0.151, 0.165 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ural/central_module/pult_panel/pult"]
+shape = SubResource( 4 )
+
+[node name="group8_00" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0.05, 0 )
+
+[node name="group8_01" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.175, 0.05, 0 )
+
+[node name="group8_02" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.15, 0.05, 0 )
+
+[node name="group8_03" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 2.98023e-08, 1, 8.88178e-16, -1, 2.98023e-08, -4.37114e-08, 0.125, 0.05, 1.19209e-07 )
+
+[node name="group8_04" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.1, 0.05, 0 )
+
+[node name="group8_05" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.075, 0.05, 0 )
+
+[node name="group8_06" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, 0.05, 0 )
+
+[node name="group8_07" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.025, 0.05, 0 )
+
+[node name="group8_08" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.05, 0 )
+
+[node name="group8_09" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.025, 0.05, 0 )
+
+[node name="group8_10" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.05, 0.05, 0 )
+
+[node name="group8_11" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 8.88178e-16, -1, 0, -4.37114e-08, -0.075, 0.05, 0 )
+
+[node name="group8_1_00" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.14, 0.05, 0 )
+
+[node name="group8_1_01" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.164, 0.05, 0 )
+
+[node name="group8_1_02" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.189, 0.05, 0 )
+
+[node name="group8_1_03" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.214, 0.05, 0 )
+
+[node name="group8_1_04" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.239, 0.05, 0 )
+
+[node name="group8_1_05" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 8.88178e-16, -1, 0, -4.37114e-08, -0.264, 0.05, -5.96046e-08 )
+
+[node name="addr_vz" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.224641, 0.0441066, -0.034713 )
+
+[node name="com_reg_vz" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.292132, 0.0346813, -0.0569875 )
+
+[node name="start_button" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.0363237, 0.0578953, 0.142102 )
+
+[node name="stop_button" parent="ural/central_module/pult_panel/pult" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.0917523, 0.0570214, 0.143892 )
+
+[node name="right_cabinet" type="Spatial" parent="ural"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96, 0, 0 )
+
+[node name="tall_cabinet" type="MeshInstance" parent="ural/right_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.162 )
+mesh = ExtResource( 21 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 20 )
+
+[node name="left_door" parent="ural/right_cabinet" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
+
+[node name="right_door" parent="ural/right_cabinet" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
+
+[node name="left_cabinet" type="Spatial" parent="ural"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96, 0, 0 )
+
+[node name="tall_cabinet" type="MeshInstance" parent="ural/left_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.162 )
+mesh = ExtResource( 21 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 20 )
+
+[node name="left_door" parent="ural/left_cabinet" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
+
+[node name="right_door" parent="ural/left_cabinet" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
+
+[node name="rightmost_cabinet" type="Spatial" parent="ural"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92, 0, 0 )
+
+[node name="tall_cabinet" type="MeshInstance" parent="ural/rightmost_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.162 )
+mesh = ExtResource( 21 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 20 )
+
+[node name="left_door" parent="ural/rightmost_cabinet" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
+
+[node name="right_door" parent="ural/rightmost_cabinet" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
+
+[node name="leftmost_cabinet" type="Spatial" parent="ural"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92, 0, 0 )
+
+[node name="tall_cabinet" type="MeshInstance" parent="ural/leftmost_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.162 )
+mesh = ExtResource( 21 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 20 )
+
+[node name="left_door" parent="ural/leftmost_cabinet" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
+
+[node name="right_door" parent="ural/leftmost_cabinet" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
 
 [node name="room" type="Spatial" parent="."]
 
@@ -317,6 +394,7 @@ omni_range = 0.5
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = SubResource( 13 )
 skeleton = NodePath("../..")
+material/0 = SubResource( 24 )
 
 [node name="north_wall" type="MeshInstance" parent="room"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -2 )
@@ -331,14 +409,14 @@ skeleton = NodePath("../..")
 [node name="lamp_01" type="OmniLight" parent="room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 1 )
 light_color = Color( 1, 0.937255, 0.6, 1 )
-light_energy = 0.5
+light_energy = 0.4
 light_specular = 0.1
 shadow_enabled = true
 
 [node name="lamp_02" type="OmniLight" parent="room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 1 )
 light_color = Color( 1, 0.937255, 0.6, 1 )
-light_energy = 0.5
+light_energy = 0.4
 light_specular = 0.1
 shadow_enabled = true
 
@@ -357,11 +435,26 @@ transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4
 mesh = SubResource( 12 )
 skeleton = NodePath("../..")
 
-[connection signal="left_pressed" from="ural/pult/addr_vz" to="ural/pult" method="_on_addr_vz_left_pressed"]
-[connection signal="left_released" from="ural/pult/addr_vz" to="ural/pult" method="_on_addr_vz_left_released"]
-[connection signal="left_pressed" from="ural/pult/com_reg_vz" to="ural/pult" method="_on_com_reg_vz_left_pressed"]
-[connection signal="left_released" from="ural/pult/com_reg_vz" to="ural/pult" method="_on_com_reg_vz_left_released"]
-[connection signal="left_pressed" from="ural/pult/start_button" to="ural/pult" method="_on_start_button_left_pressed"]
-[connection signal="left_released" from="ural/pult/start_button" to="ural/pult" method="_on_start_button_left_released"]
-[connection signal="left_pressed" from="ural/pult/stop_button" to="ural/pult" method="_on_stop_button_left_pressed"]
-[connection signal="left_released" from="ural/pult/stop_button" to="ural/pult" method="_on_stop_button_left_released"]
+[node name="player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.298073 )
+script = ExtResource( 24 )
+
+[node name="Camera" type="Camera" parent="player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
+current = true
+fov = 45.0
+near = 0.01
+far = 15.0
+
+[node name="CollisionShape" type="CollisionShape" parent="player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 21 )
+
+[connection signal="left_pressed" from="ural/central_module/pult_panel/pult/addr_vz" to="ural/central_module/pult_panel/pult" method="_on_addr_vz_left_pressed"]
+[connection signal="left_released" from="ural/central_module/pult_panel/pult/addr_vz" to="ural/central_module/pult_panel/pult" method="_on_addr_vz_left_released"]
+[connection signal="left_pressed" from="ural/central_module/pult_panel/pult/com_reg_vz" to="ural/central_module/pult_panel/pult" method="_on_com_reg_vz_left_pressed"]
+[connection signal="left_released" from="ural/central_module/pult_panel/pult/com_reg_vz" to="ural/central_module/pult_panel/pult" method="_on_com_reg_vz_left_released"]
+[connection signal="left_pressed" from="ural/central_module/pult_panel/pult/start_button" to="ural/central_module/pult_panel/pult" method="_on_start_button_left_pressed"]
+[connection signal="left_released" from="ural/central_module/pult_panel/pult/start_button" to="ural/central_module/pult_panel/pult" method="_on_start_button_left_released"]
+[connection signal="left_pressed" from="ural/central_module/pult_panel/pult/stop_button" to="ural/central_module/pult_panel/pult" method="_on_stop_button_left_pressed"]
+[connection signal="left_released" from="ural/central_module/pult_panel/pult/stop_button" to="ural/central_module/pult_panel/pult" method="_on_stop_button_left_released"]

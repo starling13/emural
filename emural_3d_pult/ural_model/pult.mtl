@@ -1,16 +1,6 @@
 # Blender MTL File: 'model.blend'
 # Material Count: 2
 
-newmtl glass
-Ns 1000.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.094353 0.094353 0.094353
-Ks 1.000000 1.000000 1.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 0.100000
-illum 2
-
 newmtl gray_steel
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
@@ -20,3 +10,15 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Kd /home/skvortsov/STARLING_REPO/emural/emural_3d_pult/pult.png
+
+newmtl gray_steel_NONE
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.173354 0.173354 0.173354
+Ks 0.205221 0.205221 0.205221
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /home/skvortsov/STARLING_REPO/emural/emural_3d_pult/pult.png

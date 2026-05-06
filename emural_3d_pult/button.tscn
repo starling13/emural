@@ -3,9 +3,9 @@
 [ext_resource path="res://button.gd" type="Script" id=1]
 
 [sub_resource type="CylinderMesh" id=1]
-top_radius = 0.008
-bottom_radius = 0.008
-height = 0.02
+top_radius = 0.006
+bottom_radius = 0.006
+height = 0.015
 radial_segments = 8
 rings = 1
 

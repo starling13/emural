@@ -26,7 +26,7 @@ func set_color(c: Color):
 
 
 func _on_button_mouse_entered():
-	Input.set_default_cursor_shape(Input.CURSOR_DRAG)
+	Input.set_default_cursor_shape(Input.CURSOR_CAN_DROP)
 
 
 func _on_button_mouse_exited():

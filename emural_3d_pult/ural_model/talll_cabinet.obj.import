@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/talll_cabinet.obj-21b5317e7c66d9604ffd5004fa690831.mesh"
+
+[deps]
+
+files=[ "res://.import/talll_cabinet.obj-21b5317e7c66d9604ffd5004fa690831.mesh" ]
+
+source_file="res://ural_model/talll_cabinet.obj"
+dest_files=[ "res://.import/talll_cabinet.obj-21b5317e7c66d9604ffd5004fa690831.mesh", "res://.import/talll_cabinet.obj-21b5317e7c66d9604ffd5004fa690831.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

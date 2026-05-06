@@ -1,0 +1,11 @@
+[gd_resource type="NoiseTexture" load_steps=2 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=22]
+octaves = 4
+period = 32.0
+persistence = 0.75
+
+[resource]
+width = 2048
+height = 1024
+noise = SubResource( 22 )

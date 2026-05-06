@@ -37,6 +37,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0 )
 mesh = SubResource( 3 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0111134, 0 )
 light_color = Color( 0.898039, 0.623529, 0.623529, 1 )
 light_energy = 0.0
 light_indirect_energy = 0.0

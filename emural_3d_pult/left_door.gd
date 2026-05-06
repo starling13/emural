@@ -6,4 +6,3 @@ func _ready():
 
 func _on_open_state_changed(value):
 	self.rotation_degrees.y = 100.0 * value
-	
