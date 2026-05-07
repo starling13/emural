@@ -1,7 +1,9 @@
-extends StaticBody
+extends Spatial
 
 var _adder_keyboard: Array = []
 var _command_reg_keyboard: Array = []
+
+var ecvm: Ural = null
 
 func _ready():
 	$group8_00.set_color(Color.black)
@@ -66,7 +68,7 @@ func _on_com_reg_vz_left_released():
 
 func _on_start_button_left_pressed():
 	$start_button.set_state(true)
-	Ural.start()
+	ecvm.start()
 
 func _on_start_button_left_released():
 	$start_button.set_state(false)
@@ -74,7 +76,7 @@ func _on_start_button_left_released():
 
 func _on_stop_button_left_pressed():
 	$stop_button.set_state(true)
-	Ural.stop()
+	ecvm.stop()
 
 func _on_stop_button_left_released():
 	$stop_button.set_state(false)

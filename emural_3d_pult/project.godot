@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Ural",
+"language": "GDScript",
+"path": "res://ural.gd"
+} ]
+_global_script_class_icons={
+"Ural": ""
+}
+
 [application]
 
 config/name="emural_3d_room"
@@ -17,7 +27,6 @@ config/icon="res://icon.png"
 [autoload]
 
 Door="*res://door.gd"
-Ural="*res://ural.gd"
 LampPanel="*res://lamp_panel.gd"
 
 [display]
