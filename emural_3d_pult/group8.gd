@@ -25,6 +25,10 @@ func set_value(v: int):
 		_buttons[v].set_state(true)
 
 
+func value() -> int:
+	return _value
+
+
 func set_color(c: Color):
 	for b in _buttons:
 		b.set_color(c)

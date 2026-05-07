@@ -5,7 +5,7 @@
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.006
 bottom_radius = 0.006
-height = 0.015
+height = 0.01
 radial_segments = 8
 rings = 1
 

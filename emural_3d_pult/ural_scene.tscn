@@ -225,6 +225,63 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295, 0, 0 )
 [node name="lamp_14" parent="central_cabinet/panel/adder_panel" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315, 0, 0 )
 
+[node name="rgk_panel" type="Spatial" parent="central_cabinet/panel"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.429273, 0.0984202, 0.00399995 )
+script = ExtResource( 12 )
+
+[node name="lamp_00" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+
+[node name="lamp_01" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0, 0 )
+
+[node name="lamp_02" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0 )
+
+[node name="lamp_03" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.071, 0, 0 )
+
+[node name="lamp_04" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091, 0, 0 )
+
+[node name="lamp_05" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11, 0, 0 )
+
+[node name="lamp_06" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135, 0, 0 )
+
+[node name="lamp_07" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, 0, 0 )
+
+[node name="lamp_08" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.175, 0, 0 )
+
+[node name="lamp_09" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.205, 0, 0 )
+
+[node name="lamp_10" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225, 0, 0 )
+
+[node name="lamp_11" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245, 0, 0 )
+
+[node name="lamp_12" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275, 0, 0 )
+
+[node name="lamp_13" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295, 0, 0 )
+
+[node name="lamp_14" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315, 0, 0 )
+
+[node name="lamp_15" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345, 0, 0 )
+
+[node name="lamp_16" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.365, 0, 0 )
+
+[node name="lamp_17" parent="central_cabinet/panel/rgk_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395, 0, 0 )
+
 [node name="short_cabinet" type="MeshInstance" parent="central_cabinet"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.162 )
 mesh = ExtResource( 9 )
@@ -341,13 +398,19 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 8.88178e-16, -1, 0, -4.37114e-0
 transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.224641, 0.0441066, -0.034713 )
 
 [node name="com_reg_vz" parent="central_cabinet/pult_panel/pult" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.292132, 0.0346813, -0.0569875 )
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.285609, 0.0356285, -0.0531881 )
 
 [node name="start_button" parent="central_cabinet/pult_panel/pult" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.0363237, 0.0578953, 0.142102 )
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.0363237, 0.0398736, 0.146595 )
 
 [node name="stop_button" parent="central_cabinet/pult_panel/pult" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.0917523, 0.0570214, 0.143892 )
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.0917523, 0.0389998, 0.148385 )
+
+[node name="single_step_button" parent="central_cabinet/pult_panel/pult" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0.0262734, 0.0389998, 0.148385 )
+
+[node name="rgk_and_button" parent="central_cabinet/pult_panel/pult" instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.289309, 0.0431013, 0.00129366 )
 
 [node name="TallLampSet" type="MeshInstance" parent="central_cabinet"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545, -0.1 )
@@ -567,3 +630,7 @@ omni_range = 0.5
 [connection signal="left_released" from="central_cabinet/pult_panel/pult/start_button" to="central_cabinet/pult_panel/pult" method="_on_start_button_left_released"]
 [connection signal="left_pressed" from="central_cabinet/pult_panel/pult/stop_button" to="central_cabinet/pult_panel/pult" method="_on_stop_button_left_pressed"]
 [connection signal="left_released" from="central_cabinet/pult_panel/pult/stop_button" to="central_cabinet/pult_panel/pult" method="_on_stop_button_left_released"]
+[connection signal="left_pressed" from="central_cabinet/pult_panel/pult/single_step_button" to="central_cabinet/pult_panel/pult" method="_on_single_step_button_left_pressed"]
+[connection signal="left_released" from="central_cabinet/pult_panel/pult/single_step_button" to="central_cabinet/pult_panel/pult" method="_on_single_step_button_left_released"]
+[connection signal="left_pressed" from="central_cabinet/pult_panel/pult/rgk_and_button" to="central_cabinet/pult_panel/pult" method="_on_rgk_and_button_left_pressed"]
+[connection signal="left_released" from="central_cabinet/pult_panel/pult/rgk_and_button" to="central_cabinet/pult_panel/pult" method="_on_rgk_and_button_left_released"]

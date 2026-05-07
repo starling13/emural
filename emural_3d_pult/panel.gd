@@ -14,3 +14,4 @@ func _on_open_state_changed(value):
 
 func _process(delta):
 	$schk_panel.set_value(ecvm.get_schk())
+	$rgk_panel.set_value(ecvm.get_rgk())

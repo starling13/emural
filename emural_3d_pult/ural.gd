@@ -2,23 +2,44 @@
 extends Node
 class_name Ural
 
-const HEX_LEAST_18BIT = 0x3FFFF
 const HEX_MOST_18BIT = 0xFFFFC0000
-const HEX_36BIT = 0xFFFFFFFFF
 const HEX_5BIT = 0x1F
+const HEX_11BIT = 0x7FFFF
+const HEX_18BIT = 0x3FFFF
+const HEX_36BIT = 0xFFFFFFFFF
+
+const OCT_00 = 0x0
+const OCT_01 = 0x1
+const OCT_02 = 0x2
+const OCT_03 = 0x3
+const OCT_04 = 0x4
+const OCT_05 = 0x5
+const OCT_06 = 0x6
+const OCT_07 = 0x7
+const OCT_10 = 0x8
+const OCT_11 = 0x9
+const OCT_12 = 0xA
+const OCT_13 = 0xB
+const OCT_14 = 0xC
+const OCT_15 = 0xD
+const OCT_16 = 0xE
+const OCT_17 = 0xF
+const OCT_20 = 0x10
+const OCT_21 = 0x11
+const OCT_22 = 0x12
 
 # Half-word (Short 18-bit machine word. Command or 18-bit fixed point fraction)
 class HalfWord:
 	var _value: int
 	
 	func _init(v: int):
-		_value = v & HEX_LEAST_18BIT
+		_value = v & HEX_18BIT
 	
 	func value() -> int:
-		return _value & HEX_LEAST_18BIT
+		return _value & HEX_18BIT
 		
 	func set_value(v: int):
-		_value = v & HEX_LEAST_18BIT
+		_value = v & HEX_18BIT
 
 
 class Command:
@@ -29,6 +50,9 @@ class Command:
 		
 	func opcode() -> int:
 		return (self._value >> 12) & HEX_5BIT
+		
+	func address() -> int:
+		return self._value & HEX_11BIT
 
 
 # Machine word (Full 36-bit fixed point fraction in direct code)
@@ -39,14 +63,14 @@ class Word:
 		_value = v & 0xFFFFFFFFF
 	
 	func most_half(hw: HalfWord) -> int:
-		return hw.set_value((_value >> 18) & HEX_LEAST_18BIT)
+		return hw.set_value((_value >> 18) & HEX_18BIT)
 		
 	func set_most_half(hw: HalfWord):
-		self._value &= HEX_LEAST_18BIT
+		self._value &= HEX_18BIT
 		self._value |= hw.value() << 18
 		
 	func least_half(hw: HalfWord) -> int:
-		return hw.set_value(_value & HEX_LEAST_18BIT)
+		return hw.set_value(_value & HEX_18BIT)
 		
 	func set_leasr_half(hw: HalfWord):
 		self._value &= HEX_MOST_18BIT
@@ -105,7 +129,7 @@ var _state: int = state_t.IDLE
 var _schk: int = 0
 
 # Command register (РГК - RGK)
-var _rgk: HalfWord = HalfWord.new(0)
+var _rgk: Command = Command.new(0)
 
 # RAM
 var _drum: MagneticDrum = MagneticDrum.new()
@@ -113,15 +137,20 @@ var _drum: MagneticDrum = MagneticDrum.new()
 
 func _init():
 	print("URAL CPU init")
-	
+
 
 func _ready():
 	print("URAL CPU ready")
 	
 	_drum.clear()
-	
-func get_rgk() -> HalfWord:
-	return _rgk
+
+
+func get_rgk() -> int:
+	return _rgk.value()
+
+
+func set_rgk(v: int):
+	_rgk.set_value(v)
 
 
 func get_schk() -> int:
@@ -148,12 +177,18 @@ func step():
 	if _schk == 0x800:
 		_schk = 0
 	
-	var command: Command = Command.new(0)
-	_rgk = _drum.read_half(_schk, command)
+	_drum.read_half(_schk, _rgk)
 	
-	match command.opcode():
-		0:
-			self._op_nop_00()
+	match _rgk.opcode():
+		OCT_00:
+			_op_nop_00()
+		OCT_22:
+			_op_jmp_22()
+		_:
+			_op_nop_00()
 		
 func _op_nop_00():
 	_schk  = _schk + 1
+
+func _op_jmp_22():
+	_schk = _rgk.address();

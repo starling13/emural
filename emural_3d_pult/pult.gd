@@ -80,3 +80,31 @@ func _on_stop_button_left_pressed():
 
 func _on_stop_button_left_released():
 	$stop_button.set_state(false)
+
+
+func _on_single_step_button_left_pressed():
+	$single_step_button.set_state(true)
+	ecvm.step()
+
+
+func _on_single_step_button_left_released():
+	$single_step_button.set_state(false)
+
+
+func _on_rgk_and_button_left_pressed():
+	$rgk_and_button.set_state(true)
+
+	var rgk_value: int = 0
+	
+	rgk_value |= $group8_1_00.value()
+	rgk_value |= $group8_1_01.value() << 3
+	rgk_value |= $group8_1_02.value() << 6
+	rgk_value |= $group8_1_03.value() << 9
+	rgk_value |= $group8_1_04.value() << 12
+	rgk_value |= $group8_1_05.value() << 15
+	
+	ecvm.set_rgk(rgk_value)
+
+
+func _on_rgk_and_button_left_released():
+	$rgk_and_button.set_state(false)
