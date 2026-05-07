@@ -7,5 +7,5 @@ func _init():
 	self.add_child(ecvm)
 
 func _ready():
-	$central_module/panel.ecvm = ecvm
-	$central_module/pult_panel/pult.ecvm = ecvm
+	$central_cabinet/panel.ecvm = ecvm
+	$central_cabinet/pult_panel/pult.ecvm = ecvm

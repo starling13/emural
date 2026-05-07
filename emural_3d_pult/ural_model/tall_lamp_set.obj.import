@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tall_lamp_set.obj-c6560b7a0ebf9d4d91b6fb8333114b76.mesh"
+
+[deps]
+
+files=[ "res://.import/tall_lamp_set.obj-c6560b7a0ebf9d4d91b6fb8333114b76.mesh" ]
+
+source_file="res://ural_model/tall_lamp_set.obj"
+dest_files=[ "res://.import/tall_lamp_set.obj-c6560b7a0ebf9d4d91b6fb8333114b76.mesh", "res://.import/tall_lamp_set.obj-c6560b7a0ebf9d4d91b6fb8333114b76.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true
