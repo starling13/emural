@@ -157,6 +157,10 @@ func set_rgk(v: int):
 
 func get_schk() -> int:
 	return _schk
+	
+	
+func get_dshk() -> int:
+	return _dshk
 
 	
 func _physics_process(delta):

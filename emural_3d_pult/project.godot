@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody",
+"class": "Button3D",
+"language": "GDScript",
+"path": "res://controls/button_3d.gd"
+}, {
+"base": "Button3D",
+"class": "PushButton3D",
+"language": "GDScript",
+"path": "res://controls/push_button_3d.gd"
+}, {
 "base": "Node",
 "class": "Ural",
 "language": "GDScript",
 "path": "res://ural.gd"
 } ]
 _global_script_class_icons={
+"Button3D": "",
+"PushButton3D": "",
 "Ural": ""
 }
 

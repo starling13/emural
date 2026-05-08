@@ -1,0 +1,141 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://controls/push_button_3d.gd" type="Script" id=1]
+[ext_resource path="res://pult.gd" type="Script" id=2]
+[ext_resource path="res://group8.tscn" type="PackedScene" id=3]
+[ext_resource path="res://controls/button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://pult.png" type="Texture" id=5]
+[ext_resource path="res://ural_model/pult.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://gray_steel.tres" type="Material" id=8]
+
+[sub_resource type="SpatialMaterial" id=25]
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="CubeMesh" id=26]
+size = Vector3( 0.013, 0.005, 0.02 )
+
+[sub_resource type="SpatialMaterial" id=27]
+albedo_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+
+[sub_resource type="BoxShape" id=28]
+extents = Vector3( 0.01, 0.005, 0.01 )
+
+[node name="pult_panel" type="Spatial"]
+
+[node name="mesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12, 0.215 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 25 )
+material/1 = ExtResource( 8 )
+
+[node name="pult" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.970295, -0.241922, 0, 0.241922, 0.970295, 0.0391418, -0.151, 0.165 )
+script = ExtResource( 2 )
+
+[node name="group8_00" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0.05, 0 )
+
+[node name="group8_01" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.175, 0.05, 0 )
+
+[node name="group8_02" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.15, 0.05, 0 )
+
+[node name="group8_03" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 2.98023e-08, 1, 8.88178e-16, -1, 2.98023e-08, -4.37114e-08, 0.125, 0.05, 1.19209e-07 )
+
+[node name="group8_04" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.1, 0.05, 0 )
+
+[node name="group8_05" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.075, 0.05, 0 )
+
+[node name="group8_06" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.05, 0.05, 0 )
+
+[node name="group8_07" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.025, 0.05, 0 )
+
+[node name="group8_08" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.05, 0 )
+
+[node name="group8_09" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.025, 0.05, 0 )
+
+[node name="group8_10" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.05, 0.05, 0 )
+
+[node name="group8_11" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 8.88178e-16, -1, 0, -4.37114e-08, -0.075, 0.05, 0 )
+
+[node name="group8_1_00" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.14, 0.05, 0 )
+
+[node name="group8_1_01" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.164, 0.05, 0 )
+
+[node name="group8_1_02" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.189, 0.05, 0 )
+
+[node name="group8_1_03" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.214, 0.05, 0 )
+
+[node name="group8_1_04" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.239, 0.05, 0 )
+
+[node name="group8_1_05" parent="pult" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 8.88178e-16, -1, 0, -4.37114e-08, -0.264, 0.05, -5.96046e-08 )
+
+[node name="addr_vz" parent="pult" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, -8.9407e-08, 0, 8.9407e-08, 1, 0.224641, 0.0441066, -0.034713 )
+
+[node name="start_button" parent="pult" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.0363237, 0.0398736, 0.146595 )
+
+[node name="stop_button" parent="pult" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.0917523, 0.0389998, 0.148385 )
+
+[node name="single_step_button" parent="pult" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0.0262734, 0.0389998, 0.148385 )
+
+[node name="rgk_and_button" parent="pult" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.289309, 0.0431013, 0.00129366 )
+
+[node name="com_reg_vz_button" type="StaticBody" parent="pult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2869, 0.0503325, -0.0390317 )
+script = ExtResource( 1 )
+
+[node name="mesh" type="MeshInstance" parent="pult/com_reg_vz_button"]
+mesh = SubResource( 26 )
+material/0 = SubResource( 27 )
+
+[node name="collision_shape" type="CollisionShape" parent="pult/com_reg_vz_button"]
+shape = SubResource( 28 )
+
+[connection signal="input_event" from="pult/addr_vz" to="pult/addr_vz" method="_on_button_input_event"]
+[connection signal="left_pressed" from="pult/addr_vz" to="pult" method="_on_addr_vz_left_pressed"]
+[connection signal="left_released" from="pult/addr_vz" to="pult" method="_on_addr_vz_left_released"]
+[connection signal="mouse_entered" from="pult/addr_vz" to="pult/addr_vz" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="pult/addr_vz" to="pult/addr_vz" method="_on_button_mouse_exited"]
+[connection signal="input_event" from="pult/start_button" to="pult/start_button" method="_on_button_input_event"]
+[connection signal="left_pressed" from="pult/start_button" to="pult" method="_on_start_button_left_pressed"]
+[connection signal="left_released" from="pult/start_button" to="pult" method="_on_start_button_left_released"]
+[connection signal="mouse_entered" from="pult/start_button" to="pult/start_button" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="pult/start_button" to="pult/start_button" method="_on_button_mouse_exited"]
+[connection signal="input_event" from="pult/stop_button" to="pult/stop_button" method="_on_button_input_event"]
+[connection signal="left_pressed" from="pult/stop_button" to="pult" method="_on_stop_button_left_pressed"]
+[connection signal="left_released" from="pult/stop_button" to="pult" method="_on_stop_button_left_released"]
+[connection signal="mouse_entered" from="pult/stop_button" to="pult/stop_button" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="pult/stop_button" to="pult/stop_button" method="_on_button_mouse_exited"]
+[connection signal="input_event" from="pult/single_step_button" to="pult/single_step_button" method="_on_button_input_event"]
+[connection signal="left_pressed" from="pult/single_step_button" to="pult" method="_on_single_step_button_left_pressed"]
+[connection signal="left_released" from="pult/single_step_button" to="pult" method="_on_single_step_button_left_released"]
+[connection signal="mouse_entered" from="pult/single_step_button" to="pult/single_step_button" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="pult/single_step_button" to="pult/single_step_button" method="_on_button_mouse_exited"]
+[connection signal="input_event" from="pult/rgk_and_button" to="pult/rgk_and_button" method="_on_button_input_event"]
+[connection signal="left_pressed" from="pult/rgk_and_button" to="pult" method="_on_rgk_and_button_left_pressed"]
+[connection signal="left_released" from="pult/rgk_and_button" to="pult" method="_on_rgk_and_button_left_released"]
+[connection signal="mouse_entered" from="pult/rgk_and_button" to="pult/rgk_and_button" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="pult/rgk_and_button" to="pult/rgk_and_button" method="_on_button_mouse_exited"]
+[connection signal="pressed" from="pult/com_reg_vz_button" to="pult" method="_on_com_reg_vz_button_pressed"]

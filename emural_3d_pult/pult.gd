@@ -56,23 +56,12 @@ func _on_addr_vz_left_released():
 	$addr_vz.set_state(false)
 
 
-func _on_com_reg_vz_left_pressed():
-	$com_reg_vz.set_state(true)
-	for b in self._command_reg_keyboard:
-		b.set_value(-1)
-
-
-func _on_com_reg_vz_left_released():
-	$com_reg_vz.set_state(false)
-
-
 func _on_start_button_left_pressed():
 	$start_button.set_state(true)
 	ecvm.start()
 
 func _on_start_button_left_released():
 	$start_button.set_state(false)
-
 
 func _on_stop_button_left_pressed():
 	$stop_button.set_state(true)
@@ -108,3 +97,8 @@ func _on_rgk_and_button_left_pressed():
 
 func _on_rgk_and_button_left_released():
 	$rgk_and_button.set_state(false)
+
+
+func _on_com_reg_vz_button_pressed():
+	for b in self._command_reg_keyboard:
+		b.set_value(-1)

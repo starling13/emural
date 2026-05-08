@@ -1,28 +1,25 @@
 extends StaticBody
 
+class_name Button3D
+
 signal left_pressed
 signal left_released
 
-var _state: bool = false
+export var press_state: bool = false
+export var press_height: float = 0.005
 
 func _ready():
-	pass
+	connect("mouse_entered", self, "_on_button_mouse_entered")
+	connect("mouse_exited", self, "_on_button_mouse_exited")
+	connect("input_event", self, "_on_button_input_event")
+
 
 func set_state(new_val: bool):
 	if new_val:
-		$MeshInstance.position.y = -0.01
+		$mesh.position.y = 0
 	else:
-		$MeshInstance.position.y = 0.01
-	_state = new_val
-	
-
-func get_state() -> bool:
-	return _state
-	
-
-func set_color(c: Color):
-	var m: Material = $MeshInstance.get_active_material(0)
-	m.albedo_color = c
+		$mesh.position.y = press_height
+	press_state = new_val
 
 
 func _on_button_mouse_entered():

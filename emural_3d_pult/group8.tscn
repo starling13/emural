@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://controls/button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://group8.gd" type="Script" id=2]
 
 [node name="group8" type="Spatial"]
