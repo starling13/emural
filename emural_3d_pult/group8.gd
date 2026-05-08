@@ -39,7 +39,4 @@ func _on_button_input_event(camera, event, position, normal, shape_idx, button_i
 		if e.pressed and e.button_index == BUTTON_LEFT:
 			if _buttons[button_index].get_state():
 				return
-			_buttons[button_index].set_state(not _buttons[button_index].get_state())
-			for i in range(8):
-				if i != button_index:
-					_buttons[i].set_state(false)
+			self.set_value(button_index)
