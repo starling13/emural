@@ -131,6 +131,8 @@ var _schk: int = 0
 # Command register (РГК - RGK)
 var _rgk: Command = Command.new(0)
 
+var _dshk: int = 0
+
 # RAM
 var _drum: MagneticDrum = MagneticDrum.new()
 
@@ -174,18 +176,21 @@ func stop():
 
 
 func step():
-	if _schk == 0x800:
-		_schk = 0
 	
-	_drum.read_half(_schk, _rgk)
+	_dshk = _rgk.opcode()
 	
-	match _rgk.opcode():
+	match _dshk:
 		OCT_00:
 			_op_nop_00()
 		OCT_22:
 			_op_jmp_22()
 		_:
 			_op_nop_00()
+	
+	if _schk == 0x800:
+		_schk = 0
+
+	_drum.read_half(_schk, _rgk)
 		
 func _op_nop_00():
 	_schk  = _schk + 1
