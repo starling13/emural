@@ -1,5 +1,5 @@
 extends LampPanel
-
+class_name AdderPanel
 
 func _ready():
 	_elements.append($lamp_00)

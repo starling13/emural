@@ -1,5 +1,5 @@
 extends LampPanel
-class_name SCHKPanel
+class_name RGKPanel
 
 func _ready():
 	_elements.append($lamp_00)
@@ -13,3 +13,10 @@ func _ready():
 	_elements.append($lamp_08)
 	_elements.append($lamp_09)
 	_elements.append($lamp_10)
+	_elements.append($lamp_11)
+	_elements.append($lamp_12)
+	_elements.append($lamp_13)
+	_elements.append($lamp_14)
+	_elements.append($lamp_15)
+	_elements.append($lamp_16)
+	_elements.append($lamp_17)

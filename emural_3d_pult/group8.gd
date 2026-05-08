@@ -37,6 +37,6 @@ func _on_button_input_event(camera, event, position, normal, shape_idx, button_i
 	if event is InputEventMouseButton:
 		var e: InputEventMouseButton = event as InputEventMouseButton
 		if e.pressed and e.button_index == BUTTON_LEFT:
-			if _buttons[button_index].get_state():
+			if _buttons[button_index].press_state:
 				return
 			self.set_value(button_index)

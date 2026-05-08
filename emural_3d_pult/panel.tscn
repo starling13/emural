@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://panel.gd" type="Script" id=1]
 [ext_resource path="res://adder_panel.gd" type="Script" id=2]
+[ext_resource path="res://rgk_panel.gd" type="Script" id=3]
 [ext_resource path="res://ural_model/panel.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://schk_panel.gd" type="Script" id=5]
 [ext_resource path="res://panel.png" type="Texture" id=6]
 [ext_resource path="res://lamp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gray_steel.tres" type="Material" id=8]
+[ext_resource path="res://dshk_panel.gd" type="Script" id=9]
 
 [sub_resource type="SpatialMaterial" id=20]
 albedo_texture = ExtResource( 6 )
@@ -132,7 +134,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 0, 0 )
 
 [node name="rgk_panel" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.429273, 0.0984202, 0.00399995 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="lamp_00" parent="rgk_panel" instance=ExtResource( 7 )]
 
@@ -189,7 +191,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395, 0, 0 )
 
 [node name="dshk_panel" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.338187, 0.0942609, 0.00423771 )
-script = ExtResource( 5 )
+script = ExtResource( 9 )
 
 [node name="lamp_00" parent="dshk_panel" instance=ExtResource( 7 )]
 

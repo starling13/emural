@@ -9,15 +9,35 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "LampPanel",
+"class": "AdderPanel",
+"language": "GDScript",
+"path": "res://adder_panel.gd"
+}, {
 "base": "StaticBody",
 "class": "Button3D",
 "language": "GDScript",
 "path": "res://controls/button_3d.gd"
 }, {
+"base": "LampPanel",
+"class": "DSHKPanel",
+"language": "GDScript",
+"path": "res://dshk_panel.gd"
+}, {
 "base": "Button3D",
 "class": "PushButton3D",
 "language": "GDScript",
 "path": "res://controls/push_button_3d.gd"
+}, {
+"base": "LampPanel",
+"class": "RGKPanel",
+"language": "GDScript",
+"path": "res://rgk_panel.gd"
+}, {
+"base": "LampPanel",
+"class": "SCHKPanel",
+"language": "GDScript",
+"path": "res://schk_panel.gd"
 }, {
 "base": "Node",
 "class": "Ural",
@@ -25,8 +45,12 @@ _global_script_classes=[ {
 "path": "res://ural.gd"
 } ]
 _global_script_class_icons={
+"AdderPanel": "",
 "Button3D": "",
+"DSHKPanel": "",
 "PushButton3D": "",
+"RGKPanel": "",
+"SCHKPanel": "",
 "Ural": ""
 }
 

@@ -131,7 +131,11 @@ var _schk: int = 0
 # Command register (РГК - RGK)
 var _rgk: Command = Command.new(0)
 
+# Command decoder register (ДШК - DSHK)
 var _dshk: int = 0
+
+# Command address part register
+var _given_Address: int = 0
 
 # RAM
 var _drum: MagneticDrum = MagneticDrum.new()
@@ -180,24 +184,42 @@ func stop():
 
 
 func step():
+	# One working tact. Executed by control unit 100 times per second
+	# or from control panel with the Single step ("Однотактный режим") button
 	
+	# 2-stage pipeline:
+	#  1. Command fetching 
+	#  2. Data fetching, command decoding and execution
+	# 2 commands is being processed: current command 2-nd stage,
+	#   and next command first stage
+	# Command counter (SCHK - СЧК) pointing to the next command address
+	# Command register (RGK - РГК) contains current command
+	
+	# 1.1 Decoding current command opcode
 	_dshk = _rgk.opcode()
+	_given_Address = _rgk.address()
+
+	# 2.1 Fetch next command
+	_drum.read_half(_schk, _rgk)
 	
+	# X.2 Increase program counter
+	_schk = _schk + 1
+	print_debug(_schk)
+	if _schk == 0x800:
+		_schk = 0
+	
+	# 1.2 Executing current command
 	match _dshk:
 		OCT_00:
 			_op_nop_00()
 		OCT_22:
 			_op_jmp_22()
 		_:
-			_op_nop_00()
+			print_debug("FIXME: not implemented opcode: ", _dshk)
 	
-	if _schk == 0x800:
-		_schk = 0
-
-	_drum.read_half(_schk, _rgk)
 		
 func _op_nop_00():
-	_schk  = _schk + 1
+	pass
 
 func _op_jmp_22():
-	_schk = _rgk.address();
+	_schk = _given_Address
