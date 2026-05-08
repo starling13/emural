@@ -16,3 +16,4 @@ func _process(delta):
 	$schk_panel.set_value(ecvm.get_schk())
 	$rgk_panel.set_value(ecvm.get_rgk())
 	$dshk_panel.set_value(ecvm.get_dshk())
+	$rgau_panel.set_value(ecvm.get_rgau())

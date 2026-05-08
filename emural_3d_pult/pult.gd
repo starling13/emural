@@ -102,3 +102,22 @@ func _on_rgk_and_button_left_released():
 func _on_com_reg_vz_button_pressed():
 	for b in self._command_reg_keyboard:
 		b.set_value(-1)
+
+
+func _on_reg_add_button_pressed():
+	var rgau_value: int = 0
+	
+	rgau_value |= $group8_00.value()
+	rgau_value |= $group8_01.value() << 3
+	rgau_value |= $group8_02.value() << 6
+	rgau_value |= $group8_03.value() << 9
+	rgau_value |= $group8_04.value() << 12
+	rgau_value |= $group8_05.value() << 15
+	rgau_value |= $group8_06.value() << 18
+	rgau_value |= $group8_07.value() << 21
+	rgau_value |= $group8_08.value() << 24
+	rgau_value |= $group8_09.value() << 27
+	rgau_value |= $group8_10.value() << 30
+	rgau_value |= $group8_11.value() << 33
+	
+	ecvm.set_rgau(rgau_value)

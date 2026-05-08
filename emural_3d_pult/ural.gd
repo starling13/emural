@@ -137,6 +137,8 @@ var _dshk: int = 0
 # Command address part register
 var _given_Address: int = 0
 
+var _rg_au: Word = Word.new(0)
+
 # RAM
 var _drum: MagneticDrum = MagneticDrum.new()
 
@@ -165,6 +167,14 @@ func get_schk() -> int:
 	
 func get_dshk() -> int:
 	return _dshk
+	
+
+func set_rgau(v: int):
+	_rg_au.set_value(v)
+	
+
+func get_rgau() -> int:
+	return _rg_au.value()
 
 	
 func _physics_process(delta):
