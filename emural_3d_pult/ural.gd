@@ -4,7 +4,7 @@ class_name Ural
 
 const HEX_MOST_18BIT = 0xFFFFC0000
 const HEX_5BIT = 0x1F
-const HEX_11BIT = 0x7FFFF
+const HEX_11BIT = 0x7FF
 const HEX_18BIT = 0x3FFFF
 const HEX_36BIT = 0xFFFFFFFFF
 
