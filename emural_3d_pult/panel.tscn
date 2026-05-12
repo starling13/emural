@@ -77,7 +77,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23, 0, 0 )
 
 [node name="adder_panel" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.409, 0.253, 0.004 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.41, 0.253, 0.004 )
 script = ExtResource( 2 )
 
 [node name="lamp_00" parent="adder_panel" instance=ExtResource( 7 )]
@@ -132,6 +132,63 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.365, 0, 0 )
 
 [node name="lamp_17" parent="adder_panel" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 0, 0 )
+
+[node name="lamp_18" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415, 0, 0 )
+
+[node name="lamp_19" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.435, 0, 0 )
+
+[node name="lamp_20" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455, 0, 0 )
+
+[node name="lamp_21" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485, 0, 0 )
+
+[node name="lamp_22" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505, 0, 0 )
+
+[node name="lamp_23" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525, 0, 0 )
+
+[node name="lamp_24" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554, 0, 0 )
+
+[node name="lamp_25" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.574, 0, 0 )
+
+[node name="lamp_26" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594, 0, 0 )
+
+[node name="lamp_27" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.622, 0, 0 )
+
+[node name="lamp_28" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642, 0, 0 )
+
+[node name="lamp_29" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662, 0, 0 )
+
+[node name="lamp_30" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691, 0, 0 )
+
+[node name="lamp_31" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.711, 0, 0 )
+
+[node name="lamp_32" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.731, 0, 0 )
+
+[node name="lamp_33" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76, 0, 0 )
+
+[node name="lamp_34" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78, 0, 0 )
+
+[node name="lamp_35" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.807, 0, 0 )
+
+[node name="lamp_36" parent="adder_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827, 0, 0 )
 
 [node name="rgk_panel" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.429273, 0.0984202, 0.00399995 )
@@ -209,7 +266,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.071, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091, 0, 0 )
 
 [node name="rgau_panel" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.409, 0.201072, 0.004 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.41, 0.201, 0.004 )
 script = ExtResource( 10 )
 
 [node name="lamp_00" parent="rgau_panel" instance=ExtResource( 7 )]
@@ -264,3 +321,57 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.365, 0, 0 )
 
 [node name="lamp_17" parent="rgau_panel" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 0, 0 )
+
+[node name="lamp_18" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415, 0, 0 )
+
+[node name="lamp_19" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.435, 0, 0 )
+
+[node name="lamp_20" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455, 0, 0 )
+
+[node name="lamp_21" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485, 0, 0 )
+
+[node name="lamp_22" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505, 0, 0 )
+
+[node name="lamp_23" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525, 0, 0 )
+
+[node name="lamp_24" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.555, 0, 0 )
+
+[node name="lamp_25" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575, 0, 0 )
+
+[node name="lamp_26" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.595, 0, 0 )
+
+[node name="lamp_27" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.622, 0, 0 )
+
+[node name="lamp_28" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642, 0, 0 )
+
+[node name="lamp_29" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662, 0, 0 )
+
+[node name="lamp_30" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691, 0, 0 )
+
+[node name="lamp_31" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.711, 0, 0 )
+
+[node name="lamp_32" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.731, 0, 0 )
+
+[node name="lamp_33" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.759, 0, 0 )
+
+[node name="lamp_34" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.778, 0, 0 )
+
+[node name="lamp_35" parent="rgau_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.825, 0, 0 )

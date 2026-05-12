@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cabinet_frame.obj-c6e96bc6fd20d1685169a4f27928937f.mesh"
+
+[deps]
+
+files=[ "res://.import/cabinet_frame.obj-c6e96bc6fd20d1685169a4f27928937f.mesh" ]
+
+source_file="res://ural_model/cabinet_frame.obj"
+dest_files=[ "res://.import/cabinet_frame.obj-c6e96bc6fd20d1685169a4f27928937f.mesh", "res://.import/cabinet_frame.obj-c6e96bc6fd20d1685169a4f27928937f.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

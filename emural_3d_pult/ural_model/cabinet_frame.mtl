@@ -1,0 +1,12 @@
+# Blender MTL File: 'model.blend'
+# Material Count: 1
+
+newmtl gray_steel
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.173354 0.173354 0.173354
+Ks 0.205221 0.205221 0.205221
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
