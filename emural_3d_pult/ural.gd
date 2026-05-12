@@ -1,5 +1,5 @@
 # URAL electronic digital computing machine module
-extends Node
+extends Object
 class_name Ural
 
 const HEX_MOST_18BIT = 0xFFFFC0000
@@ -177,7 +177,7 @@ func get_rgau() -> int:
 	return _rg_au.value()
 
 	
-func _physics_process(delta):
+func clock_step():
 	match _state:
 		state_t.IDLE:
 			pass

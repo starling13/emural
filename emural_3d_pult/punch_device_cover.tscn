@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ural_model/punch_device_cover.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://right_punch_device_cover.gd" type="Script" id=2]
+[ext_resource path="res://ural_model/tape_cover.png" type="Texture" id=3]
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.4, 0.02, 0.02 )
+
+[sub_resource type="SpatialMaterial" id=28]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=27]
+albedo_texture = ExtResource( 3 )
+
+[node name="right_punch_device_cover" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, -0.095, 0.02 )
+script = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 11 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0.4 )
+light_energy = 0.0
+light_specular = 1.0
+shadow_enabled = true
+omni_range = 1.0
+
+[node name="punch_device_cover" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 28 )
+material/1 = SubResource( 27 )

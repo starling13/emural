@@ -121,3 +121,7 @@ func _on_reg_add_button_pressed():
 	rgau_value |= $group8_11.value() << 33
 	
 	ecvm.set_rgau(rgau_value)
+
+
+func _on_clear_button_pressed():
+	ecvm._drum.clear()
