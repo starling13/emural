@@ -92,7 +92,7 @@ func _on_rgk_and_button_left_pressed():
 	rgk_value |= $group8_1_04.value() << 12
 	rgk_value |= $group8_1_05.value() << 15
 	
-	ecvm.set_rgk(rgk_value)
+	ecvm.rgk().set_value(rgk_value)
 
 
 func _on_rgk_and_button_left_released():
@@ -120,7 +120,7 @@ func _on_reg_add_button_pressed():
 	rgau_value |= $group8_10.value() << 30
 	rgau_value |= $group8_11.value() << 33
 	
-	ecvm.set_rgau(rgau_value)
+	ecvm.rgau().set_value(rgau_value)
 
 
 func _on_clear_button_pressed():

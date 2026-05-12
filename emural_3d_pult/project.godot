@@ -73,8 +73,8 @@ LampPanel="*res://lamp_panel.gd"
 
 [display]
 
-window/size/width=1280
-window/size/height=800
+window/size/width=720
+window/size/height=480
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"

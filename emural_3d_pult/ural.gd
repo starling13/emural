@@ -1,13 +1,17 @@
 # URAL electronic digital computing machine module
+
 extends Object
 class_name Ural
 
+
+# Hexadecimal constants
 const HEX_MOST_18BIT = 0xFFFFC0000
 const HEX_5BIT = 0x1F
 const HEX_11BIT = 0x7FF
 const HEX_18BIT = 0x3FFFF
 const HEX_36BIT = 0xFFFFFFFFF
 
+# Octal constants
 const OCT_00 = 0x0
 const OCT_01 = 0x1
 const OCT_02 = 0x2
@@ -27,6 +31,19 @@ const OCT_17 = 0xF
 const OCT_20 = 0x10
 const OCT_21 = 0x11
 const OCT_22 = 0x12
+const OCT_23 = 0x13
+const OCT_24 = 0x14
+const OCT_25 = 0x15
+const OCT_26 = 0x16
+const OCT_27 = 0x17
+const OCT_30 = 0x18
+const OCT_31 = 0x19
+const OCT_32 = 0x1A
+const OCT_33 = 0x1B
+const OCT_34 = 0x1C
+const OCT_35 = 0x1D
+const OCT_36 = 0x1E
+const OCT_37 = 0x1F
 
 # Half-word (Short 18-bit machine word. Command or 18-bit fixed point fraction)
 class HalfWord:
@@ -137,28 +154,23 @@ var _dshk: int = 0
 # Command address part register
 var _given_Address: int = 0
 
+# Arithmetic unit register (РГАУ - RGAU)
 var _rg_au: Word = Word.new(0)
 
-# RAM
+# RAM magnetic drum
 var _drum: MagneticDrum = MagneticDrum.new()
 
 
+func get_drum() -> MagneticDrum:
+	return _drum
+
+
 func _init():
-	print("URAL CPU init")
+	pass
 
 
-func _ready():
-	print("URAL CPU ready")
-	
-	_drum.clear()
-
-
-func get_rgk() -> int:
-	return _rgk.value()
-
-
-func set_rgk(v: int):
-	_rgk.set_value(v)
+func rgk() -> Command:
+	return _rgk
 
 
 func get_schk() -> int:
@@ -169,12 +181,8 @@ func get_dshk() -> int:
 	return _dshk
 	
 
-func set_rgau(v: int):
-	_rg_au.set_value(v)
-	
-
-func get_rgau() -> int:
-	return _rg_au.value()
+func rgau() -> Word:
+	return _rg_au
 
 	
 func clock_step():

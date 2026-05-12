@@ -9,6 +9,8 @@ extents = Vector3( 0.4, 0.02, 0.02 )
 
 [sub_resource type="SpatialMaterial" id=28]
 albedo_texture = ExtResource( 3 )
+metallic_specular = 1.0
+roughness = 0.4
 
 [sub_resource type="SpatialMaterial" id=27]
 albedo_texture = ExtResource( 3 )

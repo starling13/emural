@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://panel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://punch_device_cover.tscn" type="PackedScene" id=2]
@@ -8,7 +8,10 @@
 [ext_resource path="res://ural_model/cabinet_frame.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://ural_model/left_decor.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://ural_model/main_table.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://ural_model/left_small_banquet.obj" type="ArrayMesh" id=9]
 [ext_resource path="res://ural_model/tall_lamp_set.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://ural_model/left_small_banquet_cover.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://wood.tres" type="Material" id=12]
 [ext_resource path="res://ural_model/right_short_glass_door.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://ural_model/left_short_glass_door.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://pult_panel.tscn" type="PackedScene" id=16]
@@ -319,5 +322,18 @@ material/0 = ExtResource( 25 )
 [node name="LeftDecor" type="MeshInstance" parent="leftmost_cabinet"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
 mesh = ExtResource( 7 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 25 )
+
+[node name="LeftSmallBanquet" type="MeshInstance" parent="leftmost_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 25 )
+material/1 = ExtResource( 12 )
+
+[node name="LeftSmallBanquetCover" type="MeshInstance" parent="leftmost_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
+mesh = ExtResource( 11 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 25 )
