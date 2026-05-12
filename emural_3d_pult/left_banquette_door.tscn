@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gray_steel.tres" type="Material" id=1]
+[ext_resource path="res://ural_model/left_small_banquet_door.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://left_banquette_door.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.02, 0.02, 0.03 )
+
+[node name="left_banquette_door" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.379639, -0.00225192, 0.0518067 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )
+
+[node name="LeftSmallBanquetDoor" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 1 )

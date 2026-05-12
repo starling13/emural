@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://dshk_panel.gd"
 }, {
+"base": "Spatial",
+"class": "Door",
+"language": "GDScript",
+"path": "res://door.gd"
+}, {
 "base": "Button3D",
 "class": "PushButton3D",
 "language": "GDScript",
@@ -53,6 +58,7 @@ _global_script_class_icons={
 "AdderPanel": "",
 "Button3D": "",
 "DSHKPanel": "",
+"Door": "",
 "PushButton3D": "",
 "RGAUPanel": "",
 "RGKPanel": "",
@@ -68,13 +74,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Door="*res://door.gd"
 LampPanel="*res://lamp_panel.gd"
 
 [display]
 
-window/size/width=720
-window/size/height=480
+window/size/width=1280
+window/size/height=720
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"

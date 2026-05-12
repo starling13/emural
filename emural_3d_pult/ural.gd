@@ -241,3 +241,4 @@ func _op_nop_00():
 
 func _op_jmp_22():
 	_schk = _given_Address
+	_drum.read_half(_schk, _rgk)

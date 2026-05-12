@@ -1,4 +1,5 @@
 extends Spatial
+class_name Door
 
 export var open_state: float = 0.0
 signal open_state_changed

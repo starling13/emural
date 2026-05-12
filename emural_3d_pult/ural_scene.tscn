@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://panel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://punch_device_cover.tscn" type="PackedScene" id=2]
@@ -12,10 +12,16 @@
 [ext_resource path="res://ural_model/tall_lamp_set.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://ural_model/left_small_banquet_cover.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://wood.tres" type="Material" id=12]
+[ext_resource path="res://ural_model/right_small_banquet_cover.obj" type="ArrayMesh" id=13]
 [ext_resource path="res://ural_model/right_short_glass_door.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://ural_model/left_short_glass_door.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://pult_panel.tscn" type="PackedScene" id=16]
+[ext_resource path="res://ural_model/right_small_banquet.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://right_banquette_door.tscn" type="PackedScene" id=18]
 [ext_resource path="res://right_short_glass_door.gd" type="Script" id=19]
+[ext_resource path="res://left_banquette_door.tscn" type="PackedScene" id=20]
+[ext_resource path="res://ural_model/right_decor.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://ural_model/decor_top.obj" type="ArrayMesh" id=22]
 [ext_resource path="res://wood1.jpg" type="Texture" id=23]
 [ext_resource path="res://gray_steel.tres" type="Material" id=25]
 [ext_resource path="res://right_door.tscn" type="PackedScene" id=27]
@@ -139,6 +145,11 @@ material/0 = ExtResource( 25 )
 [node name="left_punch_device_cover" parent="central_cabinet" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.095, 0.02 )
 
+[node name="DecorTop" type="MeshInstance" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
+mesh = ExtResource( 22 )
+material/0 = ExtResource( 25 )
+
 [node name="right_cabinet" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96, 0, 0 )
 
@@ -182,6 +193,11 @@ omni_range = 0.5
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.022 )
 mesh = ExtResource( 6 )
 skeleton = NodePath("../..")
+material/0 = ExtResource( 25 )
+
+[node name="DecorTop2" type="MeshInstance" parent="right_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
+mesh = ExtResource( 22 )
 material/0 = ExtResource( 25 )
 
 [node name="left_cabinet" type="Spatial" parent="."]
@@ -229,6 +245,11 @@ mesh = ExtResource( 6 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 25 )
 
+[node name="DecorTop" type="MeshInstance" parent="left_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
+mesh = ExtResource( 22 )
+material/0 = ExtResource( 25 )
+
 [node name="rightmost_cabinet" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92, 0, 0 )
 
@@ -272,6 +293,29 @@ omni_range = 0.5
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.022 )
 mesh = ExtResource( 6 )
 skeleton = NodePath("../..")
+material/0 = ExtResource( 25 )
+
+[node name="RightSmallBanquetCover" type="MeshInstance" parent="rightmost_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
+mesh = ExtResource( 13 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 25 )
+
+[node name="RightSmallBanquet" type="MeshInstance" parent="rightmost_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
+mesh = ExtResource( 17 )
+material/0 = ExtResource( 25 )
+material/1 = ExtResource( 12 )
+
+[node name="right_banquette_door" parent="rightmost_cabinet" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.421, -0.556, 0.269 )
+
+[node name="left_banquette_door" parent="rightmost_cabinet" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422, -0.556, 0.269 )
+
+[node name="RightDecor" type="MeshInstance" parent="rightmost_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
+mesh = ExtResource( 21 )
 material/0 = ExtResource( 25 )
 
 [node name="leftmost_cabinet" type="Spatial" parent="."]
@@ -337,3 +381,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.025 )
 mesh = ExtResource( 11 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 25 )
+
+[node name="right_banquette_door" parent="leftmost_cabinet" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42, -0.556, 0.269 )
+
+[node name="left_banquette_door" parent="leftmost_cabinet" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422, -0.556, 0.269 )
