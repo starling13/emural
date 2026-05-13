@@ -17,3 +17,4 @@ func _process(delta):
 	$rgk_panel.set_value(ecvm.rgk().value())
 	$dshk_panel.set_value(ecvm.get_dshk())
 	$rgau_panel.set_value(ecvm.rgau().value())
+	$adder_panel.set_value(ecvm.adder().value())

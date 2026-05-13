@@ -46,15 +46,6 @@ func _ready():
 	$group8_1_05.set_color(Color.red)
 	self._command_reg_keyboard.append($group8_1_05)
 
-func _on_addr_vz_left_pressed():
-	$addr_vz.set_state(true)
-	for b in self._adder_keyboard:
-		b.set_value(-1)
-
-
-func _on_addr_vz_left_released():
-	$addr_vz.set_state(false)
-
 
 func _on_start_button_left_pressed():
 	$start_button.set_state(true)
@@ -62,6 +53,7 @@ func _on_start_button_left_pressed():
 
 func _on_start_button_left_released():
 	$start_button.set_state(false)
+
 
 func _on_stop_button_left_pressed():
 	$stop_button.set_state(true)
@@ -120,8 +112,14 @@ func _on_reg_add_button_pressed():
 	rgau_value |= $group8_10.value() << 30
 	rgau_value |= $group8_11.value() << 33
 	
-	ecvm.rgau().set_value(rgau_value)
+	var w: Ural.Word = Ural.Word.new(rgau_value)
+	ecvm.set_rgau_and_adder(w)
 
 
 func _on_clear_button_pressed():
 	ecvm._drum.clear()
+
+
+func _on_addr_vz_button_pressed():
+	for b in self._adder_keyboard:
+		b.set_value(-1)

@@ -9,7 +9,12 @@ const HEX_MOST_18BIT = 0xFFFFC0000
 const HEX_5BIT = 0x1F
 const HEX_11BIT = 0x7FF
 const HEX_18BIT = 0x3FFFF
+const HEX_18TH_BIT = 0x20000
+const HEX_35BIT = 0x7FFFFFFFF
 const HEX_36BIT = 0xFFFFFFFFF
+const HEX_36TH_BIT = 0x800000000
+const HEX_37BIT = 0x1FFFFFFFFF
+const HEX_3637_BITS = 0x1800000000
 
 # Octal constants
 const OCT_00 = 0x0
@@ -57,6 +62,9 @@ class HalfWord:
 		
 	func set_value(v: int):
 		_value = v & HEX_18BIT
+		
+	func get_sign() -> bool:
+		return (_value & HEX_18TH_BIT) == 0
 
 
 class Command:
@@ -77,27 +85,73 @@ class Word:
 	var _value: int
 	
 	func _init(v: int):
-		_value = v & 0xFFFFFFFFF
+		_value = v & HEX_36BIT
 	
-	func most_half(hw: HalfWord) -> int:
-		return hw.set_value((_value >> 18) & HEX_18BIT)
+	func most_half(hw: HalfWord) -> void:
+		hw.set_value((_value >> 18) & HEX_18BIT)
 		
 	func set_most_half(hw: HalfWord):
 		self._value &= HEX_18BIT
 		self._value |= hw.value() << 18
 		
-	func least_half(hw: HalfWord) -> int:
-		return hw.set_value(_value & HEX_18BIT)
+	func least_half(hw: HalfWord) -> void:
+		hw.set_value(_value & HEX_18BIT)
 		
-	func set_leasr_half(hw: HalfWord):
+	func set_least_half(hw: HalfWord):
 		self._value &= HEX_MOST_18BIT
 		self._value |= hw.value()
 		
 	func value() -> int:
-		return _value & 0xFFFFFFFFF
+		return _value & HEX_36BIT
 	
 	func set_value(v: int):
-		_value = v & 0xFFFFFFFFF
+		_value = v & HEX_36BIT
+
+	func get_sign() -> bool:
+		return ((_value >> 35) & 1) == 1
+
+
+class Adder:
+	var _value: int
+	
+	func _init(v: int):
+		_value = v & HEX_37BIT
+	
+	func most_half(hw: HalfWord) -> void:
+		hw.set_value((_value >> 18) & HEX_18BIT)
+		
+	func set_most_half(hw: HalfWord):
+		self._value &= HEX_18BIT
+		self._value |= hw.value() << 18
+		
+	func least_half(hw: HalfWord) -> void:
+		hw.set_value(_value & HEX_18BIT)
+		
+	func set_least_half(hw: HalfWord):
+		self._value &= HEX_MOST_18BIT
+		self._value |= hw.value()
+		
+	func value() -> int:
+		return _value & HEX_37BIT
+	
+	func set_value(v: int):
+		_value = v & HEX_37BIT
+
+	func get_sign() -> int:
+		return (_value >> 35) & 3
+		
+	func set_sign(v: int) -> void:
+		_value = (_value & HEX_35BIT) + ((v & 3) << 35)
+		
+	func from_word(w: Word) -> void:
+		var v: int
+		if w.get_sign():
+			v = HEX_35BIT
+		else:
+			v = 0
+		self._value = (w.value() & HEX_35BIT) ^ v
+		self.set_sign(int(w.get_sign())*3)
+
 
 # Magnetic drum (RAM)
 class MagneticDrum:
@@ -160,6 +214,9 @@ var _rg_au: Word = Word.new(0)
 # RAM magnetic drum
 var _drum: MagneticDrum = MagneticDrum.new()
 
+# Addrer register
+var _adder: Adder = Adder.new(0)
+
 
 func get_drum() -> MagneticDrum:
 	return _drum
@@ -181,8 +238,17 @@ func get_dshk() -> int:
 	return _dshk
 	
 
+func adder() -> Adder:
+	return _adder
+
+
 func rgau() -> Word:
 	return _rg_au
+
+
+func set_rgau_and_adder(w: Word):
+	_rg_au = w
+	_adder.from_word(w)
 
 	
 func clock_step():
@@ -213,20 +279,17 @@ func step():
 	# Command counter (SCHK - СЧК) pointing to the next command address
 	# Command register (RGK - РГК) contains current command
 	
-	# 1.1 Decoding current command opcode
-	_dshk = _rgk.opcode()
-	_given_Address = _rgk.address()
-
-	# 2.1 Fetch next command
-	_drum.read_half(_schk, _rgk)
-	
-	# X.2 Increase program counter
+	# X.1 Increase program counter
 	_schk = _schk + 1
 	print_debug(_schk)
 	if _schk == 0x800:
 		_schk = 0
 	
-	# 1.2 Executing current command
+	# 1.2 Decoding current command opcode
+	_dshk = _rgk.opcode()
+	_given_Address = _rgk.address()
+	
+	# 1.3 Executing current command
 	match _dshk:
 		OCT_00:
 			_op_nop_00()
@@ -235,10 +298,11 @@ func step():
 		_:
 			print_debug("FIXME: not implemented opcode: ", _dshk)
 	
+	# 2.2 Fetch next command
+	_drum.read_half(_schk, _rgk)
 		
 func _op_nop_00():
 	pass
 
 func _op_jmp_22():
 	_schk = _given_Address
-	_drum.read_half(_schk, _rgk)
