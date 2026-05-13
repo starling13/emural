@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/right_small_banquet.obj-804a193c5b1e15eca33d9632c57faa75.mesh"
+
+[deps]
+
+files=[ "res://.import/right_small_banquet.obj-804a193c5b1e15eca33d9632c57faa75.mesh" ]
+
+source_file="res://ural_model/right_small_banquet.obj"
+dest_files=[ "res://.import/right_small_banquet.obj-804a193c5b1e15eca33d9632c57faa75.mesh", "res://.import/right_small_banquet.obj-804a193c5b1e15eca33d9632c57faa75.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true
