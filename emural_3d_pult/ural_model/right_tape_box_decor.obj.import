@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/right_tape_box_decor.obj-91278b7f8353756c80ab387e2f0905e0.mesh"
+
+[deps]
+
+files=[ "res://.import/right_tape_box_decor.obj-91278b7f8353756c80ab387e2f0905e0.mesh" ]
+
+source_file="res://ural_model/right_tape_box_decor.obj"
+dest_files=[ "res://.import/right_tape_box_decor.obj-91278b7f8353756c80ab387e2f0905e0.mesh", "res://.import/right_tape_box_decor.obj-91278b7f8353756c80ab387e2f0905e0.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

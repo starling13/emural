@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/left_tape_woodcut.obj-64b8dcd620f92bd58b0aa9428bc2604b.mesh"
+
+[deps]
+
+files=[ "res://.import/left_tape_woodcut.obj-64b8dcd620f92bd58b0aa9428bc2604b.mesh" ]
+
+source_file="res://ural_model/left_tape_woodcut.obj"
+dest_files=[ "res://.import/left_tape_woodcut.obj-64b8dcd620f92bd58b0aa9428bc2604b.mesh", "res://.import/left_tape_woodcut.obj-64b8dcd620f92bd58b0aa9428bc2604b.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true
