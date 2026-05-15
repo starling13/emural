@@ -141,16 +141,9 @@ QCheckBox(parent)
 
 void Switch::paintEvent(QPaintEvent*)
 {
-	//float chord = this->width() / 8;
 	const QPixmap *pm;
 	_painter.begin(this);
 	
-	/*
-	_painter.setBrush(Qt::lightGray);
-	_painter.drawConvexPolygon(_poly);
-	_painter.drawEllipse(2*chord, 2*chord, 4*chord, 4*chord);
-	_painter.setBrush(Qt::white);
-	_painter.setPen(Qt::NoPen);*/
 	if (this->isChecked())
 		pm = &_images[1];
 	else

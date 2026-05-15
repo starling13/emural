@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://adder_panel.gd"
 }, {
-"base": "StaticBody",
+"base": "Switch3D",
 "class": "Button3D",
 "language": "GDScript",
 "path": "res://controls/button_3d.gd"
@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://schk_panel.gd"
 }, {
+"base": "CollisionObject",
+"class": "Switch3D",
+"language": "GDScript",
+"path": "res://controls/switch_3d.gd"
+}, {
 "base": "Object",
 "class": "Ural",
 "language": "GDScript",
@@ -63,6 +68,7 @@ _global_script_class_icons={
 "RGAUPanel": "",
 "RGKPanel": "",
 "SCHKPanel": "",
+"Switch3D": "",
 "Ural": ""
 }
 

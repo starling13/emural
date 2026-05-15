@@ -4,7 +4,6 @@ extends Button3D
 
 signal pressed
 
-
 func _ready():
 	connect("left_pressed", self, "_on_left_pressed")
 	connect("left_released", self, "_on_left_released")
