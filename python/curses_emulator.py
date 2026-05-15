@@ -61,8 +61,6 @@ def draw_registers(stdscr, ecvm: ural.ECVM) -> None:
         "  "+"".join([f"{x:2d} " for x in range(5, 0, -1)]) +
         "".join([f"{x:2d} " for x in range(12, 0, -1)]) + " ║",
         "╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝",
-        "Управление: [S] Шаг   [R] Пуск   [T] Стоп   [Q] Выход",
-        "═" * 50,
     ]
 
     h, w = stdscr.getmaxyx()
@@ -73,12 +71,42 @@ def draw_registers(stdscr, ecvm: ural.ECVM) -> None:
     stdscr.refresh()
 
 
+def init_colors() -> None:
+    if curses.has_colors():
+        curses.start_color()
+        # Попробуем использовать 208 цвет (оранжевый), если терминал поддерживает 256 цветов
+        if curses.COLORS >= 256:
+            # 208 — оранжевый в палитре xterm-256color
+            curses.init_pair(1, 208, curses.COLOR_BLACK)
+        else:
+            # Если 256 нет, используем жёлтый (ближайший к оранжевому)
+            curses.init_pair(1, curses.COLOR_YELLOW, curses.COLOR_BLACK)
+
+def draw_panel(stdscr) -> None:
+    h, w = stdscr.getmaxyx()
+
+    lines = [
+        "╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗",
+        "║ Магнитный барабан  Остановка Пуск Однотактный                                [Q] Выход                          ║",
+        "║           СТИРАНИЕ                   режим                                                                      ║",
+        "║             [E]       [T]     [R]     [S]                                                                       ║",
+        "╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝",
+    ]
+
+    for i, line in enumerate(lines):
+        if i < h:
+            # Обрезаем строку, если она шире окна
+            stdscr.addstr(i+16, 0, line[:w - 1])
+    stdscr.refresh()
+
 def main(stdscr) -> None:
     """Главный цикл интерфейса curses."""
     # Инициализация curses
     curses.curs_set(0)          # убираем курсор
     stdscr.nodelay(1)           # неблокирующий ввод
     stdscr.clear()
+
+    init_colors()
 
     # Создаём экземпляр эмулятора
     ecvm = ural.ECVM()
@@ -88,6 +116,7 @@ def main(stdscr) -> None:
 
     # Начальная отрисовка
     draw_registers(stdscr, ecvm)
+    draw_panel(stdscr)
 
     while True:
         # Обработка ввода с клавиатуры
@@ -102,6 +131,8 @@ def main(stdscr) -> None:
                 ecvm.start()
             elif key in (ord('t'), ord('T')):
                 ecvm.stop()
+            elif key in (ord('e'), ord('E')):
+                ecvm.get_drum().clear()
 
         # Автоматический режим (если состояние RUN)
         if ecvm._state == ural.state_t.RUN:
