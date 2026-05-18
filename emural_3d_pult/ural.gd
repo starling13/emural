@@ -109,7 +109,12 @@ class Word:
 
 	func get_sign() -> bool:
 		return ((_value >> 35) & 1) == 1
-
+		
+	func set_sign(s: bool) -> void:
+		if s:
+			_value |= 1 << 35
+		else:
+			_value &= HEX_35BIT
 
 class Adder:
 	var _value: int
@@ -151,6 +156,15 @@ class Adder:
 			v = 0
 		self._value = (w.value() & HEX_35BIT) ^ v
 		self.set_sign(int(w.get_sign())*3)
+		
+	func to_word(w: Word) -> void:
+		var v: int
+		if get_sign() > 1:
+			v = HEX_35BIT
+		else:
+			v = 0
+		w.set_value((self._value & HEX_35BIT) ^ v)
+		w.set_sign(get_sign() > 1)
 
 
 # Magnetic drum (RAM)
@@ -188,6 +202,19 @@ class MagneticDrum:
 	func clear():
 		for i in range(1024):
 			_data[i].set_value(0)
+			
+	func read_word(address: int, value: Word):
+		var ea: int = address / 2
+		
+		value.set_value(_data[ea].value())
+		
+	func write_word(address: int, value: Word):
+		if write_block:
+			return
+			
+		var ea: int = address / 2
+		
+		_data[ea].set_value(value.value())
 
 
 # CPU state enum
@@ -206,7 +233,7 @@ var _rgk: Command = Command.new(0)
 var _dshk: int = 0
 
 # Command address part register
-var _given_Address: int = 0
+var _given_address: int = 0
 
 # Arithmetic unit register (РГАУ - RGAU)
 var _rg_au: Word = Word.new(0)
@@ -287,12 +314,18 @@ func step():
 	
 	# 1.2 Decoding current command opcode
 	_dshk = _rgk.opcode()
-	_given_Address = _rgk.address()
+	_given_address = _rgk.address()
 	
 	# 1.3 Executing current command
 	match _dshk:
 		OCT_00:
 			_op_nop_00()
+		OCT_01:
+			_op_sum_02()
+		OCT_16:
+			_op_mov_16()
+		OCT_17:
+			_op_mov_17()
 		OCT_22:
 			_op_jmp_22()
 		_:
@@ -303,6 +336,18 @@ func step():
 		
 func _op_nop_00():
 	pass
+	
+func _op_sum_02():
+	_drum.read_word(_given_address, _rg_au)
+	_adder.from_word(_rg_au)
+
+func _op_mov_16():
+	var w: Word = Word.new(0)
+	_adder.to_word(w)
+	_drum.write_word(_given_address, w)
+
+func _op_mov_17():
+	_drum.read_word(_given_address, _rg_au)
 
 func _op_jmp_22():
-	_schk = _given_Address
+	_schk = _given_address
