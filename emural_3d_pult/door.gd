@@ -2,22 +2,20 @@ extends Spatial
 class_name Door
 
 export var open_state: float = 0.0
+export var rot_axis: Vector3 = Vector3(0.0, 1.0, 0.0)
+export var rot_max_angle: float = 0.0
+
 signal open_state_changed
 
 var _handle: StaticBody
 var _state_grabbed: bool = false
 
-
 func _ready():
-	pass
-
-
-func init_door():
 	self._handle = self.get_node("StaticBody")
 	self._handle.connect("mouse_entered", self, "_on_handle_mouse_entered")
 	self._handle.connect("mouse_exited", self, "_on_handle_mouse_exited")
 	self._handle.connect("input_event", self, "_on_input_event")
-	
+
 	
 func _on_handle_mouse_entered():
 	Input.set_default_cursor_shape(Input.CURSOR_CAN_DROP)
@@ -38,6 +36,10 @@ func _input(event):
 		self.open_state -= e.relative.y / 300.0
 		self.open_state = clamp(self.open_state, 0.0, 1.0)
 		emit_signal("open_state_changed", self.open_state)
+		if rot_max_angle != 0.0:
+			var os = rot_axis * rot_max_angle * open_state
+			print(os)
+			self.rotation_degrees = os
 
 
 func _on_input_event(camera, event, position, normal, shape_idx):
