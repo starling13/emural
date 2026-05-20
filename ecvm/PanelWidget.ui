@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1102</width>
+    <width>1160</width>
     <height>409</height>
    </rect>
   </property>
@@ -142,6 +142,15 @@
      <colorrole role="ToolTipText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="NoBrush">
+       <color alpha="128">
         <red>0</red>
         <green>0</green>
         <blue>0</blue>
@@ -285,6 +294,15 @@
        </color>
       </brush>
      </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="NoBrush">
+       <color alpha="128">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
     </inactive>
     <disabled>
      <colorrole role="WindowText">
@@ -422,6 +440,15 @@
        </color>
       </brush>
      </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="NoBrush">
+       <color alpha="128">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
     </disabled>
    </palette>
   </property>
@@ -447,7 +474,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>1081</width>
+     <width>1141</width>
      <height>391</height>
     </rect>
    </property>
@@ -561,7 +588,7 @@
    <widget class="ControlRegisterPanel" name="controlRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>70</x>
       <y>150</y>
       <width>1011</width>
       <height>51</height>
@@ -577,7 +604,7 @@
    <widget class="AdderRegisterPanel" name="adderRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>50</x>
       <y>10</y>
       <width>1041</width>
       <height>51</height>
@@ -609,7 +636,7 @@
    <widget class="ArithmUnitRegisterPanel" name="arithmUnitRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>60</x>
       <y>80</y>
       <width>1021</width>
       <height>51</height>
@@ -625,7 +652,7 @@
    <widget class="CommandRegisterPanel" name="commandRegisterPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>660</x>
       <y>220</y>
       <width>461</width>
       <height>61</height>
@@ -659,7 +686,7 @@
      <rect>
       <x>510</x>
       <y>210</y>
-      <width>71</width>
+      <width>81</width>
       <height>51</height>
      </rect>
     </property>
@@ -673,7 +700,7 @@
    <widget class="TankClockWidget" name="clock" native="true">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>520</x>
       <y>260</y>
       <width>121</width>
       <height>121</height>
@@ -697,7 +724,7 @@
      <rect>
       <x>0</x>
       <y>300</y>
-      <width>481</width>
+      <width>521</width>
       <height>81</height>
      </rect>
     </property>
@@ -711,9 +738,9 @@
    <widget class="StopReasonsPanel" name="stopReasonsPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>640</x>
       <y>300</y>
-      <width>211</width>
+      <width>231</width>
       <height>71</height>
      </rect>
     </property>
@@ -727,9 +754,9 @@
    <widget class="DebugPanel" name="debugPanel" native="true">
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>870</x>
       <y>300</y>
-      <width>251</width>
+      <width>271</width>
       <height>81</height>
      </rect>
     </property>
