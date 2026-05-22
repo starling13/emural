@@ -245,39 +245,45 @@ var _drum: MagneticDrum = MagneticDrum.new()
 var _adder: Adder = Adder.new(0)
 
 
-func get_drum() -> MagneticDrum:
-	return _drum
-
-
 func _init():
 	pass
+	
+# == Magnetic DRUM write block ====
+func set_drum_write_block(new_val: bool) -> void:
+	_drum.write_block = new_val
+	
+func drum_write_block() -> bool:
+	return _drum.write_block
+# =================================
 
+# === Command register access =====
 
 func rgk() -> Command:
 	return _rgk
 
-
 func get_schk() -> int:
 	return _schk
 	
-	
+# =================================
+
+# DSHK access	
 func get_dshk() -> int:
 	return _dshk
 	
-
+# Addre register access
 func adder() -> Adder:
 	return _adder
 
-
+# RGAU access
 func rgau() -> Word:
 	return _rg_au
 
-
+# Set RGAU and Adder from control panel
 func set_rgau_and_adder(w: Word):
 	_rg_au = w
 	_adder.from_word(w)
 
-	
+
 func clock_step():
 	match _state:
 		state_t.IDLE:
@@ -308,7 +314,6 @@ func step():
 	
 	# X.1 Increase program counter
 	_schk = _schk + 1
-	print_debug(_schk)
 	if _schk == 0x800:
 		_schk = 0
 	

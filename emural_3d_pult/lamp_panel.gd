@@ -1,4 +1,5 @@
 extends Spatial
+class_name LampPanel
 
 var _value: int = 0
 

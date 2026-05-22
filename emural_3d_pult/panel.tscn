@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://panel.gd" type="Script" id=1]
 [ext_resource path="res://adder_panel.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://gray_steel.tres" type="Material" id=8]
 [ext_resource path="res://dshk_panel.gd" type="Script" id=9]
 [ext_resource path="res://rgau_panel.gd" type="Script" id=10]
+[ext_resource path="res://control_reg_panel.gd" type="Script" id=11]
+[ext_resource path="res://warning_panel.gd" type="Script" id=12]
 
 [sub_resource type="SpatialMaterial" id=20]
 albedo_texture = ExtResource( 6 )
@@ -375,3 +377,133 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.778, 0, 0 )
 
 [node name="lamp_35" parent="rgau_panel" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.825, 0, 0 )
+
+[node name="control_reg_panel" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.41, 0.147859, 0.004 )
+script = ExtResource( 11 )
+
+[node name="lamp_00" parent="control_reg_panel" instance=ExtResource( 7 )]
+
+[node name="lamp_01" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0, 0 )
+
+[node name="lamp_02" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0, 0 )
+
+[node name="lamp_03" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.071, 0, 0 )
+
+[node name="lamp_04" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.091, 0, 0 )
+
+[node name="lamp_05" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11, 0, 0 )
+
+[node name="lamp_06" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135, 0, 0 )
+
+[node name="lamp_07" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155, 0, 0 )
+
+[node name="lamp_08" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.175, 0, 0 )
+
+[node name="lamp_09" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.205, 0, 0 )
+
+[node name="lamp_10" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225, 0, 0 )
+
+[node name="lamp_11" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245, 0, 0 )
+
+[node name="lamp_12" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275, 0, 0 )
+
+[node name="lamp_13" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295, 0, 0 )
+
+[node name="lamp_14" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315, 0, 0 )
+
+[node name="lamp_15" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345, 0, 0 )
+
+[node name="lamp_16" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.365, 0, 0 )
+
+[node name="lamp_17" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385, 0, 0 )
+
+[node name="lamp_18" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415, 0, 0 )
+
+[node name="lamp_19" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.435, 0, 0 )
+
+[node name="lamp_20" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455, 0, 0 )
+
+[node name="lamp_21" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485, 0, 0 )
+
+[node name="lamp_22" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.505, 0, 0 )
+
+[node name="lamp_23" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525, 0, 0 )
+
+[node name="lamp_24" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.555, 0, 0 )
+
+[node name="lamp_25" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575, 0, 0 )
+
+[node name="lamp_26" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.595, 0, 0 )
+
+[node name="lamp_27" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.622, 0, 0 )
+
+[node name="lamp_28" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642, 0, 0 )
+
+[node name="lamp_29" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662, 0, 0 )
+
+[node name="lamp_30" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691, 0, 0 )
+
+[node name="lamp_31" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.711, 0, 0 )
+
+[node name="lamp_32" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.731, 0, 0 )
+
+[node name="lamp_33" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.759, 0, 0 )
+
+[node name="lamp_34" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.778, 0, 0 )
+
+[node name="lamp_35" parent="control_reg_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.798405, 0, 0 )
+
+[node name="warning_panel" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.422533, 0.0466607, 0.00399995 )
+script = ExtResource( 12 )
+
+[node name="lamp_00" parent="warning_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00221115, 0, 0 )
+
+[node name="lamp_01" parent="warning_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0448067, 0, 0 )
+
+[node name="lamp_02" parent="warning_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0851872, 0, 0 )
+
+[node name="lamp_03" parent="warning_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128009, 0, 0 )
+
+[node name="lamp_04" parent="warning_panel" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.168403, 0, 0 )

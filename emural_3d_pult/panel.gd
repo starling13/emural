@@ -17,3 +17,8 @@ func _process(delta):
 	$dshk_panel.set_value(ecvm.get_dshk())
 	$rgau_panel.set_value(ecvm.rgau().value())
 	$adder_panel.set_value(ecvm.adder().value())
+
+	var warning_value: int = 0
+	if ecvm.drum_write_block():
+		warning_value |= (1<<2)
+	$warning_panel.set_value(warning_value)

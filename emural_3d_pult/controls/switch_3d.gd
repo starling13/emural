@@ -1,5 +1,4 @@
 extends CollisionObject
-
 class_name Switch3D
 
 signal left_pressed

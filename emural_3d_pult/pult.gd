@@ -123,3 +123,7 @@ func _on_clear_button_pressed():
 func _on_addr_vz_button_pressed():
 	for b in self._adder_keyboard:
 		b.set_value(-1)
+
+
+func _on_block_drum_write_switch_changed(new_val: bool):
+	ecvm.set_drum_write_block(new_val)

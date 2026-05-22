@@ -3,6 +3,6 @@
 [resource]
 resource_name = "gray_steel"
 params_cull_mode = 2
-metallic = 0.61
+metallic = 0.65
 metallic_specular = 1.0
-roughness = 0.41
+roughness = 0.44

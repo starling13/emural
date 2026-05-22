@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://controls/button_3d.gd"
 }, {
 "base": "LampPanel",
+"class": "ControlRegPanel",
+"language": "GDScript",
+"path": "res://control_reg_panel.gd"
+}, {
+"base": "LampPanel",
 "class": "DSHKPanel",
 "language": "GDScript",
 "path": "res://dshk_panel.gd"
@@ -28,6 +33,16 @@ _global_script_classes=[ {
 "class": "Door",
 "language": "GDScript",
 "path": "res://door.gd"
+}, {
+"base": "Spatial",
+"class": "LampPanel",
+"language": "GDScript",
+"path": "res://lamp_panel.gd"
+}, {
+"base": "Switch3D",
+"class": "LeverSwitch",
+"language": "GDScript",
+"path": "res://controls/lever_switch.gd"
 }, {
 "base": "Button3D",
 "class": "PushButton3D",
@@ -58,18 +73,27 @@ _global_script_classes=[ {
 "class": "Ural",
 "language": "GDScript",
 "path": "res://ural.gd"
+}, {
+"base": "LampPanel",
+"class": "WarningPanel",
+"language": "GDScript",
+"path": "res://warning_panel.gd"
 } ]
 _global_script_class_icons={
 "AdderPanel": "",
 "Button3D": "",
+"ControlRegPanel": "",
 "DSHKPanel": "",
 "Door": "",
+"LampPanel": "",
+"LeverSwitch": "",
 "PushButton3D": "",
 "RGAUPanel": "",
 "RGKPanel": "",
 "SCHKPanel": "",
 "Switch3D": "",
-"Ural": ""
+"Ural": "",
+"WarningPanel": ""
 }
 
 [application]
@@ -78,14 +102,10 @@ config/name="emural_3d_room"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-LampPanel="*res://lamp_panel.gd"
-
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=720
+window/size/height=480
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"

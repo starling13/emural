@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ural_scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player.gd" type="Script" id=24]
@@ -27,6 +27,11 @@ size = Vector2( 4, 4 )
 radius = 0.5
 height = 0.9
 
+[sub_resource type="Environment" id=25]
+ambient_light_color = Color( 0, 1, 0.976471, 1 )
+ambient_light_energy = 0.14
+glow_enabled = true
+
 [node name="ural_control_room" type="Spatial"]
 
 [node name="ural_01" parent="." instance=ExtResource( 1 )]
@@ -53,16 +58,18 @@ skeleton = NodePath("../..")
 [node name="lamp_01" type="OmniLight" parent="room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 1 )
 light_color = Color( 1, 0.937255, 0.6, 1 )
-light_energy = 0.4
+light_energy = 0.5
 light_specular = 0.1
 shadow_enabled = true
+omni_range = 6.0
 
 [node name="lamp_02" type="OmniLight" parent="room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 1 )
 light_color = Color( 1, 0.937255, 0.6, 1 )
-light_energy = 0.4
+light_energy = 0.5
 light_specular = 0.1
 shadow_enabled = true
+omni_range = 6.0
 
 [node name="upper" type="MeshInstance" parent="room"]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 3, 0 )
@@ -93,3 +100,6 @@ far = 15.0
 [node name="CollisionShape" type="CollisionShape" parent="player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.00447845, 0 )
 shape = SubResource( 21 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 25 )
