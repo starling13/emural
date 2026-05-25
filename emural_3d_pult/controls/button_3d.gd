@@ -11,6 +11,6 @@ func _ready():
 
 func _update_geometry() -> void:
 	if self.press_state:
-		$mesh.position.y = 0
+		$model.position.y = 0
 	else:
-		$mesh.position.y = press_height
+		$model.position.y = press_height

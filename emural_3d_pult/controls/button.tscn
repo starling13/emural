@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://controls/button.gd" type="Script" id=1]
 [ext_resource path="res://sound/button_click.wav" type="AudioStream" id=2]
@@ -11,6 +11,16 @@ extents = Vector3( 0.007, 0.01, 0.007 )
 [sub_resource type="SpatialMaterial" id=4]
 resource_local_to_scene = true
 
+[sub_resource type="CylinderMesh" id=5]
+top_radius = 0.006
+bottom_radius = 0.006
+height = 0.005
+radial_segments = 6
+rings = 1
+
+[sub_resource type="SpatialMaterial" id=6]
+resource_local_to_scene = true
+
 [node name="button" type="StaticBody"]
 script = ExtResource( 1 )
 
@@ -21,10 +31,21 @@ shape = SubResource( 3 )
 stream = ExtResource( 2 )
 max_distance = 3.0
 
-[node name="mesh" type="MeshInstance" parent="."]
+[node name="model" type="LOD" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0 )
+hysteresis = 0.01
+
+[node name="mesh_lod1" type="MeshInstance" parent="model"]
+lod_range = 2.0
 mesh = ExtResource( 3 )
+skeleton = NodePath("../..")
 material/0 = ExtResource( 4 )
 material/1 = SubResource( 4 )
+
+[node name="mesh_lod2" type="MeshInstance" parent="model"]
+visible = false
+lod_range = 5.0
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [connection signal="left_pressed" from="." to="." method="_on_button_left_pressed"]

@@ -5,13 +5,16 @@ func _ready():
 
 
 func set_base_color(c: Color):
-	var m: ShaderMaterial = $mesh.get_active_material(0)
+	var m: ShaderMaterial = $model/mesh_lod1.get_active_material(0)
 	m.set_shader_param("base_color", c)
-	var m2: Material = $mesh.get_active_material(1)
+	var m2: Material = $model/mesh_lod1.get_active_material(1)
+	m2.albedo_color = c
+	m2 = $model/mesh_lod2.get_active_material(0)
 	m2.albedo_color = c
 	
+	
 func set_decal_color(c: Color):
-	var m: ShaderMaterial = $mesh.get_active_material(0)
+	var m: ShaderMaterial = $model/mesh_lod1.get_active_material(0)
 	m.set_shader_param("decal_color", c)
 	
 func set_digit(d: int):
@@ -38,7 +41,7 @@ func set_digit(d: int):
 		decal = load("res://ural_model/digit9.png")
 	else:
 		print_debug("Bad digit", d)
-	var m: ShaderMaterial = $mesh.get_active_material(0)
+	var m: ShaderMaterial = $model/mesh_lod1.get_active_material(0)
 	m.set_shader_param("decal", decal)
 
 func _on_button_left_pressed():

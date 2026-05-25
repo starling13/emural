@@ -4,14 +4,12 @@
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://room/vent.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://ural_scene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://spiegel_steel.tres" type="Material" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.709804, 0.839216, 0.568627, 1 )
 
 [sub_resource type="SpatialMaterial" id=2]
-
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 2, 0.1, 3 )
 
 [sub_resource type="ProceduralSky" id=5]
 
@@ -28,11 +26,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74997, 0, 4.05961 )
 mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
 material/1 = SubResource( 2 )
-
-[node name="Walls" type="StaticBody" parent="."]
-
-[node name="CollisionShape" type="CollisionShape" parent="Walls"]
-shape = SubResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 4 )
@@ -86,6 +79,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.40097 )
 [node name="Vent" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80679, 0, 3.86618 )
 mesh = ExtResource( 3 )
+material/0 = ExtResource( 5 )
 
 [node name="ural" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7334, 0, 3.93517 )
