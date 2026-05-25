@@ -28,21 +28,21 @@ func _input(event):
 			$Camera.fov = min(90.0, $Camera.fov+1)
 
 	if event.is_action_pressed("act_move_left"):
-		_mov_spd.x = -0.5
+		_mov_spd.x = -0.75
 	elif event.is_action_released("act_move_left"):
 		_mov_spd.x = 0.0
 		
 	if event.is_action_pressed("act_move_right"):
-		_mov_spd.x = 0.5
+		_mov_spd.x = 0.75
 	elif event.is_action_released("act_move_right"):
 		_mov_spd.x = 0.0
 
 	if event.is_action_pressed("act_move_forward"):
-		_mov_spd.z = -0.5
+		_mov_spd.z = -1.0
 	elif event.is_action_released("act_move_forward"):
 		_mov_spd.z = 0.0
 		
 	if event.is_action_pressed("act_move_backward"):
-		_mov_spd.z = 0.5
+		_mov_spd.z = 1.0
 	elif event.is_action_released("act_move_backward"):
 		_mov_spd.z = 0.0

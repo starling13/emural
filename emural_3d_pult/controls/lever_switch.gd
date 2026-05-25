@@ -7,9 +7,10 @@ func _ready():
 	pass
 
 func _on_LeverSwitch_left_pressed():
+	$AudioStreamPlayer3D.play()
 	press_state = !press_state
 	emit_signal("changed", press_state)
 	if press_state:
-		$lever.rotation_degrees.x = -10.0
+		$lever.rotation_degrees.x = -20.0
 	else:
-		$lever.rotation_degrees.x  = 10.0
+		$lever.rotation_degrees.x  = 20.0

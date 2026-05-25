@@ -1,0 +1,98 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=2]
+
+[ext_resource path="res://ural_model/digit0.png" type="Texture" id=1]
+
+[sub_resource type="VisualShaderNodeColorUniform" id=4]
+uniform_name = "base_color"
+default_value_enabled = true
+default_value = Color( 1, 0, 0, 1 )
+
+[sub_resource type="VisualShaderNodeColorUniform" id=5]
+uniform_name = "decal_color"
+default_value_enabled = true
+default_value = Color( 1, 0.92714, 0, 1 )
+
+[sub_resource type="VisualShaderNodeTextureUniform" id=6]
+uniform_name = "decal"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeInput" id=8]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorInterp" id=11]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeTexture" id=12]
+source = 5
+
+[sub_resource type="VisualShader" id=9]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx, async_visible;
+
+uniform vec4 decal_color : hint_color = vec4(1.000000, 0.927140, 0.000000, 1.000000);
+uniform vec4 base_color : hint_color = vec4(1.000000, 0.000000, 0.000000, 1.000000);
+uniform sampler2D decal : hint_albedo;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorUniform:3
+	vec3 n_out3p0 = decal_color.rgb;
+	float n_out3p1 = decal_color.a;
+
+// ColorUniform:2
+	vec3 n_out2p0 = base_color.rgb;
+	float n_out2p1 = base_color.a;
+
+// Input:6
+	vec3 n_out6p0 = vec3(UV, 0.0);
+
+// Texture:8
+	vec3 n_out8p0;
+	float n_out8p1;
+	{
+		vec4 decal_tex_read = texture(decal, n_out6p0.xy);
+		n_out8p0 = decal_tex_read.rgb;
+		n_out8p1 = decal_tex_read.a;
+	}
+
+// VectorMix:7
+	vec3 n_out7p0 = mix(n_out3p0, n_out2p0, vec3(n_out8p1));
+
+// Output:0
+	ALBEDO = n_out7p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -367.999, -15.3009 )
+nodes/fragment/0/position = Vector2( 1400, 320 )
+nodes/fragment/2/node = SubResource( 4 )
+nodes/fragment/2/position = Vector2( 260, 80 )
+nodes/fragment/3/node = SubResource( 5 )
+nodes/fragment/3/position = Vector2( 260, 260 )
+nodes/fragment/4/node = SubResource( 6 )
+nodes/fragment/4/position = Vector2( 360, 440 )
+nodes/fragment/6/node = SubResource( 8 )
+nodes/fragment/6/position = Vector2( -20, 620 )
+nodes/fragment/7/node = SubResource( 11 )
+nodes/fragment/7/position = Vector2( 1080, 360 )
+nodes/fragment/8/node = SubResource( 12 )
+nodes/fragment/8/position = Vector2( 680, 620 )
+nodes/fragment/connections = PoolIntArray( 7, 0, 0, 0, 4, 2, 8, 2, 8, 1, 7, 2, 6, 0, 4, 0, 6, 0, 8, 0, 3, 0, 7, 0, 2, 0, 7, 1 )
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource( 9 )
+shader_param/decal_color = Color( 1, 1, 1, 1 )
+shader_param/base_color = Color( 0, 0, 0, 1 )
+shader_param/decal = ExtResource( 1 )

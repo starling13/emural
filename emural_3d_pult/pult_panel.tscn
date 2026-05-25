@@ -149,6 +149,30 @@ shape = SubResource( 28 )
 [node name="block_drum_write_switch" parent="pult" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43774, 0.0423969, 0.0273692 )
 
+[node name="stop_on_magtape_switch" parent="pult" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.448751, 0.0414434, 0.154632 )
+
+[node name="block_magtape_write_switch" parent="pult" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.396878, 0.0414434, 0.154632 )
+
+[node name="stop_on_punchtape_switch" parent="pult" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3182, 0.0414434, 0.154632 )
+
+[node name="cycling_output_switch" parent="pult" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.151464, 0.0414434, 0.154632 )
+
+[node name="block_commandreg_reset_switch" parent="pult" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.215402, 0.0414434, 0.154632 )
+
+[node name="phi_blocking_switch" parent="pult" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.371359, 0.0425104, -0.030491 )
+
+[node name="phi_stop_switch" parent="pult" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.488775, 0.0425104, -0.030491 )
+
+[node name="stop_on_address_switch" parent="pult" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.275141, 0.0431002, -0.0948289 )
+
 [connection signal="input_event" from="pult/start_button" to="pult/start_button" method="_on_button_input_event"]
 [connection signal="left_pressed" from="pult/start_button" to="pult" method="_on_start_button_left_pressed"]
 [connection signal="left_released" from="pult/start_button" to="pult" method="_on_start_button_left_released"]
@@ -174,3 +198,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43774, 0.0423969, 0.0273692
 [connection signal="pressed" from="pult/clear_button1" to="pult" method="_on_clear_button_pressed"]
 [connection signal="pressed" from="pult/addr_vz_button" to="pult" method="_on_addr_vz_button_pressed"]
 [connection signal="changed" from="pult/block_drum_write_switch" to="pult" method="_on_block_drum_write_switch_changed"]
+[connection signal="changed" from="pult/stop_on_magtape_switch" to="pult" method="_on_block_drum_write_switch_changed"]
+[connection signal="changed" from="pult/block_magtape_write_switch" to="pult" method="_on_block_magtape_write_switch_changed"]
+[connection signal="changed" from="pult/stop_on_punchtape_switch" to="pult" method="_on_block_drum_write_switch_changed"]
+[connection signal="changed" from="pult/cycling_output_switch" to="pult" method="_on_block_drum_write_switch_changed"]
+[connection signal="changed" from="pult/block_commandreg_reset_switch" to="pult" method="_on_block_commandreg_reset_switch_changed"]
+[connection signal="changed" from="pult/phi_blocking_switch" to="pult" method="_on_phi_blocking_switch_changed"]
+[connection signal="changed" from="pult/phi_stop_switch" to="pult" method="_on_block_drum_write_switch_changed"]
+[connection signal="changed" from="pult/stop_on_address_switch" to="pult" method="_on_block_drum_write_switch_changed"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/digit_button.obj-9bb86279bf6f4b4a22900bb5b9e5b565.mesh"
+
+[deps]
+
+files=[ "res://.import/digit_button.obj-9bb86279bf6f4b4a22900bb5b9e5b565.mesh" ]
+
+source_file="res://ural_model/digit_button.obj"
+dest_files=[ "res://.import/digit_button.obj-9bb86279bf6f4b4a22900bb5b9e5b565.mesh", "res://.import/digit_button.obj-9bb86279bf6f4b4a22900bb5b9e5b565.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

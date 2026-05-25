@@ -116,6 +116,36 @@ class Word:
 		else:
 			_value &= HEX_35BIT
 
+class Tape:
+	var _data: Array = []
+
+
+class TapeDevice:
+	var tape: Tape = null
+	
+	func read_word(hw: HalfWord):
+		pass
+
+
+class PunchTapeDevice:
+	extends TapeDevice
+
+	func read_word(hw: HalfWord):
+		pass
+
+
+class MagneticTapeDevice:
+	extends TapeDevice
+	
+	var write_block: bool = false
+	
+	func read_word(hw: HalfWord):
+		pass
+	
+	func write_word(hw: HalfWord):
+		pass
+
+
 class Adder:
 	var _value: int
 	
@@ -238,12 +268,19 @@ var _given_address: int = 0
 # Arithmetic unit register (РГАУ - RGAU)
 var _rg_au: Word = Word.new(0)
 
-# RAM magnetic drum
-var _drum: MagneticDrum = MagneticDrum.new()
-
 # Addrer register
 var _adder: Adder = Adder.new(0)
 
+# RAM magnetic drum
+var _drum: MagneticDrum = MagneticDrum.new()
+
+var _punch_tape_device: PunchTapeDevice = PunchTapeDevice.new()
+
+var _magnetic_tape_device: MagneticTapeDevice = MagneticTapeDevice.new()
+
+var _block_phi: bool = false
+
+var _block_command_reg_reset: bool = false
 
 func _init():
 	pass
@@ -254,6 +291,30 @@ func set_drum_write_block(new_val: bool) -> void:
 	
 func drum_write_block() -> bool:
 	return _drum.write_block
+# =================================
+
+# == Magnetic tape device write block ====
+func set_magtape_write_block(new_val: bool) -> void:
+	_magnetic_tape_device.write_block = new_val
+	
+func magtape_write_block() -> bool:
+	return _magnetic_tape_device.write_block
+# =================================
+
+# == Block phi flag management ====
+func set_phi_block(new_val: bool) -> void:
+	_block_phi = new_val
+	
+func phi_block() -> bool:
+	return _block_phi
+# =================================
+
+# == Block phi flag management ====
+func set_command_reg_reset_block(new_val: bool) -> void:
+	_block_command_reg_reset = new_val
+	
+func command_reg_reset_block() -> bool:
+	return _block_command_reg_reset
 # =================================
 
 # === Command register access =====

@@ -19,6 +19,12 @@ func _process(delta):
 	$adder_panel.set_value(ecvm.adder().value())
 
 	var warning_value: int = 0
+	if ecvm.phi_block():
+		warning_value |= 1
+	if ecvm.magtape_write_block():
+		warning_value |= (1<<1)
 	if ecvm.drum_write_block():
 		warning_value |= (1<<2)
+	if ecvm.command_reg_reset_block():
+		warning_value |= (1<<3)
 	$warning_panel.set_value(warning_value)

@@ -6,44 +6,44 @@ var _command_reg_keyboard: Array = []
 var ecvm: Ural = null
 
 func _ready():
-	$group8_00.set_color(Color.black)
+	$group8_00.set_colors(Color.black, Color.white)
 	self._adder_keyboard.append($group8_00)
-	$group8_01.set_color(Color.black)
+	$group8_01.set_colors(Color.black, Color.white)
 	self._adder_keyboard.append($group8_01)
-	$group8_02.set_color(Color.black)
+	$group8_02.set_colors(Color.black, Color.white)
 	self._adder_keyboard.append($group8_02)
-	$group8_03.set_color(Color.black)
+	$group8_03.set_colors(Color.black, Color.white)
 	self._adder_keyboard.append($group8_03)
-	$group8_04.set_color(Color.black)
+	$group8_04.set_colors(Color.black, Color.white)
 	self._adder_keyboard.append($group8_04)
-	$group8_05.set_color(Color.black)
+	$group8_05.set_colors(Color.black, Color.white)
 	self._adder_keyboard.append($group8_05)
 	
-	$group8_06.set_color(Color.white)
+	$group8_06.set_colors(Color.white, Color.black)
 	self._adder_keyboard.append($group8_06)
-	$group8_07.set_color(Color.white)
+	$group8_07.set_colors(Color.white, Color.black)
 	self._adder_keyboard.append($group8_07)
-	$group8_08.set_color(Color.white)
+	$group8_08.set_colors(Color.white, Color.black)
 	self._adder_keyboard.append($group8_08)
-	$group8_09.set_color(Color.white)
+	$group8_09.set_colors(Color.white, Color.black)
 	self._adder_keyboard.append($group8_09)
-	$group8_10.set_color(Color.white)
+	$group8_10.set_colors(Color.white, Color.black)
 	self._adder_keyboard.append($group8_10)
-	$group8_11.set_color(Color.white)
+	$group8_11.set_colors(Color.white, Color.black)
 	self._adder_keyboard.append($group8_11)
 	
-	$group8_1_00.set_color(Color.black)
+	$group8_1_00.set_colors(Color.black, Color.white)
 	self._command_reg_keyboard.append($group8_1_00)
-	$group8_1_01.set_color(Color.black)
+	$group8_1_01.set_colors(Color.black, Color.white)
 	self._command_reg_keyboard.append($group8_1_01)
-	$group8_1_02.set_color(Color.black)
+	$group8_1_02.set_colors(Color.black, Color.white)
 	self._command_reg_keyboard.append($group8_1_02)
-	$group8_1_03.set_color(Color.black)
+	$group8_1_03.set_colors(Color.black, Color.white)
 	self._command_reg_keyboard.append($group8_1_03)
 	
-	$group8_1_04.set_color(Color.red)
+	$group8_1_04.set_colors(Color.red, Color.white)
 	self._command_reg_keyboard.append($group8_1_04)
-	$group8_1_05.set_color(Color.red)
+	$group8_1_05.set_colors(Color.red, Color.white)
 	self._command_reg_keyboard.append($group8_1_05)
 
 
@@ -127,3 +127,15 @@ func _on_addr_vz_button_pressed():
 
 func _on_block_drum_write_switch_changed(new_val: bool):
 	ecvm.set_drum_write_block(new_val)
+
+
+func _on_block_magtape_write_switch_changed(new_val: bool):
+	ecvm.set_magtape_write_block(new_val)
+
+
+func _on_phi_blocking_switch_changed(new_val: bool):
+	ecvm.set_phi_block(new_val)
+
+
+func _on_block_commandreg_reset_switch_changed(new_val: bool):
+	ecvm.set_command_reg_reset_block(new_val)
