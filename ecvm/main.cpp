@@ -31,6 +31,7 @@
 #include "ural_cpu.hpp"
 #include "qural.hpp"
 #include "punchdrives.hpp"
+#include "ural_mainwindow.hpp"
 
 using namespace std;
 
@@ -46,6 +47,7 @@ int main(int argc, char** argv)
 		DrumWidget		drumWidget(ural.drum);
 		PultWIdget		pultWidget(ural);
 		PanelWidget		panelWidget(ural);
+        ural::MainWindow mainWindow;
 		AuxControlsWidget	auxControlWidget(ural);
 		URALWrapper		wrapper(ural);
 		QThread			uralThread;
@@ -80,6 +82,7 @@ int main(int argc, char** argv)
 		auxControlWidget.show();
 		pDevice.show();
 		punchDrive.show();
+        mainWindow.showMaximized();
 
 		res = app.exec();
 	}

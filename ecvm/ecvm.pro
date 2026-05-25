@@ -12,7 +12,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = emural
 TEMPLATE = app
 
-INCLUDEPATH += ../libural
+INCLUDEPATH += ../libural ./src
 
 SOURCES += main.cpp \
     AuxControlsWidget.cpp \
@@ -26,7 +26,8 @@ SOURCES += main.cpp \
     ural_cpu.cpp \
     printdevice.cpp \
     qural.cpp \
-    punchdrives.cpp
+    punchdrives.cpp \
+    src/ural_mainwindow.cpp
 
 HEADERS  += \
     AuxControlsWidget.hpp \
@@ -40,7 +41,8 @@ HEADERS  += \
     printdevice.hpp \
     qural.hpp \
     intdelegate.hpp \
-    punchdrives.hpp
+    punchdrives.hpp \
+    src/ural_mainwindow.hpp
 
 FORMS    += \
     AdderRegisterPanel.ui \
@@ -59,7 +61,8 @@ FORMS    += \
     StatusRegisterPanel.ui \
     StopReasonsPanel.ui \
     printdevice.ui \
-    punchtapewidget.ui
+    punchtapewidget.ui \
+    ui/mainwindow.ui
 
 unix {
 LIBS += \
