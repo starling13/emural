@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/ceil.obj-b9e87c1540f85ba0c46ece47e8ba893f.mesh"
+
+[deps]
+
+files=[ "res://.import/ceil.obj-b9e87c1540f85ba0c46ece47e8ba893f.mesh" ]
+
+source_file="res://room/ceil.obj"
+dest_files=[ "res://.import/ceil.obj-b9e87c1540f85ba0c46ece47e8ba893f.mesh", "res://.import/ceil.obj-b9e87c1540f85ba0c46ece47e8ba893f.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

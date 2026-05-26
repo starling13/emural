@@ -23,9 +23,9 @@ func _input(event):
 	elif event is InputEventMouseButton:
 		var e: InputEventMouseButton = event as InputEventMouseButton
 		if e.button_index == BUTTON_WHEEL_UP:
-			$Camera.fov = max(20.0, $Camera.fov-1)
+			$Camera.fov = max(10.0, $Camera.fov-1)
 		elif e.button_index == BUTTON_WHEEL_DOWN:
-			$Camera.fov = min(90.0, $Camera.fov+1)
+			$Camera.fov = min(100.0, $Camera.fov+1)
 
 	if event.is_action_pressed("act_move_left"):
 		_mov_spd.x = -0.75

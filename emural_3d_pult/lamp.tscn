@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://lamp.gd" type="Script" id=1]
-[ext_resource path="res://ural_model/lamp_corpus.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://ural_model/lamp_corpus_01.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://spiegel_steel.tres" type="Material" id=3]
+[ext_resource path="res://ural_model/lamp_corpus_02.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://ural_model/lamp_corpus_00.obj" type="ArrayMesh" id=5]
 
 [sub_resource type="SphereMesh" id=1]
 radius = 0.009
@@ -33,6 +35,25 @@ light_energy = 0.0
 light_indirect_energy = 0.0
 omni_range = 0.05
 
-[node name="LampCorpus" type="MeshInstance" parent="."]
+[node name="LOD" type="LOD" parent="."]
+hysteresis = 0.05
+
+[node name="LampCorpus00" type="MeshInstance" parent="LOD"]
+lod_range = 1.2
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 3 )
+
+[node name="LampCorpus01" type="MeshInstance" parent="LOD"]
+visible = false
+lod_range = 2.0
 mesh = ExtResource( 2 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 3 )
+
+[node name="LampCorpus02" type="MeshInstance" parent="LOD"]
+visible = false
+lod_range = 3.0
+mesh = ExtResource( 4 )
+skeleton = NodePath("../..")
 material/0 = ExtResource( 3 )
