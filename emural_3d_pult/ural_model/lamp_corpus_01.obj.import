@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/lamp_corpus_01.obj-786b975d7ae16c40f4824a73ecf4dccf.mesh"
+
+[deps]
+
+files=[ "res://.import/lamp_corpus_01.obj-786b975d7ae16c40f4824a73ecf4dccf.mesh" ]
+
+source_file="res://ural_model/lamp_corpus_01.obj"
+dest_files=[ "res://.import/lamp_corpus_01.obj-786b975d7ae16c40f4824a73ecf4dccf.mesh", "res://.import/lamp_corpus_01.obj-786b975d7ae16c40f4824a73ecf4dccf.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true
