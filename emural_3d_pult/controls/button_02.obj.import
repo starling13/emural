@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/button_02.obj-2b0518b70016f9b5067e39c827e94531.mesh"
+
+[deps]
+
+files=[ "res://.import/button_02.obj-2b0518b70016f9b5067e39c827e94531.mesh" ]
+
+source_file="res://controls/button_02.obj"
+dest_files=[ "res://.import/button_02.obj-2b0518b70016f9b5067e39c827e94531.mesh", "res://.import/button_02.obj-2b0518b70016f9b5067e39c827e94531.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

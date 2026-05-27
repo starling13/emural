@@ -1,24 +1,23 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://controls/button.gd" type="Script" id=1]
 [ext_resource path="res://sound/button_click.wav" type="AudioStream" id=2]
-[ext_resource path="res://ural_model/digit_button.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://controls/button_00.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://controls/button.tres" type="Material" id=4]
+[ext_resource path="res://controls/button_02.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://controls/button_01.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://spiegel_steel.tres" type="Material" id=7]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.007, 0.01, 0.007 )
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=6]
 resource_local_to_scene = true
 
-[sub_resource type="CylinderMesh" id=5]
-top_radius = 0.006
-bottom_radius = 0.006
-height = 0.005
-radial_segments = 6
-rings = 1
+[sub_resource type="SpatialMaterial" id=7]
+resource_local_to_scene = true
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=5]
 resource_local_to_scene = true
 
 [node name="button" type="StaticBody"]
@@ -35,17 +34,30 @@ max_distance = 3.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0 )
 hysteresis = 0.01
 
-[node name="mesh_lod1" type="MeshInstance" parent="model"]
-lod_range = 2.0
+[node name="Button00" type="MeshInstance" parent="model"]
+lod_range = 1.0
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 4 )
-material/1 = SubResource( 4 )
+material/1 = SubResource( 6 )
+material/2 = ExtResource( 7 )
 
-[node name="mesh_lod2" type="MeshInstance" parent="model"]
+[node name="Button01" type="MeshInstance" parent="model"]
 visible = false
-lod_range = 5.0
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
+lod_range = 2.0
+mesh = ExtResource( 6 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+material/1 = SubResource( 7 )
+material/2 = ExtResource( 7 )
+
+[node name="Button02" type="MeshInstance" parent="model"]
+visible = false
+lod_range = 4.0
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+material/1 = SubResource( 5 )
+material/2 = ExtResource( 7 )
 
 [connection signal="left_pressed" from="." to="." method="_on_button_left_pressed"]
