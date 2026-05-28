@@ -12,11 +12,12 @@ func _on_open_state_changed(value):
 
 
 func _process(delta):
-	$schk_panel.set_value(ecvm.get_schk())
+	$schk_panel.set_value(ecvm.schk())
 	$rgk_panel.set_value(ecvm.rgk().value())
-	$dshk_panel.set_value(ecvm.get_dshk())
+	$dshk_panel.set_value(ecvm.dshk())
 	$rgau_panel.set_value(ecvm.rgau().value())
 	$adder_panel.set_value(ecvm.adder().value())
+	$control_reg_panel.set_value(ecvm.control_reg().value())
 
 	var warning_value: int = 0
 	if ecvm.phi_block():

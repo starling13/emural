@@ -35,7 +35,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0 )
 hysteresis = 0.01
 
 [node name="Button00" type="MeshInstance" parent="model"]
-lod_range = 1.0
+lod_range = 1.2
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 4 )
@@ -53,7 +53,7 @@ material/2 = ExtResource( 7 )
 
 [node name="Button02" type="MeshInstance" parent="model"]
 visible = false
-lod_range = 4.0
+lod_range = 3.0
 mesh = ExtResource( 5 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 4 )

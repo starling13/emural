@@ -1,13 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://controls/push_button_3d.gd" type="Script" id=1]
-[ext_resource path="res://pult.gd" type="Script" id=2]
+[ext_resource path="res://controls/pult/pult.gd" type="Script" id=2]
 [ext_resource path="res://group8.tscn" type="PackedScene" id=3]
 [ext_resource path="res://controls/button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pult.png" type="Texture" id=5]
 [ext_resource path="res://controls/lever_switch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ural_model/pult.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://gray_steel.tres" type="Material" id=8]
+[ext_resource path="res://controls/pult/control_delegation_switch_panel.gd" type="Script" id=9]
+[ext_resource path="res://controls/pult/control_reg_addr_panel.gd" type="Script" id=10]
 
 [sub_resource type="SpatialMaterial" id=25]
 albedo_texture = ExtResource( 5 )
@@ -173,26 +175,79 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.488775, 0.0425104, -0.030491
 [node name="stop_on_address_switch" parent="pult" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.275141, 0.0431002, -0.0948289 )
 
-[connection signal="input_event" from="pult/start_button" to="pult/start_button" method="_on_button_input_event"]
+[node name="control_delegation_switch_panel" type="Spatial" parent="pult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.438632, 0.0409062, 0.09227 )
+script = ExtResource( 9 )
+
+[node name="switch_01" parent="pult/control_delegation_switch_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.109, 0, 0 )
+
+[node name="switch_02" parent="pult/control_delegation_switch_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.07, 0, 0 )
+
+[node name="switch_03" parent="pult/control_delegation_switch_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.031, 0, 0 )
+
+[node name="switch_04" parent="pult/control_delegation_switch_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, -0.008, 0, 0 )
+
+[node name="switch_05" parent="pult/control_delegation_switch_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, -0.047, 0, 0 )
+
+[node name="switch_06" parent="pult/control_delegation_switch_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, -0.086, 0, 0 )
+
+[node name="switch_07" parent="pult/control_delegation_switch_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, -0.125, 0, 0 )
+
+[node name="control_reg_addr_panel" type="Spatial" parent="pult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418918, 0.040595, 0.154689 )
+script = ExtResource( 10 )
+
+[node name="switch_01" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.16067, 0, 0 )
+
+[node name="switch_02" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.136659, 0, 0 )
+
+[node name="switch_03" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.112286, 0, 0 )
+
+[node name="switch_04" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.0781339, 0, 0 )
+
+[node name="switch_05" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.0546987, 0, 0 )
+
+[node name="switch_06" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.0301284, 0, 0 )
+
+[node name="switch_07" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.00370821, 0, 0 )
+
+[node name="switch_08" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.0292475, 0, 0 )
+
+[node name="switch_09" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.0514238, 0, 0 )
+
+[node name="switch_10" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.0887717, 0, 0 )
+
+[node name="switch_11" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.111626, 0, 0 )
+
+[node name="switch_12" parent="pult/control_reg_addr_panel" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.137216, 0, 0 )
+
 [connection signal="left_pressed" from="pult/start_button" to="pult" method="_on_start_button_left_pressed"]
 [connection signal="left_released" from="pult/start_button" to="pult" method="_on_start_button_left_released"]
-[connection signal="mouse_entered" from="pult/start_button" to="pult/start_button" method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="pult/start_button" to="pult/start_button" method="_on_button_mouse_exited"]
-[connection signal="input_event" from="pult/stop_button" to="pult/stop_button" method="_on_button_input_event"]
 [connection signal="left_pressed" from="pult/stop_button" to="pult" method="_on_stop_button_left_pressed"]
 [connection signal="left_released" from="pult/stop_button" to="pult" method="_on_stop_button_left_released"]
-[connection signal="mouse_entered" from="pult/stop_button" to="pult/stop_button" method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="pult/stop_button" to="pult/stop_button" method="_on_button_mouse_exited"]
-[connection signal="input_event" from="pult/single_step_button" to="pult/single_step_button" method="_on_button_input_event"]
 [connection signal="left_pressed" from="pult/single_step_button" to="pult" method="_on_single_step_button_left_pressed"]
 [connection signal="left_released" from="pult/single_step_button" to="pult" method="_on_single_step_button_left_released"]
-[connection signal="mouse_entered" from="pult/single_step_button" to="pult/single_step_button" method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="pult/single_step_button" to="pult/single_step_button" method="_on_button_mouse_exited"]
-[connection signal="input_event" from="pult/rgk_and_button" to="pult/rgk_and_button" method="_on_button_input_event"]
 [connection signal="left_pressed" from="pult/rgk_and_button" to="pult" method="_on_rgk_and_button_left_pressed"]
 [connection signal="left_released" from="pult/rgk_and_button" to="pult" method="_on_rgk_and_button_left_released"]
-[connection signal="mouse_entered" from="pult/rgk_and_button" to="pult/rgk_and_button" method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="pult/rgk_and_button" to="pult/rgk_and_button" method="_on_button_mouse_exited"]
 [connection signal="pressed" from="pult/com_reg_vz_button" to="pult" method="_on_com_reg_vz_button_pressed"]
 [connection signal="pressed" from="pult/reg_add_button" to="pult" method="_on_reg_add_button_pressed"]
 [connection signal="pressed" from="pult/clear_button1" to="pult" method="_on_clear_button_pressed"]
@@ -206,3 +261,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.275141, 0.0431002, -0.094828
 [connection signal="changed" from="pult/phi_blocking_switch" to="pult" method="_on_phi_blocking_switch_changed"]
 [connection signal="changed" from="pult/phi_stop_switch" to="pult" method="_on_block_drum_write_switch_changed"]
 [connection signal="changed" from="pult/stop_on_address_switch" to="pult" method="_on_block_drum_write_switch_changed"]
+[connection signal="changed" from="pult/control_reg_addr_panel" to="pult" method="_on_control_reg_addr_panel_changed"]

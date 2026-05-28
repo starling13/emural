@@ -274,13 +274,22 @@ var _adder: Adder = Adder.new(0)
 # RAM magnetic drum
 var _drum: MagneticDrum = MagneticDrum.new()
 
+# Punch tape reading device object
 var _punch_tape_device: PunchTapeDevice = PunchTapeDevice.new()
 
+# Magnetic tape storage device object
 var _magnetic_tape_device: MagneticTapeDevice = MagneticTapeDevice.new()
 
+# Phi-blocking flag
 var _block_phi: bool = false
 
+# Command register reset - blocking flag
 var _block_command_reg_reset: bool = false
+
+# Control register address
+var _control_reg_addr: int = 0
+
+var _control_reg: Word = Word.new(0)
 
 func _init():
 	pass
@@ -322,13 +331,23 @@ func command_reg_reset_block() -> bool:
 func rgk() -> Command:
 	return _rgk
 
-func get_schk() -> int:
+func schk() -> int:
 	return _schk
 	
 # =================================
 
+# === Control register access
+
+func set_control_reg_address(v: int) -> void:
+	_control_reg_addr = v
+	
+func control_reg() -> Word:
+	return _control_reg
+
+# =================================
+
 # DSHK access	
-func get_dshk() -> int:
+func dshk() -> int:
 	return _dshk
 	
 # Addre register access
@@ -346,6 +365,9 @@ func set_rgau_and_adder(w: Word):
 
 
 func clock_step():
+	# Update control register
+	_drum.read_word(_control_reg_addr, _control_reg)
+	
 	match _state:
 		state_t.IDLE:
 			pass

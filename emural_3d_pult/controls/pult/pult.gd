@@ -139,3 +139,7 @@ func _on_phi_blocking_switch_changed(new_val: bool):
 
 func _on_block_commandreg_reset_switch_changed(new_val: bool):
 	ecvm.set_command_reg_reset_block(new_val)
+
+
+func _on_control_reg_addr_panel_changed(value: int):
+	ecvm.set_control_reg_address(value)
