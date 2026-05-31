@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ural_scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sound/fan_nominal.wav" type="AudioStream" id=2]
 [ext_resource path="res://player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://devices/table.tscn" type="PackedScene" id=4]
 [ext_resource path="res://noise.tres" type="Texture" id=25]
 
 [sub_resource type="PlaneMesh" id=13]
@@ -92,3 +93,6 @@ environment = SubResource( 25 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000661016, 1.8251, -1.57286 )
 stream = ExtResource( 2 )
 autoplay = true
+
+[node name="table" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10226, -1.00788, 1.6178 )

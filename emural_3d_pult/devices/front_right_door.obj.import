@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/front_right_door.obj-1324484c2413f9614242a00c659f534b.mesh"
+
+[deps]
+
+files=[ "res://.import/front_right_door.obj-1324484c2413f9614242a00c659f534b.mesh" ]
+
+source_file="res://devices/front_right_door.obj"
+dest_files=[ "res://.import/front_right_door.obj-1324484c2413f9614242a00c659f534b.mesh", "res://.import/front_right_door.obj-1324484c2413f9614242a00c659f534b.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

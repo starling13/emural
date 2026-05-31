@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/table_top_lod002.obj-7c0fe0e2fd2e297418d938ca1a88cc9f.mesh"
+
+[deps]
+
+files=[ "res://.import/table_top_lod002.obj-7c0fe0e2fd2e297418d938ca1a88cc9f.mesh" ]
+
+source_file="res://devices/table_top_lod002.obj"
+dest_files=[ "res://.import/table_top_lod002.obj-7c0fe0e2fd2e297418d938ca1a88cc9f.mesh", "res://.import/table_top_lod002.obj-7c0fe0e2fd2e297418d938ca1a88cc9f.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true
