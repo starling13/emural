@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/wooden_border_lod001.obj-7c9ad5da8ca5f50410e6f6e30c341665.mesh"
+
+[deps]
+
+files=[ "res://.import/wooden_border_lod001.obj-7c9ad5da8ca5f50410e6f6e30c341665.mesh" ]
+
+source_file="res://devices/wooden_border_lod001.obj"
+dest_files=[ "res://.import/wooden_border_lod001.obj-7c9ad5da8ca5f50410e6f6e30c341665.mesh", "res://.import/wooden_border_lod001.obj-7c9ad5da8ca5f50410e6f6e30c341665.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true
