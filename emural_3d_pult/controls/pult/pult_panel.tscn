@@ -92,9 +92,6 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.236,
 [node name="group8_1_05" parent="pult" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 8.88178e-16, -1, 0, -4.37114e-08, -0.262, 0.05, 0 )
 
-[node name="stop_button" parent="pult" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.0917523, 0.0389998, 0.148385 )
-
 [node name="rgk_and_button" parent="pult" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -0.289309, 0.0431013, 0.00129366 )
 
@@ -273,13 +270,14 @@ transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.08, 0,
 transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.105, 0, 0 )
 
 [node name="start_button" parent="pult" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0305922, 0.0426368, 0.152437 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0306002, 0.0392406, 0.15287 )
 
 [node name="single_step_button" parent="pult" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0281883, 0.0426368, 0.152437 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0281883, 0.0390243, 0.152999 )
 
-[connection signal="left_pressed" from="pult/stop_button" to="pult" method="_on_stop_button_left_pressed"]
-[connection signal="left_released" from="pult/stop_button" to="pult" method="_on_stop_button_left_released"]
+[node name="stop_button" parent="pult" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.089672, 0.0392406, 0.15287 )
+
 [connection signal="left_pressed" from="pult/rgk_and_button" to="pult" method="_on_rgk_and_button_left_pressed"]
 [connection signal="left_released" from="pult/rgk_and_button" to="pult" method="_on_rgk_and_button_left_released"]
 [connection signal="pressed" from="pult/com_reg_vz_button" to="pult" method="_on_com_reg_vz_button_pressed"]
@@ -299,3 +297,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0281883, 0.0426368, 0.152437
 [connection signal="changed" from="pult/stop_at_addr_panel" to="pult" method="_on_control_reg_addr_panel_changed"]
 [connection signal="pressed" from="pult/start_button" to="pult" method="_on_start_button_pressed"]
 [connection signal="pressed" from="pult/single_step_button" to="pult" method="_on_single_step_button_pressed"]
+[connection signal="pressed" from="pult/stop_button" to="pult" method="_on_stop_button_pressed"]

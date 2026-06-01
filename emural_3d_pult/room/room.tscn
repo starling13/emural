@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://room/wall3.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -17,14 +17,19 @@
 [ext_resource path="res://white_oil..tres" type="Material" id=15]
 [ext_resource path="res://wood.tres" type="Material" id=16]
 [ext_resource path="res://devices/table.tscn" type="PackedScene" id=17]
+[ext_resource path="res://chair.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ProceduralSky" id=5]
+sun_longitude = -75.0
 
 [sub_resource type="Environment" id=4]
 background_mode = 2
 background_sky = SubResource( 5 )
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.1
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 3.84314, 0.1, 5.11257 )
 
 [node name="room" type="Spatial"]
 
@@ -92,11 +97,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 4.06 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 9 )
 
-[node name="Floor" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 4.06 )
-mesh = ExtResource( 7 )
-material/0 = ExtResource( 16 )
-
 [node name="Wall1" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 4.06 )
 mesh = ExtResource( 8 )
@@ -141,3 +141,24 @@ material/1 = ExtResource( 13 )
 
 [node name="KeyDevice" parent="." instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46539, -0.9686, 9.1581 )
+
+[node name="chair_ecvm" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76081, -0.489565, 4.96484 )
+
+[node name="chair_keydev" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.46896, -0.489565, 8.52989 )
+
+[node name="Floor" type="StaticBody" parent="."]
+
+[node name="Mesh" type="MeshInstance" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 4.06 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80457, -1.12361, 6.19298 )
+shape = SubResource( 6 )
+
+[connection signal="selected" from="chair_ecvm" to="player" method="_on_chair_selected"]
+[connection signal="selected" from="chair_keydev" to="player" method="_on_chair_selected"]

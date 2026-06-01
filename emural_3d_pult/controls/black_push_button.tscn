@@ -3,13 +3,14 @@
 [ext_resource path="res://controls/black_push_button.gd" type="Script" id=1]
 
 [sub_resource type="CylinderShape" id=1]
-height = 0.005
-radius = 0.01
+height = 0.007
+radius = 0.007
 
 [sub_resource type="CylinderMesh" id=2]
-top_radius = 0.01
-bottom_radius = 0.01
+top_radius = 0.007
+bottom_radius = 0.007
 height = 0.005
+radial_segments = 8
 rings = 1
 
 [sub_resource type="SpatialMaterial" id=3]
@@ -19,9 +20,11 @@ albedo_color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 
 [node name="collision_shape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.004, 0 )
 shape = SubResource( 1 )
 
 [node name="model" type="LOD" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="model"]
 lod_range = 5.0

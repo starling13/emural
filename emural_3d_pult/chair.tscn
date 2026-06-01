@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://wood.tres" type="Material" id=1]
+[ext_resource path="res://chair.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.13, 0.025, 0.13 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.26, 0.05, 0.26 )
+
+[node name="chair" type="StaticBody"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
+
+[node name="EyePoint" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+
+[connection signal="input_event" from="." to="." method="_on_chair_input_event"]

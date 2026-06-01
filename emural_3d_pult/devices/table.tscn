@@ -32,12 +32,16 @@ hysteresis = 0.05
 lod_range = 3.0
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+material/1 = ExtResource( 1 )
 
 [node name="TableTopLod001" type="MeshInstance" parent="TableFloor"]
 visible = false
 lod_range = 6.0
 mesh = ExtResource( 2 )
 skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+material/1 = ExtResource( 1 )
 
 [node name="TableTopLod000" type="MeshInstance" parent="TableFloor"]
 visible = false

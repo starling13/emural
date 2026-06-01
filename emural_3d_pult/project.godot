@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://controls/button_3d.gd"
 }, {
+"base": "StaticBody",
+"class": "Chair",
+"language": "GDScript",
+"path": "res://chair.gd"
+}, {
 "base": "LampPanel",
 "class": "ControlRegPanel",
 "language": "GDScript",
@@ -69,6 +74,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://schk_panel.gd"
 }, {
+"base": "LampPanel",
+"class": "StatusPanel",
+"language": "GDScript",
+"path": "res://controls/status_panel.gd"
+}, {
+"base": "LampPanel",
+"class": "StopReasonsPanel",
+"language": "GDScript",
+"path": "res://controls/stop_reasons_panel.gd"
+}, {
 "base": "CollisionObject",
 "class": "Switch3D",
 "language": "GDScript",
@@ -88,11 +103,17 @@ _global_script_classes=[ {
 "class": "WarningPanel",
 "language": "GDScript",
 "path": "res://warning_panel.gd"
+}, {
+"base": "LampPanel",
+"class": "WorkingModesPanel",
+"language": "GDScript",
+"path": "res://controls/working_modes_panel.gd"
 } ]
 _global_script_class_icons={
 "AdderPanel": "",
 "BlackPushButton3D": "",
 "Button3D": "",
+"Chair": "",
 "ControlRegPanel": "",
 "DSHKPanel": "",
 "Door": "",
@@ -102,10 +123,13 @@ _global_script_class_icons={
 "RGAUPanel": "",
 "RGKPanel": "",
 "SCHKPanel": "",
+"StatusPanel": "",
+"StopReasonsPanel": "",
 "Switch3D": "",
 "SwitchPanel": "",
 "Ural": "",
-"WarningPanel": ""
+"WarningPanel": "",
+"WorkingModesPanel": ""
 }
 
 [application]
@@ -146,6 +170,16 @@ act_move_forward={
 act_move_backward={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+act_jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+act_cancel={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

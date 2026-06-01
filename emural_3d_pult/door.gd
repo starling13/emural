@@ -16,10 +16,10 @@ func _ready():
 	self._handle.connect("mouse_exited", self, "_on_handle_mouse_exited")
 	self._handle.connect("input_event", self, "_on_input_event")
 
-	
+
 func _on_handle_mouse_entered():
 	Input.set_default_cursor_shape(Input.CURSOR_CAN_DROP)
-	
+
 
 func _on_handle_mouse_exited():
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
@@ -38,7 +38,6 @@ func _input(event):
 		emit_signal("open_state_changed", self.open_state)
 		if rot_max_angle != 0.0:
 			var os = rot_axis * rot_max_angle * open_state
-			print(os)
 			self.rotation_degrees = os
 
 

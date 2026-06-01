@@ -46,14 +46,6 @@ func _ready():
 	$group8_1_05.set_colors(Color.red, Color.white)
 	self._command_reg_keyboard.append($group8_1_05)
 
-func _on_stop_button_left_pressed():
-	$stop_button.set_state(true)
-	ecvm.stop()
-
-func _on_stop_button_left_released():
-	$stop_button.set_state(false)
-	$stop_button.set_state(false)
-
 func _on_rgk_and_button_left_pressed():
 	$rgk_and_button.set_state(true)
 
@@ -133,3 +125,7 @@ func _on_start_button_pressed():
 
 func _on_single_step_button_pressed():
 	ecvm.step()
+
+
+func _on_stop_button_pressed():
+	ecvm.stop()
