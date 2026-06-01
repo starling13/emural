@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ural_scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sound/fan_nominal.wav" type="AudioStream" id=2]
@@ -29,6 +29,9 @@ size = Vector2( 4, 4 )
 ambient_light_color = Color( 0, 1, 0.976471, 1 )
 ambient_light_energy = 0.14
 glow_enabled = true
+
+[sub_resource type="BoxShape" id=26]
+extents = Vector3( 6.02584, 0.1, 1.99372 )
 
 [node name="ural_control_room" type="Spatial"]
 
@@ -96,3 +99,9 @@ autoplay = true
 
 [node name="table" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10226, -1.00788, 1.6178 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.13205, 0 )
+shape = SubResource( 26 )
