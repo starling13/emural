@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://model_2d/emural_2d_gd.gd" type="Script" id=1]
 [ext_resource path="res://model_2d/pult2_4096.png" type="Texture" id=2]
+[ext_resource path="res://ural_model/pult_ecvm.png" type="Texture" id=3]
 
 [node name="emural_2d_gd" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="panel" type="Control" parent="."]
-margin_right = 1281.0
-margin_bottom = 603.0
+margin_right = 1277.0
+margin_bottom = 721.0
 
 [node name="panel_background" type="Sprite" parent="panel"]
-scale = Vector2( 0.370334, 0.360949 )
+position = Vector2( 658, 147 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
+
+[node name="PultEcvm" type="Sprite" parent="."]
+position = Vector2( 642, 538 )
+scale = Vector2( 0.31, 0.31 )
+texture = ExtResource( 3 )

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://adder_panel.gd"
 }, {
+"base": "PushButton3D",
+"class": "BlackPushButton3D",
+"language": "GDScript",
+"path": "res://controls/black_push_button.gd"
+}, {
 "base": "Switch3D",
 "class": "Button3D",
 "language": "GDScript",
@@ -86,6 +91,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AdderPanel": "",
+"BlackPushButton3D": "",
 "Button3D": "",
 "ControlRegPanel": "",
 "DSHKPanel": "",

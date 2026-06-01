@@ -13,4 +13,3 @@ func _ready():
 	add_element($switch_09)
 	add_element($switch_10)
 	add_element($switch_11)
-	add_element($switch_12)

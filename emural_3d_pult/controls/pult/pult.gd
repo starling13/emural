@@ -46,31 +46,13 @@ func _ready():
 	$group8_1_05.set_colors(Color.red, Color.white)
 	self._command_reg_keyboard.append($group8_1_05)
 
-
-func _on_start_button_left_pressed():
-	$start_button.set_state(true)
-	ecvm.start()
-
-func _on_start_button_left_released():
-	$start_button.set_state(false)
-
-
 func _on_stop_button_left_pressed():
 	$stop_button.set_state(true)
 	ecvm.stop()
 
 func _on_stop_button_left_released():
 	$stop_button.set_state(false)
-
-
-func _on_single_step_button_left_pressed():
-	$single_step_button.set_state(true)
-	ecvm.step()
-
-
-func _on_single_step_button_left_released():
-	$single_step_button.set_state(false)
-
+	$stop_button.set_state(false)
 
 func _on_rgk_and_button_left_pressed():
 	$rgk_and_button.set_state(true)
@@ -143,3 +125,11 @@ func _on_block_commandreg_reset_switch_changed(new_val: bool):
 
 func _on_control_reg_addr_panel_changed(value: int):
 	ecvm.set_control_reg_address(value)
+
+
+func _on_start_button_pressed():
+	ecvm.start()
+
+
+func _on_single_step_button_pressed():
+	ecvm.step()

@@ -1,6 +1,5 @@
-class_name PushButton3D
-
 extends Button3D
+class_name PushButton3D
 
 signal pressed
 
