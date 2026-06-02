@@ -40,6 +40,11 @@ _global_script_classes=[ {
 "path": "res://dshk_panel.gd"
 }, {
 "base": "Spatial",
+"class": "DigitButtonGroup",
+"language": "GDScript",
+"path": "res://controls/digit_button_group.gd"
+}, {
+"base": "Spatial",
 "class": "Door",
 "language": "GDScript",
 "path": "res://door.gd"
@@ -116,6 +121,7 @@ _global_script_class_icons={
 "Chair": "",
 "ControlRegPanel": "",
 "DSHKPanel": "",
+"DigitButtonGroup": "",
 "Door": "",
 "LampPanel": "",
 "LeverSwitch": "",

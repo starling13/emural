@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://controls/switch_panel.gd" type="Script" id=1]
+[ext_resource path="res://devices/table.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.45, 0.01, 0.4 )
+
+[node name="KeyDevice" type="Spatial"]
+
+[node name="Table" parent="." instance=ExtResource( 2 )]
+
+[node name="Device" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.908114, 0.418723, 0, -0.418723, 0.908114, 0, 0.933677, -0.0427325 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Device"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+
+[node name="Spatial" type="Spatial" parent="Device"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0246639, 0.0113723 )
+script = ExtResource( 1 )
