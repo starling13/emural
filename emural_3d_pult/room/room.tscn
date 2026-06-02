@@ -140,13 +140,13 @@ material/0 = ExtResource( 15 )
 material/1 = ExtResource( 13 )
 
 [node name="KeyDevice" parent="." instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46539, -0.9686, 9.1581 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46539, -1.02882, 9.1581 )
 
 [node name="chair_ecvm" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76081, -0.489565, 4.96484 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.76081, -0.563867, 4.96484 )
 
 [node name="chair_keydev" parent="." instance=ExtResource( 18 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.46896, -0.489565, 8.52989 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46896, -0.591811, 8.52989 )
 
 [node name="Floor" type="StaticBody" parent="."]
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/left_side_door.obj-dc883cef9d8e61cba62f4e22129eef22.mesh"
+
+[deps]
+
+files=[ "res://.import/left_side_door.obj-dc883cef9d8e61cba62f4e22129eef22.mesh" ]
+
+source_file="res://devices/left_side_door.obj"
+dest_files=[ "res://.import/left_side_door.obj-dc883cef9d8e61cba62f4e22129eef22.mesh", "res://.import/left_side_door.obj-dc883cef9d8e61cba62f4e22129eef22.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

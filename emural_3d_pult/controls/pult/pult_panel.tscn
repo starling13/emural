@@ -2,7 +2,7 @@
 
 [ext_resource path="res://controls/push_button_3d.gd" type="Script" id=1]
 [ext_resource path="res://controls/pult/pult.gd" type="Script" id=2]
-[ext_resource path="res://group8.tscn" type="PackedScene" id=3]
+[ext_resource path="res://controls/group8.tscn" type="PackedScene" id=3]
 [ext_resource path="res://controls/button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ural_model/pult_ecvm.png" type="Texture" id=5]
 [ext_resource path="res://controls/lever_switch.tscn" type="PackedScene" id=6]
