@@ -79,6 +79,7 @@ script = ExtResource( 33 )
 rot_max_angle = 100.0
 
 [node name="LeftShortGlassDoor" type="MeshInstance" parent="central_cabinet/left_short_glass_door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025 )
 mesh = ExtResource( 15 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 25 )
@@ -99,6 +100,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
 script = ExtResource( 19 )
 
 [node name="RightShortGlassDoor" type="MeshInstance" parent="central_cabinet/right_short_glass_door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025 )
 mesh = ExtResource( 14 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 25 )
@@ -146,9 +148,9 @@ omni_range = 0.5
 
 [node name="CabinetFrame" type="MeshInstance" parent="central_cabinet"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.022 )
+material_override = ExtResource( 25 )
 mesh = ExtResource( 6 )
 skeleton = NodePath("../..")
-material/0 = ExtResource( 25 )
 
 [node name="left_punch_device_cover" parent="central_cabinet" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.095, 0.02 )
@@ -230,10 +232,10 @@ material/0 = ExtResource( 25 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96, 0, 0 )
 
 [node name="left_door" parent="right_cabinet" instance=ExtResource( 29 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0.025 )
 
 [node name="right_door" parent="right_cabinet" instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0.025 )
 
 [node name="TallLampSet" type="MeshInstance" parent="right_cabinet"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545, -0.1 )
@@ -278,10 +280,10 @@ material/0 = ExtResource( 25 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96, 0, 0 )
 
 [node name="left_door" parent="left_cabinet" instance=ExtResource( 29 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0.025 )
 
 [node name="right_door" parent="left_cabinet" instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0.025 )
 
 [node name="TallLampSet" type="MeshInstance" parent="left_cabinet"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545, -0.1 )
@@ -326,10 +328,10 @@ material/0 = ExtResource( 25 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92, 0, 0 )
 
 [node name="left_door" parent="rightmost_cabinet" instance=ExtResource( 29 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0.025 )
 
 [node name="right_door" parent="rightmost_cabinet" instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0.025 )
 
 [node name="TallLampSet" type="MeshInstance" parent="rightmost_cabinet"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545, -0.1 )
