@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://furniture/chair_01.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://chair.gd" type="Script" id=2]
 [ext_resource path="res://furniture/chair_00.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://wood.tres" type="Material" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.15, 0.025, 0.15 )
@@ -25,11 +26,13 @@ hysteresis = 0.01
 lod_range = 2.0
 mesh = ExtResource( 1 )
 skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
 
 [node name="Chair00" type="MeshInstance" parent="LOD"]
 visible = false
 lod_range = 5.0
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
 
 [connection signal="input_event" from="." to="." method="_on_chair_input_event"]

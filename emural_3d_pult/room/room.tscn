@@ -16,7 +16,7 @@
 [ext_resource path="res://room/window.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://white_oil..tres" type="Material" id=15]
 [ext_resource path="res://wood.tres" type="Material" id=16]
-[ext_resource path="res://devices/table.tscn" type="PackedScene" id=17]
+[ext_resource path="res://devices/key_device.tscn" type="PackedScene" id=17]
 [ext_resource path="res://chair.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ProceduralSky" id=5]
@@ -139,9 +139,6 @@ mesh = ExtResource( 14 )
 material/0 = ExtResource( 15 )
 material/1 = ExtResource( 13 )
 
-[node name="KeyDevice" parent="." instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46539, -1.02882, 9.1581 )
-
 [node name="chair_ecvm" parent="." instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.76081, -0.563867, 4.96484 )
 
@@ -159,6 +156,9 @@ material/0 = ExtResource( 16 )
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80457, -1.12361, 6.19298 )
 shape = SubResource( 6 )
+
+[node name="KeyDevice2" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46616, -1.03171, 9.26993 )
 
 [connection signal="selected" from="chair_ecvm" to="player" method="_on_chair_selected"]
 [connection signal="selected" from="chair_keydev" to="player" method="_on_chair_selected"]
