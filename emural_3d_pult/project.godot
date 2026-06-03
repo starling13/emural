@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://door.gd"
 }, {
+"base": "StaticBody",
+"class": "HandItem",
+"language": "GDScript",
+"path": "res://hand_item.gd"
+}, {
 "base": "Spatial",
 "class": "LampPanel",
 "language": "GDScript",
@@ -58,6 +63,11 @@ _global_script_classes=[ {
 "class": "LeverSwitch",
 "language": "GDScript",
 "path": "res://controls/lever_switch.gd"
+}, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player.gd"
 }, {
 "base": "Button3D",
 "class": "PushButton3D",
@@ -104,6 +114,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ural.gd"
 }, {
+"base": "StaticBody",
+"class": "Ural53",
+"language": "GDScript",
+"path": "res://ural53/Ural53.gd"
+}, {
+"base": "HandItem",
+"class": "VinilDisk",
+"language": "GDScript",
+"path": "res://audio/vinil_disk.gd"
+}, {
 "base": "LampPanel",
 "class": "WarningPanel",
 "language": "GDScript",
@@ -123,8 +143,10 @@ _global_script_class_icons={
 "DSHKPanel": "",
 "DigitButtonGroup": "",
 "Door": "",
+"HandItem": "",
 "LampPanel": "",
 "LeverSwitch": "",
+"Player": "",
 "PushButton3D": "",
 "RGAUPanel": "",
 "RGKPanel": "",
@@ -134,6 +156,8 @@ _global_script_class_icons={
 "Switch3D": "",
 "SwitchPanel": "",
 "Ural": "",
+"Ural53": "",
+"VinilDisk": "",
 "WarningPanel": "",
 "WorkingModesPanel": ""
 }
@@ -186,6 +210,21 @@ act_jump={
 act_cancel={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+act_use={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+act_drop={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+act_rotate={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"canceled":false,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 

@@ -15,7 +15,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0 )
 current = true
 fov = 45.0
 near = 0.01
-far = 15.0
+far = 17.0
+
+[node name="HoldPosition" type="Position3D" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 0.922612, -0.385729, 0, 0.385729, 0.922612, 0, -0.00783753, -0.857395 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.00447845, 0 )
