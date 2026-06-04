@@ -10,12 +10,14 @@ var _holding: HandItem = null
 func _ready():
 	pass
 
+
 func _physics_process(delta):
 	if _mov_spd != Vector3.ZERO:
 		var mv = self.transform.basis.xform(_mov_spd)
 		self.move_and_slide(mv, Vector3.UP, true, 4, 0.1, false)
 	if not is_on_floor():
 		_mov_spd.y -= 9.81 * delta
+
 
 func _input(event):
 	if event.is_action_pressed("act_cancel") and _chair != null:
@@ -83,12 +85,14 @@ func _input(event):
 	if event.is_action_pressed("act_rotate"):
 		if not event.control:
 			$Camera/HoldPosition.rotate_x(0.1)
-		
+
+
 func _on_chair_selected(chair):
 	if _chair == null:
 		_sit_down(chair)
 	else:
 		print_debug("Already siiting on a chair", _chair)
+
 
 func _sit_down(chair):
 	_mov_spd = Vector3.ZERO
@@ -96,12 +100,14 @@ func _sit_down(chair):
 	$Camera.global_transform.origin = sit_point.global_transform.origin - Vector3(0, 0, 0)
 	_chair = chair
 	print_debug("Sit on a chair", _chair)
-	
+
+
 func _stand_up():
 	$Camera.position = Vector3(0, 0.7, 0)
 	$Camera.rotation = Vector3(0, 0, 0)
 	print_debug("Standing up from chair", _chair)
 	_chair = null
+
 
 func hold_object(item: HandItem):
 	if _holding == null:
@@ -116,6 +122,7 @@ func hold_object(item: HandItem):
 		print_debug("Holding a new object")
 	else:
 		print_debug("Already holding an object")
+
 
 func drop_object(item: HandItem):
 	if _holding != item:

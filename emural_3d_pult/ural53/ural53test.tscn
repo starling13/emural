@@ -1,15 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ural53/corpus_000.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://controls/black_push_button.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ural53/Ural53.gd" type="Script" id=4]
-[ext_resource path="res://audio/vinyl.ogg" type="AudioStream" id=5]
+[ext_resource path="res://ural53/Ural53.tscn" type="PackedScene" id=2]
 [ext_resource path="res://audio/vinil_disk.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ural53/ural53test.gd" type="Script" id=7]
-[ext_resource path="res://ural53/back.png" type="Texture" id=8]
-[ext_resource path="res://ural53/side.png" type="Texture" id=9]
-[ext_resource path="res://ural53/front.png" type="Texture" id=10]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 5, 0.1, 5 )
@@ -19,21 +13,6 @@ size = Vector3( 10, 0.1, 10 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 1, 0.537255, 0, 1 )
-
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.25, 0.18, 0.15 )
-
-[sub_resource type="SpatialMaterial" id=5]
-albedo_texture = ExtResource( 10 )
-
-[sub_resource type="SpatialMaterial" id=6]
-albedo_texture = ExtResource( 9 )
-
-[sub_resource type="SpatialMaterial" id=7]
-albedo_texture = ExtResource( 8 )
-
-[sub_resource type="SpatialMaterial" id=8]
-albedo_texture = ExtResource( 9 )
 
 [node name="ural53test" type="Spatial"]
 script = ExtResource( 7 )
@@ -50,44 +29,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16425, 1.84644 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
-[node name="Ural53" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.885388, 0 )
-script = ExtResource( 4 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Ural53"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0155573, 0 )
-shape = SubResource( 4 )
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Ural53"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128855, 0, 0.237614 )
-
-[node name="Button" parent="Ural53" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.273234 )
-
-[node name="Area" type="Area" parent="Ural53"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.187305, 0 )
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon" type="CollisionPolygon" parent="Ural53/Area"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-depth = 0.04
-polygon = PoolVector2Array( -0.1, -0.1, -0.1, 0.1, 0.1, 0.1, 0.1, -0.1 )
-margin = 0.02
-
-[node name="NoiseSound" type="AudioStreamPlayer3D" parent="Ural53"]
-stream = ExtResource( 5 )
-
-[node name="DiskPlacement" type="Position3D" parent="Ural53"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.147058, 0 )
-
-[node name="Corpus000" type="MeshInstance" parent="Ural53"]
-mesh = ExtResource( 2 )
-skeleton = NodePath("../..")
-material/0 = SubResource( 5 )
-material/1 = SubResource( 6 )
-material/2 = SubResource( 7 )
-material/3 = SubResource( 8 )
+[node name="Ural53" parent="." instance=ExtResource( 2 )]
 
 [node name="vinil_disk_553" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.502464, 1.28679, 0.0558445 )
@@ -99,10 +41,5 @@ transform = Transform( -0.268617, 0, -0.963247, 0, 1, 0, 0.963247, 0, -0.268617,
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58186, 1.19384, 0.10786 )
 
 [connection signal="use_item" from="player" to="Ural53" method="use_disk"]
-[connection signal="remove_disk" from="Ural53" to="player" method="hold_object"]
-[connection signal="pressed" from="Ural53/Button" to="Ural53" method="_on_Button_pressed"]
-[connection signal="body_entered" from="Ural53/Area" to="Ural53" method="_on_Area_body_entered"]
-[connection signal="body_exited" from="Ural53/Area" to="Ural53" method="_on_Area_body_exited"]
-[connection signal="input_event" from="Ural53/Area" to="Ural53" method="_on_Area_input_event"]
 [connection signal="left_pressed" from="vinil_disk_553" to="player" method="hold_object"]
 [connection signal="left_pressed" from="vinil_disk_1088" to="player" method="hold_object"]

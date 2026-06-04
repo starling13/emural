@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://room/wall3.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -18,6 +18,11 @@
 [ext_resource path="res://wood.tres" type="Material" id=16]
 [ext_resource path="res://devices/key_device.tscn" type="PackedScene" id=17]
 [ext_resource path="res://chair.tscn" type="PackedScene" id=18]
+[ext_resource path="res://ural53/Ural53.tscn" type="PackedScene" id=19]
+[ext_resource path="res://audio/vinil_disk.tscn" type="PackedScene" id=20]
+[ext_resource path="res://furniture/table/table.tscn" type="PackedScene" id=21]
+[ext_resource path="res://room/room.gd" type="Script" id=22]
+[ext_resource path="res://controls/lever_switch.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ProceduralSky" id=5]
 sun_longitude = -75.0
@@ -32,6 +37,7 @@ ambient_light_energy = 0.1
 extents = Vector3( 3.84314, 0.1, 5.11257 )
 
 [node name="room" type="Spatial"]
+script = ExtResource( 22 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 4 )
@@ -160,5 +166,24 @@ shape = SubResource( 6 )
 [node name="KeyDevice2" parent="." instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46616, -1.03171, 9.26993 )
 
+[node name="Ural53" parent="." instance=ExtResource( 19 )]
+transform = Transform( 0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, -4.98124, -0.0462984, 6.30985 )
+
+[node name="vinil_disk" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.17745, -0.17614, 6.71344 )
+
+[node name="vinil_disk2" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84926, -0.10989, 6.83102 )
+
+[node name="Table" parent="." instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.99222, -0.259047, 6.57542 )
+
+[node name="light_switch" parent="." instance=ExtResource( 23 )]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 2.08463, 0.483318, 5.62273 )
+
+[connection signal="use_item" from="player" to="Ural53" method="use_disk"]
 [connection signal="selected" from="chair_ecvm" to="player" method="_on_chair_selected"]
 [connection signal="selected" from="chair_keydev" to="player" method="_on_chair_selected"]
+[connection signal="left_pressed" from="vinil_disk" to="player" method="hold_object"]
+[connection signal="left_pressed" from="vinil_disk2" to="player" method="hold_object"]
+[connection signal="changed" from="light_switch" to="." method="_on_light_switch_changed"]
