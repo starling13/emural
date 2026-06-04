@@ -72,11 +72,13 @@ func _input(event):
 	
 	if event.is_action_pressed("act_drop"):
 		if _holding != null:
+			var item = _holding
 			var gt = _holding.global_transform
-			$Camera/HoldPosition.remove_child(_holding)
-			get_parent().add_child(_holding)
-			_holding.global_transform = gt
-			_holding = null
+			drop_object(item)
+			get_parent().add_child(item)
+			item.global_transform = gt
+			item.collision_layer = 1
+			item.collision_mask = 1
 	
 	if event.is_action_pressed("act_rotate"):
 		if not event.control:
@@ -103,11 +105,14 @@ func _stand_up():
 
 func hold_object(item: HandItem):
 	if _holding == null:
+		item.collision_layer = 2
+		item.collision_mask = 2
 		_holding = item
+		_holding.mode = RigidBody.MODE_STATIC
+		_holding.transform = Transform.IDENTITY
 		_holding.get_parent().remove_child(_holding)
 		$Camera/HoldPosition.add_child(_holding)
-		_holding.transform = Transform.IDENTITY
-		_holding.player = self
+		#_holding.player = self
 		print_debug("Holding a new object")
 	else:
 		print_debug("Already holding an object")
@@ -116,6 +121,7 @@ func drop_object(item: HandItem):
 	if _holding != item:
 		print_debug("Wrong object ", item)
 		return
-	_holding.player = null
+	#_holding.player = null
 	_holding = null
 	$Camera/HoldPosition.remove_child(item)
+	item.mode = RigidBody.MODE_RIGID

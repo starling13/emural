@@ -49,7 +49,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://door.gd"
 }, {
-"base": "StaticBody",
+"base": "RigidBody",
 "class": "HandItem",
 "language": "GDScript",
 "path": "res://hand_item.gd"

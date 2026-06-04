@@ -1,4 +1,4 @@
-extends StaticBody
+extends RigidBody
 class_name HandItem
 
 
@@ -7,7 +7,7 @@ signal left_released
 signal right_pressed
 signal right_released
 
-var player = null
+#var player = null
 
 
 func _ready():

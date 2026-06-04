@@ -49,6 +49,7 @@ func use_disk(disk, player):
 		return
 
 	player.drop_object(vdisk)
+	vdisk.mode = RigidBody.MODE_STATIC
 	$DiskPlacement.add_child(vdisk)
 	vdisk.transform = Transform.IDENTITY
 	_inserted_disk = vdisk
