@@ -1,27 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ural53/Ural53.gd" type="Script" id=1]
 [ext_resource path="res://controls/black_push_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ural53/corpus_000.obj" type="ArrayMesh" id=3]
-[ext_resource path="res://ural53/back.png" type="Texture" id=4]
-[ext_resource path="res://ural53/front.png" type="Texture" id=5]
-[ext_resource path="res://ural53/side.png" type="Texture" id=6]
+[ext_resource path="res://door.gd" type="Script" id=4]
+[ext_resource path="res://ural53/hatch_cover_000.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://ural53/Ural53.tres" type="Material" id=6]
 [ext_resource path="res://audio/vinyl.ogg" type="AudioStream" id=7]
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.25, 0.17, 0.15 )
 
-[sub_resource type="SpatialMaterial" id=5]
-albedo_texture = ExtResource( 5 )
-
-[sub_resource type="SpatialMaterial" id=6]
-albedo_texture = ExtResource( 6 )
-
-[sub_resource type="SpatialMaterial" id=7]
-albedo_texture = ExtResource( 4 )
-
-[sub_resource type="SpatialMaterial" id=8]
-albedo_texture = ExtResource( 6 )
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.18, 0.025, 0.01 )
 
 [node name="Ural53" type="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.885388, 0 )
@@ -38,7 +29,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128855, 0, 0.237614 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.273234 )
 
 [node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.230877, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.196324, 0 )
 collision_layer = 2
 collision_mask = 2
 
@@ -57,10 +48,24 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.154307, 0 )
 [node name="Corpus000" type="MeshInstance" parent="."]
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
-material/0 = SubResource( 5 )
-material/1 = SubResource( 6 )
-material/2 = SubResource( 7 )
-material/3 = SubResource( 8 )
+material/0 = ExtResource( 6 )
+
+[node name="HatchCover" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135, -0.14 )
+script = ExtResource( 4 )
+rot_axis = Vector3( -1, 0, 0 )
+rot_max_angle = 80.0
+
+[node name="HatchCover000" type="MeshInstance" parent="HatchCover"]
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="StaticBody" type="StaticBody" parent="HatchCover"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0338099, 0.295699 )
+
+[node name="CollisionShape" type="CollisionShape" parent="HatchCover/StaticBody"]
+shape = SubResource( 5 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
