@@ -119,10 +119,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ural53/Ural53.gd"
 }, {
-"base": "HandItem",
+"base": "Object",
 "class": "VinilDisk",
 "language": "GDScript",
 "path": "res://audio/vinil_disk.gd"
+}, {
+"base": "Object",
+"class": "VinilDiskPlayer",
+"language": "GDScript",
+"path": "res://audio/vinil_disk_player.gd"
+}, {
+"base": "HandItem",
+"class": "VinilDiskScene",
+"language": "GDScript",
+"path": "res://audio/vinil_disk_scene.gd"
 }, {
 "base": "LampPanel",
 "class": "WarningPanel",
@@ -158,6 +168,8 @@ _global_script_class_icons={
 "Ural": "",
 "Ural53": "",
 "VinilDisk": "",
+"VinilDiskPlayer": "",
+"VinilDiskScene": "",
 "WarningPanel": "",
 "WorkingModesPanel": ""
 }
@@ -165,7 +177,7 @@ _global_script_class_icons={
 [application]
 
 config/name="emural_3d_room"
-run/main_scene="res://main.tscn"
+run/main_scene="res://room/room.tscn"
 config/icon="res://icon.png"
 
 [display]

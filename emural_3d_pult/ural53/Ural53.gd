@@ -3,8 +3,8 @@ class_name Ural53
 
 signal remove_disk
 
-var _disk_in_active_zone: VinilDisk = null
-var _inserted_disk: VinilDisk = null
+var _disk_in_active_zone: VinilDiskScene = null
+var _inserted_disk: VinilDiskScene = null
 
 
 func _ready():
@@ -21,8 +21,8 @@ func _on_Button_pressed():
 
 func _on_Area_body_entered(body):
 	print_debug("Body entered ", body)
-	if body is VinilDisk:
-		var vd: VinilDisk = body as VinilDisk
+	if body is VinilDiskScene:
+		var vd: VinilDiskScene = body as VinilDiskScene
 		_disk_in_active_zone = vd
 		print_debug("Set active disk ", vd)
 
@@ -34,7 +34,7 @@ func _on_Area_body_exited(body):
 
 
 func use_disk(disk, player):
-	if not disk is VinilDisk:
+	if not disk is VinilDiskScene:
 		print_debug("Unknown type")
 		return
 	
@@ -42,7 +42,7 @@ func use_disk(disk, player):
 		print_debug("Unknown type")
 		return
 		
-	var vdisk: VinilDisk = disk as VinilDisk
+	var vdisk: VinilDiskScene = disk as VinilDiskScene
 		
 	if _disk_in_active_zone != vdisk:
 		print_debug("Not an active disk")
