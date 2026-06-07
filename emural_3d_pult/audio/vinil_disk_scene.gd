@@ -3,6 +3,7 @@ class_name VinilDiskScene
 
 var track_id: int = -1
 var stream: AudioStreamOGGVorbis = null
+var disk_item: VinilDisk
 
 func _ready():
 	pass

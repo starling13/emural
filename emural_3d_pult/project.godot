@@ -44,7 +44,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://controls/digit_button_group.gd"
 }, {
-"base": "Spatial",
+"base": "Lever",
+"class": "DiscreteLever",
+"language": "GDScript",
+"path": "res://controls/discrete_lever.gd"
+}, {
+"base": "Lever",
 "class": "Door",
 "language": "GDScript",
 "path": "res://door.gd"
@@ -58,6 +63,11 @@ _global_script_classes=[ {
 "class": "LampPanel",
 "language": "GDScript",
 "path": "res://controls/lamp_panel.gd"
+}, {
+"base": "Spatial",
+"class": "Lever",
+"language": "GDScript",
+"path": "res://controls/lever.gd"
 }, {
 "base": "Switch3D",
 "class": "LeverSwitch",
@@ -134,6 +144,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://audio/vinil_disk_scene.gd"
 }, {
+"base": "Spatial",
+"class": "VinilDiskStack",
+"language": "GDScript",
+"path": "res://audio/vinil_disks_stack.gd"
+}, {
 "base": "LampPanel",
 "class": "WarningPanel",
 "language": "GDScript",
@@ -152,9 +167,11 @@ _global_script_class_icons={
 "ControlRegPanel": "",
 "DSHKPanel": "",
 "DigitButtonGroup": "",
+"DiscreteLever": "",
 "Door": "",
 "HandItem": "",
 "LampPanel": "",
+"Lever": "",
 "LeverSwitch": "",
 "Player": "",
 "PushButton3D": "",
@@ -170,6 +187,7 @@ _global_script_class_icons={
 "VinilDisk": "",
 "VinilDiskPlayer": "",
 "VinilDiskScene": "",
+"VinilDiskStack": "",
 "WarningPanel": "",
 "WorkingModesPanel": ""
 }
