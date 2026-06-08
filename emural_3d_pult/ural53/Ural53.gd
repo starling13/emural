@@ -1,7 +1,15 @@
-extends StaticBody
-class_name Ural53
+###############################################################################
+# Radiola Ural-53 (USSR, 1953 year)
+#
+###############################################################################
 
+class_name Ural53
+extends StaticBody
+
+# Main modes lever: Device OFF, Radio mode, vinil disks player mode
 enum Mode_t {OFF = 0, RADIO = 1, VINIL = 2}
+# Mode of the disks player motor: 33 1/3 rpm, Off, 78 rpm
+enum MotorMode_t {OFF = 0, SPEED33 = 1, SPEED78 = 2}
 
 signal remove_disk
 
@@ -16,13 +24,37 @@ var motor_speed: float = 0.0
 var volume: float = 0.0
 # Current mode
 var mode: int = Mode_t.OFF
-
+# Position in current disk
 var disk_position: float = 0.0
 
 var disk_start_probe_anle = 0.4
 
+var _bus_idx: int = -1
+
+var _eq: AudioEffectEQ6
+
+var _tembr: float = 0.0
+
 func _ready():
-	pass
+	var bus_name: String = "Ural53_"+str(get_instance_id())
+	# Create local audio bus
+	_bus_idx = AudioServer.get_bus_index(bus_name)
+	if _bus_idx == -1:
+		AudioServer.add_bus()
+		_bus_idx = AudioServer.get_bus_count() - 1
+		AudioServer.set_bus_name(_bus_idx, bus_name)
+		AudioServer.set_bus_send(_bus_idx, "Master")
+	
+	# Create equalizer
+	_eq = AudioEffectEQ6.new()
+	AudioServer.add_bus_effect(_bus_idx, _eq, 0)
+	
+	# Set bus to main sound source
+	$AudioStreamPlayer3D.bus = bus_name
+	$NoiseSound.bus = bus_name
+	
+	# Default init tembr
+	_update_eq()
 
 func _on_Button_pressed():
 	if $AudioStreamPlayer3D.playing:
@@ -125,7 +157,7 @@ func _on_SpeedLever_state_changed(state: int):
 
 func _on_VolumeLever_open_state_changed(v: float):
 	volume = v
-	$AudioStreamPlayer3D.max_db = (volume - 0.75) * 24.0
+	AudioServer.set_bus_volume_db(_bus_idx, (volume - 0.75) * 24.0)
 
 
 func _on_ModeSwitch_state_changed(s: int):
@@ -140,3 +172,23 @@ func _on_soundProbe_open_state_changed(s: float):
 	else:
 		disk_position = 0.0
 		$AudioStreamPlayer3D.stop()
+
+
+func _on_TembLever_open_state_changed(v: float):
+	_tembr = v - 0.5
+	_update_eq()
+
+
+func _update_eq():
+	# Move tone balance
+	var treble_db: float = _tembr * 24.0
+	var bass_db: float = -treble_db
+	
+	_eq.set_band_gain_db(0, bass_db)
+	_eq.set_band_gain_db(1, bass_db / 2.0)
+	
+	_eq.set_band_gain_db(2, bass_db / 4.0)
+	_eq.set_band_gain_db(3, treble_db / 4.0)
+	
+	_eq.set_band_gain_db(4, treble_db / 2.0)
+	_eq.set_band_gain_db(5, treble_db)

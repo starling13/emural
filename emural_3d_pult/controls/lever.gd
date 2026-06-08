@@ -1,9 +1,14 @@
-class_name Lever
-extends Spatial
-
 ###############################################################################
 # Lever, rotating around axis on the angle by mouse grabbing
+#
+# Provide public properties:
+#   rot_axis: Vector3D
+#   rot_max_angle: float
+#   rot_scale: float
 ###############################################################################
+
+class_name Lever
+extends Spatial
 
 # Axis of the rotation
 export var rot_axis: Vector3 = Vector3.UP

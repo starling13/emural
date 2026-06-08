@@ -44,6 +44,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58186, 1.19384, 0.10786 )
 [node name="vinil_disk_stack" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19243, 0.802696, 0.405845 )
 
+[node name="vinil_disk_3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58186, 1.19384, 0.559926 )
+
 [connection signal="use_item" from="player" to="Ural53" method="use_disk"]
 [connection signal="left_pressed" from="vinil_disk_553" to="player" method="hold_object"]
 [connection signal="left_pressed" from="vinil_disk_1088" to="player" method="hold_object"]
+[connection signal="left_pressed" from="vinil_disk_3" to="player" method="hold_object"]
