@@ -20,12 +20,12 @@ func load_from_dir(path: String) -> void:
 	s = _load_ogg(path + "/2.ogg")
 	audio_streams[1] = s
 	
-	var t: StreamTexture = null
+	var t: ImageTexture = null
 	
-	t = load(path + "/1.png")
+	t = _load_png(path + "/1.png")
 	images[0] = t
 	
-	t = load(path + "/2.png")
+	t = _load_png(path + "/2.png")
 	images[1] = t
 	
 func _load_ogg(fpath: String) -> AudioStreamOGGVorbis:
@@ -48,3 +48,22 @@ func _load_ogg(fpath: String) -> AudioStreamOGGVorbis:
 	res.data = data
 	
 	return res
+
+func _load_png(path: String) -> ImageTexture:
+	# 1. Load the raw image data
+	var image: Image
+	
+	var texture: ImageTexture
+	
+	var res: ImageTexture
+	
+	image = Image.new()
+	if image.load(path) != OK:
+		printerr("Failed to load image from path: ", path)
+		return res
+
+	# 2. Create a texture from the loaded image data
+	texture = ImageTexture.new()
+	texture.create_from_image(image)
+
+	return texture

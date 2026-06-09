@@ -13,6 +13,9 @@ enum MotorMode_t {OFF = 0, SPEED33 = 1, SPEED78 = 2}
 
 signal remove_disk
 
+# Current mode
+var mode: int = Mode_t.OFF
+
 var _disk_in_active_zone: VinilDiskScene = null
 
 var _inserted_disk: VinilDiskScene = null
@@ -22,8 +25,7 @@ var motor_mode: int = 0
 var motor_speed: float = 0.0
 # Sound volume level
 var volume: float = 0.0
-# Current mode
-var mode: int = Mode_t.OFF
+
 # Position in current disk
 var disk_position: float = 0.0
 
@@ -34,6 +36,9 @@ var _bus_idx: int = -1
 var _eq: AudioEffectEQ6
 
 var _tembr: float = 0.0
+# AC power master switch
+var _power: bool = false
+
 
 func _ready():
 	var bus_name: String = "Ural53_"+str(get_instance_id())
@@ -55,14 +60,6 @@ func _ready():
 	
 	# Default init tembr
 	_update_eq()
-
-func _on_Button_pressed():
-	if $AudioStreamPlayer3D.playing:
-		$AudioStreamPlayer3D.stop()
-		$NoiseSound.stop()
-	else:
-		$AudioStreamPlayer3D.play()
-		$NoiseSound.play()
 
 
 func _on_Area_body_entered(body):
@@ -160,9 +157,27 @@ func _on_VolumeLever_open_state_changed(v: float):
 	AudioServer.set_bus_volume_db(_bus_idx, (volume - 0.75) * 24.0)
 
 
-func _on_ModeSwitch_state_changed(s: int):
+func _on_ModeSwitch_state_changed(s: int) -> void:
+	$ModeSwitch/ClickSound.play()
 	mode = s
+	_update_mode()
+	
 
+func _update_mode() -> void:
+	if mode == Mode_t.OFF:
+		_power = false
+	else:
+		_power = true
+
+	if mode == Mode_t.RADIO:
+		$ScaleLight01.visible = true
+		$ScaleLight02.visible = true
+		$ScaleLight03.visible = true
+	else:
+		$ScaleLight01.visible = false
+		$ScaleLight02.visible = false
+		$ScaleLight03.visible = false
+		
 
 func _on_soundProbe_open_state_changed(s: float):
 	if s > disk_start_probe_anle:

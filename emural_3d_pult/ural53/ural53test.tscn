@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ural53/Ural53.tscn" type="PackedScene" id=2]
 [ext_resource path="res://audio/vinil_disks_stack.tscn" type="PackedScene" id=3]
-[ext_resource path="res://audio/vinil_disk_scene.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ural53/ural53test.gd" type="Script" id=7]
 
 [sub_resource type="BoxShape" id=1]
@@ -32,22 +31,10 @@ material/0 = SubResource( 3 )
 
 [node name="Ural53" parent="." instance=ExtResource( 2 )]
 
-[node name="vinil_disk_553" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.502464, 1.28679, 0.0558445 )
-
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -0.268617, 0, -0.963247, 0, 1, 0, 0.963247, 0, -0.268617, -1.85543, 1.79868, 0 )
-
-[node name="vinil_disk_1088" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58186, 1.19384, 0.10786 )
 
 [node name="vinil_disk_stack" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19243, 0.802696, 0.405845 )
 
-[node name="vinil_disk_3" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58186, 1.19384, 0.559926 )
-
 [connection signal="use_item" from="player" to="Ural53" method="use_disk"]
-[connection signal="left_pressed" from="vinil_disk_553" to="player" method="hold_object"]
-[connection signal="left_pressed" from="vinil_disk_1088" to="player" method="hold_object"]
-[connection signal="left_pressed" from="vinil_disk_3" to="player" method="hold_object"]
