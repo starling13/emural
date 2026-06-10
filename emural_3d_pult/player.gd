@@ -111,12 +111,15 @@ func _stand_up():
 
 func hold_object(item: HandItem):
 	if _holding == null:
+		item.connect("left_pressed", self, "hold_object")
 		item.collision_layer = 2
 		item.collision_mask = 2
 		_holding = item
 		_holding.mode = RigidBody.MODE_STATIC
 		_holding.transform = Transform.IDENTITY
-		_holding.get_parent().remove_child(_holding)
+		var p = _holding.get_parent()
+		if p != null:
+			p.remove_child(_holding)
 		$Camera/HoldPosition.add_child(_holding)
 		#_holding.player = self
 		print_debug("Holding a new object")

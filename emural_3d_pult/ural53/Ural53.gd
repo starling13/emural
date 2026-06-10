@@ -104,7 +104,7 @@ func use_disk(disk, player):
 		vdisk.rotate(Vector3.RIGHT, deg2rad(180.0))
 	_inserted_disk = vdisk
 	
-	$AudioStreamPlayer3D.stream = vdisk.disk_item.audio_streams[side]
+	$AudioStreamPlayer3D.stream = vdisk.disk_item().audio_streams[side]
 
 func _on_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:

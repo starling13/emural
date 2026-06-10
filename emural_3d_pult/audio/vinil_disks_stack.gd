@@ -1,6 +1,7 @@
 class_name VinilDiskStack
 extends Spatial
 
+
 signal disk_selected
 
 const disks_path = "user://vinil_disks"
@@ -36,6 +37,7 @@ func _ready():
 
 func take_disk(index: int) -> VinilDiskScene:
 	var vdisk: VinilDisk
+	var sc: PackedScene
 	var res: VinilDiskScene
 	var vdisk_path: String
 	
@@ -43,8 +45,12 @@ func take_disk(index: int) -> VinilDiskScene:
 	vdisk_path = _disks.pop_at(index)
 	vdisk.load_from_dir(vdisk_path)
 	
-	res = VinilDiskScene.new()
-	res.disk_item = vdisk
+	sc = load("res://audio/vinil_disk_scene.tscn")
+	res = sc.instance()
+	res.set_disk(vdisk)
+	
+	while _disks.size()-1 < selected_disk:
+		selected_disk -= 1
 	
 	return res
 
@@ -83,7 +89,11 @@ func _on_Area_input_event(camera, event, position, normal, shape_idx):
 			if selected_disk < 0:
 				selected_disk = _disks.size()-1
 			_update_disk_sprite()
+			if selected_disk < 0:
+				return
 			
-			if mb_event.button_index == BUTTON_LEFT:
+			if mb_event.button_index == BUTTON_LEFT and mb_event.pressed:
 				var disk: VinilDiskScene = take_disk(selected_disk)
-			emit_signal("disk_selected", disk)
+				_update_disk_sprite()
+				if disk != null:
+					emit_signal("disk_selected", disk)

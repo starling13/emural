@@ -1,14 +1,21 @@
 extends HandItem
 class_name VinilDiskScene
 
-var track_id: int = -1
-var stream: AudioStreamOGGVorbis = null
-var disk_item: VinilDisk
+
+var _disk_item: VinilDisk
+
 
 func _ready():
 	pass
-	
-func set_track_id(tid: int) -> void:
-	stream=load("res://audio/"+str(tid)+".ogg")
-	var t = load("res://audio/"+str(tid)+".png")
-	$MeshInstance2.get_active_material(0).albedo_texture = load("res://audio/"+str(tid)+".png")
+
+
+func set_disk(d: VinilDisk) -> void:
+	_disk_item = d
+	print_debug($side_1_label)
+	print_debug($side_2_label)
+	$side_1_label.texture = d.images[0]
+	$side_2_label.texture = d.images[1]
+
+
+func disk_item() -> VinilDisk:
+	return _disk_item

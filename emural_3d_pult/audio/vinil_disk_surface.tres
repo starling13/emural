@@ -1,0 +1,10 @@
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://audio/disk_grooves.png" type="Texture" id=1]
+[ext_resource path="res://audio/disk_albedo.png" type="Texture" id=2]
+
+[resource]
+flags_transparent = true
+albedo_texture = ExtResource( 2 )
+roughness = 0.57
+roughness_texture = ExtResource( 1 )

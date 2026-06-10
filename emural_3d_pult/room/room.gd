@@ -3,8 +3,7 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$vinil_disk.set_track_id(552)
-	$vinil_disk2.set_track_id(1088)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -38,3 +38,4 @@ transform = Transform( -0.268617, 0, -0.963247, 0, 1, 0, 0.963247, 0, -0.268617,
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19243, 0.802696, 0.405845 )
 
 [connection signal="use_item" from="player" to="Ural53" method="use_disk"]
+[connection signal="disk_selected" from="vinil_disk_stack" to="player" method="hold_object"]
