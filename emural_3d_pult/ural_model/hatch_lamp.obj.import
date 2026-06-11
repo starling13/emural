@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/hatch_lamp.obj-2662da704fda00ee3a9cd81912b8d0c1.mesh"
+
+[deps]
+
+files=[ "res://.import/hatch_lamp.obj-2662da704fda00ee3a9cd81912b8d0c1.mesh" ]
+
+source_file="res://ural_model/hatch_lamp.obj"
+dest_files=[ "res://.import/hatch_lamp.obj-2662da704fda00ee3a9cd81912b8d0c1.mesh", "res://.import/hatch_lamp.obj-2662da704fda00ee3a9cd81912b8d0c1.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

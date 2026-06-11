@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://panel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://punch_device_cover.tscn" type="PackedScene" id=2]
@@ -13,8 +13,8 @@
 [ext_resource path="res://ural_model/left_small_banquet_cover.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://wood.tres" type="Material" id=12]
 [ext_resource path="res://ural_model/right_small_banquet_cover.obj" type="ArrayMesh" id=13]
-[ext_resource path="res://ural_model/right_short_glass_door.obj" type="ArrayMesh" id=14]
-[ext_resource path="res://ural_model/left_short_glass_door.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://ural_model/right_short_glass_door_02.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://ural_model/left_short_glass_door_02.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://controls/pult/pult_panel.tscn" type="PackedScene" id=16]
 [ext_resource path="res://ural_model/right_small_banquet.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://right_banquette_door.tscn" type="PackedScene" id=18]
@@ -22,6 +22,7 @@
 [ext_resource path="res://left_banquette_door.tscn" type="PackedScene" id=20]
 [ext_resource path="res://ural_model/right_decor.obj" type="ArrayMesh" id=21]
 [ext_resource path="res://ural_model/decor_top.obj" type="ArrayMesh" id=22]
+[ext_resource path="res://glass.tres" type="Material" id=23]
 [ext_resource path="res://ural_model/left_tape_box_decor.obj" type="ArrayMesh" id=24]
 [ext_resource path="res://gray_steel.tres" type="Material" id=25]
 [ext_resource path="res://ural_model/right_tape_box_decor.obj" type="ArrayMesh" id=26]
@@ -32,28 +33,16 @@
 [ext_resource path="res://ural_model/right_front_tape_door.obj" type="ArrayMesh" id=31]
 [ext_resource path="res://ural_model/left_side_tape_door.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://door.gd" type="Script" id=33]
+[ext_resource path="res://ural_model/left_short_glass_door_01.obj" type="ArrayMesh" id=34]
+[ext_resource path="res://ural_model/left_short_glass_door_00.obj" type="ArrayMesh" id=35]
+[ext_resource path="res://ural_model/right_short_glass_door_01.obj" type="ArrayMesh" id=36]
+[ext_resource path="res://ural_model/right_short_glass_door_00.obj" type="ArrayMesh" id=37]
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.02, 0.02, 0.02 )
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.02, 0.02, 0.02 )
-
-[sub_resource type="Animation" id=8]
-resource_name = "open_close"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -90, 0 ) ]
-}
 
 [sub_resource type="SpatialMaterial" id=26]
 albedo_texture = ExtResource( 5 )
@@ -68,51 +57,89 @@ script = ExtResource( 4 )
 [node name="central_cabinet" type="Spatial" parent="."]
 
 [node name="right_punch_device_cover" parent="central_cabinet" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, -0.113, 0.025 )
 rot_axis = Vector3( 1, 0, 0 )
 rot_max_angle = -80.0
 
 [node name="panel" parent="central_cabinet" instance=ExtResource( 1 )]
 
 [node name="left_short_glass_door" type="Spatial" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0.025 )
 script = ExtResource( 33 )
-rot_max_angle = 100.0
-
-[node name="LeftShortGlassDoor" type="MeshInstance" parent="central_cabinet/left_short_glass_door"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025 )
-mesh = ExtResource( 15 )
-skeleton = NodePath("../../../..")
-material/0 = ExtResource( 25 )
+rot_max_angle = 80.0
 
 [node name="StaticBody" type="StaticBody" parent="central_cabinet/left_short_glass_door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="central_cabinet/left_short_glass_door/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03 )
 shape = SubResource( 5 )
 
-[node name="main_table" type="MeshInstance" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19, 0.37 )
-mesh = ExtResource( 8 )
-skeleton = NodePath("../../..")
+[node name="LOD" type="LOD" parent="central_cabinet/left_short_glass_door"]
+hysteresis = 0.01
+
+[node name="LeftShortGlassDoor02" type="MeshInstance" parent="central_cabinet/left_short_glass_door/LOD"]
+lod_range = 2.0
+mesh = ExtResource( 15 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 25 )
+material/1 = ExtResource( 23 )
+
+[node name="LeftShortGlassDoor01" type="MeshInstance" parent="central_cabinet/left_short_glass_door/LOD"]
+visible = false
+lod_range = 4.0
+mesh = ExtResource( 34 )
+material/0 = ExtResource( 25 )
+material/1 = ExtResource( 23 )
+
+[node name="LeftShortGlassDoor00" type="MeshInstance" parent="central_cabinet/left_short_glass_door/LOD"]
+visible = false
+lod_range = 6.0
+mesh = ExtResource( 35 )
+material/0 = ExtResource( 25 )
+material/1 = ExtResource( 23 )
 
 [node name="right_short_glass_door" type="Spatial" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.466, 0.7, 0.025 )
 script = ExtResource( 19 )
-
-[node name="RightShortGlassDoor" type="MeshInstance" parent="central_cabinet/right_short_glass_door"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025 )
-mesh = ExtResource( 14 )
-skeleton = NodePath("../../../..")
-material/0 = ExtResource( 25 )
+rot_axis = Vector3( 0, -1, 0 )
+rot_max_angle = 80.0
 
 [node name="StaticBody" type="StaticBody" parent="central_cabinet/right_short_glass_door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="central_cabinet/right_short_glass_door/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03 )
 shape = SubResource( 7 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="central_cabinet/right_short_glass_door"]
-anims/open_close = SubResource( 8 )
+[node name="LOD" type="LOD" parent="central_cabinet/right_short_glass_door"]
+hysteresis = 0.01
+
+[node name="RightShortGlassDoor02" type="MeshInstance" parent="central_cabinet/right_short_glass_door/LOD"]
+lod_range = 2.0
+mesh = ExtResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 25 )
+material/1 = ExtResource( 23 )
+
+[node name="RightShortGlassDoor01" type="MeshInstance" parent="central_cabinet/right_short_glass_door/LOD"]
+visible = false
+lod_range = 4.0
+mesh = ExtResource( 36 )
+material/0 = ExtResource( 25 )
+material/1 = ExtResource( 23 )
+
+[node name="RightShortGlassDoor00" type="MeshInstance" parent="central_cabinet/right_short_glass_door/LOD"]
+visible = false
+lod_range = 6.0
+mesh = ExtResource( 37 )
+material/0 = ExtResource( 25 )
+material/1 = ExtResource( 23 )
+
+[node name="main_table" type="MeshInstance" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19, 0.37 )
+mesh = ExtResource( 8 )
+skeleton = NodePath("../../..")
 
 [node name="pult_panel" parent="central_cabinet" instance=ExtResource( 16 )]
 
@@ -122,30 +149,6 @@ mesh = ExtResource( 10 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 26 )
 
-[node name="OmniLight" type="OmniLight" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216338, 0.977764, 0.0172361 )
-light_color = Color( 1, 0.654902, 0, 1 )
-light_energy = 0.15
-omni_range = 0.5
-
-[node name="OmniLight2" type="OmniLight" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216338, 0.507397, 0.0172361 )
-light_color = Color( 1, 0.654902, 0, 1 )
-light_energy = 0.15
-omni_range = 0.5
-
-[node name="OmniLight3" type="OmniLight" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263193, 0.977764, 0.0172361 )
-light_color = Color( 1, 0.654902, 0, 1 )
-light_energy = 0.15
-omni_range = 0.5
-
-[node name="OmniLight4" type="OmniLight" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.257523, 0.503759, 0.0172361 )
-light_color = Color( 1, 0.654902, 0, 1 )
-light_energy = 0.15
-omni_range = 0.5
-
 [node name="CabinetFrame" type="MeshInstance" parent="central_cabinet"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.022 )
 material_override = ExtResource( 25 )
@@ -153,7 +156,7 @@ mesh = ExtResource( 6 )
 skeleton = NodePath("../..")
 
 [node name="left_punch_device_cover" parent="central_cabinet" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.095, 0.02 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.113, 0.025 )
 rot_axis = Vector3( 1, 0, 0 )
 rot_max_angle = -80.0
 
