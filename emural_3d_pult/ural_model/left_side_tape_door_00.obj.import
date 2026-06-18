@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/left_side_tape_door_00.obj-920cac7e6b88004e20f887c3825bb277.mesh"
+
+[deps]
+
+files=[ "res://.import/left_side_tape_door_00.obj-920cac7e6b88004e20f887c3825bb277.mesh" ]
+
+source_file="res://ural_model/left_side_tape_door_00.obj"
+dest_files=[ "res://.import/left_side_tape_door_00.obj-920cac7e6b88004e20f887c3825bb277.mesh", "res://.import/left_side_tape_door_00.obj-920cac7e6b88004e20f887c3825bb277.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

@@ -1,8 +1,8 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://panel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://punch_device_cover.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ural_model/right_side_tape_door.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://ural_model/left_side_tape_door_00.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://ural_scene.gd" type="Script" id=4]
 [ext_resource path="res://ural_model/central_lamp_set.png" type="Texture" id=5]
 [ext_resource path="res://ural_model/cabinet_frame.obj" type="ArrayMesh" id=6]
@@ -27,11 +27,11 @@
 [ext_resource path="res://gray_steel.tres" type="Material" id=25]
 [ext_resource path="res://ural_model/right_tape_box_decor.obj" type="ArrayMesh" id=26]
 [ext_resource path="res://right_door.tscn" type="PackedScene" id=27]
-[ext_resource path="res://ural_model/left_tape_woodcut.obj" type="ArrayMesh" id=28]
+[ext_resource path="res://ural_model/right_tape_device_ring.obj" type="ArrayMesh" id=28]
 [ext_resource path="res://left_door.tscn" type="PackedScene" id=29]
 [ext_resource path="res://ural_model/left_front_tape_door.obj" type="ArrayMesh" id=30]
 [ext_resource path="res://ural_model/right_front_tape_door.obj" type="ArrayMesh" id=31]
-[ext_resource path="res://ural_model/left_side_tape_door.obj" type="ArrayMesh" id=32]
+[ext_resource path="res://ural_model/right_side_tape_door.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://door.gd" type="Script" id=33]
 [ext_resource path="res://ural_model/left_short_glass_door_01.obj" type="ArrayMesh" id=34]
 [ext_resource path="res://ural_model/left_short_glass_door_00.obj" type="ArrayMesh" id=35]
@@ -39,6 +39,8 @@
 [ext_resource path="res://ural_model/right_short_glass_door_00.obj" type="ArrayMesh" id=37]
 [ext_resource path="res://ural_model/pult_table.obj" type="ArrayMesh" id=38]
 [ext_resource path="res://ural_model/pult_table_cover.obj" type="ArrayMesh" id=39]
+[ext_resource path="res://ural_model/right_central_door.obj" type="ArrayMesh" id=40]
+[ext_resource path="res://ural_model/left_central_door.obj" type="ArrayMesh" id=41]
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.02, 0.02, 0.02 )
@@ -50,11 +52,17 @@ extents = Vector3( 0.02, 0.02, 0.02 )
 albedo_texture = ExtResource( 5 )
 
 [sub_resource type="BoxShape" id=27]
-extents = Vector3( 0.02, 0.02, 0.02 )
+extents = Vector3( 0.04, 0.04, 0.02 )
 
 [sub_resource type="BoxShape" id=28]
 margin = 0.02
 extents = Vector3( 0.66, 0.03, 0.2 )
+
+[sub_resource type="BoxShape" id=29]
+extents = Vector3( 0.01, 0.05, 0.05 )
+
+[sub_resource type="BoxShape" id=30]
+extents = Vector3( 0.02, 0.02, 0.01 )
 
 [node name="ural" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.183 )
@@ -68,6 +76,8 @@ rot_axis = Vector3( 1, 0, 0 )
 rot_max_angle = -80.0
 
 [node name="panel" parent="central_cabinet" instance=ExtResource( 1 )]
+rot_axis = Vector3( 1, 0, 0 )
+rot_max_angle = 30.0
 
 [node name="left_short_glass_door" type="Spatial" parent="central_cabinet"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466, 0.7, 0.025 )
@@ -152,7 +162,6 @@ skeleton = NodePath("../..")
 material/0 = SubResource( 26 )
 
 [node name="CabinetFrame" type="MeshInstance" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.022 )
 material_override = ExtResource( 25 )
 mesh = ExtResource( 6 )
 skeleton = NodePath("../..")
@@ -166,37 +175,8 @@ rot_max_angle = -80.0
 mesh = ExtResource( 22 )
 material/0 = ExtResource( 25 )
 
-[node name="LeftTapeBoxDecor" type="MeshInstance" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.961, 0, 0.488 )
-mesh = ExtResource( 24 )
-skeleton = NodePath("../..")
-material/0 = ExtResource( 25 )
-
-[node name="RightTapeBoxDecor" type="MeshInstance" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.961, 0, 0.488 )
-mesh = ExtResource( 26 )
-skeleton = NodePath("../..")
-material/0 = ExtResource( 25 )
-
-[node name="LeftTapeWoodcut" type="MeshInstance" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.126, 0.02 )
-mesh = ExtResource( 28 )
-skeleton = NodePath("../..")
-material/1 = ExtResource( 12 )
-
-[node name="LeftSideTapeDoor" type="MeshInstance" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.424, -0.555, 0.327 )
-mesh = ExtResource( 32 )
-material/0 = ExtResource( 25 )
-
-[node name="RightTapeWoodcut" type="MeshInstance" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, -0.126, 0.02 )
-mesh = ExtResource( 28 )
-skeleton = NodePath("../..")
-material/1 = ExtResource( 12 )
-
 [node name="left_front_tape_door" type="Spatial" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.387, -0.56, 0.786 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.387, -0.56, 0.807 )
 script = ExtResource( 33 )
 rot_max_angle = 100.0
 
@@ -207,18 +187,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.633, 0, 0.031 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0433227, 0.0115475 )
 shape = SubResource( 27 )
 
-[node name="mesh" type="MeshInstance" parent="central_cabinet/left_front_tape_door"]
+[node name="LeftFrontTapeDoor" type="MeshInstance" parent="central_cabinet/left_front_tape_door"]
 mesh = ExtResource( 30 )
 material/0 = ExtResource( 25 )
 
 [node name="right_front_tape_door" type="Spatial" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.387, -0.56, 0.786 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.385, -0.56, 0.807 )
 script = ExtResource( 33 )
 rot_axis = Vector3( 0, -1, 0 )
 rot_max_angle = 100.0
 
 [node name="StaticBody" type="StaticBody" parent="central_cabinet/right_front_tape_door"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.633, 0, 0.031 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.619974, 0, 0.0186294 )
 
 [node name="CollisionShape" type="CollisionShape" parent="central_cabinet/right_front_tape_door/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0433227, 0.0115475 )
@@ -226,11 +206,6 @@ shape = SubResource( 27 )
 
 [node name="mesh" type="MeshInstance" parent="central_cabinet/right_front_tape_door"]
 mesh = ExtResource( 31 )
-material/0 = ExtResource( 25 )
-
-[node name="RightSideTapeDoor" type="MeshInstance" parent="central_cabinet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.424, -0.555, 0.327 )
-mesh = ExtResource( 3 )
 material/0 = ExtResource( 25 )
 
 [node name="PultTable" type="StaticBody" parent="central_cabinet"]
@@ -245,6 +220,92 @@ material/1 = ExtResource( 8 )
 [node name="CollisionShape" type="CollisionShape" parent="central_cabinet/PultTable"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0121018, 0.158377 )
 shape = SubResource( 28 )
+
+[node name="LeftTapeDeviceSideDoor" type="Spatial" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.433, -0.555, 0.343 )
+script = ExtResource( 33 )
+rot_axis = Vector3( 0, -1, 0 )
+rot_max_angle = 75.0
+
+[node name="LeftSideTapeDoor00" type="MeshInstance" parent="central_cabinet/LeftTapeDeviceSideDoor"]
+mesh = ExtResource( 3 )
+material/0 = ExtResource( 25 )
+
+[node name="StaticBody" type="StaticBody" parent="central_cabinet/LeftTapeDeviceSideDoor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00913239, 0.0615905, 0.349731 )
+
+[node name="CollisionShape" type="CollisionShape" parent="central_cabinet/LeftTapeDeviceSideDoor/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, 0, 0 )
+shape = SubResource( 29 )
+
+[node name="LeftTapeBoxDecor" type="MeshInstance" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96, 0, 0.538 )
+mesh = ExtResource( 24 )
+material/0 = ExtResource( 25 )
+
+[node name="RightTapeBoxDecor" type="MeshInstance" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96, 0, 0.538 )
+mesh = ExtResource( 26 )
+
+[node name="LeftTapeDeviceRing" type="MeshInstance" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, -0.126, 0.025 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 12 )
+
+[node name="RightTapeDeviceRing" type="MeshInstance" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.126, 0.025 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 12 )
+
+[node name="RightTapeDeviceSideDoor" type="Spatial" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.433, -0.555, 0.343 )
+script = ExtResource( 33 )
+rot_axis = Vector3( 0, -1, 0 )
+rot_max_angle = 75.0
+
+[node name="StaticBody" type="StaticBody" parent="central_cabinet/RightTapeDeviceSideDoor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009, 0.062, 0.35 )
+
+[node name="CollisionShape" type="CollisionShape" parent="central_cabinet/RightTapeDeviceSideDoor/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, 0, 0 )
+shape = SubResource( 29 )
+
+[node name="RightSideTapeDoor" type="MeshInstance" parent="central_cabinet/RightTapeDeviceSideDoor"]
+mesh = ExtResource( 32 )
+material/0 = ExtResource( 25 )
+
+[node name="RightCentralDoor" type="Spatial" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.665, -0.708, 0.309 )
+script = ExtResource( 33 )
+rot_max_angle = 70.0
+
+[node name="StaticBody" type="StaticBody" parent="central_cabinet/RightCentralDoor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61, 0, 0.014 )
+
+[node name="CollisionShape" type="CollisionShape" parent="central_cabinet/RightCentralDoor/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="RightCentralDoor" type="MeshInstance" parent="central_cabinet/RightCentralDoor"]
+mesh = ExtResource( 40 )
+material/0 = ExtResource( 25 )
+
+[node name="LeftCentralDoor" type="Spatial" parent="central_cabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.665, -0.708, 0.309 )
+script = ExtResource( 33 )
+rot_axis = Vector3( 0, -1, 0 )
+rot_max_angle = 70.0
+
+[node name="StaticBody" type="StaticBody" parent="central_cabinet/LeftCentralDoor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61, 0, 0.014 )
+
+[node name="CollisionShape" type="CollisionShape" parent="central_cabinet/LeftCentralDoor/StaticBody"]
+shape = SubResource( 30 )
+
+[node name="LeftCentralDoor" type="MeshInstance" parent="central_cabinet/LeftCentralDoor"]
+mesh = ExtResource( 41 )
+material/0 = ExtResource( 25 )
 
 [node name="right_cabinet" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96, 0, 0 )

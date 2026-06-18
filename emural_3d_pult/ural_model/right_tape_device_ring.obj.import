@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/right_tape_device_ring.obj-3724c938d988238d81053d5c7ae7fd8a.mesh"
+
+[deps]
+
+files=[ "res://.import/right_tape_device_ring.obj-3724c938d988238d81053d5c7ae7fd8a.mesh" ]
+
+source_file="res://ural_model/right_tape_device_ring.obj"
+dest_files=[ "res://.import/right_tape_device_ring.obj-3724c938d988238d81053d5c7ae7fd8a.mesh", "res://.import/right_tape_device_ring.obj-3724c938d988238d81053d5c7ae7fd8a.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

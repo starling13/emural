@@ -91,7 +91,7 @@ spot_angle = 30.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.40097 )
 
 [node name="Vent" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 3.866 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 3.92933 )
 mesh = ExtResource( 3 )
 material/0 = ExtResource( 5 )
 

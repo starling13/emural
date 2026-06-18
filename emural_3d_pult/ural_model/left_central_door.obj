@@ -1,0 +1,12 @@
+# Blender v2.79 (sub 0) OBJ File: 'ecvm.blend'
+# www.blender.org
+mtllib left_central_door.mtl
+o Plane.001
+v -0.000254 -0.252280 0.000000
+v 0.663000 -0.252280 0.000000
+v -0.000254 0.252280 0.000000
+v 0.663000 0.252280 0.000000
+vn 0.0000 0.0000 1.0000
+usemtl gray_02
+s off
+f 1//1 2//1 4//1 3//1
