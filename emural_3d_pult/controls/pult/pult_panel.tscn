@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://controls/push_button_3d.gd" type="Script" id=1]
 [ext_resource path="res://controls/pult/pult.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://controls/pult/control_delegation_switch_panel.gd" type="Script" id=9]
 [ext_resource path="res://controls/pult/control_reg_addr_panel.gd" type="Script" id=10]
 [ext_resource path="res://controls/black_push_button.tscn" type="PackedScene" id=11]
+[ext_resource path="res://controls/pult/pult_panel.gd" type="Script" id=12]
 
 [sub_resource type="SpatialMaterial" id=25]
 albedo_texture = ExtResource( 5 )
@@ -26,6 +27,7 @@ albedo_color = Color( 0.0588235, 0.0313726, 0, 1 )
 extents = Vector3( 0.01, 0.005, 0.01 )
 
 [node name="pult_panel" type="Spatial"]
+script = ExtResource( 12 )
 
 [node name="mesh" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12, 0.215 )
@@ -284,6 +286,24 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.489384, 0.0413264, 0.0321901
 [node name="adder_print_button" parent="pult" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.545732, 0.0390468, 0.0313729 )
 
+[node name="power_button_off" parent="pult" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.649163, 0.0377593, 0.153634 )
+
+[node name="power_button_on" parent="pult" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.649163, 0.0379275, 0.110634 )
+
+[node name="heat_button_off" parent="pult" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58795, 0.0377593, 0.153634 )
+
+[node name="heat_button_on" parent="pult" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58795, 0.0379275, 0.110634 )
+
+[node name="anode_button_off" parent="pult" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.527153, 0.0377593, 0.153634 )
+
+[node name="anode_button_on" parent="pult" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.527153, 0.0379275, 0.110634 )
+
 [connection signal="left_pressed" from="pult/rgk_and_button" to="pult" method="_on_rgk_and_button_left_pressed"]
 [connection signal="left_released" from="pult/rgk_and_button" to="pult" method="_on_rgk_and_button_left_released"]
 [connection signal="pressed" from="pult/com_reg_vz_button" to="pult" method="_on_com_reg_vz_button_pressed"]
@@ -305,3 +325,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.545732, 0.0390468, 0.0313729
 [connection signal="pressed" from="pult/stop_button" to="pult" method="_on_stop_button_pressed"]
 [connection signal="pressed" from="pult/clear_button1" to="pult" method="_on_clear_button_pressed"]
 [connection signal="pressed" from="pult/clear_button2" to="pult" method="_on_clear_button_pressed"]
+[connection signal="pressed" from="pult/heat_button_off" to="pult" method="_on_heat_button_off_pressed"]
+[connection signal="pressed" from="pult/heat_button_on" to="." method="_on_heat_button_on_pressed"]
+[connection signal="pressed" from="pult/heat_button_on" to="pult" method="_on_heat_button_on_pressed"]

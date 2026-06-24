@@ -1,6 +1,6 @@
 extends DigitButtonGroup
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	$button_00.set_digit(0)
 	_buttons.append($button_00)

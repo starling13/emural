@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://room/wall3.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://furniture/table/table.tscn" type="PackedScene" id=21]
 [ext_resource path="res://room/room.gd" type="Script" id=22]
 [ext_resource path="res://controls/lever_switch.tscn" type="PackedScene" id=23]
+[ext_resource path="res://sound/fan_nominal.wav" type="AudioStream" id=24]
 
 [sub_resource type="ProceduralSky" id=5]
 sun_longitude = -75.0
@@ -43,39 +44,39 @@ script = ExtResource( 22 )
 environment = SubResource( 4 )
 
 [node name="SpotLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, 2, 4.5 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.00002, 2.00388, 4.50013 )
 light_color = Color( 1, 0.996078, 0.690196, 1 )
-light_energy = 0.5
+light_energy = 0.0
 light_bake_mode = 2
 
 [node name="SpotLight2" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, 2, 4.5 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.00002, 2.00388, 4.50013 )
 light_color = Color( 1, 0.996078, 0.690196, 1 )
-light_energy = 0.5
+light_energy = 0.0
 light_bake_mode = 2
 
 [node name="SpotLight3" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 4.5 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.45571e-05, 2.00388, 4.50013 )
 light_color = Color( 1, 0.996078, 0.690196, 1 )
-light_energy = 0.5
+light_energy = 0.0
 light_bake_mode = 2
 
 [node name="SpotLight4" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, 2, 8.21273 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.00002, 2.00388, 8.21286 )
 light_color = Color( 1, 0.996078, 0.690196, 1 )
-light_energy = 0.5
+light_energy = 0.0
 light_bake_mode = 2
 
 [node name="SpotLight5" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, 2, 8.21273 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.00002, 2.00388, 8.21286 )
 light_color = Color( 1, 0.996078, 0.690196, 1 )
-light_energy = 0.5
+light_energy = 0.0
 light_bake_mode = 2
 
 [node name="SpotLight6" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 8.21273 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.45571e-05, 2.00388, 8.21286 )
 light_color = Color( 1, 0.996078, 0.690196, 1 )
-light_energy = 0.5
+light_energy = 0.0
 light_bake_mode = 2
 
 [node name="OmniLight" type="SpotLight" parent="."]
@@ -178,8 +179,17 @@ transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4
 [node name="VinilDisksStack" parent="." instance=ExtResource( 20 )]
 transform = Transform( -0.196186, 0, 0.980567, 0, 1, 0, -0.980567, 0, -0.196186, -4.83345, -0.128506, 7.00437 )
 
+[node name="fan_switch" parent="." instance=ExtResource( 23 )]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 2.08463, 0.483318, 5.7033 )
+
+[node name="FanSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80907, 1.47376, 3.11696 )
+stream = ExtResource( 24 )
+max_db = 0.0
+
 [connection signal="use_item" from="player" to="Ural53" method="use_disk"]
 [connection signal="selected" from="chair_ecvm" to="player" method="_on_chair_selected"]
 [connection signal="selected" from="chair_keydev" to="player" method="_on_chair_selected"]
 [connection signal="changed" from="light_switch" to="." method="_on_light_switch_changed"]
 [connection signal="disk_selected" from="VinilDisksStack" to="player" method="hold_object"]
+[connection signal="changed" from="fan_switch" to="." method="_on_fan_switch_changed"]

@@ -1,8 +1,8 @@
 extends Button3D
 
+
 func _ready():
 	pass
-
 
 func set_base_color(c: Color):
 	var m: ShaderMaterial = $model/Button00.get_active_material(0)

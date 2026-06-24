@@ -19,3 +19,12 @@ func _on_light_switch_changed(v: bool):
 	$SpotLight4.light_energy = le
 	$SpotLight5.light_energy = le
 	$SpotLight6.light_energy = le
+
+
+func _on_fan_switch_changed(value: bool) -> void:
+	if value:
+		if not $FanSound.playing:
+			$FanSound.play()
+	else:
+		if $FanSound.playing:
+			$FanSound.stop()

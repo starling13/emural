@@ -44,5 +44,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0, 0 )
 [connection signal="input_event" from="button_05" to="." method="_on_button_input_event" binds= [ 5 ]]
 [connection signal="input_event" from="button_06" to="." method="_on_button_input_event" binds= [ 6 ]]
 [connection signal="input_event" from="button_07" to="." method="_on_button_input_event" binds= [ 7 ]]
-[connection signal="input_event" from="button_08" to="." method="_on_button_input_event" binds= [ 7 ]]
-[connection signal="input_event" from="button_09" to="." method="_on_button_input_event" binds= [ 7 ]]
+[connection signal="input_event" from="button_08" to="." method="_on_button_input_event" binds= [ 8 ]]
+[connection signal="input_event" from="button_09" to="." method="_on_button_input_event" binds= [ 9 ]]

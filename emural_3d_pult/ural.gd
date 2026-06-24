@@ -291,9 +291,12 @@ var _control_reg_addr: int = 0
 
 var _control_reg: Word = Word.new(0)
 
+var _heat_voltage: bool = false
+
 func _init():
 	pass
-	
+
+
 # == Magnetic DRUM write block ====
 func set_drum_write_block(new_val: bool) -> void:
 	_drum.write_block = new_val
@@ -301,6 +304,7 @@ func set_drum_write_block(new_val: bool) -> void:
 func drum_write_block() -> bool:
 	return _drum.write_block
 # =================================
+
 
 # == Magnetic tape device write block ====
 func set_magtape_write_block(new_val: bool) -> void:
@@ -310,6 +314,7 @@ func magtape_write_block() -> bool:
 	return _magnetic_tape_device.write_block
 # =================================
 
+
 # == Block phi flag management ====
 func set_phi_block(new_val: bool) -> void:
 	_block_phi = new_val
@@ -318,13 +323,15 @@ func phi_block() -> bool:
 	return _block_phi
 # =================================
 
+
 # == Block phi flag management ====
 func set_command_reg_reset_block(new_val: bool) -> void:
 	_block_command_reg_reset = new_val
-	
+
 func command_reg_reset_block() -> bool:
 	return _block_command_reg_reset
 # =================================
+
 
 # === Command register access =====
 
@@ -333,23 +340,25 @@ func rgk() -> Command:
 
 func schk() -> int:
 	return _schk
-	
+
 # =================================
+
 
 # === Control register access
 
 func set_control_reg_address(v: int) -> void:
 	_control_reg_addr = v
-	
+
 func control_reg() -> Word:
 	return _control_reg
 
 # =================================
 
+
 # DSHK access	
 func dshk() -> int:
 	return _dshk
-	
+
 # Addre register access
 func adder() -> Adder:
 	return _adder
@@ -362,6 +371,16 @@ func rgau() -> Word:
 func set_rgau_and_adder(w: Word):
 	_rg_au = w
 	_adder.from_word(w)
+
+# power =======================
+
+func set_heat_voltage(value: bool) -> void:
+	_heat_voltage = value
+	
+func heat_voltage() -> bool:
+	return _heat_voltage
+
+# =============================
 
 
 func clock_step():

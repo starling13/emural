@@ -129,3 +129,11 @@ func _on_single_step_button_pressed():
 
 func _on_stop_button_pressed():
 	ecvm.stop()
+
+
+func _on_heat_button_on_pressed():
+	ecvm.set_heat_voltage(true)
+
+
+func _on_heat_button_off_pressed():
+	ecvm.set_heat_voltage(false)
