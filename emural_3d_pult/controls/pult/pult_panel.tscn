@@ -325,6 +325,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.527153, 0.0379275, 0.110634
 [connection signal="pressed" from="pult/stop_button" to="pult" method="_on_stop_button_pressed"]
 [connection signal="pressed" from="pult/clear_button1" to="pult" method="_on_clear_button_pressed"]
 [connection signal="pressed" from="pult/clear_button2" to="pult" method="_on_clear_button_pressed"]
+[connection signal="pressed" from="pult/power_button_on" to="pult" method="_on_power_button_on_pressed"]
 [connection signal="pressed" from="pult/heat_button_off" to="pult" method="_on_heat_button_off_pressed"]
 [connection signal="pressed" from="pult/heat_button_on" to="." method="_on_heat_button_on_pressed"]
 [connection signal="pressed" from="pult/heat_button_on" to="pult" method="_on_heat_button_on_pressed"]

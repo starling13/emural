@@ -137,3 +137,7 @@ func _on_heat_button_on_pressed():
 
 func _on_heat_button_off_pressed():
 	ecvm.set_heat_voltage(false)
+
+
+func _on_power_button_on_pressed():
+	ecvm.set_master_switch(true)

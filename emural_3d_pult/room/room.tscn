@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://room/wall3.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://room/room.gd" type="Script" id=22]
 [ext_resource path="res://controls/lever_switch.tscn" type="PackedScene" id=23]
 [ext_resource path="res://sound/fan_nominal.wav" type="AudioStream" id=24]
+[ext_resource path="res://devices/table.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ProceduralSky" id=5]
 sun_longitude = -75.0
@@ -170,7 +171,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46616, -1.03171, 9.26993 )
 [node name="Ural53" parent="." instance=ExtResource( 19 )]
 transform = Transform( 0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, -4.98124, -0.0462984, 6.30985 )
 
-[node name="Table" parent="." instance=ExtResource( 21 )]
+[node name="OfficerTable" parent="." instance=ExtResource( 21 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.99222, -0.259047, 6.57542 )
 
 [node name="light_switch" parent="." instance=ExtResource( 23 )]
@@ -187,9 +188,26 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80907, 1.47376, 3.11696 )
 stream = ExtResource( 24 )
 max_db = 0.0
 
+[node name="Table2" parent="." instance=ExtResource( 25 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.67159, -1.032, 8.08358 )
+
+[node name="Table3" parent="." instance=ExtResource( 25 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.245557, -1.032, 8.08358 )
+
+[node name="ProgrammersTable" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26229, -0.259047, 10.2035 )
+
+[node name="ProgrammersChair" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0332069, -0.591811, 10.8845 )
+
+[node name="OfficersChair" parent="." instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.3082, -0.591811, 6.76356 )
+
 [connection signal="use_item" from="player" to="Ural53" method="use_disk"]
 [connection signal="selected" from="chair_ecvm" to="player" method="_on_chair_selected"]
 [connection signal="selected" from="chair_keydev" to="player" method="_on_chair_selected"]
 [connection signal="changed" from="light_switch" to="." method="_on_light_switch_changed"]
 [connection signal="disk_selected" from="VinilDisksStack" to="player" method="hold_object"]
 [connection signal="changed" from="fan_switch" to="." method="_on_fan_switch_changed"]
+[connection signal="selected" from="ProgrammersChair" to="player" method="_on_chair_selected"]
+[connection signal="selected" from="OfficersChair" to="player" method="_on_chair_selected"]

@@ -66,7 +66,7 @@ class HalfWord:
 	func get_sign() -> bool:
 		return (_value & HEX_18TH_BIT) == 0
 
-
+# half-word as command
 class Command:
 	extends HalfWord
 	
@@ -116,24 +116,25 @@ class Word:
 		else:
 			_value &= HEX_35BIT
 
+# Tape object
 class Tape:
 	var _data: Array = []
 
-
+# Abstract tape device
 class TapeDevice:
 	var tape: Tape = null
 	
 	func read_word(hw: HalfWord):
 		pass
 
-
+# Punch tape device - read only
 class PunchTapeDevice:
 	extends TapeDevice
 
 	func read_word(hw: HalfWord):
 		pass
 
-
+# Magnetictape device - read/write
 class MagneticTapeDevice:
 	extends TapeDevice
 	
@@ -145,7 +146,7 @@ class MagneticTapeDevice:
 	func write_word(hw: HalfWord):
 		pass
 
-
+# Adder register
 class Adder:
 	var _value: int
 	
@@ -289,69 +290,82 @@ var _block_command_reg_reset: bool = false
 # Control register address
 var _control_reg_addr: int = 0
 
+# Control register value
 var _control_reg: Word = Word.new(0)
 
+# Master electric switch
+var _master_switch: bool = false
+
+# Heat and anode voltages switch
 var _heat_voltage: bool = false
 
 func _init():
 	pass
 
 
-# == Magnetic DRUM write block ====
+# === Magnetic DRUM write block ===
+
 func set_drum_write_block(new_val: bool) -> void:
 	_drum.write_block = new_val
 	
 func drum_write_block() -> bool:
 	return _drum.write_block
+	
 # =================================
 
 
-# == Magnetic tape device write block ====
+# === Magnetic tape device write block ===
+
 func set_magtape_write_block(new_val: bool) -> void:
 	_magnetic_tape_device.write_block = new_val
 	
 func magtape_write_block() -> bool:
 	return _magnetic_tape_device.write_block
+
 # =================================
 
 
-# == Block phi flag management ====
+# === Block phi flag management ===
+
 func set_phi_block(new_val: bool) -> void:
 	_block_phi = new_val
 	
 func phi_block() -> bool:
 	return _block_phi
+	
 # =================================
 
 
-# == Block phi flag management ====
+# === Command reg reset management ===
+
 func set_command_reg_reset_block(new_val: bool) -> void:
 	_block_command_reg_reset = new_val
 
 func command_reg_reset_block() -> bool:
 	return _block_command_reg_reset
+	
 # =================================
 
 
-# === Command register access =====
+# === Command register access ===
 
 func rgk() -> Command:
 	return _rgk
 
 func schk() -> int:
 	return _schk
-
+	
 # =================================
 
 
-# === Control register access
+# === Control register access ===
 
 func set_control_reg_address(v: int) -> void:
 	_control_reg_addr = v
 
 func control_reg() -> Word:
 	return _control_reg
-
+	
 # =================================
 
 
@@ -374,6 +388,14 @@ func set_rgau_and_adder(w: Word):
 
 # power =======================
 
+func set_master_switch(value: bool) -> void:
+	_master_switch = value
+	if value == false:
+		set_heat_voltage(false)
+	
+func master_switch() -> bool:
+	return _master_switch
+
 func set_heat_voltage(value: bool) -> void:
 	_heat_voltage = value
 	
@@ -384,6 +406,9 @@ func heat_voltage() -> bool:
 
 
 func clock_step():
+	if _heat_voltage == false:
+		return
+	
 	# Update control register
 	_drum.read_word(_control_reg_addr, _control_reg)
 	
